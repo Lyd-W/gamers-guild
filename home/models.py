@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-GENRE = (
+GENRE_TYPES = (
     (1, "Dungeon Crawler"),
     (2, "Roleplaying"),
     (3, "Cooperative"),
@@ -29,10 +29,19 @@ GENRE = (
 # Create your models here.
 
 
+class Genre(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Boardgame(models.Model):
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
-    image = models.ImageField()
+    image = models.ImageField(
+        null=True
+    )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -47,16 +56,12 @@ class Boardgame(models.Model):
     playtime = models.PositiveIntegerField(validators=[
         MinValueValidator(1)
     ])
-    genre = models.PositiveIntegerField(choices=GENRE)
-    rating = models.PositiveIntegerField(validators=[
-        MinValueValidator(1),
-        MaxValueValidator(10)
-        ])
+    genres = models.ManyToManyField(Genre, related_name='boardgames')
     min_players = models.PositiveIntegerField(validators=[
         MinValueValidator(1)
         ])
     max_players = models.PositiveIntegerField()
-    
+
     def __str__(self):
         return self.title
 
@@ -66,8 +71,4 @@ class Boardgame(models.Model):
             raise ValidationError({
                 'min_players': ('Minimum number of players must be less than '
                                 'or equal to maximum number of players.')
-            })
-        if not (1 <= self.rating <= 10):
-            raise ValidationError({
-               'The rating must be between 1 and 10.'
             })
