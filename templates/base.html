@@ -3,14 +3,53 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gamers Guild</title>
+
+    {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    <title>Gamers Guild {% block extra_title %}{% endblock %}</title>
+
+    {% block core_css %}
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+    
+    {% block core_js %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
   </head>
   <body>
-    <h1>Welcome to Gamers Guild</h1>
+    <header class="container-fluid fixed-top">
+        <h1>Welcome to Gamers Guild</h1>
+    </header>
+
+    {% if messages %}
+    <div class="message-container">
+    </div>
+    {% end if %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postload_js %}
+    {% endblock %}
+
   </body>
 </html>
