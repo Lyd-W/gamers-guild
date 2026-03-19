@@ -183,6 +183,14 @@ The application is deployed online and built with scalability, security, and mai
 
 ## Wireframes
 
+Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage"). A mobile first approach was taken throughout, the wireframes provide a visual representation of the expected layout and structure of the website. Within the wireframes, key element placement is visible for navigation, content and interactive areas.  
+
+[Mobile Wireframes](docs/mobile-wireframes.pdf "Mobile Wireframes")
+
+[Tablet Wireframes](docs/tablet-wireframes.pdf "Tablet Wireframes")
+
+[Desktop Wireframes](docs/desktop-wireframes.pdf "Desktop Wireframes")
+
 [Back to contents](#contents)
 
 ---------------------------------------------
@@ -262,26 +270,29 @@ The application is deployed online and built with scalability, security, and mai
 ## Technologies Used
 
 ### Languages
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)  
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)  
-- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
-- [Python](https://www.python.org/)  
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS "CSS")
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML "HTML")
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript "JavaScript")
+- [Markdown](https://en.wikipedia.org/wiki/Markdown "Markdown")
+- [Python](https://www.python.org/ "Python")
 
 ### Libraries and Frameworks
-- [Bootstrap v5.3](https://getbootstrap.com/)  
-- [Django](https://www.djangoproject.com/)  
-- [Font Awesome](https://fontawesome.com/)  
-- [Google Fonts](https://fonts.google.com/)  
+- [Bootstrap v5.3.8](https://getbootstrap.com/ "Bootstrap v5.3 Homepage")
+- [Django](https://www.djangoproject.com/ "Django Homepage")
+- [Favicon](https://favicon.io/ "Favicon Homepage")
+- [Font Awesome](https://fontawesome.com/search?q=menu&o=r&ic=free "Font Awesome Homepage")
+- [Google Fonts](https://fonts.google.com/ "Google Fonts Homepage")
 
 ### Tools and Programmes
-- [Black](https://pypi.org/project/black/)  
-- [Dev Tools](https://developer.chrome.com/docs/devtools)  
-- [GitHub](https://github.com)  
-- [Heroku](https://www.heroku.com/)  
-- [W3C Validators](https://validator.w3.org/)  
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/)  
-- [Contrast Grid](https://contrast-grid.eightshapes.com/)  
-- [Coolors](https://coolors.co/)  
+- [Black](https://pypi.org/project/black/ "Black | Code Formatter")
+- [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FAF7F2%0D%0A%23E8B7C8%0D%0A%23C97A5D%0D%0A%23A8C3B1%0D%0A%232B2B2B&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp "Contrast Grid")
+- [Coolors](http://https://coolors.co/ "Coolors")
+- [Dev Tools](https://developer.chrome.com/docs/devtools "Chrome | Dev Tools")
+- [GitHub](https://github.com "GitHub Homepage")
+- [Heroku](https://www.heroku.com/ "Heroku")
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS Validation Service Homepage")
+- [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML Validation Service Homepage")
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/ "Google Chrome Dev Tools | Lighthouse")
 
 [Back to contents](#contents)
 
@@ -418,6 +429,6 @@ The Gamers Guild database supports both community interaction and e-commerce fun
 
 ### Visual Content:
 
-- 
+- [Canva](https://www.canva.com/ "Canva | Homepage")
 
 [Back to contents](#contents)
