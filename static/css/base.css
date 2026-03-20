@@ -1,0 +1,8 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text);
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+}

@@ -199,6 +199,14 @@ Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage")
 
 ### Typography
 
+[Google Fonts](https://fonts.google.com/ "Google Fonts") was used to import and apply typography consistently across the application using CSS. Typography was carefully selected to reflect the medieval-fantasy theme of Gamers Guild while maintaining strong readability and accessibility.
+
+- **Cinzel** is used for headings and titles to create a bold, immersive aesthetic inspired by classic engraved lettering. This enhances the thematic identity of the platform and complements the gold accent colour used throughout the design.
+
+- **Roboto** is used for body text to ensure clarity and readability across all devices. Its clean and modern appearance balances the more decorative heading font, preventing visual fatigue and improving the overall user experience.
+
+This combination ensures a clear visual hierarchy while maintaining both aesthetic appeal and usability.
+
 ### Colour Scheme
 
 [Coolors](https://coolors.co/1b1b1d-2c2a36-d4af37-e6e6e6-b63e3e-4c8c4a "Coolors") was used to create a fitting colour scheme for Gamers Guild, it has been designed to create a dark, immersive medieval-fantasy atmosphere while maintaining strong usability and readability. A deep near-black (`#1B1B1D`) serves as the primary background to reduce eye strain and establish a moody foundation, complemented by a slightly lighter accent (`#2C2A36`) to add depth and separation between sections such as cards and panels. A rich gold (`#D4AF37`) is used for highlights, buttons, and key UI elements, evoking themes of treasure, armor, and prestige while standing out clearly against the dark background. A muted red (`#B63E3E`) provides contrast for alerts and important feedback, reinforcing a fantasy tone associated with danger or urgency. An additional complementary green (`#4C8C4A`) is used for success messages and positive user feedback. This earthy, muted tone fits naturally within the medieval-fantasy palette, resembling forest and herbal hues often associated with healing and vitality, while still providing clear visual distinction from error states. Finally, a soft off-white (`#E6E6E6`) ensures high readability for text without the harshness of pure white. Together, these colours create a cohesive, thematic interface that balances aesthetic immersion with accessibility and clear visual hierarchy. 
@@ -285,6 +293,7 @@ Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage")
 
 ### Tools and Programmes
 - [Black](https://pypi.org/project/black/ "Black | Code Formatter")
+- [Canva](https://www.canva.com/ "Canva | Homepage")
 - [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23FAF7F2%0D%0A%23E8B7C8%0D%0A%23C97A5D%0D%0A%23A8C3B1%0D%0A%232B2B2B&es-color-form__tile-size=regular&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp "Contrast Grid")
 - [Coolors](http://https://coolors.co/ "Coolors")
 - [Dev Tools](https://developer.chrome.com/docs/devtools "Chrome | Dev Tools")
@@ -429,6 +438,6 @@ The Gamers Guild database supports both community interaction and e-commerce fun
 
 ### Visual Content:
 
-- [Canva](https://www.canva.com/ "Canva | Homepage")
+- 
 
 [Back to contents](#contents)
