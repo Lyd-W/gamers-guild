@@ -3,29 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-GENRE_TYPES = (
-    (1, "Dungeon Crawler"),
-    (2, "Roleplaying"),
-    (3, "Cooperative"),
-    (4, "Deck Builder"),
-    (5, "Strategy"),
-    (6, "Worker Placement"),
-    (7, "Engine Builder"),
-    (8, "Legacy"),
-    (9, "Tile Laying"),
-    (10, "Social Deduction"),
-    (11, "Drafting"),
-    (12, "Party"),
-    (13, "4X"),
-    (14, "Area Control"),
-    (15, "Puzzle"),
-    (16, "Miniature"),
-    (17, "Travel"),
-    (18, "Survival"),
-    (19, "Roll and Write"),
-    (20, "Adult"),
 
-)
 # Create your models here.
 
 
@@ -40,7 +18,9 @@ class Boardgame(models.Model):
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=150, unique=True)
     image = models.ImageField(
-        null=True
+        upload_to='boardgames/',
+        null=True,
+        blank=True
     )
     author = models.ForeignKey(
         User,
