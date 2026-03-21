@@ -1,4 +1,4 @@
-body {
+body, .boardgame-description {
     font-family: 'Roboto', sans-serif;
     color: var(--text);
 }
@@ -67,4 +67,12 @@ h1, header, .card-title {
 .page-link {
   margin: 1.5rem 0.5rem 1rem 0.5rem;
   padding: 0.3rem 0.5rem;
+}
+
+/* Boardgame detail page */
+
+.boardgame-detail {
+    margin-top: 6rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }

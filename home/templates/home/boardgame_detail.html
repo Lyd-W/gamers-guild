@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="boardgame-detail">
+  <div class="boardgame-display row">
+    <div class="boardgame-image-container col-12 col-lg-4">
+      {% if boardgame.image %}
+      <img
+        src="{{ boardgame.image.url }}"
+        class="boardgame-image"
+        alt="{{ boardgame.title }}"
+      >
+      {% else %}
+      <img
+        class="boardgame-image"
+        alt="Boardgame placeholder"
+      >
+      {% endif %}
+    </div>
+    <div class="boardgame-intro col-12 col-lg-8">
+      <header class="boardgame-header">
+        <h2 class="boardgame-title">{{ boardgame.title }}</h2>
+        <div class="boardgame-meta">
+          <p> Genres:{% for genre in boardgame.genres.all %}
+    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+  {% empty %}
+    None
+  {% endfor %}
+</p> Released in {{ boardgame.release_year }}
+        </div>
+      </header>
+
+      <hr>
+
+      <section class="information-section">
+        <div class="boardgame-description">{{boardgame.description| safe}}</div>
+        <div class="players information-title">Number of Players:
+          <p>{{ boardgame.min_players }} - {{ boardgame.max_players }}</p>
+        </div>
+        <div class="playtime"> Playtime: 
+          <p>{{ boardgame.playtime}} minutes
+        </div>
+      </section>
+    </div>
+  </div>
+
+{% endblock content %} {% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

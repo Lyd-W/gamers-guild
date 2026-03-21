@@ -13,7 +13,7 @@
 {% block content %}
     <div class="home-page-title">
                 <h1>
-                    Welcome to Gamers Guild
+                    Welcome to the Gamers Guild Shop
                 </h1>
             </div>
         </div>
@@ -23,32 +23,25 @@
   <div class="card-display row">
     <div class="col-12 mt-3">
       <div class="row g-4">
-        {% for boardgame in boardgames %}
+        {% for product in products %}
         <div class="col-md-4 d-flex">
-          <article class="boardgame-card h-100 w-100">
-            {% if boardgame.image %}
+          <article class="product-card h-100 w-100">
+            {% if product.image %}
             <img
-              src="{{ boardgame.image.url }}"
+              src="{{ product.image.url }}"
               class="card-img-top"
-              alt="{{ boardgame.title }}"
+              alt="{{ product.name }}"
             >
             {% else %}
             <img
               class="card-img-top"
-              alt="Boardgame placeholder"
+              alt="product placeholder"
             >
             {% endif %}
             <div class="card-body">
               <h2 class="card-title">
-                <a
-                 href="{% url 'boardgame_detail' boardgame.slug %}"
-                  class="boardgame-link"
-                  >{{ boardgame.title }}</a
-                >
-              </h2>
-              <hr>
-              <div class="player-count card-text"> {{boardgame.min_players}} - {{boardgame.max_players }} players</div>
-             
+                  <a>{{ product.name }}</a>
+              </h2>    
             </div>
           </article>
         </div>
