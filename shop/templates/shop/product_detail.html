@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="product-detail">
+  <div class="product-display row">
+    <div class="product-image-container col-12 col-lg-4">
+      {% if product.image %}
+      <img
+        src="{{ product.image.url }}"
+        class="product-image"
+        alt="{{ product.title }}"
+      >
+      {% else %}
+      <img
+        class="product-image"
+        alt="product placeholder"
+      >
+      {% endif %}
+    </div>
+    <div class="product-intro col-12 col-lg-8">
+      <header class="product-header">
+        <h2 class="product-title">{{ product.title }}</h2>
+      </header>
+
+      <hr>
+
+      <section class="information-section">
+        <div class="product-description">{{product.description| safe}}</div>
+      </section>
+    </div>
+  </div>
+
+{% endblock content %} {% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

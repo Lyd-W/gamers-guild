@@ -40,8 +40,11 @@
             {% endif %}
             <div class="card-body">
               <h2 class="card-title">
-                  <a>{{ product.name }}</a>
-              </h2>    
+                <a href="{% url 'product_detail' product.id %}"
+                class="product-link">
+                {{ product.name }}</a>
+              </h2>
+              <div class="price"> £{{ product.price}}
             </div>
           </article>
         </div>

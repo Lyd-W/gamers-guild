@@ -20,13 +20,15 @@ h1, header, .card-title {
 /* Card Styling */
 .card-img-top,
 .boardgame-image,
-.about-image {
+.about-image,
+.product-image {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   width: 100%;
 }
 
-.boardgame-card {
+.boardgame-card,
+.product-card {
   border: 2px solid var(--primary-highlight);
   border-radius: 15px;
   overflow: hidden;
@@ -36,7 +38,8 @@ h1, header, .card-title {
   margin-bottom: 2rem;
 }
 
-.boardgame-card:hover {
+.boardgame-card:hover,
+.product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -59,7 +62,8 @@ h1, header, .card-title {
   padding-bottom: 0.5rem;
 }
 
-.boardgame-link {
+.boardgame-link,
+.product-link {
   text-decoration: none;
   color: inherit;
 }
@@ -71,7 +75,8 @@ h1, header, .card-title {
 
 /* Boardgame detail page */
 
-.boardgame-detail {
+.boardgame-detail,
+.product-detail {
     margin-top: 6rem;
     margin-left: 2rem;
     margin-right: 2rem;
