@@ -3,13 +3,20 @@ from django.db import models
 
 class Category(models.Model):
     type = models.CharField(max_length=200)
-    nice_type = models.CharField(max_length=200, null=True, blank=True)
+    readable_type = models.CharField(max_length=200, null=True, blank=True)
+    parent = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='subcategories'
+    )
 
     def __str__(self):
         return self.type
 
-    def get_nice_type(self):
-        return self.nice_type
+    def get_readable_type(self):
+        return self.readable_type
 
 
 class Product(models.Model):

@@ -29,7 +29,11 @@ def all_products(request):
 
         if 'category' in request.GET:
             selected_categories = request.GET['category'].split(',')
-            products = products.filter(category__type__in=selected_categories)
+            categories = Category.objects.filter(type__in=selected_categories)
+            subcategories = Category.objects.filter(parent__in=categories)
+            all_categories = categories | subcategories
+            all_category_types = [cat.type for cat in all_categories]
+            products = products.filter(category__type__in=all_category_types)
 
         if request.GET:
             if 'sort' in request.GET:
