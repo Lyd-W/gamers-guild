@@ -12,7 +12,7 @@ class BoardgameList(generic.ListView):
 
 def boardgame_detail(request, slug):
     boardgame = get_object_or_404(Boardgame, slug=slug)
-    
+
     return render(
         request,
         "home/boardgame_detail.html",

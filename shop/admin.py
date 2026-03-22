@@ -11,7 +11,7 @@ class ProductAdmin(SummernoteModelAdmin):
         'image',
     )
     summernote_fields = ('description',)
-    
-    
+
+
 admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)

@@ -16,6 +16,10 @@ h1, header, .card-title {
    margin-left: 2rem;
 }
 
+/* Shop links hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
 /* Card Styling */
 .card-img-top,
@@ -45,7 +49,6 @@ h1, header, .card-title {
 }
 .card-title {
   font-weight: 700;
-  font: ;
   color: var(--text);
   padding-top: 1rem;
   text-align: center;
