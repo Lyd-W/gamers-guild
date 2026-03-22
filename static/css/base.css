@@ -16,6 +16,13 @@ h1, header, .card-title {
    margin-left: 2rem;
 }
 
+.shop-category {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 /* Shop links hover */
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;

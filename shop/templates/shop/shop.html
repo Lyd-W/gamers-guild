@@ -3,55 +3,58 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="home-page-title">
+    <section class="home-page-title">
+        <h1> Welcome to the Gamers Guild Shop </h1>
+    </section>
 
-    <h1> Welcome to the Gamers Guild Shop </h1>
-    <div class="navbar" id="main-nav">
-    <ul class="navbar-nav flex-row justify-content-center w-auto mx-auto">
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'shop' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
-            </div>
-        </li>
+    <section class=" container-fluid">
+        <div class="navbar" id="main-nav">
+            <ul class="navbar-nav shop-category ">
+                <li class="nav-item dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        All Products
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                        <a href="{% url 'shop' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                        <a href="{% url 'shop' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                        <a href="{% url 'shop' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                        <a href="{% url 'shop' %}" class="dropdown-item">All Products</a>
+                    </div>
+                </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}?category=apparel" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Clothing
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'shop' %}?category=tshirt" class="dropdown-item">T Shirts</a>
-                <a href="{% url 'shop' %}?category=hoody" class="dropdown-item">Hoodies</a>
-            </div>
-        </li>
+                <li class="nav-item dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}?category=apparel" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Clothing
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                        <a href="{% url 'shop' %}?category=tshirt" class="dropdown-item">T Shirts</a>
+                        <a href="{% url 'shop' %}?category=hoody" class="dropdown-item">Hoodies</a>
+                        </div>
+                </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}?category=accessory" id="accessories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Gaming accessories
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
-                <a href="{% url 'shop' %}?category=dice_trays" class="dropdown-item">Dice Trays</a>
-                <a href="{% url 'shop' %}?category=dice" class="dropdown-item">Dice</a>
-                <a href="{% url 'shop' %}?category=organiser" class="dropdown-item">Organisers</a>
-            </div>
-        </li>
+                <li class="nav-item dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'shop' %}?category=accessory" id="accessories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gaming accessories
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="accessories-link">
+                        <a href="{% url 'shop' %}?category=dice_trays" class="dropdown-item">Dice Trays</a>
+                        <a href="{% url 'shop' %}?category=dice" class="dropdown-item">Dice</a>
+                        <a href="{% url 'shop' %}?category=organiser" class="dropdown-item">Organisers</a>
+                    </div>
+                </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'shop' %}?category=add_ons" id="gaming-addons-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'shop' %}?category=add_ons" id="gaming-addons-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Game Add Ons
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="gaming-addons-link">
-                <a href="{% url 'shop' %}?category=playmat" class="dropdown-item">Playmats</a>
-                <a href="{% url 'shop' %}?category=expansions" class="dropdown-item">Expansions</a>
-            </div>
-        </li>
-    </ul>
-</div>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="gaming-addons-link">
+                        <a href="{% url 'shop' %}?category=playmat" class="dropdown-item">Playmats</a>
+                        <a href="{% url 'shop' %}?category=expansions" class="dropdown-item">Expansions</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 </div>
 {% endblock %}
 
