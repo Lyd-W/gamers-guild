@@ -41,6 +41,13 @@
               </h2>
               <div class="price"> £{{ product.price}}
             </div>
+              {% if product.category %}
+                <p class="small mt-1 mb-0">
+                  <a class="text-muted" href="{% url 'shop' %}?category={{ product.category.type }}">
+                    <i class="fas fa-tag mr-1"></i>{{ product.category.readable_type }}
+                  </a>
+                </p>
+              {% endif %}
           </article>
         </div>
         {% endfor %}

@@ -18,7 +18,7 @@
 
         <!-- All Products -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="all-products-link" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle" href="{% url 'shop' %}" id="all-products-link" data-bs-toggle="dropdown">
             All Products
           </a>
           <ul class="dropdown-menu">
@@ -31,24 +31,26 @@
 
         <!-- Clothing -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="clothing-link" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle" id="clothing-link" data-bs-toggle="dropdown">
             Clothing
           </a>
           <ul class="dropdown-menu">
             <li><a href="{% url 'shop' %}?category=tshirt" class="dropdown-item">T Shirts</a></li>
             <li><a href="{% url 'shop' %}?category=hoody" class="dropdown-item">Hoodies</a></li>
+            <li><a href="{% url 'shop' %}?category=apparel" class="dropdown-item">All Clothing</a></li>
           </ul>
         </li>
 
         <!-- Gaming Accessories -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="gaming-accessories-link" data-bs-toggle="dropdown">
+          <a class="nav-link dropdown-toggle" id="gaming-accessories-link" data-bs-toggle="dropdown">
             Gaming Accessories
           </a>
           <ul class="dropdown-menu">
             <li><a href="{% url 'shop' %}?category=dice_trays" class="dropdown-item">Dice Trays</a></li>
             <li><a href="{% url 'shop' %}?category=dice" class="dropdown-item">Dice</a></li>
             <li><a href="{% url 'shop' %}?category=organiser" class="dropdown-item">Organisers</a></li>
+            <li><a href="{% url 'shop' %}?category=accessory" class="dropdown-item">All Accessories</a></li>
           </ul>
         </li>
 
@@ -60,6 +62,7 @@
           <ul class="dropdown-menu">
             <li><a href="{% url 'shop' %}?category=playmat" class="dropdown-item">Playmats</a></li>
             <li><a href="{% url 'shop' %}?category=expansions" class="dropdown-item">Expansions</a></li>
+            <li><a href="{% url 'shop' %}?category=add-ons" class="dropdown-item">All Add Ons</a></li>
           </ul>
         </li>
 
