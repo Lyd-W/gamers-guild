@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary">
+  <div class="container-fluid">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#shopNav"
+      aria-controls="shopNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="shopNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 shop-category">
+
+        <!-- All Products -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="all-products-link" data-bs-toggle="dropdown">
+            All Products
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'shop' %}?sort=price&direction=asc">By Price</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop' %}?sort=rating&direction=desc">By Rating</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop' %}?sort=category&direction=asc">By Category</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop' %}">All Products</a></li>
+          </ul>
+        </li>
+
+        <!-- Clothing -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="clothing-link" data-bs-toggle="dropdown">
+            Clothing
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'shop' %}?category=tshirt" class="dropdown-item">T Shirts</a></li>
+            <li><a href="{% url 'shop' %}?category=hoody" class="dropdown-item">Hoodies</a></li>
+          </ul>
+        </li>
+
+        <!-- Gaming Accessories -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="gaming-accessories-link" data-bs-toggle="dropdown">
+            Gaming Accessories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'shop' %}?category=dice_trays" class="dropdown-item">Dice Trays</a></li>
+            <li><a href="{% url 'shop' %}?category=dice" class="dropdown-item">Dice</a></li>
+            <li><a href="{% url 'shop' %}?category=organiser" class="dropdown-item">Organisers</a></li>
+          </ul>
+        </li>
+
+        <!-- Game Add Ons -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="game-add-ons-link" data-bs-toggle="dropdown">
+            Game Add Ons
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'shop' %}?category=playmat" class="dropdown-item">Playmats</a></li>
+            <li><a href="{% url 'shop' %}?category=expansions" class="dropdown-item">Expansions</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

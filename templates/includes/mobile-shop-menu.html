@@ -1,0 +1,56 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown">
+    Shop
+  </a>
+
+  <ul class="dropdown-menu">
+
+    <!-- All Products -->
+    <li>
+      <a class="dropdown-item" href="{% url 'shop' %}">
+        All Products
+      </a>
+    </li>
+
+    <li><hr class="dropdown-divider"></li>
+
+    <!-- Clothing -->
+    <li class="dropdown-submenu">
+      <a class="dropdown-item" href="{% url 'shop' %}?category=apparel">
+        Clothing
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item ps-4" href="{% url 'shop' %}?category=tshirt">
+        - T Shirts
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item ps-4" href="{% url 'shop' %}?category=hoody">
+        - Hoodies
+      </a>
+    </li>
+
+    <!-- Accessories -->
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <a class="dropdown-item" href="{% url 'shop' %}?category=accessory">
+        Accessories
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item ps-4" href="{% url 'shop' %}?category=dice">
+        - Dice
+      </a>
+    </li>
+
+    <!-- Add Ons -->
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <a class="dropdown-item" href="{% url 'shop' %}?category=add_ons">
+        Add Ons
+      </a>
+    </li>
+
+  </ul>
+</li>

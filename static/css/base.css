@@ -17,10 +17,15 @@ h1, header, .card-title {
 }
 
 .shop-category {
+    margin-top: 2rem;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.shop-page-title {
+  margin-left: 2rem;
 }
 
 /* Shop links hover */
