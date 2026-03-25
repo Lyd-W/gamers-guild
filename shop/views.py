@@ -30,10 +30,17 @@ def all_products(request):
         if 'category' in request.GET:
             selected_categories = request.GET['category'].split(',')
             categories = Category.objects.filter(type__in=selected_categories)
-            subcategories = Category.objects.filter(parent__in=categories)
-            all_categories = categories | subcategories
-            all_category_types = [cat.type for cat in all_categories]
-            products = products.filter(category__type__in=all_category_types)
+            expanded_categories = []
+        for cat in categories:
+            if cat.subcategories.exists():
+                expanded_categories.extend(list(cat.subcategories.values_list('type', flat=True)))
+            else:
+                expanded_categories.append(cat.type)
+
+        selected_categories = expanded_categories
+        
+        products = products.filter(category__type__in=selected_categories)
+
 
         if request.GET:
             if 'sort' in request.GET:
@@ -51,11 +58,14 @@ def all_products(request):
                 products = products.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
+    
+    categories = Category.objects.filter(parent__isnull=False)
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': selected_categories,
+        'categories': categories,
         'current_sorting': current_sorting,
     }
 

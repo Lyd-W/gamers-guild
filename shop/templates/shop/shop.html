@@ -12,8 +12,20 @@
 {% endblock %}
 
 {% block content %}
-
-
+<section class='shop-container'>
+<div data-sticky-sidebar class='filter-sidebar'>
+  <p class='filter-header'> Filter By: </p>
+  <div class=filter-wrapper>
+    <p class='categories-header'> Category </p>
+      {% for category in categories %}
+      <a class="category-badge text-decoration-none" href="{% url 'shop' %}?category={{ category.type|urlencode }}">
+        <span class="p-2 badge {% if current_categories and category.type in current_categories %}bg-dark text-white{% else %}bg-white text-black{% endif %} rounded-0 border border-dark">
+            {{ category.readable_type|default:category.type }}
+        </span>
+      </a>
+{% endfor %}
+  </div>
+</div>
 <div class="container-fluid">
   <div class="card-display row">
     <div class="col-12 mt-3">
@@ -48,6 +60,11 @@
                   </a>
                 </p>
               {% endif %}
+              {% if product.rating %}
+                  <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+              {% else %}
+                  <small class="text-muted">No Rating</small>
+              {% endif %}
           </article>
         </div>
         {% endfor %}
@@ -55,5 +72,6 @@
     </div>
   </div>
 </div>
+</section>
     
 {% endblock %}
