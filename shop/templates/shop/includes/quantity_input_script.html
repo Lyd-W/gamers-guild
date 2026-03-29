@@ -1,0 +1,30 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const incrementButtons = document.querySelectorAll('.increment-qty');
+    const decrementButtons = document.querySelectorAll('.decrement-qty');
+
+    incrementButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const input = this.closest('.input-group').querySelector('.qty_input');
+            let currentValue = parseInt(input.value);
+
+            if (currentValue < 99) {
+                input.value = currentValue + 1;
+            }
+        });
+    });
+
+    decrementButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const input = this.closest('.input-group').querySelector('.qty_input');
+            let currentValue = parseInt(input.value);
+
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+            }
+        });
+    });
+
+});
+</script>

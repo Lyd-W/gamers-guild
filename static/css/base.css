@@ -79,6 +79,10 @@ padding: 0.3rem;
   text-decoration: none;
 }
 
+.increment-qty, .decrement-qty {
+  border: black, solid;
+}
+
 /* Card Styling */
 .card-img-top,
 .boardgame-image,
