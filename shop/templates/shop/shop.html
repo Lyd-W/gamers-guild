@@ -14,6 +14,12 @@
 {% block content %}
 <section class='shop-container'>
 
+  <div class='btt-btn'>
+  <a class='btt-link'>
+    <i class='fas fa-arrow-up'></i>
+  </a>
+</div>
+
   <div data-sticky-sidebar class='filter-sidebar'>
     <p class='filter-header'> Filter By: </p>
 
@@ -162,6 +168,17 @@
 
   </div>
 </section>
+
+<script>
+document.querySelectorAll('.btt-link').forEach(link => {
+  link.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
 
 <script>
   const sortSelector = document.getElementById("sort-selector");
