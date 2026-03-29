@@ -5,7 +5,8 @@ from .models import Category, Product, ProductSize
 
 class ProductSizeInline(admin.TabularInline):
     model = ProductSize
-    extra = 1  # How many blank size rows show by default
+    extra = 1
+
 
 class ProductAdmin(SummernoteModelAdmin):
     list_display = (

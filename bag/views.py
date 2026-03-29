@@ -17,7 +17,8 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if size:
-        product_size = get_object_or_404(ProductSize, product=product, size=size)
+        product_size = get_object_or_404(
+            ProductSize, product=product, size=size)
 
         if quantity > product_size.stock:
             quantity = product_size.stock
@@ -45,6 +46,7 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
 
 def adjust_bag(request, item_id):
 
@@ -87,6 +89,6 @@ def remove_from_bag(request, item_id):
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
-    
+
     except Exception as e:
         return HttpResponse(status=500)

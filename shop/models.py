@@ -48,7 +48,7 @@ class ProductSize(models.Model):
         ('XXXL', 'XXXL'),
     ]
 
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,
                                 related_name='sizes')
     size = models.CharField(max_length=4, choices=SIZE_CHOICES)
     stock = models.PositiveIntegerField(default=0)
