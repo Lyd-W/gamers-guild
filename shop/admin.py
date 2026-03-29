@@ -1,7 +1,11 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Category, Product
+from .models import Category, Product, ProductSize
 
+
+class ProductSizeInline(admin.TabularInline):
+    model = ProductSize
+    extra = 1  # How many blank size rows show by default
 
 class ProductAdmin(SummernoteModelAdmin):
     list_display = (
@@ -11,6 +15,7 @@ class ProductAdmin(SummernoteModelAdmin):
         'image',
     )
     summernote_fields = ('description',)
+    inlines = [ProductSizeInline]
 
 
 admin.site.register(Category)

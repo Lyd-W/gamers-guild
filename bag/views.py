@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from shop.models import Product, ProductSize
 
 
 def view_bag(request):
@@ -7,15 +8,40 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
+    product = get_object_or_404(Product, pk=item_id)
+    item_id = str(item_id)
 
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+    quantity = int(request.POST.get('quantity', 1))
+    redirect_url = request.POST.get('redirect_url', '/')
+    size = request.POST.get('product_size')
     bag = request.session.get('bag', {})
-    
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+
+    if size:
+        product_size = get_object_or_404(ProductSize, product=product, size=size)
+
+        if quantity > product_size.stock:
+            quantity = product_size.stock
+
+        if item_id in bag:
+            if isinstance(bag.get(item_id), dict) and 'items_by_size' in bag[item_id]:
+                if size in bag[item_id]['items_by_size']:
+                    bag[item_id]['items_by_size'][size] += quantity
+                else:
+                    bag[item_id]['items_by_size'][size] = quantity
+            else:
+                bag[item_id] = {'items_by_size': {size: quantity}}
+        else:
+            bag[item_id] = {'items_by_size': {size: quantity}}
+
     else:
-        bag[item_id] = quantity
-        
+        if item_id in bag:
+            if isinstance(bag.get(item_id), dict) and 'items_by_size' in bag[item_id]:
+                total_quantity = sum(bag[item_id]['items_by_size'].values()) + quantity
+                bag[item_id] = total_quantity
+            else:
+                bag[item_id] += quantity
+        else:
+            bag[item_id] = quantity
+
     request.session['bag'] = bag
     return redirect(redirect_url)

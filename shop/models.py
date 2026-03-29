@@ -31,6 +31,27 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', null=True,
                               blank=True)
     image_URL = models.URLField(null=True, blank=True)
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+
+class ProductSize(models.Model):
+    SIZE_CHOICES = [
+        ('XS', 'XS'),
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+        ('XL', 'XL'),
+        ('XXL', 'XXL'),
+        ('XXXL', 'XXXL'),
+    ]
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, 
+                                related_name='sizes')
+    size = models.CharField(max_length=4, choices=SIZE_CHOICES)
+    stock = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.product.name} - {self.size}"
