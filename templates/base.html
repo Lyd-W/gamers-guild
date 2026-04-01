@@ -88,18 +88,6 @@
                   {% endif %}
                 </div>
               </li>
-              <li class="nav-item">
-                <a
-                  class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                  <div class="text-center">
-                    <div><i class="fa-solid fa-cart-shopping"></i></div>
-                    <p class="bag-total">
-                      {% if grand_total %} £{{ grand_total|floatformat:2 }} 
-                      {%else %} £0.00 {% endif %}
-                    </p>
-                  </div>
-                </a>
-              </li>
             </ul>
             <form
               method="GET"
@@ -118,6 +106,18 @@
                 Search
               </button>
             </form>
+              <div class="nav-item">
+                <a
+                  class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                  <div class="text-center">
+                    <div><i class="fa-solid fa-cart-shopping"></i></div>
+                    <p class="bag-total">
+                      {% if grand_total %} £{{ grand_total|floatformat:2 }} 
+                      {%else %} £0.00 {% endif %}
+                    </p>
+                  </div>
+                </a>
+              </div>
           </div>
         </div>
       </nav>

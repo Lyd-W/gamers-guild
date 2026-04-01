@@ -46,14 +46,21 @@ def add_to_bag(request, item_id):
             bag[item_id] = quantity
 
     request.session['bag'] = bag
-    
-    messages.success(request, 
-                     f'Successfully addded {product.name} to your bag!'
-                     )
+
+    if size:
+        messages.success(request,
+                         f'Successfully addded {product.name} (Size: {size}) to your bag!'
+                         )
+    else:
+        messages.success(request,
+                         f'Successfully addded {product.name} to your bag!'
+                         )
     return redirect(redirect_url)
 
 
 def adjust_bag(request, item_id):
+    product = get_object_or_404(Product, pk=item_id)
+    item_id = str(item_id)
 
     quantity = int(request.POST.get('quantity'))
     size = None
@@ -75,10 +82,22 @@ def adjust_bag(request, item_id):
             bag.pop(item_id)
 
     request.session['bag'] = bag
+    if size:
+        messages.info(request,
+                      f'Successfully updated quantity of {product.name} (Size: {size}) in your bag!'
+                      )
+    else:
+        messages.info(request,
+                      f'Successfully updated quantity of {product.name} in your bag!'
+                      )
     return redirect(reverse('view_bag'))
 
 
 def remove_from_bag(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+    item_id = str(item_id)
+
     try:
         size = None
         if 'product_size' in request.POST:
@@ -93,7 +112,16 @@ def remove_from_bag(request, item_id):
             bag.pop(item_id)
 
         request.session['bag'] = bag
+        if size:
+            messages.success(request,
+                             f'Successfully removed {product.name} (Size: {size}) from your bag!'
+                             )
+        else:
+            messages.success(request,
+                             f'Successfully removed {product.name} from your bag!'
+                             )
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error removing item: {e} from bag, please try again.')
         return HttpResponse(status=500)
