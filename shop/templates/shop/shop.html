@@ -22,26 +22,26 @@
 
   <div data-sticky-sidebar class='filter-sidebar'>
     <p class='filter-header'> Filter By: </p>
-
     <div class="filter-wrapper">
       <p class='categories-header'> Category </p>
 
-      {% for category in categories %}
-        <a class="category-badge text-decoration-none"
-           href="{% url 'shop' %}?category={{ category.type|urlencode }}">
-           
-          <span class="p-2 badge 
-            {% if current_categories and category.type in current_categories %}
-              bg-dark text-white
-            {% else %}
-              bg-white text-black
-            {% endif %}
-            rounded-0 border border-dark">
-            
-            {{ category.readable_type|default:category.type }}
-          </span>
-        </a>
-      {% endfor %}
+      <form method="GET" action="{% url 'shop' %}">
+        {% for category in categories %}
+          <div class='category-badge'>
+            <label>
+              <input 
+                type="checkbox" 
+                name="category" 
+                value="{{ category.type }}"
+                onchange=this.form.submit()
+                {% if category.type in current_categories %}checked{% endif %}
+              >
+              {{ category.readable_type|default:category.type }}
+            </label>
+          </div>
+        {% endfor %}
+      </form>
+      <a href="{% url 'shop' %}" class="btn clear-filters-btn">Clear Filters</a>
     </div>
   </div>
 

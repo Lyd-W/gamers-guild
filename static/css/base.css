@@ -41,13 +41,17 @@ h1, header, .card-title {
   margin-left: 1rem;
   border: 0.1rem solid black;
   border-radius: 0.25rem;
+  width: 10%
 }
 
-.filter-header {
+.filter-header, .categories-header {
   padding-left: 0.3rem;
 }
 
 .filter-wrapper {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
   border-top: 0.1rem solid black;
   border-bottom:  0.1rem solid black;
   border-radius: 0.25rem;
@@ -56,6 +60,12 @@ h1, header, .card-title {
 .category-badge {
 display: block;
 padding: 0.3rem;
+}
+
+.clear-filters-btn {
+  border: black solid;
+  display: flex;
+  margin-bottom: 0.3rem;
 }
 
 .btt-btn {
