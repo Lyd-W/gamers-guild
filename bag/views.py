@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
+from django.contrib import messages
 from shop.models import Product, ProductSize
 
 
@@ -45,6 +46,10 @@ def add_to_bag(request, item_id):
             bag[item_id] = quantity
 
     request.session['bag'] = bag
+    
+    messages.success(request, 
+                     f'Successfully addded {product.name} to your bag!'
+                     )
     return redirect(redirect_url)
 
 
