@@ -26,18 +26,18 @@
         {% for boardgame in boardgames %}
         <div class="col-md-4 d-flex">
           <article class="boardgame-card h-100 w-100">
+            <a href="{% url 'boardgame_detail' boardgame.slug %}" class="boardgame-link">
             {% if boardgame.image %}
             <img
               src="{{ boardgame.image.url }}"
               class="card-img-top"
-              alt="{{ boardgame.title }}"
-            >
+              alt="{{ boardgame.title }}">
             {% else %}
             <img
               class="card-img-top"
               alt="Boardgame placeholder"
             >
-            {% endif %}
+            {% endif %} </a>
             <div class="card-body">
               <h2 class="card-title">
                 <a

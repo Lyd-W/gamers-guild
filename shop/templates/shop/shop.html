@@ -118,14 +118,15 @@
       <div class="col-md-4 d-flex">
 
         <article class="product-card h-100 w-100">
-
-          {% if product.image %}
-            <img src="{{ product.image.url }}"
-                 class="card-img-top"
-                 alt="{{ product.name }}">
-          {% else %}
-            <img class="card-img-top" alt="product placeholder">
-          {% endif %}
+          <a href="{% url 'product_detail' product.id %}" class="product-link">
+            {% if product.image %}
+              <img src="{{ product.image.url }}"
+                   class="card-img-top"
+                   alt="{{ product.name }}">
+            {% else %}
+              <img class="card-img-top" alt="product placeholder">
+            {% endif %}
+          </a>
 
           <div class="card-body">
 
