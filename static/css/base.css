@@ -1,19 +1,42 @@
-body, .boardgame-description, .filter-header {
-    font-family: 'Roboto', sans-serif;
+:root {
+  --primary-color: #1B1B1D; /* Carbon Black */
+  --secondary-color: #2C2A36; /* Shadow Grey */
+  --primary-highlight: #D4AF37; /* Metallic Gold*/
+  --secondary-highlight: #B63E3E; /* Intense Cherry */
+  --text: #E6E6E6; /* Alabaster Grey */
+  --danger: #B63E3E; /* Intense Cherry */
+  --success: #4C8C4A; /* Sea Green */
+  --font-primary: 'Roboto', sans-serif;
+  --font-heading: 'Cinzel', serif;
+}
+
+.body, .container-fluid, .filter-sidebar, .shop-container, .shop-category, .navbar-expand {
+  background-color: var(--primary-color);
+}
+
+body, .boardgame-description, .filter-sidebar, .btn, .rating, .category, .boardgame-display, .product-description, .product-header {
+    font-family: var(--font-primary);
     color: var(--text);
+    background-color: var(--primary-color);
 }
 
-h1, header, .card-title {
-    font-family: 'Cinzel', serif;
+h1, header, .card-title, .navbar, .navbar-link-active, .navbar-nav, .navbar-brand, .nav-link, .active, .nav-item, .fa-solid, .bag-total, title, .home-btn, .shop-btn {
+    font-family: var(--font-heading);
+    color: var(--text);
+    background-color: var(--primary-color);
 }
 
+h1 {
+  margin-bottom: 0;
+}
+ 
 .bag-total {
     margin-left: 1rem;
 }
 
 .home-page-title {
    margin-top: 6rem;
-   margin-left: 2rem;
+   padding-left: 2rem;
 }
 
 .shop-category {
@@ -25,7 +48,17 @@ h1, header, .card-title {
 }
 
 .shop-page-title {
-  margin-left: 2rem;
+  padding-left: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.search-bar{
+  border: var(--primary-highlight) solid 0.2rem;
+}
+
+.search-btn{
+  border: var(--primary-highlight) solid;
+  border-radius: 15%;
 }
 
 /* Shop links hover */
@@ -39,7 +72,7 @@ h1, header, .card-title {
 
 .filter-sidebar {
   margin-left: 1rem;
-  border: 0.1rem solid black;
+  border: 0.1rem solid var(--primary-highlight);
   border-radius: 0.25rem;
   width: 10%
 }
@@ -52,8 +85,8 @@ h1, header, .card-title {
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  border-top: 0.1rem solid black;
-  border-bottom:  0.1rem solid black;
+  border-top: 0.1rem solid var(--primary-highlight);
+  border-bottom:  0.1rem solid var(--primary-highlight);
   border-radius: 0.25rem;
 }
 
@@ -63,7 +96,7 @@ padding: 0.3rem;
 }
 
 .clear-filters-btn {
-  border: black solid;
+  border: var(--primary-highlight) solid;
   display: flex;
   margin-bottom: 0.3rem;
 }
@@ -75,7 +108,7 @@ padding: 0.3rem;
   top: 5rem;
   right: 1rem;
   z-index: 1000;
-  border: black solid;
+  border: var(--primary-highlight) solid;
   border-radius: 0.1rem;
 }
 
@@ -90,7 +123,7 @@ padding: 0.3rem;
 }
 
 .increment-qty, .decrement-qty {
-  border: black, solid;
+  border: var(--primary-highlight), solid;
 }
 
 /* Card Styling */
@@ -124,6 +157,8 @@ padding: 0.3rem;
   color: var(--text);
   padding-top: 1rem;
   text-align: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .card-text {
@@ -143,11 +178,13 @@ padding: 0.3rem;
   color: inherit;
 }
 
-.page-link {
-  margin: 1.5rem 0.5rem 1rem 0.5rem;
-  padding: 0.3rem 0.5rem;
+.category {
+  text-decoration: none;
 }
 
+.category, .price, .rating {
+  margin-left: 1rem;
+}
 /* Boardgame detail page */
 
 .boardgame-detail,

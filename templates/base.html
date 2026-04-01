@@ -33,7 +33,7 @@
 
   <body>
     <header class="container-fluid fixed-top">
-      <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Gamers Guild</a>
           <button
@@ -51,14 +51,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="home-btn nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <div class="d-block d-md-none">
                 {% include 'includes/mobile-shop-menu.html' %}
               </div>
-              <div class="d-none d-md-block">
+              <div class="d-none d-md-block ">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/shop/">Shop</a>
+                  <a class="shop-btn nav-link active" aria-current="page" href="/shop/">Shop</a>
                 </li>
               </div>
               <li class="nav-item dropdown">
@@ -96,13 +96,13 @@
               role="search"
             >
               <input
-                class="form-control me-2"
+                class="form-control search-bar me-2"
                 type="search"
                 name="q"
                 placeholder="Search Gamers Guild"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn search-btn" type="submit">
                 Search
               </button>
             </form>
