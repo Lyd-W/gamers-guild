@@ -8,26 +8,68 @@
   --success: #4C8C4A; /* Sea Green */
   --font-primary: 'Roboto', sans-serif;
   --font-heading: 'Cinzel', serif;
+  --bs-body-bg: #1B1B1D;
+  --bs-body-color: #E6E6E6;
+  --bs-heading-color: #E6E6E6;
+  --bs-form-control-bg: #1B1B1D;
+  --bs-form-control-color: #E6E6E6;
+  --bs-border-color: #D4AF37;
+  --bs-dropdown-bg: #2C2A36;
+  --bs-dropdown-color: #E6E6E6;
+  --bs-dropdown-link-hover-bg: #1B1B1D;
+  --bs-dropdown-link-hover-color: #D4AF37;
 }
 
-.body, .container-fluid, .filter-sidebar, .shop-container, .shop-category, .navbar-expand {
+.navbar {
+  --bs-navbar-color: var(--text);
+  --bs-navbar-hover-color: var(--primary-highlight);
+  --bs-navbar-active-color: var(--text);
+  --bs-navbar-brand-color: var(--text);
+  --bs-navbar-brand-hover-color: var(--primary-highlight);
+}
+
+.navbar-nav .nav-link {
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link.active {
+  text-decoration: underline;
+}
+
+.btn {
+  font-family: var(--font-primary);
+  color: var(--text);
+  border: var(--primary-highlight) solid;
+}
+
+body {
+  font-family: var(--font-primary);
   background-color: var(--primary-color);
+  color: var(--text);
 }
 
-body, .boardgame-description, .filter-sidebar, .btn, .rating, .category, .boardgame-display, .product-description, .product-header {
-    font-family: var(--font-primary);
-    color: var(--text);
-    background-color: var(--primary-color);
-}
-
-h1, header, .card-title, .navbar, .navbar-link-active, .navbar-nav, .navbar-brand, .nav-link, .active, .nav-item, .fa-solid, .bag-total, title, .home-btn, .shop-btn {
-    font-family: var(--font-heading);
-    color: var(--text);
-    background-color: var(--primary-color);
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.nav-link {
+  font-family: var(--font-heading);
 }
 
 h1 {
   margin-bottom: 0;
+}
+
+.dropdown-menu {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-highlight);
+}
+
+.dropdown-item {
+  color: var(--text);
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-color);
+  color: var(--primary-highlight);
 }
  
 .bag-total {
@@ -53,11 +95,14 @@ h1 {
 }
 
 .search-bar{
-  border: var(--primary-highlight) solid 0.2rem;
+  border: var(--primary-highlight) solid;
+}
+
+.search-bar::placeholder {
+  color: var(--text);
 }
 
 .search-btn{
-  border: var(--primary-highlight) solid;
   border-radius: 15%;
 }
 
@@ -97,6 +142,7 @@ padding: 0.3rem;
 
 .clear-filters-btn {
   border: var(--primary-highlight) solid;
+  color: var(--text);
   display: flex;
   margin-bottom: 0.3rem;
 }
@@ -123,7 +169,7 @@ padding: 0.3rem;
 }
 
 .increment-qty, .decrement-qty {
-  border: var(--primary-highlight), solid;
+  border: solid var(--primary-highlight);
 }
 
 /* Card Styling */
@@ -180,6 +226,7 @@ padding: 0.3rem;
 
 .category {
   text-decoration: none;
+  color: var(--text);
 }
 
 .category, .price, .rating {
@@ -189,9 +236,7 @@ padding: 0.3rem;
 
 .boardgame-detail,
 .product-detail {
-    margin-top: 6rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+  margin: 6rem 2rem 0;
 }
 
 /* Toasts */
