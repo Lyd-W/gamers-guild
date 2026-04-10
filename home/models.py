@@ -4,9 +4,6 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-# Create your models here.
-
-
 class Genre(models.Model):
     name = models.CharField(max_length=50)
 

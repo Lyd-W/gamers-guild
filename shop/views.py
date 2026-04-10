@@ -30,7 +30,7 @@ def all_products(request):
     if 'category' in request.GET:
         selected_categories = request.GET.getlist('category')
 
-    if selected_categories:   
+    if selected_categories:
         categories = Category.objects.filter(type__in=selected_categories)
 
         expanded_categories = []
@@ -46,7 +46,7 @@ def all_products(request):
         selected_categories = expanded_categories
 
         products = products.filter(category__type__in=selected_categories)
-        
+
         selected_categories = selected_categories
 
     if 'sort' in request.GET:

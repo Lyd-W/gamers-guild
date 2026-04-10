@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import home
 
 urlpatterns = [
-    path("", views.BoardgameList.as_view(), name="home"),
+    path("", home, name="home"),
     path("<slug:slug>/", views.boardgame_detail, name="boardgame_detail"),
 ]
