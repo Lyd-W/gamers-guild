@@ -38,6 +38,8 @@ def home(request):
                 lower_title=Lower('title')
             )
             sortkey = 'lower_title'
+        elif sort == 'playtime':
+            sortkey = 'playtime'
         elif sort == 'release_year':
             sortkey = 'release_year'
         else:
@@ -49,6 +51,20 @@ def home(request):
         boardgames = boardgames.order_by(sortkey)
 
     current_sorting = f"{sort}_{direction}"
+
+    min_players = request.GET.get('min_players')
+    max_players = request.GET.get('max_players')
+
+    if min_players:
+        boardgames = boardgames.filter(min_players__lte=min_players)
+
+    if max_players:
+        boardgames = boardgames.filter(max_players__gte=max_players)
+        
+    playtime = request.GET.get('playtime')
+
+    if playtime:
+        boardgames = boardgames.filter(playtime__lte=playtime)
 
     context = {
         'boardgames': boardgames,

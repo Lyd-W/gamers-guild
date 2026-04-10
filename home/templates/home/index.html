@@ -1,56 +1,57 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
     </div>
+  </div>
 {% endblock %}
-
 {% block content %}
-<section clas='title'>
-    <div class="home-page-title">
-      <h1>
-        Welcome to Gamers Guild
-      </h1>
-    </div>
 
+  <section clas='title'>
+    <div class="home-page-title">
+      <h1>Welcome to Gamers Guild</h1>
+    </div>
   </section>
-<section class="games-container">
+
+  <section class="games-container">
     <div class="sort-filter-container">
       <section class="filter">
-            {% include "includes/mobile-shop-filter.html" %}
-            <div data-sticky-sidebar class="filter-sidebar d-none d-md-block">
-              <p class="filter-header">Filter By:</p>
-            </div>
+        {% include "includes/mobile-game-filter.html" %}
+        <div data-sticky-sidebar class="filter-sidebar d-none d-md-block">
+          <p class="filter-header">Filter By:</p>
+        </div>
       </section>
+
       <section class="sort-dropdown">
         <select id="sort-selector" class="form-select form-select-sm">
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-          <option value="price_asc"
-                  {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-          <option value="price_desc"
-                  {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+          <option value="title_asc"
+                  {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A to Z)</option>
+          <option value="title_desc"
+                  {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z to A)</option>
           <option value="rating_asc"
                   {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
           <option value="rating_desc"
                   {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-          <option value="name_asc"
-                  {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-          <option value="name_desc"
-                  {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-          <option value="category_asc"
-                  {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-          <option value="category_desc"
-                  {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+          <option value="playtime_asc"
+                  {% if current_sorting == 'playtime_asc' %}selected{% endif %}>Playtime (Low to High)</option>
+          <option value="playtime_desc"
+                  {% if current_sorting == 'playtime_desc' %}selected{% endif %}>Playtime (High to Low)</option>
+          <option value="release_year_asc"
+                  {% if current_sorting == 'release_year_asc' %}selected{% endif %}>
+            Released (Oldest to Newest)
+          </option>
+          <option value="release_year_desc"
+                  {% if current_sorting == 'release_year_desc' %}selected{% endif %}>
+            Released (Newest to Oldest)
+          </option>
         </select>
         <div class="col-12 col-md-6">
           <p>
-            {% if search_term or current_categories or current_sorting != 'None_None' %}
+            {% if search_term or current_genres or current_sorting != 'None_None' %}
               <span class="small">
                 <a href="{% url 'home' %}">Clear Sorting</a> |
               </span>
@@ -60,69 +61,202 @@
           </p>
         </div>
       </section>
-      <div class="btt-btn">
-        <a class="btt-link">
-          <i class="fas fa-arrow-up"></i>
-        </a>
-      </div>
 
-    </div>
       <section class="main-games">
-          <div class="filter-wrapper d-none d-md-block">
-            <p class="genre-header">Genre</p>
-              <form method="GET" action="{% url "home" %}">
-                {% for genre in genres %}
-                  <div class="genre-badge">
-                    <label>
-                      <input type="checkbox"
-                            name="genre"
-                            value="{{ genre.id }}"
-                            onchange="this.form.submit()"
-                            {% if genre.id|stringformat:"s" in current_genres %}checked{% endif %}>
-                      {{ genre.name }}
-                    </label>
+            <div class="filter-wrapper d-none d-md-block">
+              <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                  <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne">Genre</button>
+                  </p>
+                  <div id="panelsStayOpen-collapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                      <form method="GET" action="{% url "home" %}">
+                        {% for genre in genres %}
+                          <div class="genre-badge">
+                            <label>
+                              <input type="checkbox"
+                                    name="genre"
+                                    value="{{ genre.id }}"
+                                    onchange="this.form.submit()"
+                                    {% if genre.id|stringformat:"s" in current_genres %}checked{% endif %}>
+                              {{ genre.name }}
+                            </label>
+                          </div>
+                        {% endfor %}
+                      </form>
+                    </div>
                   </div>
-                {% endfor %}
-              </form>
-            <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
-        </div>
-  <div class="container-fluid games">
-    <div class="card-display row">
-      <div class="col-12 mt-3">
-        <div class="row g-4">
-          {% for boardgame in boardgames %}
-          <div class="col-md-4 d-flex">
-            <article class="boardgame-card h-100 w-100">
-              <a href="{% url 'boardgame_detail' boardgame.slug %}" class="boardgame-link">
-              {% if boardgame.image %}
-              <img
-                src="{{ boardgame.image.url }}"
-                class="card-img-top"
-                alt="{{ boardgame.title }}">
-              {% else %}
-              <img
-                class="card-img-top"
-                alt="Boardgame placeholder"
-              >
-              {% endif %} </a>
-              <div class="card-body">
-                <h2 class="card-title">
-                  <a
-                  href="{% url 'boardgame_detail' boardgame.slug %}"
-                    class="boardgame-link"
-                    >{{ boardgame.title }}</a
-                  >
-                </h2>
-                <hr>
-                <div class="player-count card-text"><i class="fa-solid fa-people-group"></i> {{boardgame.min_players}} - {{boardgame.max_players }}</div>
+                </div>
               
-              </div>
-            </article>
+                    <div class="accordion-item">
+                      <p class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                          Player Count
+                        </button>
+                      </p>
+
+                      <div id="panelsStayOpen-collapseTwo"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="panelsStayOpen-headingTwo">
+
+                        <div class="accordion-body">
+                          <form method="GET" action="{% url 'home' %}">
+                            <div>
+                              <label>Min Players:</label>
+                              <input type="number" name="min_players" value="{{ request.GET.min_players }}">
+                            </div>
+
+                            <div>
+                              <label>Max Players:</label>
+                              <input type="number" name="max_players" value="{{ request.GET.max_players }}">
+                            </div>
+
+                            <button type="submit">Apply</button>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                      <div class="accordion-item">
+                  <p class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                      Playtime
+                    </button>
+                  </p>
+
+                  <div id="panelsStayOpen-collapseThree"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="panelsStayOpen-headingThree">
+
+                    <div class="accordion-body">
+                      <form method="GET" action="{% url 'home' %}">
+                        <label>Max Playtime (minutes):</label>
+
+                        <input class="slider"
+                              type="range"
+                              id="playtimeSlider"
+                              name="playtime"
+                              min="0"
+                              max="300"
+                              value="{{ request.GET.playtime|default:90 }}"
+                              oninput="syncFromSlider(this.value)">
+
+                        <div>
+                          <input type="number"
+                                id="playtimeInput"
+                                name="playtime"
+                                min="0"
+                                max="300"
+                                value="{{ request.GET.playtime|default:90 }}"
+                                oninput="syncFromInput(this.value)">
+
+                          <span>mins</span>
+                        </div>
+
+                      </form>
+                    </div>
+                </div>
           </div>
-          {% endfor %}
-        </div>
       </div>
+            <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
+          </div>
+          <div class="container-fluid games">
+            <div class="card-display row">
+              <div class="col-12 mt-3">
+                <div class="row g-4">
+                  {% for boardgame in boardgames %}
+                    <div class="col-md-4 d-flex">
+                      <article class="boardgame-card h-100 w-100">
+                        <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                          class="boardgame-link">
+                          {% if boardgame.image %}
+                            <img src="{{ boardgame.image.url }}"
+                                class="card-img-top"
+                                alt="{{ boardgame.title }}">
+                          {% else %}
+                            <img class="card-img-top" alt="Boardgame placeholder">
+                          {% endif %}
+                        </a>
+                        <div class="card-body">
+                          <h2 class="card-title">
+                            <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                              class="boardgame-link">{{ boardgame.title }}</a>
+                          </h2>
+                          <hr>
+                          <div class="player-count card-text">
+                            <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
     </div>
-  </div>
-  </section>  
+  </section>
+  <script>
+document.querySelectorAll('.btt-link').forEach(link => {
+  link.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
+  </script>
+  <script>
+  const sortSelector = document.getElementById("sort-selector");
+
+  sortSelector.addEventListener("change", function () {
+    const currentUrl = new URL(window.location);
+    const selectedVal = this.value;
+
+    if (selectedVal !== "reset") {
+      const parts = this.value.split("_");
+      const direction = parts.pop();
+      const sort = parts.join("_");
+      currentUrl.searchParams.set("sort", sort);
+      currentUrl.searchParams.set("direction", direction);
+    } else {
+      currentUrl.searchParams.delete("sort");
+      currentUrl.searchParams.delete("direction");
+    }
+
+    window.location.replace(currentUrl);
+  });
+  </script>
+  <script>
+function syncFromSlider(value) {
+    document.getElementById("playtimeInput").value = value;
+}
+
+function syncFromInput(value) {
+    const slider = document.getElementById("playtimeSlider");
+
+    let val = parseInt(value) || 0;
+    if (val < 0) val = 0;
+    if (val > 300) val = 300;
+
+    slider.value = val;
+}
+  </script>
 {% endblock %}

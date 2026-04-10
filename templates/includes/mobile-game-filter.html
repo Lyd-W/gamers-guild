@@ -1,0 +1,129 @@
+ <div class="d-md-none mb-2">
+  <button class="btn filters-btn w-100" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#mobileFiltersCollapse" 
+          aria-expanded="false" 
+          aria-controls="mobileFiltersCollapse">
+    <i class="fas fa-filter me-2"></i> Filters
+  </button>
+
+  <div class="collapse" id="mobileFiltersCollapse">
+    <div class="card card-body p-3">
+      <p class="filter-header">Filter By:</p>
+      <p class="genre-header">Genre</p>
+    <div class="filter-wrapper-mobile">
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                  <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseOne">Genre</button>
+                  </p>
+                  <div id="panelsStayOpen-collapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                      <form method="GET" action="{% url "home" %}">
+                        {% for genre in genres %}
+                          <div class="genre-badge">
+                            <label>
+                              <input type="checkbox"
+                                    name="genre"
+                                    value="{{ genre.id }}"
+                                    onchange="this.form.submit()"
+                                    {% if genre.id|stringformat:"s" in current_genres %}checked{% endif %}>
+                              {{ genre.name }}
+                            </label>
+                          </div>
+                        {% endfor %}
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              
+                    <div class="accordion-item">
+                      <p class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                          Player Count
+                        </button>
+                      </p>
+
+                      <div id="panelsStayOpen-collapseTwo"
+                          class="accordion-collapse collapse"
+                          aria-labelledby="panelsStayOpen-headingTwo">
+
+                        <div class="accordion-body">
+                          <form method="GET" action="{% url 'home' %}">
+                            <div>
+                              <label>Min Players:</label>
+                              <input type="number" name="min_players" value="{{ request.GET.min_players }}">
+                            </div>
+
+                            <div>
+                              <label>Max Players:</label>
+                              <input type="number" name="max_players" value="{{ request.GET.max_players }}">
+                            </div>
+
+                            <button type="submit">Apply</button>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                      <div class="accordion-item">
+                  <p class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="panelsStayOpen-collapseThree">
+                      Playtime
+                    </button>
+                  </p>
+
+                  <div id="panelsStayOpen-collapseThree"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="panelsStayOpen-headingThree">
+
+                    <div class="accordion-body">
+                      <form method="GET" action="{% url 'home' %}">
+                        <label>Max Playtime (minutes):</label>
+
+                        <input class="slider"
+                              type="range"
+                              id="playtimeSlider"
+                              name="playtime"
+                              min="0"
+                              max="300"
+                              value="{{ request.GET.playtime|default:90 }}"
+                              oninput="syncFromSlider(this.value)">
+
+                        <div>
+                          <input type="number"
+                                id="playtimeInput"
+                                name="playtime"
+                                min="0"
+                                max="300"
+                                value="{{ request.GET.playtime|default:90 }}"
+                                oninput="syncFromInput(this.value)">
+
+                          <span>mins</span>
+                        </div>
+
+                      </form>
+                    </div>
+                </div>
+          </div>
+          <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
+      </div>
+  </div>
