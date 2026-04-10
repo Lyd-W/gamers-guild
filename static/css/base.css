@@ -94,7 +94,7 @@ h1 {
     margin-left: 1rem;
 }
 
-.home-page-title {
+.home-page-title, .checkout-page-title {
    margin-top: 6rem;
    padding-left: 2rem;
 }
@@ -359,6 +359,42 @@ padding: 0.3rem;
     overflow-y: auto;
 }
 
+/* Checkout page */
+
+.submit-button {
+  margin-top: 5rem;
+}
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  background-color: var(--secondary-color);
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#payment-form .form-control::placeholder, .stripe-style-input::placeholder {
+  color: var(--text);
+}
+
+#payment-form .form-control {
+  background-color: var(--secondary-color);
+}
+
+/* Media Queries */
 
 @media (min-width: 576px) {
 
