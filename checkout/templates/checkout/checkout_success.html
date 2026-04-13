@@ -3,7 +3,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock body %}
+{% endblock extra_css %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -30,7 +30,7 @@
         </div>
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
-				<a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
+				<a href="{% url 'shop' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
 					<span class="icon mr-2">
 						<i class="fas fa-gifts"></i>
 					</span>
