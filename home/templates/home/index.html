@@ -6,7 +6,7 @@
       <div class="col"></div>
     </div>
   </div>
-{% endblock %}
+{% endblock page_header %}
 {% block content %}
 
   <section clas='title'>
@@ -214,49 +214,46 @@
     </div>
   </section>
   <script>
-document.querySelectorAll('.btt-link').forEach(link => {
-  link.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+$(document).ready(function () {
+
+    $('.btt-link').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 600);
     });
-  });
+
+    $('#sort-selector').on('change', function () {
+
+        const currentUrl = new URL(window.location.href);
+        const selectedVal = $(this).val();
+
+        if (selectedVal !== "reset") {
+            const parts = selectedVal.split("_");
+            const direction = parts.pop();
+            const sort = parts.join("_");
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+        }
+
+        window.location.replace(currentUrl);
+    });
+
+    window.syncFromSlider = function (value) {
+        $('#playtimeInput').val(value);
+    };
+
+    window.syncFromInput = function (value) {
+        let val = parseInt(value) || 0;
+
+        if (val < 0) val = 0;
+        if (val > 300) val = 300;
+
+        $('#playtimeSlider').val(val);
+    };
+
 });
   </script>
-  <script>
-  const sortSelector = document.getElementById("sort-selector");
+{% endblock content %}
 
-  sortSelector.addEventListener("change", function () {
-    const currentUrl = new URL(window.location);
-    const selectedVal = this.value;
-
-    if (selectedVal !== "reset") {
-      const parts = this.value.split("_");
-      const direction = parts.pop();
-      const sort = parts.join("_");
-      currentUrl.searchParams.set("sort", sort);
-      currentUrl.searchParams.set("direction", direction);
-    } else {
-      currentUrl.searchParams.delete("sort");
-      currentUrl.searchParams.delete("direction");
-    }
-
-    window.location.replace(currentUrl);
-  });
-  </script>
-  <script>
-function syncFromSlider(value) {
-    document.getElementById("playtimeInput").value = value;
-}
-
-function syncFromInput(value) {
-    const slider = document.getElementById("playtimeSlider");
-
-    let val = parseInt(value) || 0;
-    if (val < 0) val = 0;
-    if (val > 300) val = 300;
-
-    slider.value = val;
-}
-  </script>
-{% endblock %}

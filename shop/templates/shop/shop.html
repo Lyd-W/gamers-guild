@@ -121,32 +121,28 @@
     </section>
   </section>
   <script>
-document.querySelectorAll('.btt-link').forEach(link => {
-  link.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  $('.btt-link').on('click', function () {
+      $('html, body').animate({ scrollTop: 0 }, 600);
   });
-});
   </script>
   <script>
-  const sortSelector = document.getElementById("sort-selector");
-
-  sortSelector.addEventListener("change", function () {
+  $('#sort-selector').on('change', function () {
     const currentUrl = new URL(window.location);
-    const selectedVal = this.value;
+    const selectedVal = $(this).val();
 
     if (selectedVal !== "reset") {
-      const [sort, direction] = selectedVal.split("_");
-      currentUrl.searchParams.set("sort", sort);
-      currentUrl.searchParams.set("direction", direction);
+        const parts = selectedVal.split("_");
+        const sort = parts[0];
+        const direction = parts[1];
+
+        currentUrl.searchParams.set("sort", sort);
+        currentUrl.searchParams.set("direction", direction);
     } else {
-      currentUrl.searchParams.delete("sort");
-      currentUrl.searchParams.delete("direction");
+        currentUrl.searchParams.delete("sort");
+        currentUrl.searchParams.delete("direction");
     }
 
     window.location.replace(currentUrl);
-  });
+});
   </script>
-{% endblock %}
+{% endblock content %}

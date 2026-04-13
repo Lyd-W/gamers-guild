@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
 
@@ -40,7 +40,7 @@
       <hr>
 
       <section class="information-section">
-        <div class="product-description">{{product.description| safe}}</div>
+        <div class="product-description">{{ product.description| safe }}</div>
       </section>
     </div>
   </div>
@@ -70,7 +70,7 @@
                         class="decrement-qty btn"
                         data-item_id={{ product.id }} 
                         id='decrement-qty_{{ product.id }}'>
-                      <span class='icon'>
+                      <span class="icon">
                         <i class="fas fa-minus"></i>
                       </span>
                     </button>
@@ -83,7 +83,7 @@
                       <button type="button" 
                         class="increment-qty btn"
                         data-item_id={{ product.id }} id='increment-qty_{{ product.id }}'>
-                        <span class='icon'>
+                        <span class="icon">
                           <i class="fas fa-plus"></i>
                         </span>
                       </button>
@@ -106,9 +106,9 @@
 
 {% endblock content %} {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
-{% endblock %}
+{% endblock extras %}
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'shop/includes/quantity_input_script.html' %}
-{% endblock %}
+{% include "shop/includes/quantity_input_script.html" %}
+{% endblock postloadjs %}
