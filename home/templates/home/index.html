@@ -8,13 +8,11 @@
   </div>
 {% endblock page_header %}
 {% block content %}
-
   <section clas='title'>
     <div class="home-page-title">
       <h1>Welcome to Gamers Guild</h1>
     </div>
   </section>
-
   <section class="games-container">
     <div class="sort-filter-container">
       <section class="filter">
@@ -23,7 +21,6 @@
           <p class="filter-header">Filter By:</p>
         </div>
       </section>
-
       <section class="sort-dropdown">
         <select id="sort-selector" class="form-select form-select-sm">
           <option value="reset"
@@ -61,159 +58,147 @@
           </p>
         </div>
       </section>
-
       <section class="main-games">
-            <div class="filter-wrapper d-none d-md-block">
-              <div class="accordion" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item">
-                  <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne"
-                            aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseOne">Genre</button>
-                  </p>
-                  <div id="panelsStayOpen-collapseOne"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="panelsStayOpen-headingOne">
-                    <div class="accordion-body">
-                      <form method="GET" action="{% url "home" %}">
-                        {% for genre in genres %}
-                          <div class="genre-badge">
-                            <label>
-                              <input type="checkbox"
-                                    name="genre"
-                                    value="{{ genre.id }}"
-                                    onchange="this.form.submit()"
-                                    {% if genre.id|stringformat:"s" in current_genres %}checked{% endif %}>
-                              {{ genre.name }}
-                            </label>
-                          </div>
-                        {% endfor %}
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              
-                    <div class="accordion-item">
-                      <p class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
-                        <button class="accordion-button collapsed"
-                                type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseTwo"
-                                aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseTwo">
-                          Player Count
-                        </button>
-                      </p>
-
-                      <div id="panelsStayOpen-collapseTwo"
-                          class="accordion-collapse collapse"
-                          aria-labelledby="panelsStayOpen-headingTwo">
-
-                        <div class="accordion-body">
-                          <form method="GET" action="{% url 'home' %}">
-                            <div>
-                              <label>Min Players:</label>
-                              <input type="number" name="min_players" value="{{ request.GET.min_players }}">
-                            </div>
-
-                            <div>
-                              <label>Max Players:</label>
-                              <input type="number" name="max_players" value="{{ request.GET.max_players }}">
-                            </div>
-
-                            <button type="submit">Apply</button>
-                          </form>
-                        </div>
-
+        <div class="filter-wrapper d-none d-md-block">
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseOne">Genre</button>
+              </p>
+              <div id="panelsStayOpen-collapseOne"
+                   class="accordion-collapse collapse"
+                   aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <form method="GET" action="{% url 'home' %}">
+                    {% for genre in genres %}
+                      <div class="genre-badge">
+                        <label>
+                          <input type="checkbox"
+                                 name="genre"
+                                 value="{{ genre.id }}"
+                                 onchange="this.form.submit()"
+                                 {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %} />
+                          {{ genre.name }}
+                        </label>
                       </div>
-                    </div>
-                      <div class="accordion-item">
-                  <p class="accordion-header" id="panelsStayOpen-headingThree">
-                    <button class="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseThree"
-                            aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
-                      Playtime
-                    </button>
-                  </p>
-
-                  <div id="panelsStayOpen-collapseThree"
-                      class="accordion-collapse collapse"
-                      aria-labelledby="panelsStayOpen-headingThree">
-
-                    <div class="accordion-body">
-                      <form method="GET" action="{% url 'home' %}">
-                        <label>Max Playtime (minutes):</label>
-
-                        <input class="slider"
-                              type="range"
-                              id="playtimeSlider"
-                              name="playtime"
-                              min="0"
-                              max="300"
-                              value="{{ request.GET.playtime|default:90 }}"
-                              oninput="syncFromSlider(this.value)">
-
-                        <div>
-                          <input type="number"
-                                id="playtimeInput"
-                                name="playtime"
-                                min="0"
-                                max="300"
-                                value="{{ request.GET.playtime|default:90 }}"
-                                oninput="syncFromInput(this.value)">
-
-                          <span>mins</span>
-                        </div>
-
-                      </form>
-                    </div>
-                </div>
-          </div>
-      </div>
-            <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
-          </div>
-          <div class="container-fluid games">
-            <div class="card-display row">
-              <div class="col-12 mt-3">
-                <div class="row g-4">
-                  {% for boardgame in boardgames %}
-                    <div class="col-md-4 d-flex">
-                      <article class="boardgame-card h-100 w-100">
-                        <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                          class="boardgame-link">
-                          {% if boardgame.image %}
-                            <img src="{{ boardgame.image.url }}"
-                                class="card-img-top"
-                                alt="{{ boardgame.title }}">
-                          {% else %}
-                            <img class="card-img-top" alt="Boardgame placeholder">
-                          {% endif %}
-                        </a>
-                        <div class="card-body">
-                          <h2 class="card-title">
-                            <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                              class="boardgame-link">{{ boardgame.title }}</a>
-                          </h2>
-                          <hr>
-                          <div class="player-count card-text">
-                            <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  {% endfor %}
+                    {% endfor %}
+                  </form>
                 </div>
               </div>
             </div>
-    </div>
-  </section>
-  <script>
+            <div class="accordion-item">
+              <p class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">Player Count</button>
+              </p>
+              <div id="panelsStayOpen-collapseTwo"
+                   class="accordion-collapse collapse"
+                   aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <form method="GET" action="{% url 'home' %}">
+                    <div>
+                      <label>Min Players:</label>
+                      <input type="number"
+                             name="min_players"
+                             value="{{ request.GET.min_players }}">
+                    </div>
+                    <div>
+                      <label>Max Players:</label>
+                      <input type="number"
+                             name="max_players"
+                             value="{{ request.GET.max_players }}">
+                    </div>
+                    <button type="submit">Apply</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <p class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">Playtime</button>
+              </p>
+              <div id="panelsStayOpen-collapseThree"
+                   class="accordion-collapse collapse"
+                   aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                  <form method="GET" action="{% url 'home' %}">
+                    <label>Max Playtime (minutes):</label>
+                    <input class="slider"
+                           type="range"
+                           id="playtimeSlider"
+                           name="playtime"
+                           min="0"
+                           max="300"
+                           value="{{ request.GET.playtime|default:90 }}"
+                           oninput="syncFromSlider(this.value)">
+                    <div>
+                      <input type="number"
+                             id="playtimeInput"
+                             name="playtime"
+                             min="0"
+                             max="300"
+                             value="{{ request.GET.playtime|default:90 }}"
+                             oninput="syncFromInput(this.value)">
+                      <span>mins</span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
+        </div>
+        <div class="container-fluid games">
+          <div class="card-display row">
+            <div class="col-12 mt-3">
+              <div class="row g-4">
+                {% for boardgame in boardgames %}
+                  <div class="col-md-4 d-flex">
+                    <article class="boardgame-card h-100 w-100">
+                      <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                         class="boardgame-link">
+                        {% if boardgame.image %}
+                          <img src="{{ boardgame.image.url }}"
+                               class="card-img-top"
+                               alt="{{ boardgame.title }}">
+                        {% else %}
+                          <img class="card-img-top" alt="Boardgame placeholder">
+                        {% endif %}
+                      </a>
+                      <div class="card-body">
+                        <h2 class="card-title">
+                          <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                             class="boardgame-link">{{ boardgame.title }}</a>
+                        </h2>
+                        <hr>
+                        <div class="player-count card-text">
+                          <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      <script>
 $(document).ready(function () {
 
     $('.btt-link').on('click', function () {
@@ -254,6 +239,5 @@ $(document).ready(function () {
     };
 
 });
-  </script>
-{% endblock content %}
-
+      </script>
+    {% endblock content %}
