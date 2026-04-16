@@ -284,6 +284,7 @@ padding: 0.3rem;
 .category, .price, .rating {
   margin-left: 1rem;
 }
+
 /* Boardgame detail page */
 
 .boardgame-detail,
@@ -292,7 +293,6 @@ padding: 0.3rem;
 }
 
 /* Toasts */
-
 
 .message-container {
     position: fixed;

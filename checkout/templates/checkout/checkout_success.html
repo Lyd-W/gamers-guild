@@ -61,12 +61,12 @@
                     {% for item in order.lineitems.all %}
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <p class="small mb-0  font-weight-bold">
+                            <p class="mb-0  font-weight-bold">
                                 {{ item.product.name }}{% if item.product_size %} - Size {{ item.product_size|upper }}{% endif %}
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-end">
-                            <p class="small mb-0">{{ item.quantity }} @ £{{ item.product.price }} each</p>
+                            <p class="mb-0">{{ item.quantity }}x £{{ item.product.price }} each</p>
                         </div>
                     </div>
                     {% endfor %}
