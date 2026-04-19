@@ -12,10 +12,10 @@
   <section class="shop-container">
     <div class="sort-filter-container">
       <section class="filter">
-        {% include "includes/mobile-game-filter.html" %}
-        <div data-sticky-sidebar class="filter-sidebar d-none d-md-block">
-          <p class="filter-header">Filter By:</p>
-        </div>
+            {% include "includes/mobile-game-filter.html" %}
+            <div data-sticky-sidebar class="filter-sidebar d-none d-md-block">
+              <p class="filter-header">Filter By:</p>
+            </div>
       </section>
       <section class="sort-dropdown">
         <select id="sort-selector" class="form-select form-select-sm">
@@ -55,68 +55,69 @@
           <i class="fas fa-arrow-up"></i>
         </a>
       </div>
+
     </div>
-    <section class="main-shop">
-      <div class="filter-wrapper d-none d-md-block">
-        <p class="categories-header">Category</p>
-        <form method="GET" action="{% url "shop" %}">
-          {% for category in categories %}
-            <div class="category-badge">
-              <label>
-                <input type="checkbox"
-                       name="category"
-                       value="{{ category.type }}"
-                       onchange="this.form.submit()"
-                       {% if category.type in current_categories %}checked{% endif %}>
-                {{ category.readable_type|default:category.type }}
-              </label>
-            </div>
-          {% endfor %}
-        </form>
-        <a href="{% url 'shop' %}" class="btn clear-filters-btn">Clear Filters</a>
-      </div>
-      <div class="products">
-        <div class="row g-4">
-          {% for product in products %}
-            <div class="col-12 col-md-4 col-lg-3 d-flex">
-              <article class="product-card h-100 w-100">
-                <a href="{% url 'product_detail' product.id %}" class="product-link">
-                  {% if product.image %}
-                    <img src="{{ product.image.url }}"
-                         class="card-img-top"
-                         alt="{{ product.name }}">
-                  {% else %}
-                    <img class="card-img-top" alt="product placeholder">
-                  {% endif %}
-                </a>
-                <div class="card-body">
-                  <h2 class="card-title">
-                    <a href="{% url "product_detail" product.id %}" class="product-link">{{ product.name }}</a>
-                  </h2>
-                  <div class="price">£{{ product.price }}</div>
-                  {% if product.category %}
-                    <p class="small mt-1 mb-0">
-                      <a class="category"
-                         href="{% url 'shop' %}?category={{ product.category.type }}">
-                        <i class="fas fa-tag mr-1"></i>
-                        {{ product.category.readable_type }}
-                      </a>
-                    </p>
-                  {% endif %}
-                  {% if product.rating %}
-                    <small class="rating">
-                      <i class="fas fa-star mr-1"></i>
-                      {{ product.rating }} / 5
-                    </small>
-                  {% else %}
-                    <small class="rating">No Rating</small>
-                  {% endif %}
-                </div>
-              </article>
-            </div>
-          {% endfor %}
+      <section class="main-shop">
+          <div class="filter-wrapper d-none d-md-block">
+            <p class="categories-header">Category</p>
+              <form method="GET" action="{% url "shop" %}">
+                {% for category in categories %}
+                  <div class="category-badge">
+                    <label>
+                      <input type="checkbox"
+                            name="category"
+                            value="{{ category.type }}"
+                            onchange="this.form.submit()"
+                            {% if category.type in current_categories %}checked{% endif %}>
+                      {{ category.readable_type|default:category.type }}
+                    </label>
+                  </div>
+                {% endfor %}
+              </form>
+            <a href="{% url 'shop' %}" class="btn clear-filters-btn">Clear Filters</a>
         </div>
-      </div>
+        <div class="products">
+            <div class="row g-4">
+            {% for product in products %}
+              <div class="col-12 col-md-4 col-lg-3 d-flex">
+                <article class="product-card h-100 w-100">
+                  <a href="{% url 'product_detail' product.id %}" class="product-link">
+                    {% if product.image %}
+                      <img src="{{ product.image.url }}"
+                          class="card-img-top"
+                          alt="{{ product.name }}">
+                    {% else %}
+                      <img class="card-img-top" alt="product placeholder">
+                    {% endif %}
+                  </a>
+                  <div class="card-body">
+                    <h2 class="card-title">
+                      <a href="{% url "product_detail" product.id %}" class="product-link">{{ product.name }}</a>
+                    </h2>
+                    <div class="price">£{{ product.price }}</div>
+                    {% if product.category %}
+                      <p class="small mt-1 mb-0">
+                        <a class="category"
+                          href="{% url 'shop' %}?category={{ product.category.type }}">
+                          <i class="fas fa-tag mr-1"></i>
+                          {{ product.category.readable_type }}
+                        </a>
+                      </p>
+                    {% endif %}
+                    {% if product.rating %}
+                      <small class="rating">
+                        <i class="fas fa-star mr-1"></i>
+                        {{ product.rating }} / 5
+                      </small>
+                    {% else %}
+                      <small class="rating">No Rating</small>
+                    {% endif %}
+                  </div>
+                </article>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
     </section>
   </section>
   <script>

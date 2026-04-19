@@ -98,7 +98,9 @@ h1 {
     margin-left: 1rem;
 }
 
-.home-page-title, .checkout-page-title {
+.home-page-title, 
+.checkout-page-title,
+.login-page-title {
    margin-top: 6rem;
    padding-left: 2rem;
 }
@@ -423,6 +425,22 @@ select option[value=""] {
   color: var(--primary-highlight);
 }
 
+/* Forms */
+
+.allauth-form-inner-content a[href*="password/reset"],
+.allauth-form-inner-content a[href*="accounts/signup"] {
+  color: var(--primary-highlight);
+}
+
+.allauth-form-inner-content a[href*="password/reset"]:hover,
+.allauth-form-inner-content a[href*="accounts/signup"]:hover {
+  color: var(--text);
+}
+
+.form-check-input:checked {
+  background-color: var(--secondary-color);
+  border-color: var(--primary-highlight);
+}
 
 /* Media Queries */
 
