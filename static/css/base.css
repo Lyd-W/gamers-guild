@@ -296,6 +296,13 @@ padding: 0.3rem;
 
 /* Toasts */
 
+.toast {
+  background-color: transparent !important;
+  border: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
 .message-container {
     position: fixed;
     top: 5rem;
@@ -304,13 +311,40 @@ padding: 0.3rem;
 }
 
 .toast-header {
+  position: relative;
   display:flex;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+  color: var(--text);
+  border: solid var(--primary-highlight);
+  border-radius: 1rem;
 }
 
+.toast-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.toast-body {
+  background-color: var(--primary-color);
+  border: solid var(--primary-highlight);
+  border-radius: 1rem;
+}
+
+.toast-close {
+  color: var(--primary-highlight);
+  background: none;
+  border: none;
+}
 .success-toast {
   overflow: visible;
+}
+
+.view-bag-btn {
+  justify-content: center;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
