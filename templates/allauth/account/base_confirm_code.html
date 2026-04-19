@@ -1,7 +1,9 @@
 {% extends "account/base.html" %}
 {% load i18n %}
 {% load allauth account %}
-{% block content %}
+{% block inner_content %}
+
+<h2 class="mb-4">{% trans "Code Sent" %}</h2>
     {% setvar title_ %}
         {% block title %}{% endblock %}
     {% endsetvar %}
@@ -93,4 +95,4 @@
             {% endslot %}
         {% endelement %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

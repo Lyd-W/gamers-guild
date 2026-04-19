@@ -428,12 +428,14 @@ select option[value=""] {
 /* Forms */
 
 .allauth-form-inner-content a[href*="password/reset"],
-.allauth-form-inner-content a[href*="accounts/signup"] {
+.allauth-form-inner-content a[href*="accounts/signup"],
+.allauth-form-inner-content a[href*="accounts/login"] {
   color: var(--primary-highlight);
 }
 
 .allauth-form-inner-content a[href*="password/reset"]:hover,
-.allauth-form-inner-content a[href*="accounts/signup"]:hover {
+.allauth-form-inner-content a[href*="accounts/signup"]:hover,
+.allauth-form-inner-content a[href*="accounts/login"]:hover {
   color: var(--text);
 }
 
