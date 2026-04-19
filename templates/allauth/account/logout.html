@@ -7,7 +7,7 @@
 
 <h2 class="mb-4">{% trans "Log Out" %}</h2>
     {% element p %}
-        {% trans 'Are you sure you want to log out?' %}
+        {% trans "Are you sure you want to log out?" %}
     {% endelement %}
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}
@@ -17,7 +17,7 @@
         {% endslot %}
         {% slot actions %}
             {% element button type="submit" %}
-                {% trans 'Log Out' %}
+                {% trans "Log Out" %}
             {% endelement %}
         {% endslot %}
     {% endelement %}

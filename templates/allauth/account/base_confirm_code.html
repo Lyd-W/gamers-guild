@@ -5,13 +5,13 @@
 
 <h2 class="mb-4">{% trans "Code Sent" %}</h2>
     {% setvar title_ %}
-        {% block title %}{% endblock %}
+        {% block title %}{% endblock title %}
     {% endsetvar %}
     {% setvar action_url %}
-        {% block action_url %}{% endblock %}
+        {% block action_url %}{% endblock action_url %}
     {% endsetvar %}
     {% setvar extra_tags %}
-        {% block extra_tags %}{% endblock %}
+        {% block extra_tags %}{% endblock extra_tags %}
     {% endsetvar %}
     {% setvar form_tags %}
         entrance,{{ extra_tags }}
@@ -20,7 +20,7 @@
         confirm,{{ extra_tags }}
     {% endsetvar %}
     {% setvar recipient %}
-        {% block recipient %}{% endblock %}
+        {% block recipient %}{% endblock recipient %}
     {% endsetvar %}
     {% element h1 %}
         {{ title_ }}
@@ -71,7 +71,7 @@
         </form>
     {% endif %}
     {% setvar summary_ %}
-        {% block change_title %}{% endblock %}
+        {% block change_title %}{% endblock change_title %}
     {% endsetvar %}
     {% if can_change %}
         {% element details open=change_form.errors %}

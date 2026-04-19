@@ -8,7 +8,7 @@
 <h2 class="mb-4">{% trans "Email Addresses" %}</h2>
     {% if emailaddresses %}
         {% element p %}
-            {% trans 'The following email addresses are associated with your account:' %}
+            {% trans "The following email addresses are associated with your account:" %}
         {% endelement %}
         {% url 'account_email' as email_url %}
         {% element form form=form action=email_url method="post" tags="email,list" %}
@@ -40,13 +40,13 @@
             {% endslot %}
             {% slot actions %}
                 {% element button type="submit" name="action_primary" %}
-                    {% trans 'Make Primary' %}
+                    {% trans "Make Primary" %}
                 {% endelement %}
                 {% element button tags="secondary" type="submit" name="action_send" %}
-                    {% trans 'Re-send Verification' %}
+                    {% trans "Re-send Verification" %}
                 {% endelement %}
                 {% element button tags="danger,delete" type="submit" name="action_remove" %}
-                    {% trans 'Remove' %}
+                    {% trans "Remove" %}
                 {% endelement %}
             {% endslot %}
         {% endelement %}
