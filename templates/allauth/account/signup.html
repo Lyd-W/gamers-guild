@@ -1,8 +1,9 @@
 {% extends "account/base.html" %}
 {% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
+
+{% block title %}Sign Up | Gamers Guild{% endblock title %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 {% block inner_content %}
 
 <h2 class="mb-4">{% trans "Sign Up" %}</h2>

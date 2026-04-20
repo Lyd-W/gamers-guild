@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load allauth i18n %}
-{% block head_title %}
-    {% trans "Log Out" %}
-{% endblock head_title %}
+
+{% block title %}Log Out | Gamers Guild{% endblock title %}
+
+{% block head_title %}{% trans "Log Out" %}{% endblock head_title %}
 {% block inner_content %}
 
 <h2 class="mb-4">{% trans "Log Out" %}</h2>

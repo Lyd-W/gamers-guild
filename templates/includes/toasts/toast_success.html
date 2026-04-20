@@ -1,35 +1,35 @@
 <!-- Required for accessibilty tools for toasts -->
 <div class="toast success-toast"
     role="alert" aria-live="assertive" aria-atomic="true">
-    <div class='arrow-up arrow-success'></div>
+    <div class="arrow-up arrow-success"></div>
       <div class="toast-header">
-        <p class='toast-header-title'>Success!</p>
+        <p class="toast-header-title">Success!</p>
         <button type="button" class="toast-close" data-bs-dismiss="toast" aria-label="Close">
               <i class="fas fa-times"></i>
         </button>
       </div>
 
     <div class="toast-body">
-        <div class='row'>
-            <div class='col'>
+        <div class="row">
+            <div class="col">
                 {{ message }}
                 <hr>
             </div>
         </div>
-        {% if grand_total%}
-            <p>Your Bag ({{ product_count}})</p>
-            <div class='bag-notification-wrapper'>
+        {% if grand_total %}
+            <p>Your Bag ({{ product_count }})</p>
+            <div class="bag-notification-wrapper">
                 {% for item in bag_items %}
-                    <div class='row'>
-                        <div class='col-3'>
-                            <img class='w-100' src="{{ item.product.image.url }}">
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="w-100" src="{{ item.product.image.url }}">
                         </div>
-                        <div class='col-9'>
-                            <p>{{ item.product.name}}</p>
+                        <div class="col-9">
+                            <p>{{ item.product.name }}</p>
                             {% if item.product.has_sizes %}
-                                <p>Size: {{item.size}}</p>
+                                <p>Size: {{ item.size }}</p>
                             {% endif %}
-                            <p>Qty: {{item.quantity }}</p>
+                            <p>Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
