@@ -7,7 +7,7 @@
 {% block title %}
     {% translate "Enter Email Verification Code" %}
 {% endblock %}
-{% block recipient %}<a href="mailto:{{ email }}">{{ email }}</a>{% endblock %}
+{% block recipient %}<a class="email-text" href="mailto:{{ email }}">{{ email }}</a>{% endblock %}
 {% block action_url %}
     {% url 'account_email_verification_sent' %}
 {% endblock %}

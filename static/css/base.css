@@ -52,6 +52,12 @@ header {
   color: var(--text);
   border: var(--primary-highlight) solid;
   border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.login-page-btn {
+  padding-inline: 6px;
+  padding-block: 1px;
 }
 
 .btn:hover,
@@ -299,6 +305,12 @@ padding: 0.3rem;
   margin: 6rem 2rem 0;
 }
 
+/* Profile Page */
+
+.username {
+  margin-left: 5.75rem;
+}
+
 /* Toasts */
 
 .toast {
@@ -468,8 +480,9 @@ select option[value=""] {
 
 .allauth-form-inner-content a[href*="password/reset"],
 .allauth-form-inner-content a[href*="accounts/signup"],
-.allauth-form-inner-content a[href*="accounts/login"] {
-  color: var(--primary-highlight);
+.allauth-form-inner-content a[href*="accounts/login"],
+.email-text {
+  color: var(--primary-highlight)!important;
 }
 
 .allauth-form-inner-content a[href*="password/reset"]:hover,
