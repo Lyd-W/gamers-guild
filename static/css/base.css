@@ -45,13 +45,18 @@ header {
   text-decoration-color: var(--primary-highlight);
 }
 
-.btn {
+.btn,
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
   font-family: var(--font-primary);
   color: var(--text);
   border: var(--primary-highlight) solid;
+  border-radius: 6px;
 }
 
-.btn:hover {
+.btn:hover,
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {
   background-color: var(--secondary-color);
   border: var(--primary-highlight) solid;
   border-width: 0.1rem;
@@ -476,6 +481,11 @@ select option[value=""] {
 .form-check-input:checked {
   background-color: var(--secondary-color);
   border-color: var(--primary-highlight);
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+  background-color: var(--primary-color);
 }
 
 /* Media Queries */

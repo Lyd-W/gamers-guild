@@ -10,7 +10,6 @@
     {% element p %}
         {% trans "Are you sure you want to log out?" %}
     {% endelement %}
-<div class="btn">
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}
         {% slot body %}
@@ -23,5 +22,4 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
-</div>
 {% endblock inner_content %}
