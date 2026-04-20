@@ -459,7 +459,7 @@ select option[value=""] {
   color: var(--primary-highlight);
 }
 
-/* Forms */
+/* Allauth Forms */
 
 .allauth-form-inner-content a[href*="password/reset"],
 .allauth-form-inner-content a[href*="accounts/signup"],
