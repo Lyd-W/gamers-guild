@@ -79,6 +79,10 @@ small.text-highlight {
   color: var(--primary-highlight);
 }
 
+.text-highlight {
+  color: var(--primary-highlight);
+}
+
 h1, h2, h3, h4, h5, h6,
 .navbar-brand,
 .nav-link {
@@ -430,11 +434,11 @@ padding: 0.3rem;
 /* Bag page */
 
 .bag-table-head th {
-    color: var(--primary-highlight);
+  color: var(--primary-highlight);
 }
 
 .bag-table td {
-    color: var(--text);
+  color: var(--text);
 }
 
 /* Checkout page */
