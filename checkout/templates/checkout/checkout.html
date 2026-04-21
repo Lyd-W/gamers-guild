@@ -25,7 +25,7 @@
                     <div>
                         <p>Item</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col-3 text-end">
                         <p>Subtotal</p>
                     </div>
                 </div>
@@ -57,12 +57,12 @@
                             </p>
                             <p>Qty: {{ item.quantity }}</p>
                         </div>
-                        <div class="col-3 text-right">
+                        <div class="col-3 text-end">
                             <p>£{{ item.subtotal|floatformat:2 }}</p>
                         </div>
                     </div>
                 {% endfor %}
-                <div class="row text-right">
+                <div class="row text-end">
                     <div class="col-7 offset-2">
                         <p>Order Total:</p>
                         <p>Delivery:</p>
@@ -93,7 +93,7 @@
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
-                        <div class="form-check form-check-inline float-right">
+                        <div class="form-check form-check-inline float-end">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                                 <input class="form-check-input"
@@ -115,7 +115,7 @@
                         <div class="text-danger" id="card-errors" role="alert"></div>
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                    <div class="submit-button text-right">
+                    <div class="submit-button text-end">
                         <a href="{% url 'view_bag' %}" class="btn">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>

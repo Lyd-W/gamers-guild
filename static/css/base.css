@@ -305,6 +305,17 @@ padding: 0.3rem;
   margin: 6rem 2rem 0;
 }
 
+/* Propduct Page */
+.qty-group {
+    max-width: 8rem;
+    flex-wrap: nowrap;
+}
+
+.qty_input {
+    width: 3rem;
+    flex: 0 0 auto;
+}
+
 /* Profile Page */
 
 .username {
@@ -414,6 +425,16 @@ padding: 0.3rem;
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+/* Bag page */
+
+.bag-table-head th {
+    color: var(--primary-highlight);
+}
+
+.bag-table td {
+    color: var(--text);
 }
 
 /* Checkout page */

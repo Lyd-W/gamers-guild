@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}Bag | Gamers Guild{% endblock title %}
-{% block meta_description %}Review your items before checkout.{% endblock meta_description %}
-
+{% block title %}
+  Bag | Gamers Guild
+{% endblock title %}
+{% block meta_description %}
+  Review your items before checkout.
+{% endblock meta_description %}
 {% block page_header %}
   <section class="bag-header">
     {% include "includes/main-nav.html" %}
@@ -22,8 +24,8 @@
       <div class="col">
         {% if bag_items %}
           <div class="table-responsive rounded">
-            <table class="table table-sm table borderless">
-              <thead class="table-title">
+            <table class="table table-sm bag-table">
+              <thead class="bag-table-head">
                 <tr>
                   <th scope='col'>Product Info</th>
                   <th scope='col'></th>
@@ -53,42 +55,32 @@
                           method="POST"
                           action="{% url 'adjust_bag' item.item_id %}">
                       {% csrf_token %}
-                      <div class="form-group">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <button type='button'
-                                    class="decrement-qty btn"
-                                    data-item_id="{{ item.item_id }}"
-                                    id="decrement-qty_{{ item.item_id }}">
-                              <span>
-                                <i class="fas fa-minus fa-sm"></i>
-                              </span>
-                            </button>
-                          </div>
-                          <input class="form-control form-control-sm qty_input"
-                                 type="number"
-                                 name="quantity"
-                                 value="{{ item.quantity }}"
-                                 min="1"
-                                 max="99"
-                                 data-item_id="{{ item.item_id }}"
-                                 id="id_qty_{{ item.item_id }}">
-                          <div class="input-group-append">
-                            <button type="button"
-                                    class="increment-qty btn"
-                                    data-item_id="{{ item.item_id }}"
-                                    id="increment-qty_{{ item.item_id }}">
-                              <span>
-                                <i class="fas fa-plus fa-sm"></i>
-                              </span>
-                            </button>
-                          </div>
-                          {% if item.product.has_sizes %}<input type="hidden" name="product_size" value="{{ item.size }}">{% endif %}
-                        </div>
+                      <div class="input-group input-group-sm">
+                        <button type="button"
+                                class="btn btn-outline-secondary decrement-qty"
+                                data-item_id="{{ item.item_id }}"
+                                id="decrement-qty_{{ item.item_id }}">
+                          <i class="fas fa-minus fa-sm"></i>
+                        </button>
+                        <input class="form-control text-center qty_input"
+                               type="number"
+                               name="quantity"
+                               value="{{ item.quantity }}"
+                               min="1"
+                               max="99"
+                               data-item_id="{{ item.item_id }}"
+                               id="id_qty_{{ item.item_id }}">
+                        <button type="button"
+                                class="btn btn-outline-secondary increment-qty"
+                                data-item_id="{{ item.item_id }}"
+                                id="increment-qty_{{ item.item_id }}">
+                          <i class="fas fa-plus fa-sm"></i>
+                        </button>
+                        {% if item.product.has_sizes %}<input type="hidden" name="product_size" value="{{ item.size }}">{% endif %}
                       </div>
                     </form>
-                    <a class="update-link text-info"><small>Update</small></a>
-                    <a class="remove-item text-danger float-right"
+                    <a class="update-link text-info" data-item_id="{{ item.item_id }}"><small>Update</small></a>
+                    <a class="remove-item text-danger float-end"
                        id="remove_{{ item.item_id }}"
                        data-size="{{ item.size }}"><small>Remove</small></a>
                   </td>
@@ -98,7 +90,7 @@
                 </tr>
               {% endfor %}
               <tr>
-                <td colspan="5" class="pt-5 text-right">
+                <td colspan="5" class="pt-5 text-end">
                   <h6>
                     <strong>Bag Total: £{{ total|floatformat:2 }}</strong>
                   </h6>
@@ -114,7 +106,7 @@
                 </td>
               </tr>
               <tr>
-                <td colspan="5" class="text-right">
+                <td colspan="5" class="text-end">
                   <a href="{% url 'shop' %}" class="btn">
                     <span class="icon">
                       <i class="fas fa-chevron-left"></i>
@@ -151,15 +143,13 @@
   <script>
 $(document).ready(function () {
 
-    // UPDATE LINKS
     $('.update-link').on('click', function () {
-        const form = $(this).prev('form');
+        const form = $(this).closest('td').find('form');
         if (form.length) {
             form.submit();
         }
     });
 
-    // REMOVE BUTTONS
     $('.remove-item').on('click', function () {
 
         const csrfToken = "{{ csrf_token }}";
