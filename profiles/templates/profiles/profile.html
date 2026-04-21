@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}Profile | Gamers Guild{% endblock title %}
-
+{% block title %}
+    Profile | Gamers Guild
+{% endblock title %}
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -11,14 +11,28 @@
     </div>
 {% endblock page_header %}
 {% block content %}
-    <div class="checkout-page-title container">
+    <div class="profile-title container">
         <div class="row">
             <div class="col">
                 <h2>My Profile</h2>
             </div>
         </div>
-    </div>
-    <div class="username">
-        {{ profile }}
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3>Default Delivery Information</h3>
+                <form class="mt-3"
+                      action="{% url 'profile' %}"
+                      method="POST"
+                      id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn rounded-0 float-end">Update Information</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3>Order History</h3>
+                {{ orders }}
+            </div>
+        </div>
     </div>
 {% endblock content %}

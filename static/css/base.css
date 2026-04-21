@@ -115,7 +115,8 @@ h1 {
 
 .home-page-title, 
 .checkout-page-title,
-.login-page-title {
+.login-page-title,
+.profile-title {
    margin-top: 6rem;
    padding-left: 2rem;
 }
@@ -441,6 +442,27 @@ padding: 0.3rem;
   color: var(--text);
 }
 
+/* Forms */
+
+#payment-form,
+.form-control,
+.form-control::placeholder,
+#profile-update-form input::placeholder, 
+.stripe-style-input::placeholder {
+  color: var(--text);
+}
+
+input.form-control:-webkit-autofill,
+input.form-control:-webkit-autofill:hover,
+input.form-control:-webkit-autofill:focus,
+input.form-control:-webkit-autofill:active,
+.form-control:focus,
+.form-select:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--secondary-color) inset;
+  -webkit-text-fill-color: var(--text);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 /* Checkout page */
 
 .submit-button {
@@ -468,17 +490,9 @@ padding: 0.3rem;
   background-color: #fefde5 !important;
 }
 
-#payment-form .form-control::placeholder, .stripe-style-input::placeholder {
-  color: var(--text);
-}
-
-#payment-form .form-control {
-  background-color: var(--secondary-color);
-}
-
 select:invalid,
 select option[value=""] {
-    color: #aab7c4 !important;
+    color: var(--text)!important;
 }
 
 #loading-overlay {
