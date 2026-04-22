@@ -102,14 +102,14 @@
                       <p class="small mt-1 mb-0">
                         <a class="category"
                           href="{% url 'shop' %}?category={{ product.category.type }}">
-                          <i class="fas fa-tag mr-1"></i>
+                          <i class="fas fa-tag me-1"></i>
                           {{ product.category.readable_type }}
                         </a>
                       </p>
                     {% endif %}
                     {% if product.rating %}
                       <small class="rating">
-                        <i class="fas fa-star mr-1"></i>
+                        <i class="fas fa-star me-1"></i>
                         {{ product.rating }} / 5
                       </small>
                     {% else %}

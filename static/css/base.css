@@ -442,6 +442,22 @@ padding: 0.3rem;
   color: var(--text);
 }
 
+/* Profile Page */
+
+.order-history table th {
+  color: var(--primary-highlight);
+}
+
+.order-history table td,
+.order-history table a {
+  color: var(--text);
+}
+
+.order-history {
+  max-height: 486px;
+  overflow-y: auto;
+}
+
 /* Forms */
 
 #payment-form,
