@@ -1,0 +1,503 @@
+[
+    {
+        "model": "home.boardgame",
+        "pk": 1,
+        "fields": {
+            "title": "Carcassonne",
+            "slug": "carcassonne",
+            "image": "boardgames/carcassonne_OPy8F1Q.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Transport yourself to the old, medieval, hilltop town of Carcassonne in this tile and worker placement game that has become an absolute staple of the board game world.</p><p>Carcassonne is a game suitable for 2-5 players, which sees players selecting a face-down tile from the centre of the table and placing it to continue the landscape of the already-placed tiles on the table. This is the one key rule in Carcassonne. Roads must continue roads, castles must continue castles; you cannot cut off a feature. Then comes the key decision, do you place a meeple on one of the available features on that tile, that feature being anything from a road to a monastery? Or do you keep hold of your meeples and await another placement opportunity that may yield more points?</p><p>This dilemma is had by all who play Carcassonne and it is what makes this game so fiendishly fun. While the artwork and the general theme may be quaint and friendly, it is you, the player, who can turn that image around and become rather militant in your tile placing antics!</p><p>You may see that a player is about to complete a castle feature and score a respectable eight points. However, you see an opportunity to steal said feature and end up placing tiles away from the feature, joining it up and stealing it from right under their noses, as you will have placed more meeples on that feature than them! This is just one of the many strategies one can employ while playing Carcassonne and it is something that sets this game apart.</p><p>With its simple yet rich game mechanics and eighty-four tiles that can be configured into numerous combinations, Carcassonne appeals to beginners and veteran gamers alike. This edition is entirely redesigned and modernised and includes two expansions: The River and The Abbot. This easy-to-play, fast-paced, family-friendly game encompasses everything good about board gaming and will give you an experience you will cherish for many games to come!</p>",
+            "release_year": 2000,
+            "playtime": 45,
+            "min_players": 2,
+            "max_players": 5,
+            "genres": [
+                5,
+                9,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 2,
+        "fields": {
+            "title": "Catan",
+            "slug": "catan",
+            "image": "boardgames/catan_csehfPW.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Welcome to the unexplored island of Catan!</p><p>As you and your fellow explorers gaze across the uninhabited landscape of hexagonal tracts of terrain, you quickly realize that this unique land arrangement provides ample space for each of you to put down roots.</p><p>You race off to establish your respective communities by gathering resources from nearby terrain, building your infrastructure, and nurturing trade relationships.</p><p>Watch out for surprises! Your rivals can block your path or send the robber to plunder your wealth!</p>",
+            "release_year": 1995,
+            "playtime": 90,
+            "min_players": 3,
+            "max_players": 4,
+            "genres": [
+                5,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 3,
+        "fields": {
+            "title": "Dungeon Mayhem",
+            "slug": "dungeon-mayhem",
+            "image": "boardgames/dungeon-mayhem_Wl8u3yY.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>In Dungeon Mayhem: Monster Madness, you play as one of six epic D&amp;D monsters, each with their own way to charm, crush, disintegrate, and devour their foes.</p><p>Store all your Dungeon Mayhem cards in this monster-sized box, then select your favorite character and pit it against any other deck in the game line. Plus, you can enjoy bringing more adventurers into the fold with new rules to allow for mayhem with up to six players at once!</p>",
+            "release_year": 2020,
+            "playtime": 10,
+            "min_players": 2,
+            "max_players": 6,
+            "genres": [
+                16,
+                17,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 4,
+        "fields": {
+            "title": "Flash Point",
+            "slug": "flash-point",
+            "image": "boardgames/flash-point_dzZJbGu.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p style=\"text-align: left;\">The call comes in... \"911, what is your emergency?\" On the other end is a panicked response of \"FIRE!\" Moments later you don the protective suits that will keep you alive, gather your equipment and rush to the scene of a blazing inferno. The team has only seconds to assess the situation and devise a plan of attack – then you spring into action like the trained professionals that you are. You must face your fears, never give up, and above all else work as a team because the fire is raging, the building is threatening to collapse, and lives are in danger.</p><p style=\"text-align: left;\">You must succeed. You are the brave men and women of fire rescue; people are depending on you. This is what you do every day.</p><p style=\"text-align: left;\">Flash Point: Fire Rescue is a cooperative game of fire rescue.</p><p style=\"text-align: left;\">There are two versions of game play in Flash Point, a basic game and expert game.</p><p style=\"text-align: left;\">In both variants, players are attempting to rescue 7 of 10 victims from a raging building fire.</p><p style=\"text-align: left;\">As the players attempt to rescue the victims, the fire spreads to other parts of the building, causing structural damage and possibly blocking off pathways through the building. Each turn a player may spend action points to try to extinguish fires, move through the building, move victims out of the building or perform various special actions such as moving emergency vehicles. If 4 victims perish in the blaze or the building collapses from taking too much structural damage, the players lose. Otherwise, the players win instantly when they rescue a 7th victim.</p><p style=\"text-align: left;\">The expert variant included in the game adds thematic elements such as flash over, combustible materials, random setup, and variations on game difficulty from novice to heroic. The game includes a double sided board with two different building plans and several expansion maps are available.</p>",
+            "release_year": 2011,
+            "playtime": 45,
+            "min_players": 2,
+            "max_players": 6,
+            "genres": [
+                3,
+                5,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 5,
+        "fields": {
+            "title": "Gloomhaven",
+            "slug": "gloomhaven",
+            "image": "boardgames/gloomhaven_WViYv6D.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Gloomhaven: Second Edition is a revised and elevated version of the core game of Gloomhaven. This is the culmination of everything we have learned since the initial release of Gloomhaven, including feedback from the community, playtesters, co-designers, and developers.</p><p>The world, story, and challenging gameplay are all still the same, but there is a plethora of additional content to explore. Even for those who have played Gloomhaven before, this edition brings new material to the table, with rebalanced and redesigned mercenary classes, items, and scenarios, as well as brand new artwork, newly written narrative and events, updated miniatures, a new faction-based reputation system, and more.</p>",
+            "release_year": 2025,
+            "playtime": 120,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                1,
+                3,
+                12,
+                20
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 6,
+        "fields": {
+            "title": "Hero Quest",
+            "slug": "hero-quest",
+            "image": "boardgames/hero-quest_G7vh3n4.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Heroes work together to complete epic quests, find treasures and defeat the forces of evil. This semi-cooperative board game has one player taking on the role of Zargon, the Game Master, while 4 mythical heroes--Barbarian, Dwarf, Elf, and Wizard--team up in their quest for adventure in a maze of monsters and eerie dark dungeons. Players can immerse themselves in the fantasy with the stunning artwork, and 65+ detailed miniatures. The game comes with 14 quests, and has limitless replayability because players can also build their own quests and create their own stories. Gather friends together for an exciting night of tabletop gameplay in an epic battle of good and evil.</p>",
+            "release_year": 1989,
+            "playtime": 90,
+            "min_players": 2,
+            "max_players": 5,
+            "genres": [
+                1,
+                2,
+                3,
+                5
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 7,
+        "fields": {
+            "title": "One Deck Dungeon",
+            "slug": "one-deck-dungeon",
+            "image": "boardgames/one-deck-dungeon_wzQHU1i.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>One Deck Dungeon is a card game \"roguelike\" — a dungeon delve that is different every time, difficult to survive, with a character you build up from scratch. The deck consists of various foes to combat and other perils from the dungeon. Each card depicts both the obstacle to overcome and the potential rewards for doing so. When you defeat a card, you claim it as either experience, an item, or a skill, tucking it under the appropriate side of your character card to show its benefits. The longer you take exploring the dungeon, the deeper you'll delve, and the difficulty will scale up quickly! If you make it far enough, you'll have to fight the dungeon boss. Survive, and you'll be a legend!</p><p>One Deck Dungeon: Forest of Shadows is a standalone expansion for One Deck Dungeon that contains new heroes, new dungeons, new perils, new foes, and new mechanisms: Poison and event Perils! It can be combined with the original game for a hybrid dungeon experience, with the heroes and dungeons being compatible with the original, or played on its own.</p>",
+            "release_year": 2017,
+            "playtime": 45,
+            "min_players": 1,
+            "max_players": 2,
+            "genres": [
+                1,
+                2,
+                3,
+                16
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 8,
+        "fields": {
+            "title": "Pandemic",
+            "slug": "pandemic",
+            "image": "boardgames/pandemic_jJ3s9yI.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>From designer Matt Leacock, Pandemic is a cooperative game of teamwork for two to four players. As members of an elite disease control team, you must keep four deadly diseases at bay. Work together as you travel the globe to treat infections while collecting the cards you need to discover a cure for each disease. But the clock is ticking as outbreaks and epidemics fuel the spreading plagues. As a cooperative game, players win or lose together. Only by working together can you keep the outbreaks in check and find the cures in time!</p>",
+            "release_year": 2008,
+            "playtime": 45,
+            "min_players": 2,
+            "max_players": 4,
+            "genres": [
+                3,
+                5,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 9,
+        "fields": {
+            "title": "Robin Crusoe",
+            "slug": "robin-crusoe",
+            "image": "boardgames/robinson-crusoe_znXxypH.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Robinson Crusoe: Adventures on the Cursed Island is a game created by Ignacy Trzewiczek, the author of Stronghold. This time Trzewiczek takes the players to a deserted island, where they'll play the parts of shipwreck survivors confronted by an extraordinary adventure. They'll be faced with the challenges of building a shelter, finding food, fighting wild beasts, and protecting themselves from weather changes. Building walls around their homes, animal domestication, constructing weapons and tools from what they find and much more awaits them on the island. The players decide in which direction the game will unfold and – after several in-game weeks of hard work – how their settlement will look. Will they manage to discover the secret of the island in the meantime? Will they find a pirate treasure, or an abandoned village? Will they discover an underground city or a cursed temple at the bottom of a volcano? Answers to these questions lie in hundreds of event cards and hundreds of object and structure cards that can be used during the game...</p>",
+            "release_year": 2012,
+            "playtime": 120,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                3,
+                5,
+                18
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 10,
+        "fields": {
+            "title": "Tiny Epic Dungeons",
+            "slug": "tiny-epic-dungeons",
+            "image": "boardgames/tiny-epic-dungeons_0aU4DWo.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>Tiny Epic Dungeons is a fully co-operative dungeon crawler for 1 to 4 players set in the fantasy world of Aughmoore.</p><p>In Tiny Epic Dungeons, players control a band of Heroes exploring a treacherous dungeon in search of the fearsome Dungeon Boss. Heroes make their way through the dungeon one room at a time. Around every corner goblins and ferocious minions seek to block the Heroes’ path. Where there isn’t an enemy, traps are set, ready to spring on even the most prepared Hero.</p><p>Tiny Epic Dungeons features a modular dungeon that is unique with each play.</p><p>The game is played over two acts: The Dungeon, and the Dungeon Boss. In both acts, the players are constantly struggling against the waning firelight of their torch which decreases each turn. When the torch goes out, the Heroes are forever lost in the darkness.</p><p>After clearing the dungeon of all its' minions and finding the entrance to the lair, players must engage in an epic battle against the Boss. Each boss has unique abilities and a lair with a unique environment that gives various advantages and disadvantages depending on the skill used and where the Hero attacks from.</p><p>These Epic Monsters cannot be slain by mere swords, axes, arrows, and the occasional spell. Ritual Rooms around the dungeon must be used to lower their magical bond to the dungeon. The Dungeon boss must be lured to these rooms to lower their defenses and allow the Heroes to strike the final blow!</p><p>Victory in Tiny Epic Dungeons is achieved by defeating the Dungeon Boss! In order to do that, the Heroes will need to collect legendary loot, and supreme spells</p><p>Heroes of old crafted loot to honor the ways of their clans. Bear, Lion, Phoenix, and Panther. Heroes can discover pieces from these ancient sets that grow more powerful the more you collect.</p><p>Will you be the greatest warrior the Bear clan has ever seen? Or will you make the Panther clan proud by stalking your prey and striking with surprising force, unseen before the moment of impact?</p><p>The story is yours to tell in Tiny Epic Dungeons!</p>",
+            "release_year": 2021,
+            "playtime": 60,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                1,
+                3,
+                5,
+                16
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 11,
+        "fields": {
+            "title": "Tiny Epic Zombies",
+            "slug": "tiny-epic-zombies",
+            "image": "boardgames/tiny-epic-zombies_chCmnYD.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>5 play modes including competitive and cooperative play.</p><ul><li>Cooperative team-play with game controlled Zombies.</li><li>Cooperative team-play with Zombies controlled by a non-team player.</li><li>Competitive free-for-all with game controlled Zombies.</li><li>Competitive free-for-all with Zombies controlled by a player.</li><li>Solo.</li></ul><p><br></p><p>THEME: Modern day Zombie outbreak at the Echo Ridge Mall.</p><p>HOOK: Fast paced, portable, and tons of replayability. Play as the survivors or the Zombies. Plus ITEMeeples!</p><p>WIN: Survivors must complete 3 objectives - Zombies must kill all the Survivors or gain control of the Mall's Courtyard.</p><p>OVERVIEW: In Tiny Epic Zombies, survivors are always on the run, collecting weapons, killing Zombies and working toward completing objectives. Completing 3 objectives can win you the game but if you're too focused on the objectives, the Zombies will overrun the mall and that will be the end of you.</p><p>Based on the mode of play, you will either play as one of the Survivors or as the Zombies.</p><p>As a Survivor, your turn will consist of moving 3 times. Then based on where you move, you'll be able to do additional things. For instance, if you move into a room with a Zombie, you'll have to fight it by rolling the Zombie die. Or if you move into a room adjacent to a Zombie, you can spend ammo to shoot it. Killing a Zombie is actually pretty easy... but they just keep coming. Keeping them from overrunning the entire mall, while trying to accomplish your objectives, that is hard!</p><p>After you've taken your 3 moves, you'll search the room. This is done by revealing the Search Card you are holding. Most of the time, you find something useful, like awesome items you can later pickup and equip to your ITEMeeples. Sometimes though, you may find a Zombie lurking in the corner. So be prepared.</p><p>After you search the room, more Zombies flood into the Mall. Then it's the next player's turn. Simple as that.</p><p>Note: If your ammo and wound tokens ever meet, you're dead meat! So, keep your wounds low and your ammo high.</p><p>If you die, that character will turn into a Zombie and you'll have to draw a new character to play. If that happens too many times, you lose the game.</p><p>As a Zombie player, not only will you control unique Zombies with special abilities, you will control ALL the Zombies! With your help, the Zombies will have a brain in addition to eating brains. Your game will be to overwhelm the players with clever placement and movement of the Zombies. Smother them with your Zombie horde and prevent them from completing their objectives. If you kill enough players or overrun the mall courtyard, you win.</p>",
+            "release_year": 2018,
+            "playtime": 45,
+            "min_players": 1,
+            "max_players": 5,
+            "genres": [
+                3,
+                5,
+                16
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 12,
+        "fields": {
+            "title": "Zombiecide",
+            "slug": "zombiecide",
+            "image": "boardgames/zombicide_lUhgz9M.webp",
+            "author": 1,
+            "created_on": "2026-04-14",
+            "description": "<p>The zombies came from nowhere and destroyed the world we used to know. A few brave, ordinary people united and took up arms against the infected horde. These survivors roam the city, looking for supplies, payback, and fun at the zombies’ expense.</p><p>You are survivors. The past is gone. Choose your fate! Now is the time for challenge, danger, freedom, and friendship.</p><p>Now is the time for…</p><p>Zombicide!</p><p>Play as a team against a zombie invasion, in a world inspired by action and horror movies! Zombies are controlled by the game itself, using simple rules and a deck of cards. Find weapons, kill zombies, and build your survivor’s adrenaline to unlock their true potential. The more zombie you kill, the more of them are coming!</p><p>Zombicide: 2nd Edition contains updated, streamlined rules and materials from the classic Zombicide sets. Choose between 12 survivors (6 adults, 6 kids) to build your dream team, going fast and loud through the 25 missions made using the modular map tiles.</p>",
+            "release_year": 2012,
+            "playtime": 60,
+            "min_players": 1,
+            "max_players": 6,
+            "genres": [
+                3,
+                5,
+                18,
+                20
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 13,
+        "fields": {
+            "title": "MicroMacro",
+            "slug": "micromacro",
+            "image": "boardgames/micromacro.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>There's been a murder in Crime City! Use the clues given to you and piece together what happened. Was it a poisoned hot dog? A stolen bag? It's up to you to track the crime from end to... start?</p><p>MicroMacro: Crime City is a hugely successful deduction game where you're given a map and a series of clues. The map contains 15+ cases to complete, all hidden and trailing around the city. MicroMacro: Crime City - Full House is more of the same, but with a brand new district of the city! The game works as both an expansion to the original, and as a separate experience.</p><p>Starting each case, you're given something on the map to find, Where's Wally style. This is your entry point. From here, you can read the rest of the cards to get clues, or piece together the entire case on your own! From a murder in a back alley, can you find the culprit's house, as well as the murder weapon and the stashed loot? Almost every character in the map has a story, not just the criminals too! Is someone meeting up with some friends to play MicroMacro in the city, I wonder?</p><p>Something that was super useful from the creators of MicroMacro: Crime City - Full House which brings something new and awesome from the original, are the symbols added to each case. These symbols allow parents to decide what cases are suitable for the kids, and what is not.</p>",
+            "release_year": 2021,
+            "playtime": 45,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                15,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 14,
+        "fields": {
+            "title": "One Night Werewolf",
+            "slug": "one-night-ultimate-werewolf",
+            "image": "boardgames/one-night-ultimate-werewolf.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>No moderator, no elimination, ten-minute games.</p><p>One Night Ultimate Werewolf is a fast game for 3-10 players in which everyone gets a role: One of the dastardly Werewolves, the tricky Troublemaker, the helpful Seer, or one of a dozen different characters, each with a special ability. In the course of a single morning, your village will decide who is a werewolf...because all it takes is lynching one werewolf to win!</p><p>Because One Night Ultimate Werewolf is so fast, fun, and engaging, you'll want to play it again and again, and no two games are ever the same.</p>",
+            "release_year": 2014,
+            "playtime": 10,
+            "min_players": 3,
+            "max_players": 10,
+            "genres": [
+                10,
+                12
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 15,
+        "fields": {
+            "title": "Wingspan",
+            "slug": "wingspan",
+            "image": "boardgames/wingspan.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Wingspan is a competitive, medium-weight, card-driven, engine-building board game from Stonemaier Games. It's designed by Elizabeth Hargrave and features 180 birds illustrated by Natalia Rojas and Ana Maria Martinez.</p><p>You are bird enthusiasts—researchers, bird watchers, ornithologists, and collectors—seeking to discover and attract the best birds to your network of wildlife preserves. Each bird extends a chain of powerful combinations in one of your habitats (actions). These habitats focus on several key aspects of growth:</p><ul><li>Gain food tokens via custom dice in a birdfeeder dice tower</li><li>Lay eggs using egg miniatures in a variety of colours</li><li>Draw from hundreds of unique bird cards and play them</li></ul>",
+            "release_year": 2019,
+            "playtime": 70,
+            "min_players": 1,
+            "max_players": 5,
+            "genres": [
+                7,
+                11,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 16,
+        "fields": {
+            "title": "Exploding Kittens",
+            "slug": "exploding-kittens",
+            "image": "boardgames/exploding-kittens.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Exploding Kittens is a kitty-powered version of Russian Roulette. Players take turns drawing cards until someone draws an exploding kitten and loses the game. The deck is made up of cards that let you avoid exploding by peeking at cards before you draw, forcing your opponent to draw multiple cards, or shuffling the deck.</p><p>The game gets more and more intense with each card you draw because fewer cards left in the deck means a greater chance of drawing the kitten and exploding in a fiery ball of feline hyperbole.</p>",
+            "release_year": 2015,
+            "playtime": 15,
+            "min_players": 2,
+            "max_players": 5,
+            "genres": [
+                12,
+                17,
+                21
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 17,
+        "fields": {
+            "title": "Azul",
+            "slug": "azul",
+            "image": "boardgames/azul.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Introduced by the Moors, azulejos (originally white and blue ceramic tiles) were fully embraced by the Portuguese when their king Manuel I, on a visit to the Alhambra palace in Southern Spain, was mesmerized by the stunning beauty of the Moorish decorative tiles. The king, awestruck by the interior beauty of the Alhambra, immediately ordered that his own palace in Portugal be decorated with similar wall tiles. As a tile-laying artist, you have been challenged to embellish the walls of the Royal Palace of Evora.</p><p>In the game Azul, players take turns drafting colored tiles from suppliers to their player board. Later in the round, players score points based on how they've placed their tiles to decorate the palace. Extra points are scored for specific patterns and completing sets; wasted supplies harm the player's score. The player with the most points at the end of the game wins.</p>",
+            "release_year": 2017,
+            "playtime": 45,
+            "min_players": 2,
+            "max_players": 4,
+            "genres": [
+                9,
+                11
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 18,
+        "fields": {
+            "title": "Tiny Epic Tactics",
+            "slug": "tiny-epic-tactics",
+            "image": "boardgames/tiny-epic-tactics.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Tiny Epic Tactics utilises a simple combat system with variable player powers and 3-D terrain to achieve endless layers of strategy and fun.</p><p>Tiny Epic Tactics offers competitive play, cooperative play and solo play!</p><p>Conquer your opponents in tactical combat where every calculated move matters... or journey across the land and through the caves in a grand cooperative/solo adventure!</p><p>Nesting inside the game box are 5 smaller boxes and a map/scroll. Players will set up the game by placing these 5 boxes, plus the box bottom, onto the scroll in designated areas. This creates the environment that players will explore and battle across.</p><p>In Tiny Epic Tactics, players will have a team of four unique heroes: a Fighter, a Wizard, a Rogue and a Beast. Each hero type, and each character within that type, offers unique advantages to movement, attacks, and/or support. Finding the synergy in your team is key to victory.</p><p>In competitive play, players will pit their teams against one another in effort to score the most victory points by the end of the game. Each turn, players will have three actions to assign across their team. They can move and/or attack with their heroes. Victory points are rewarded for area control, enemy heroes captured, and keeping your own heroes alive. Gaining complete control of one, or multiple, specific areas offers the most victory points in competitive play. Gaining control of said areas requires your heroes maintaining majority presence in these areas over the course of a few turns. This requires a careful balance of offense and defense. The control of these areas can easily shift from one player to another based on which player has the majority heroes present in the designated spaces. Once a set number of areas are captured, or one of the players has lost all of their heroes, the end game is triggered.</p><p>Tiny Epic Tactics offers a distinctly different experience for solo and cooperative play. In these modes, players will adventure across the map, fighting spawning enemies and exploring caves (printed on the interior of each of the boxes). The goal is to acquire treasures, that belongs to the enemy, from these caves while keeping your heroes alive. Once the end of the game is triggered, victory points are tallied based on how many treasures you took from the enemy and how many of your heroes you kept alive.</p>",
+            "release_year": 2019,
+            "playtime": 60,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                5,
+                13
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 19,
+        "fields": {
+            "title": "Brass Birmingham",
+            "slug": "brass-birmingham",
+            "image": "boardgames/brass-birmingham.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Brass: Birmingham is an economic strategy game sequel to Martin Wallace's 2007 masterpiece, Brass. Brass: Birmingham tells the story of competing entrepreneurs in Birmingham during the industrial revolution between the years of 1770 and 1870.</p><p>It offers a very different story arc and experience from its predecessor. As in its predecessor, you must develop, build and establish your industries and network in an effort to exploit low or high market demands. The game is played over two halves: the canal era (years 1770-1830) and the rail era (years 1830-1870). To win the game, score the most VPs. VPs are counted at the end of each half for the canals, rails and established (flipped) industry tiles.</p><p>Each round, players take turns according to the turn order track, receiving two actions to perform any of the following actions (found in the original game):</p><p>1) Build - Pay required resources and place an industry tile.</p><p>2) Network - Add a rail / canal link, expanding your network.</p><p>3) Develop - Increase the VP value of an industry.</p><p>4) Sell - Sell your cotton, manufactured goods and pottery.</p><p>5) Loan - Take a £30 loan and reduce your income.</p><p><br></p><p>Brass: Birmingham also features a new sixth action:</p><p>6) Scout - Discard three cards and take a wild location and wild industry card. (This action replaces Double Action Build in original Brass.)</p>",
+            "release_year": 2018,
+            "playtime": 120,
+            "min_players": 2,
+            "max_players": 4,
+            "genres": [
+                5,
+                9
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 20,
+        "fields": {
+            "title": "Ark Nova",
+            "slug": "ark-nova",
+            "image": "boardgames/ark-nova.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>In Ark Nova, you will plan and design a modern, scientifically managed zoo. With the ultimate goal of owning the most successful zoological establishment, you will build enclosures, accommodate animals, and support conservation projects all over the world. Specialists and unique buildings will help you in achieving this goal.</p><p>Each player has a set of five action cards to manage their gameplay, and the power of an action is determined by the slot the card currently occupies. The cards in question are:</p><p>CARDS: Allows you to gain new zoo cards (animals, sponsors, and conservation project cards).</p><p>BUILD: Allows you to build standard or special enclosures, kiosks, and pavilions.</p><p>ANIMALS: Allows you to accommodate animals in your zoo.</p><p>ASSOCIATION: Allows your association workers to carry out different tasks.</p><p>SPONSORS: Allows you to play a sponsor card in your zoo or to raise money.</p><p>255 cards featuring animals, specialists, special enclosures, and conservation projects, each with a special ability, are at the heart of Ark Nova. Use them to increase the appeal and scientific reputation of your zoo and collect conservation points.</p>",
+            "release_year": 2021,
+            "playtime": 150,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                5,
+                7,
+                9
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 21,
+        "fields": {
+            "title": "Terraforming Mars",
+            "slug": "terraforming-mars",
+            "image": "boardgames/terraforming-mars.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>In the 2400s, mankind begins to terraform the planet Mars. Giant corporations, sponsored by the World Government on Earth, initiate huge projects to raise the temperature, the oxygen level, and the ocean coverage until the environment is habitable. In Terraforming Mars, you play one of those corporations and work together in the terraforming process, but compete for getting victory points that are awarded not only for your contribution to the terraforming, but also for advancing human infrastructure throughout the solar system, and doing other commendable things.</p><p>As a player, you acquire unique project cards (from over two hundred different ones) by buying them to your hand. The cards can give you immediate bonuses, as well as increasing your production of different resources. Many cards also have requirements and they become playable when the temperature, oxygen, or ocean coverage increases enough. Buying cards is costly, so there is a balance between buying cards and actually playing them. Standard Projects are always available to complement your hand of cards. Your basic income, as well as your basic score, are based on your Terraform Rating. However, your income is boosted by your production, and VPs are also gained from many other sources.</p><p>You keep track of your production and resources on your player board. The game uses six types of resources: MegaCredits, Steel, Titanium, Plants, Energy, and Heat. On the game board, you compete for the best places for your city tiles, ocean tiles, and greenery tiles. You also compete for different Milestones and Awards worth many VPs. Each round is called a generation and consists of the following phases:</p><p>1) Player order shifts clockwise.</p><p>2) Research phase: All players buy cards from four privately drawn.</p><p>3) Action phase: Players take turns doing 1-2 actions from these options: Playing a card, claiming a Milestone, funding an Award, using a Standard project, converting plant into greenery tiles (and raising oxygen), converting heat into a temperature raise, and using the action of a card in play. The turn continues around the table (sometimes several laps) until all players have passed.</p><p>4) Production phase: Players get resources according to their terraform rating and production parameters.</p><p>When the three global parameters (temperature, oxygen, ocean) have all reached their required levels, the terraforming is complete, and the game ends after that generation. Combine your Terraform Rating and other VPs to determine the winning corporation!</p>",
+            "release_year": 2016,
+            "playtime": 120,
+            "min_players": 1,
+            "max_players": 5,
+            "genres": [
+                5,
+                7,
+                9
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 22,
+        "fields": {
+            "title": "The Fox Experiment",
+            "slug": "the-fox-experiment",
+            "image": "boardgames/the-fox-experiment.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>In 1958, Demitri Belyaev and Lyudmila Trut started an experiment on domestication. From a large group of foxes, they selected the ones that reacted to humans with more curiosity and less aggression. In each generation, they selected only the friendliest pups to become parents — hoping to recreate the process that originally led to domestication thousands of years ago. The experiment made stunning progress. Even though the foxes were chosen only for their friendliness, they soon started to get many of the physical traits that we associate with domesticated animals — like spots, floppy ears, and curly tails. As communication opened up, the foxes made major contributions to our understanding of how these traits are expressed. The experiment continues to this day.</p><p>In The Fox Experiment, you’ll breed your own domesticated foxes. In each round you'll select a pair of fox parents who have certain traits. You'll gain those specific trait dice, roll them, then try to move them around to make complete trait symbols which you'll then mark off on your pup card. You'll then gain trait tokens depending on how many traits you marked off which you'll use to upgrade tracks on your personal player board.</p><p>At the end of the round, the previous generation of foxes will be cleared and all of the new pups will be moved to the kennel — thus becoming candidates to be chosen as parents in the next round. The game ends after 5 rounds and you'll gain points for pleasing patrons (end of game scoring bonuses), studies completed (personal player objectives), if you ever won the friendliest fox award, upgrades on your personal player board, and extra tokens. The player with the most points wins!</p>",
+            "release_year": 2023,
+            "playtime": 60,
+            "min_players": 1,
+            "max_players": 4,
+            "genres": [
+                11,
+                19
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 23,
+        "fields": {
+            "title": "Lords of Waterdeep",
+            "slug": "lords-of-waterdeep",
+            "image": "boardgames/lords-of-waterdeep.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Waterdeep, the City of Splendors – the most resplendent jewel in the Forgotten Realms, and a den of political intrigue and shady back-alley dealings.</p><p>In Lords of Waterdeep, a strategy board game for 2-5 players, you take on the role of one of the masked Lords of Waterdeep, secret rulers of the city. Through your agents, you recruit adventurers to go on quests on your behalf, earning rewards and increasing your influence over the city. Expand the city by purchasing new buildings that open up new actions on the board, and hinder – or help – the other lords by playing intrigue cards to enact your carefully laid plans.</p><p>During the course of play, you may gain points or resources by completing quests, constructing buildings, playing intrigue cards, or having other players use the buildings you have constructed. After eight rounds, the player with the most points wins.</p>",
+            "release_year": 2012,
+            "playtime": 120,
+            "min_players": 2,
+            "max_players": 5,
+            "genres": [
+                6,
+                11
+            ]
+        }
+    },
+    {
+        "model": "home.boardgame",
+        "pk": 24,
+        "fields": {
+            "title": "Through the Ages",
+            "slug": "through-the-ages",
+            "image": "boardgames/through-the-ages.webp",
+            "author": 1,
+            "created_on": "2026-04-28",
+            "description": "<p>Through the Ages: A New Story of Civilization is the new edition of Through the Ages: A Story of Civilization, with many changes small and large to the game's cards over its three ages and extensive changes to how military works.</p><p>Through the Ages (TTA) is a civilization building game. Each player attempts to build the best civilization through careful resource management, and by: discovering new technologies, electing competent leaders, building wonders and maintaining a strong military. Weakness in any area can be exploited by your opponents. The game takes place throughout the ages, beginning in the age of antiquity and ending in the modern age.</p><p>One of the primary mechanisms in TTA is card drafting. Technologies, wonders, and leaders come into play and become easier to draft the longer they are in play. In order to use a technology you will need enough science to discover it, enough food to create a population to man it and enough resources (ore) to build the building to use it. While balancing the resources needed to advance your technology you also need to build a military. Military is 'built' in the same manner as civilian buildings. Players that have a weak military will be preyed upon by other players. There is no map in the game so you cannot lose territory, but players with a stronger military will steal resources, science, kill leaders, take population or culture. It is very difficult to win with a strong military, but it is very easy to lose because of a weak one.</p><p>Victory is achieved by the player whose nation has the most culture at the end of the modern age.</p>",
+            "release_year": 2015,
+            "playtime": 120,
+            "min_players": 2,
+            "max_players": 4,
+            "genres": [
+                5,
+                11,
+                13
+            ]
+        }
+    }
+]
