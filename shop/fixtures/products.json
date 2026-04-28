@@ -1,0 +1,347 @@
+[
+{
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+        "category": 4,
+        "sku": null,
+        "name": "GG Hoody Grey",
+        "description": "<p>Elevate your tabletop style with the official Gamers Guild Essential Hoodie. Designed for long dungeon crawls and late-night sessions, this premium mid-weight hoodie balances superior comfort with a clean, professional aesthetic.</p><p><br></p><p>Product Highlights</p><p>Premium Fabric: Crafted from a high-quality cotton-poly blend with a brushed fleece interior for ultimate softness and warmth.</p><p>Tailored Fit: A modern, unisex silhouette that offers a comfortable range of motion without being overly baggy.</p><p>Signature Branding: Features the iconic \"GAMERS GUILD\" logo in high-density gold embroidery/print, ensuring long-lasting durability and a premium feel.</p><p>Functional Design: Includes a double-lined hood with color-matched drawstrings and a spacious kangaroo front pocket.</p><p>Level up your wardrobe. Whether you’re at the table or on the go, represent the Guild with pride.</p>",
+        "price": "29.99",
+        "rating": null,
+        "image": "products/hoody-grey_H7v03wY.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+        "category": 4,
+        "sku": null,
+        "name": "GG Hoody Black",
+        "description": "<p>Elevate your tabletop style with the official Gamers Guild Essential Hoodie. Designed for long dungeon crawls and late-night sessions, this premium mid-weight hoodie balances superior comfort with a clean, professional aesthetic.</p><p>Product Highlights</p><p>Premium Fabric: Crafted from a high-quality cotton-poly blend with a brushed fleece interior for ultimate softness and warmth.</p><p>Tailored Fit: A modern, unisex silhouette that offers a comfortable range of motion without being overly baggy.</p><p>Signature Branding: Features the iconic \"GAMERS GUILD\" logo in high-density gold embroidery/print, ensuring long-lasting durability and a premium feel.</p><p>Functional Design: Includes a double-lined hood with color-matched drawstrings and a spacious kangaroo front pocket.</p><p>Level up your wardrobe. Whether you’re at the table or on the go, represent the Guild with pride.</p>",
+        "price": "29.99",
+        "rating": null,
+        "image": "products/hoody-black_KLb9cdP.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+        "category": 4,
+        "sku": null,
+        "name": "GG Hoody Blue",
+        "description": "<p>Elevate your tabletop style with the official Gamers Guild Essential Hoodie. Designed for long dungeon crawls and late-night sessions, this premium mid-weight hoodie balances superior comfort with a clean, professional aesthetic.</p><p>Product Highlights</p><p>Premium Fabric: Crafted from a high-quality cotton-poly blend with a brushed fleece interior for ultimate softness and warmth.</p><p>Tailored Fit: A modern, unisex silhouette that offers a comfortable range of motion without being overly baggy.</p><p>Signature Branding: Features the iconic \"GAMERS GUILD\" logo in high-density gold embroidery/print, ensuring long-lasting durability and a premium feel.</p><p>Functional Design: Includes a double-lined hood with color-matched drawstrings and a spacious kangaroo front pocket.</p><p>Level up your wardrobe. Whether you’re at the table or on the go, represent the Guild with pride.</p>",
+        "price": "29.99",
+        "rating": null,
+        "image": "products/hoody-blue_VjRzTFQ.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+        "category": 4,
+        "sku": null,
+        "name": "GG Hoody Red",
+        "description": "<p>Elevate your tabletop style with the official Gamers Guild Essential Hoodie. Designed for long dungeon crawls and late-night sessions, this premium mid-weight hoodie balances superior comfort with a clean, professional aesthetic.</p><p>Product Highlights</p><p>Premium Fabric: Crafted from a high-quality cotton-poly blend with a brushed fleece interior for ultimate softness and warmth.</p><p>Tailored Fit: A modern, unisex silhouette that offers a comfortable range of motion without being overly baggy.</p><p>Signature Branding: Features the iconic \"GAMERS GUILD\" logo in high-density gold embroidery/print, ensuring long-lasting durability and a premium feel.</p><p>Functional Design: Includes a double-lined hood with color-matched drawstrings and a spacious kangaroo front pocket.</p><p>Level up your wardrobe. Whether you’re at the table or on the go, represent the Guild with pride.</p>",
+        "price": "29.99",
+        "rating": null,
+        "image": "products/hoody-red_zwz1NZe.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+        "category": 4,
+        "sku": null,
+        "name": "GG Hoody Green",
+        "description": "<p>Elevate your tabletop style with the official Gamers Guild Essential Hoodie. Designed for long dungeon crawls and late-night sessions, this premium mid-weight hoodie balances superior comfort with a clean, professional aesthetic.</p><p>Product Highlights</p><p>Premium Fabric: Crafted from a high-quality cotton-poly blend with a brushed fleece interior for ultimate softness and warmth.</p><p>Tailored Fit: A modern, unisex silhouette that offers a comfortable range of motion without being overly baggy.</p><p>Signature Branding: Features the iconic \"GAMERS GUILD\" logo in high-density gold embroidery/print, ensuring long-lasting durability and a premium feel.</p><p>Functional Design: Includes a double-lined hood with color-matched drawstrings and a spacious kangaroo front pocket.</p><p>Level up your wardrobe. Whether you’re at the table or on the go, represent the Guild with pride.</p>",
+        "price": "29.99",
+        "rating": null,
+        "image": "products/hoody-green_cUnlmNp.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+        "category": 5,
+        "sku": null,
+        "name": "GG T Shirt Grey",
+        "description": "<p>The foundation of every adventurer’s kit. This premium crewneck t-shirt offers a refined, minimalist look that transitions seamlessly from casual wear to the gaming table. Lightweight yet durable, it’s designed to remain comfortable through even the longest campaigns.</p><p>Product Highlights</p><p>Superior Softness: Made from 100% combed and ring-spun cotton for a smooth, high-end feel against the skin.</p><p>Retail Fit: Features a modern, side-seamed construction that provides a tailored look for all body types.</p><p>Iconic Gold Branding: The \"GAMERS GUILD\" logo is applied using premium, soft-hand metallic gold ink for a bold look without the \"heavy\" feel of traditional screen prints.</p><p>Built to Last: Shoulder-to-shoulder taping and a cover-stitched collar ensure the shirt maintains its shape and structure wash after wash</p>",
+        "price": "14.99",
+        "rating": null,
+        "image": "products/t-shirt-grey_N5N3Q95.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+        "category": 5,
+        "sku": null,
+        "name": "GG T Shirt Blue",
+        "description": "<p>The foundation of every adventurer’s kit. This premium crewneck t-shirt offers a refined, minimalist look that transitions seamlessly from casual wear to the gaming table. Lightweight yet durable, it’s designed to remain comfortable through even the longest campaigns.</p><p>Product Highlights</p><p>Superior Softness: Made from 100% combed and ring-spun cotton for a smooth, high-end feel against the skin.</p><p>Retail Fit: Features a modern, side-seamed construction that provides a tailored look for all body types.</p><p>Iconic Gold Branding: The \"GAMERS GUILD\" logo is applied using premium, soft-hand metallic gold ink for a bold look without the \"heavy\" feel of traditional screen prints.</p><p>Built to Last: Shoulder-to-shoulder taping and a cover-stitched collar ensure the shirt maintains its shape and structure wash after wash</p>",
+        "price": "14.99",
+        "rating": null,
+        "image": "products/t-shirt-blue_npNTBL1.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+        "category": 5,
+        "sku": null,
+        "name": "GG T Shirt Green",
+        "description": "<p>The foundation of every adventurer’s kit. This premium crewneck t-shirt offers a refined, minimalist look that transitions seamlessly from casual wear to the gaming table. Lightweight yet durable, it’s designed to remain comfortable through even the longest campaigns.</p><p>Product Highlights</p><p>Superior Softness: Made from 100% combed and ring-spun cotton for a smooth, high-end feel against the skin.</p><p>Retail Fit: Features a modern, side-seamed construction that provides a tailored look for all body types.</p><p>Iconic Gold Branding: The \"GAMERS GUILD\" logo is applied using premium, soft-hand metallic gold ink for a bold look without the \"heavy\" feel of traditional screen prints.</p><p>Built to Last: Shoulder-to-shoulder taping and a cover-stitched collar ensure the shirt maintains its shape and structure wash after wash</p>",
+        "price": "14.99",
+        "rating": null,
+        "image": "products/t-shirt-green_BFDMk2A.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+        "category": 5,
+        "sku": null,
+        "name": "GG T Shirt Red",
+        "description": "<p>The foundation of every adventurer’s kit. This premium crewneck t-shirt offers a refined, minimalist look that transitions seamlessly from casual wear to the gaming table. Lightweight yet durable, it’s designed to remain comfortable through even the longest campaigns.</p><p>Product Highlights</p><p>Superior Softness: Made from 100% combed and ring-spun cotton for a smooth, high-end feel against the skin.</p><p>Retail Fit: Features a modern, side-seamed construction that provides a tailored look for all body types.</p><p>Iconic Gold Branding: The \"GAMERS GUILD\" logo is applied using premium, soft-hand metallic gold ink for a bold look without the \"heavy\" feel of traditional screen prints.</p><p>Built to Last: Shoulder-to-shoulder taping and a cover-stitched collar ensure the shirt maintains its shape and structure wash after wash</p>",
+        "price": "14.99",
+        "rating": null,
+        "image": "products/t-shirt-red_2tReT01.png",
+        "image_URL": null,
+        "has_sizes": true
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+        "category": 6,
+        "sku": null,
+        "name": "Robinson Crusoe Deluxe Tokens",
+        "description": "<p>Hand-painted Resin Markers. Set contains:&nbsp;</p><p><br></p><p>18 wood markers</p><p>7 fur markers</p><p>12 banana markers</p><p>5 nonperishable food markers</p><p>5 wound markers</p><p>1 camp marker</p><p>1 shelter marker</p>",
+        "price": "19.99",
+        "rating": null,
+        "image": "products/eobinson-crusoe-tokens-1_vKDfNKT.webp",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+        "category": 7,
+        "sku": null,
+        "name": "Robinson Crusoe Playmat",
+        "description": "<p>Neoprene play mat of the Robinson Crusoe game board. Dimensions: at least 113 x 53 cm (44'' x 20''), stitched edges for added durability.</p>",
+        "price": "24.99",
+        "rating": null,
+        "image": "products/robinson-crusoe-playmat_zkTXLRZ.webp",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+        "category": 8,
+        "sku": null,
+        "name": "GG Dice Tray Blue",
+        "description": "<p>Protect your table and your rolls with the Gamers Guild Professional Dice Tray. Engineered for the perfect bounce and noise reduction, this tray combines a rugged aesthetic with high-tier functionality. Its compact, circular design fits easily on crowded gaming tables while providing a dedicated arena for your critical hits.</p><p>Product Highlights</p><p>Precision Rolling Surface: Premium felt lining minimizes dice noise and provides the ideal friction for polyhedral rolls.</p><p>Luxury Exterior: Wrapped in high-grade synthetic leather for a sophisticated look and long-term durability.</p><p>Signature Branding: Centered \"GAMERS GUILD\" logo in a radiant gold-embossed serif font that won't fade or peel with use.</p><p>Structural Integrity: Rigid, reinforced sidewalls prevent \"wild rolls\" from leaving the tray, protecting both your dice and the game state.</p>",
+        "price": "12.99",
+        "rating": null,
+        "image": "products/dice-tray-blue_L4wijQ5.png",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 13,
+    "fields": {
+        "category": 8,
+        "sku": null,
+        "name": "GG Dice Tray Green",
+        "description": "<p>Protect your table and your rolls with the Gamers Guild Professional Dice Tray. Engineered for the perfect bounce and noise reduction, this tray combines a rugged aesthetic with high-tier functionality. Its compact, circular design fits easily on crowded gaming tables while providing a dedicated arena for your critical hits.</p><p>Product Highlights</p><p>Precision Rolling Surface: Premium felt lining minimizes dice noise and provides the ideal friction for polyhedral rolls.</p><p>Luxury Exterior: Wrapped in high-grade synthetic leather for a sophisticated look and long-term durability.</p><p>Signature Branding: Centered \"GAMERS GUILD\" logo in a radiant gold-embossed serif font that won't fade or peel with use.</p><p>Structural Integrity: Rigid, reinforced sidewalls prevent \"wild rolls\" from leaving the tray, protecting both your dice and the game state.</p>",
+        "price": "12.99",
+        "rating": null,
+        "image": "products/dice-tray-green_Oof8tVx.png",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 14,
+    "fields": {
+        "category": 8,
+        "sku": null,
+        "name": "GG Dice Tray Grey",
+        "description": "<p>Protect your table and your rolls with the Gamers Guild Professional Dice Tray. Engineered for the perfect bounce and noise reduction, this tray combines a rugged aesthetic with high-tier functionality. Its compact, circular design fits easily on crowded gaming tables while providing a dedicated arena for your critical hits.</p><p>Product Highlights</p><p>Precision Rolling Surface: Premium felt lining minimizes dice noise and provides the ideal friction for polyhedral rolls.</p><p>Luxury Exterior: Wrapped in high-grade synthetic leather for a sophisticated look and long-term durability.</p><p>Signature Branding: Centered \"GAMERS GUILD\" logo in a radiant gold-embossed serif font that won't fade or peel with use.</p><p>Structural Integrity: Rigid, reinforced sidewalls prevent \"wild rolls\" from leaving the tray, protecting both your dice and the game state.</p>",
+        "price": "12.99",
+        "rating": null,
+        "image": "products/dice-tray-grey_KsLSLSn.png",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 15,
+    "fields": {
+        "category": 8,
+        "sku": null,
+        "name": "GG Dice Tray Purple",
+        "description": "<p>Protect your table and your rolls with the Gamers Guild Professional Dice Tray. Engineered for the perfect bounce and noise reduction, this tray combines a rugged aesthetic with high-tier functionality. Its compact, circular design fits easily on crowded gaming tables while providing a dedicated arena for your critical hits.</p><p>Product Highlights</p><p>Precision Rolling Surface: Premium felt lining minimizes dice noise and provides the ideal friction for polyhedral rolls.</p><p>Luxury Exterior: Wrapped in high-grade synthetic leather for a sophisticated look and long-term durability.</p><p>Signature Branding: Centered \"GAMERS GUILD\" logo in a radiant gold-embossed serif font that won't fade or peel with use.</p><p>Structural Integrity: Rigid, reinforced sidewalls prevent \"wild rolls\" from leaving the tray, protecting both your dice and the game state.</p>",
+        "price": "12.99",
+        "rating": null,
+        "image": "products/dice-tray-purple_18iGEj7.png",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 16,
+    "fields": {
+        "category": 8,
+        "sku": null,
+        "name": "GG Dice Tray Red",
+        "description": "<p>Protect your table and your rolls with the Gamers Guild Professional Dice Tray. Engineered for the perfect bounce and noise reduction, this tray combines a rugged aesthetic with high-tier functionality. Its compact, circular design fits easily on crowded gaming tables while providing a dedicated arena for your critical hits.</p><p>Product Highlights</p><p>Precision Rolling Surface: Premium felt lining minimizes dice noise and provides the ideal friction for polyhedral rolls.</p><p>Luxury Exterior: Wrapped in high-grade synthetic leather for a sophisticated look and long-term durability.</p><p>Signature Branding: Centered \"GAMERS GUILD\" logo in a radiant gold-embossed serif font that won't fade or peel with use.</p><p>Structural Integrity: Rigid, reinforced sidewalls prevent \"wild rolls\" from leaving the tray, protecting both your dice and the game state.</p>",
+        "price": "12.99",
+        "rating": null,
+        "image": "products/dice-tray-red_rWarSaC.png",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 17,
+    "fields": {
+        "category": 9,
+        "sku": null,
+        "name": "Robinson Crusoe Organiser",
+        "description": "<p>Compatible with Robinson Crusoe®, and the Voyage of the Beagle Vol. 1 ® expansion.</p>",
+        "price": "15.49",
+        "rating": null,
+        "image": "products/robinson-crusoe-organiser_CWCXSGM.jpeg",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 18,
+    "fields": {
+        "category": 9,
+        "sku": null,
+        "name": "Gloomhaven Organiser",
+        "description": "<p>Compatible with Gloomhaven®, both Second Edition and First Edition games.</p>",
+        "price": "18.99",
+        "rating": null,
+        "image": "products/gloomhaven-insert_ANSUHMW.jpeg",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 19,
+    "fields": {
+        "category": 10,
+        "sku": null,
+        "name": "D&D Official Dice Set",
+        "description": "<p>When you're adventuring in the world's greatest roleplaying game, having plenty of the right dice at youir side is critical.</p><p>The D&amp;D Official Dice Set has you covered, with this complete set of eleven polyhedral dice!</p>",
+        "price": "6.39",
+        "rating": null,
+        "image": "products/dnd-dice-set_JQNj1M7.jpeg",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 20,
+    "fields": {
+        "category": 11,
+        "sku": null,
+        "name": "Pandemic: On The Brink",
+        "description": "<p>Return to the world of Pandemic with On the Brink and prepare for the unexpected. The three challenges included with this expansion evolve the base game mechanics in exciting ways. </p><p>One disease might become a Virulent Strain and become more difficult to treat as the game goes on. Or you could introduce an unpredictable fifth disease with the Mutation challenge and watch it pop up in unexpected places. </p><p>Finally, teamwork is even more important if a fifth player dons the mask of the Bio-Terrorist and spreads panic while moving secretly across the board. Try each challenge individually or combine them all for a major test!</p>",
+        "price": "21.99",
+        "rating": null,
+        "image": "products/pandemic-on-the-brink-box_FkbqoCV.webp",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 21,
+    "fields": {
+        "category": 11,
+        "sku": null,
+        "name": "Pandemic: In The Lab",
+        "description": "<p>New medical technology has been developed that will help treat the infectious diseases spreading across the globe. </p><p>The In the Lab expansion for Pandemic adds more variety and challenge to your mission of containing deadly disease outbreaks. This time, there’s a whole new way to discover cures and get closer to winning the game. Travel around the board collecting samples of each disease in the field, then use the Lab board to sequence, characterize, and test your cures. </p><p>Add sample cubes to one of the two lab dishes by taking the Treat Disease action. Once enough samples are collected, seal yourself behind bio-hazard doors and send the samples through the centrifuge and separator to place them on sequence cards in the correct order. If you can get a disease characterized and sequenced, you’re ready to find a cure!</p>",
+        "price": "21.99",
+        "rating": null,
+        "image": "products/pandemic-in-the-lab-box_pmmFVpB.webp",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 22,
+    "fields": {
+        "category": 11,
+        "sku": null,
+        "name": "Pandemic: State of Emergency",
+        "description": "<p>Your job of curing deadly diseases is about to get more difficult. State of Emergency, the third expansion for the hit cooperative game Pandemic, introduces three modules that provide unique ways to play and give you greater control over each game’s difficulty. </p><p>Take on one of five new roles as you tackle the Hinterlands Challenge and investigate disease strains that jump from animals to humans. Travel to four locations spread across two new boards as you trace diseases to their source. If you don’t act quickly, they’ll soon spread to nearby cities and become even harder to contain. </p><p>The Superbug Challenge raises the stakes even further by introducing a fifth disease that cannot be treated. Instead, players must collaborate to produce vaccine doses and eradicate the superbug before it’s too late.&nbsp;</p><p>With State of Emergency, you can fine-tune the difficulty of your Pandemic games even further. Take greater control over the diseases, or make things more unpredictable. </p><p>If diseases overwhelm you too often, use quarantine markers to slow down how quickly they spread. Use an action to impose a quarantine on a city and prevent the next two attempts to place disease cubes or perform an outbreak. </p><p>If you want to inject increased difficulty into your games, the Emergency Event Challenge is for you. This peppers the player deck with Emergency Event cards that have nasty, unpredictable effects such as restricting players’ movement or reducing their maximum hand size. Only the most seasoned players can overcome this challenge!</p>",
+        "price": "23.99",
+        "rating": null,
+        "image": "products/pandemic-state-of-emergency-box_jslVl0n.webp",
+        "image_URL": null,
+        "has_sizes": false
+    }
+},
+{
+    "model": "shop.product",
+    "pk": 23,
+    "fields": {
+        "category": 7,
+        "sku": null,
+        "name": "Tiny Epic Dungeons Playmat",
+        "description": "This playmat is the perfect pairing to go alongside your Tiny Epic Dungeons game! Made from neoprene, these mats have a non slip back and are sized 26in x 26in (66cm x 66cm).",
+        "price": "24.99",
+        "rating": null,
+        "image": "products/tiny-epic-dungeons-playmat.jpg",
+        "image_URL": null,
+        "has_sizes": false
+    }
+}
+]

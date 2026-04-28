@@ -1,0 +1,13 @@
+[
+    {"model": "shop.category", "pk": 1, "fields": {"type": "apparel", "readable_type": "Apparel", "parent": null}},
+    {"model": "shop.category", "pk": 2, "fields": {"type": "add_ons", "readable_type": "Add Ons", "parent": null}},
+    {"model": "shop.category", "pk": 3, "fields": {"type": "accessory", "readable_type": "Accessory", "parent": null}},
+    {"model": "shop.category", "pk": 4, "fields": {"type": "hoody", "readable_type": "Hoody", "parent": 1}},
+    {"model": "shop.category", "pk": 5, "fields": {"type": "tshirt", "readable_type": "T Shirts", "parent": 1}},
+    {"model": "shop.category", "pk": 6, "fields": {"type": "tokens", "readable_type": "Tokens", "parent": 2}},
+    {"model": "shop.category", "pk": 7, "fields": {"type": "playmat", "readable_type": "Playmat", "parent": 2}},
+    {"model": "shop.category", "pk": 8, "fields": {"type": "dice_trays", "readable_type": "Dice Trays", "parent": 3}},
+    {"model": "shop.category", "pk": 9, "fields": {"type": "organiser", "readable_type": "Organiser", "parent": 3}},
+    {"model": "shop.category", "pk": 10, "fields": {"type": "dice", "readable_type": "Dice", "parent": 3}},
+    {"model": "shop.category", "pk": 11, "fields": {"type": "expansion", "readable_type": "Expansion", "parent": 2}}
+]
