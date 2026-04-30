@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'crispy_bootstrap5',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-else: 
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -190,6 +191,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if os.environ.get('USE_AWS') == 'True':
+
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
