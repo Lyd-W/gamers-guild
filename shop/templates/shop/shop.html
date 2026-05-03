@@ -13,7 +13,7 @@
 {% endblock page_header %}
 {% block content %}
   <section class="shop-container">
-    <div class="sort-filter-container">
+    <div class="sort-filter-container px-4">
       <section class="filter">
             {% include "includes/mobile-game-filter.html" %}
       </section>
@@ -76,7 +76,7 @@
               </form>
             <a href="{% url 'shop' %}" class="btn clear-filters-btn">Clear Filters</a>
         </div>
-        <div class="products">
+        <div class="products px-4">
             <div class="row g-4">
             {% for product in products %}
               <div class="col-12 col-md-4 col-lg-3 d-flex">

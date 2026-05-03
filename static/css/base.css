@@ -116,9 +116,10 @@ h1 {
 .home-page-title, 
 .checkout-page-title,
 .login-page-title,
-.profile-title {
+.profile-title,
+.add-product-page-title,
+.edit-product-page-title {
    margin-top: 6rem;
-   padding-left: 2rem;
 }
 
 .categories {
@@ -139,7 +140,8 @@ h1 {
     justify-content: space-evenly;
 }
 
-.shop-page-title {
+.shop-page-title,
+.home-page-title {
   padding: 1rem 3rem;
 }
 
@@ -166,6 +168,10 @@ h1 {
 .shop-container, .games-container {
   display: flex;
   flex-direction: column;
+}
+
+.filters-btn {
+  margin-left: 0!important;
 }
 
 .filters-btn, .filters-btn:hover {
@@ -616,8 +622,7 @@ select option[value=""] {
 
 
 @media (min-width: 992px) {
-
-
+}
 
 @media (min-width: 1200px) {
 

@@ -159,9 +159,6 @@ h1 {
 }
 
 /* Shop links hover */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
 
 .shop-container, .games-container {
   display: flex;
@@ -242,6 +239,11 @@ padding: 0.3rem;
 }
 
 /* Card Styling */
+
+.card-display {
+  margin: 5rem;
+}
+
 .card-img-top,
 .boardgame-image,
 .about-image,
