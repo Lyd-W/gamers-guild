@@ -4,9 +4,8 @@
 {% block title %}Shop Board Games and Accessories | Gamers Guild{% endblock title %}
 
 {% block page_header %}
-  <section class="categories">
-    {% include "includes/main-nav.html" %}
-  </section>
+  {% include "includes/main-nav.html" %}
+
   <section class="shop-page-title">
     <h1>Welcome to the Gamers Guild Shop</h1>
   </section>
@@ -15,7 +14,7 @@
   <section class="shop-container">
     <div class="sort-filter-container px-4">
       <section class="filter">
-            {% include "includes/mobile-game-filter.html" %}
+            {% include "includes/mobile-shop-filter.html" %}
       </section>
       <section class="sort-dropdown">
         <select id="sort-selector" class="form-select form-select-sm">
@@ -50,11 +49,6 @@
           </p>
         </div>
       </section>
-      <div class="btt-btn">
-        <a class="btt-link">
-          <i class="fas fa-arrow-up"></i>
-        </a>
-      </div>
 
     </div>
       <section class="main-shop">
@@ -128,11 +122,7 @@
           </div>
     </section>
   </section>
-  <script>
-  $('.btt-link').on('click', function () {
-      $('html, body').animate({ scrollTop: 0 }, 600);
-  });
-  </script>
+
   <script>
   $('#sort-selector').on('change', function () {
     const currentUrl = new URL(window.location);

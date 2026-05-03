@@ -17,14 +17,36 @@
       <h1>Welcome to Gamers Guild</h1>
     </div>
   </section>
+
   <section class="games-container">
     <div class="sort-filter-container">
       <section class="filter px-4">
-        {% include "includes/mobile-game-filter.html" %}
-        <div data-sticky-sidebar class="filter-sidebar d-none d-md-block">
-          <p class="filter-header">Filter By:</p>
-        </div>
+        <div class="d-md-none">
+
+  <button class="btn filters-btn w-100 mb-2"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mobileFiltersCollapse"
+          aria-expanded="false"
+          aria-controls="mobileFiltersCollapse">
+    <i class="fas fa-filter me-2"></i> Filter By
+  </button>
+
+  <div class="collapse" id="mobileFiltersCollapse">
+    <div class="card card-body p-3">
+
+      {% include "includes/mobile-game-filter.html" %}
+
+      <a href="{% url 'home' %}" class="btn clear-filters-btn mt-2">
+        Clear Filters
+      </a>
+
+    </div>
+  </div>
+
+</div>
       </section>
+      
       <section class="sort-dropdown px-4">
         <select id="sort-selector" class="form-select form-select-sm">
           <option value="reset"
@@ -64,7 +86,10 @@
       </section>
       <section class="main-games">
         <div class="filter-wrapper d-none d-md-block">
-          <div class="accordion" id="accordionPanelsStayOpenExample">
+
+        <p class="filter-header mb-2">Filter By</p>
+
+        <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
               <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button collapsed"

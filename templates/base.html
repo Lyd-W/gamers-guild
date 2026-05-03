@@ -42,78 +42,80 @@
           href="{% static 'favicon/favicon.ico' %}">
   </head>
   <body>
-    <header class="container-fluid fixed-top">
-      <nav class="navbar navbar-expand-md">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">Gamers Guild</a>
-          <button class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {% include "includes/mobile-top-header.html" %}
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-                   href="{% url 'home' %}">Home</a>
-              </li>
-              <div class="d-block d-md-none">{% include "includes/mobile-shop-menu.html" %}</div>
-              <div class="d-none d-md-block ">
-                <li class="nav-item">
-                  <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
-                     href="{% url 'shop' %}">Shop</a>
-                </li>
-              </div>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   role="button"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">Account</a>
-                <div class="dropdown-menu" aria-labelledby="userDropdown">
-                  {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}<a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>{% endif %}
-                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                  {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                  {% endif %}
-                </div>
-              </li>
-            </ul>
-            <form method="GET" action="{% url 'shop' %}" class="d-flex" role="search">
-              <input class="form-control search-bar me-2"
-                     type="search"
-                     name="q"
-                     placeholder="Search Gamers Guild"
-                     aria-label="Search" />
-              <button class="btn search-btn" type="submit">Search</button>
-            </form>
-            <div class="nav-item">
-              <a class="nav-link bag-link {% if grand_total %}has-items{% endif %}"
-                 href="{% url 'view_bag' %}">
-                <div class="text-center">
-                  <div>
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </div>
-                  <p class="bag-total">
-                    {% if grand_total %}
-                      £{{ grand_total|floatformat:2 }}
-                    {% else %}
-                      £0.00
-                    {% endif %}
-                  </p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-md fixed-top">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler border-0 bg-transparent order-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+      <i class="fa-solid fa-bars nav-icon"></i>
+
+    </button>
+
+    <h1 class="navbar-brand site-logo order-1 ms-2 m-0">
+      <a href="{% url 'home' %}" class="text-decoration-none">
+        Gamers Guild
+      </a>
+    </h1>
+
+    <div class="d-flex align-items-center ms-auto gap-3 order-2">
+
+      <a class="nav-link icon-link"
+         href="{% url 'profile' %}">
+        <i class="fa-solid fa-user nav-icon"></i>
+      </a>
+
+      <a class="nav-link icon-link position-relative"
+         href="{% url 'view_bag' %}">
+        <i class="fa-solid fa-cart-shopping nav-icon"></i>
+      </a>
+
+    </div>
+
+    <div class="collapse navbar-collapse w-100 order-3" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+             href="{% url 'home' %}">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item d-block d-md-none">
+          {% include "includes/mobile-shop-menu.html" %}
+        </li>
+
+        <li class="nav-item d-none d-md-block">
+          <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
+             href="{% url 'shop' %}">
+            Shop
+          </a>
+        </li>
+
+      </ul>
+
+      <form method="GET" action="{% url 'shop' %}" class="d-flex" role="search">
+        <input class="form-control search-bar me-2"
+               type="search"
+               name="q"
+               placeholder="Search Gamers Guild"
+               aria-label="Search">
+        <button class="btn search-btn" type="submit">Search</button>
+      </form>
+
+    </div>
+
+  </div>
+</nav>
+
     </header>
     {% if messages %}
       <div class="message-container">
@@ -136,12 +138,36 @@
     {% endblock page_header %}
     {% block content %}
     {% endblock content %}
+    <div class="btt-btn">
+      <a class="btt-link">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
     {% block postloadjs %}
-      <script>
-document.querySelectorAll('.toast').forEach(el => {
-    new bootstrap.Toast(el).show();
-});
-      </script>
+
+    <script>
+      const bttBtn = $('.btt-btn');
+
+      $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 300) {
+          bttBtn.fadeIn();
+        } else {
+          bttBtn.fadeOut();
+        }
+      });
+
+      $('.btt-link').on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+      });
+
+      bttBtn.hide();
+    </script>
+
+    <script>
+      document.querySelectorAll('.toast').forEach(el => {
+          new bootstrap.Toast(el).show();
+          });
+    </script>
     {% endblock postloadjs %}
   </body>
 </html>

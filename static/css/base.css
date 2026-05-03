@@ -20,9 +20,25 @@
   --bs-dropdown-link-hover-color: #D4AF37;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 header {
   width: 100%;
   padding: 0 !important;
+}
+
+.site-logo {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .navbar {
@@ -36,6 +52,25 @@ header {
   border-bottom: solid var(--primary-highlight);
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.navbar-brand a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.navbar-brand a:visited {
+  color: var(--text);
+}
+
+.navbar-brand a:hover {
+  color: var(--primary-highlight);
+}
+
 .navbar-nav .nav-link {
   text-decoration: none;
 }
@@ -43,6 +78,23 @@ header {
 .navbar-nav .nav-link.active {
   text-decoration: underline;
   text-decoration-color: var(--primary-highlight);
+}
+
+.nav-icon {
+  color: var(--text);
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 1rem;
+}
+
+.icon-link:hover .nav-icon,
+.navbar-toggler:hover .nav-icon {
+  color: var(--primary-highlight);
+  transform: scale(1.1);
+}
+
+.navbar-toggler {
+  box-shadow: none !important;
+  padding: 0.25rem 0.5rem;
 }
 
 .btn,
@@ -92,7 +144,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1 {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .dropdown-menu {
@@ -118,8 +170,13 @@ h1 {
 .login-page-title,
 .profile-title,
 .add-product-page-title,
-.edit-product-page-title {
-   margin-top: 6rem;
+.edit-product-page-title
+{
+   margin-top: 5rem;
+}
+
+.bag-page-title {
+  margin-top: 2rem;
 }
 
 .categories {
@@ -142,7 +199,7 @@ h1 {
 
 .shop-page-title,
 .home-page-title {
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
 }
 
 .search-bar{
@@ -158,11 +215,6 @@ h1 {
 .search-btn {
   border-width: 0.1rem;
   background-color: var(--secondary-color);
-}
-
-/* Shop links hover */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
 }
 
 .shop-container, .games-container {
@@ -198,6 +250,55 @@ h1 {
   margin-left: 1rem;
   padding-left: 0.3rem;
  }
+
+ .accordion-body input {
+  width: 100%;
+  max-width: 100%;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+.accordion-button {
+  background-color: var(--secondary-color);
+  color: var(--text);
+  border: 1px solid var(--primary-highlight);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-color);
+  color: var(--primary-highlight);
+  box-shadow: none;
+}
+
+.accordion-icon {
+  color: var(--primary-highlight);
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.accordion-button:not(.collapsed) .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-button:hover {
+  color: var(--primary-highlight);
+}
+
+.accordion-body input {
+  width: 100%;
+}
+
+.accordion-item {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-highlight);
+  margin-bottom: 0.5rem;
+}
 
 .filter-wrapper-mobile {
   display:flex;
@@ -348,13 +449,19 @@ padding: 0.3rem;
   border: none !important;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
 }
 
 .message-container {
-    position: fixed;
-    top: 5rem;
-    right: 1rem;
-    z-index: 9999;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  width: calc(100% - 2rem);
+  max-width: 420px;
+  z-index: 9999;
 }
 
 .toast-header {
@@ -379,6 +486,9 @@ padding: 0.3rem;
   background-color: var(--primary-color);
   border: solid var(--primary-highlight);
   border-radius: 1rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .toast-close {
@@ -386,12 +496,24 @@ padding: 0.3rem;
   background: none;
   border: none;
 }
+
+.toast img {
+  max-width: 100%;
+  height: auto;
+}
+
 .success-toast {
   overflow: visible;
 }
 
 .view-bag-btn {
   justify-content: center;
+}
+
+.bag-notification-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
@@ -448,12 +570,99 @@ padding: 0.3rem;
 
 /* Bag page */
 
+.container {
+  max-width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .bag-table-head th {
   color: var(--primary-highlight);
 }
 
 .bag-table td {
   color: var(--text);
+}
+
+.bag-table td,
+.bag-table th {
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.bag-table td:nth-child(5),
+.bag-table th:nth-child(5) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bag-table tr:last-child td {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.bag-table tr:last-child td {
+  overflow-wrap: anywhere;
+}
+
+.qty_input {
+  width: 4.5rem;
+  min-width: 4.5rem;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.input-group.input-group-sm {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.increment-qty,
+.decrement-qty {
+  flex: 0 0 auto;
+  width: 2.5rem;
+}
+
+.bag-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* Mobile bag page */
+
+.bag-card {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-highlight);
+}
+
+.bag-card-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.bag-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.bag-card h6 {
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.bag-card small {
+  color: var(--text);
+}
+
+.bag-card .qty_input {
+  width: 3.5rem;
+  min-width: 3.5rem;
 }
 
 /* Profile Page */
@@ -473,6 +682,19 @@ padding: 0.3rem;
 }
 
 /* Forms */
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
 
 #payment-form,
 .form-control,
@@ -494,6 +716,31 @@ input.form-control:-webkit-autofill:active,
 }
 
 /* Checkout page */
+
+.checkout-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Image never stretches or overlaps */
+.checkout-img img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Prevent text overflow into image */
+.checkout-details {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Keep price aligned cleanly */
+.checkout-price {
+  white-space: nowrap;
+}
 
 .submit-button {
   margin-top: 5rem;
@@ -572,11 +819,19 @@ select option[value=""] {
 
 /* Media Queries */
 
-@media (min-width: 576px) {
+@media (max-width: 576px) {
+  .checkout-price {
+    text-align: left !important;
+    margin-top: 0.25rem;
+  }
 
 }
 
 @media (min-width: 768px) {
+
+.nav-item.dropdown:hover > .dropdown-menu {
+  display: block;
+}
   
 .shop-container, .games-container {
   position: sticky;
