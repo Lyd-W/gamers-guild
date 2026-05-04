@@ -44,7 +44,7 @@
           </div>
         </div>
       </section>
-      <section class="sort-dropdown px-4">
+      <section class="sort-dropdown">
         <select id="sort-selector" class="form-select form-select-sm">
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -73,7 +73,7 @@
           <p>
             {% if search_term or current_genres or current_sorting != 'None_None' %}
               <span class="small">
-                <a href="{% url 'home' %}">Clear Sorting</a> |
+                <a href="{% url 'home' %}" class="text-highlight">Clear Filters</a> |
               </span>
             {% endif %}
             {{ boardgames|length }} Games

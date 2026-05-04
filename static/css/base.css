@@ -178,7 +178,8 @@ h1 {
     margin-left: 1rem;
 }
 
-.home-page-title, 
+.home-page-title,
+.shop-page-title, 
 .checkout-page-title,
 .login-page-title,
 .profile-title,
@@ -190,6 +191,18 @@ h1 {
 
 .bag-page-title {
   margin-top: 2rem;
+}
+
+.shop-container a,
+.shop-category-bar a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.shop-container a:hover,
+.shop-category-bar a:hover {
+  color: #c9a227;
 }
 
 .categories {
@@ -904,23 +917,22 @@ select option[value=""] {
     display: block;
     margin-top: 0;
   }
-    
-  .shop-container, .games-container {
-    position: sticky;
-  }
 
   .sort-filter-container{
   margin: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   }
 
   .sort-dropdown {
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 1rem;
+  }
+
+  .product-count {
+    margin-right: 1rem;
   }
 
   .filter {
@@ -1004,17 +1016,19 @@ select option[value=""] {
     pointer-events: auto;
   }
 
-  .main-games {
+  .main-games, .main-shop {
     display: block;
   }
 
-  .sort-filter-container,
-  .games {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+  .games-container,
+  .shop-container {
+    margin: 0 1.5rem;
   }
 
-  .games {
+  .games,
+  .products {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     width: 100% !important;
     margin: 0 !important;
     background-color: var(--secondary-color);
@@ -1030,6 +1044,7 @@ select option[value=""] {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
 }
 
 
@@ -1038,7 +1053,8 @@ select option[value=""] {
     min-width: 250px;
   }
 
-  .main-games {
+  .main-games, 
+  .main-shop {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
@@ -1049,10 +1065,20 @@ select option[value=""] {
     width: 220px;
   }
 
-  .games {
+  .games,
+  .products {
     flex: 1;
     width: auto;
     margin-left: 0;
+    margin-right: 2rem;
+  }
+
+    .filter-overlay-container {
+    display: none !important;
+  }
+
+  .sort-dropdown {
+    margin-right: 2rem;
   }
 }
 

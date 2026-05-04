@@ -20,67 +20,58 @@ def all_products(request):
         query = request.GET['q']
 
         if not query:
-            messages.error(
-                request,
-                "You didn't say what you were looking for, adventurer"
-            )
+            messages.error(request, "You didn't say what you were looking for, adventurer")
             return redirect(reverse('shop'))
 
         queries = Q(name__icontains=query) | Q(description__icontains=query)
         products = products.filter(queries)
 
-    if 'category' in request.GET:
-        selected_categories = request.GET.getlist('category')
+    selected_parent = request.GET.get('parent')
+    selected_categories = request.GET.getlist('category')
+
+    if selected_parent:
+        products = products.filter(category__parent__type=selected_parent)
 
     if selected_categories:
-        categories = Category.objects.filter(type__in=selected_categories)
-
-        expanded_categories = []
-
-        for cat in categories:
-            if cat.subcategories.exists():
-                expanded_categories.extend(
-                    list(cat.subcategories.values_list('type', flat=True))
-                )
-            else:
-                expanded_categories.append(cat.type)
-
-        selected_categories = expanded_categories
-
         products = products.filter(category__type__in=selected_categories)
 
-        selected_categories = selected_categories
+    parent_categories = Category.objects.filter(parent__isnull=True)
 
-    if 'sort' in request.GET:
-        sortkey = request.GET['sort']
-        sort = sortkey
+    if selected_parent:
+        subcategories = Category.objects.filter(parent__type=selected_parent)
+    else:
+        subcategories = Category.objects.filter(parent__isnull=False)
 
-        if sortkey == 'name':
-            sortkey = 'lower_name'
+    sort = request.GET.get('sort')
+    direction = request.GET.get('direction')
+
+    if sort:
+        sortkey = sort
+
+        if sort == 'name':
             products = products.annotate(lower_name=Lower('name'))
+            sortkey = 'lower_name'
 
-        elif sortkey.startswith('category'):
+        elif sort.startswith('category'):
             products = products.annotate(
                 lower_category=Lower('category__readable_type')
             )
             sortkey = 'lower_category'
 
-        if 'direction' in request.GET:
-            direction = request.GET['direction']
-            if direction == 'desc':
-                sortkey = f'-{sortkey}'
+        if direction == 'desc':
+            sortkey = f'-{sortkey}'
 
         products = products.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
 
-    categories = Category.objects.filter(parent__isnull=False)
-
     context = {
         'products': products,
         'search_term': query,
+        'parent_categories': parent_categories,
+        'subcategories': subcategories,
+        'selected_parent': selected_parent,
         'current_categories': selected_categories,
-        'categories': categories,
         'current_sorting': current_sorting,
     }
 

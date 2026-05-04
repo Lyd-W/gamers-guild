@@ -1,146 +1,219 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Shop Board Games and Accessories | Gamers Guild{% endblock title %}
+{% block title %}
+Shop Board Games and Accessories | Gamers Guild
+{% endblock %}
 
-{% block page_header %}
-  {% include "includes/main-nav.html" %}
-
-  <section class="shop-page-title">
-    <h1>Welcome to the Gamers Guild Shop</h1>
-  </section>
-{% endblock page_header %}
 {% block content %}
-  <section class="shop-container">
-    <div class="sort-filter-container px-4">
-      <section class="filter">
-            {% include "includes/mobile-shop-filter.html" %}
-      </section>
-      <section class="sort-dropdown">
-        <select id="sort-selector" class="form-select form-select-sm">
-          <option value="reset"
-                  {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-          <option value="price_asc"
-                  {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-          <option value="price_desc"
-                  {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-          <option value="rating_asc"
-                  {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-          <option value="rating_desc"
-                  {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-          <option value="name_asc"
-                  {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-          <option value="name_desc"
-                  {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-          <option value="category_asc"
-                  {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-          <option value="category_desc"
-                  {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-        </select>
-        <div class="col-12 col-md-6">
-          <p>
-            {% if search_term or current_categories or current_sorting != 'None_None' %}
-              <span class="small">
-                <a href="{% url 'shop' %}">Clear Sorting</a> |
-              </span>
-            {% endif %}
-            {{ products|length }} Products
-            {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
-          </p>
-        </div>
-      </section>
+
+<section class="shop-page-title">
+  <h1>Welcome to the Gamers Guild Shop</h1>
+</section>
+
+<section class="shop-category-bar">
+  <div class="d-flex gap-3 overflow-auto px-3 py-2">
+
+    <a href="{% url 'shop' %}"
+       class="{% if not selected_parent %}active{% endif %}">
+      All
+    </a>
+
+    {% for parent in parent_categories %}
+      <a href="{% url 'shop' %}?parent={{ parent.type }}"
+         class="{% if selected_parent == parent.type %}active{% endif %}">
+        {{ parent.readable_type|default:parent.type }}
+      </a>
+    {% endfor %}
+
+  </div>
+</section>
+
+<section class="shop-container">
+
+  <div class="sort-filter-container">
+
+    <button class="btn filters-btn d-md-inline-flex d-lg-none"
+            id="openFiltersBtn">
+      <i class="fas fa-filter me-2"></i> Filters
+    </button>
+
+    <div class="sort-dropdown">
+      <select id="sort-selector" class="form-select form-select-sm">
+        <option value="reset">Sort by...</option>
+        <option value="price_asc">Price (low to high)</option>
+        <option value="price_desc">Price (high to low)</option>
+        <option value="rating_asc">Rating (low to high)</option>
+        <option value="rating_desc">Rating (high to low)</option>
+        <option value="name_asc">Name (A-Z)</option>
+        <option value="name_desc">Name (Z-A)</option>
+        <option value="category_asc">Category (A-Z)</option>
+        <option value="category_desc">Category (Z-A)</option>
+      </select>
+
+      <p class=" product-count mt-2 mb-0">
+        {{ products|length }} Products
+        {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
+      </p>
+    </div>
+
+  </div>
+
+  <section class="main-shop">
+
+    <aside class="filter-sidebar d-none d-lg-block">
+
+      <p class="filter-header mb-2">Filter By</p>
+
+      <form method="GET" action="{% url 'shop' %}">
+
+        {% for sub in subcategories %}
+          <div class="form-check mb-1">
+            <input class="form-check-input"
+                   type="checkbox"
+                   name="category"
+                   value="{{ sub.type }}"
+                   onchange="this.form.submit()"
+                   {% if sub.type in current_categories %}checked{% endif %}>
+            <label class="form-check-label">
+              {{ sub.readable_type|default:sub.type }}
+            </label>
+          </div>
+        {% endfor %}
+
+      </form>
+
+      <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">
+        Clear Filters
+      </a>
+
+    </aside>
+
+    <div class="filter-overlay-container" id="filterOverlay">
+
+      <div class="filter-overlay-panel">
+
+        <button class="btn-close mb-3" id="closeFiltersBtn"></button>
+
+        <p class="filter-header">Filters</p>
+
+        <form method="GET" action="{% url 'shop' %}">
+
+          {% for sub in subcategories %}
+            <div class="form-check mb-2">
+              <input class="form-check-input"
+                     type="checkbox"
+                     name="category"
+                     value="{{ sub.type }}"
+                     onchange="this.form.submit()"
+                     {% if sub.type in current_categories %}checked{% endif %}>
+              <label class="form-check-label">
+                {{ sub.readable_type|default:sub.type }}
+              </label>
+            </div>
+          {% endfor %}
+
+        </form>
+
+        <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">
+          Clear Filters
+        </a>
+
+      </div>
 
     </div>
-      <section class="main-shop">
-          <div class="filter-wrapper d-none d-md-block">
-            <p class="categories-header">Category</p>
-              <form method="GET" action="{% url "shop" %}">
-                {% for category in categories %}
-                  <div class="category-badge">
-                    <label>
-                      <input type="checkbox"
-                            name="category"
-                            value="{{ category.type }}"
-                            onchange="this.form.submit()"
-                            {% if category.type in current_categories %}checked{% endif %}>
-                      {{ category.readable_type|default:category.type }}
-                    </label>
-                  </div>
-                {% endfor %}
-              </form>
-            <a href="{% url 'shop' %}" class="btn clear-filters-btn">Clear Filters</a>
-        </div>
-        <div class="products px-4">
-            <div class="row g-4">
-            {% for product in products %}
-              <div class="col-12 col-md-4 col-lg-3 d-flex">
-                <article class="product-card h-100 w-100">
-                  <a href="{% url 'product_detail' product.id %}" class="product-link">
-                    {% if product.image %}
-                      <img src="{{ product.image.url }}"
-                          class="card-img-top"
-                          alt="{{ product.name }}">
-                    {% else %}
-                      <img class="card-img-top" alt="product placeholder">
-                    {% endif %}
+
+    <div class="products container-fluid px-4">
+
+      <div class="row g-4">
+
+        {% for product in products %}
+        <div class="col-12 col-md-4 col-lg-3 d-flex">
+
+          <article class="product-card h-100 w-100">
+
+            <a href="{% url 'product_detail' product.id %}">
+              {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top">
+              {% endif %}
+            </a>
+
+            <div class="card-body">
+
+              <h2 class="card-title">
+                <a href="{% url 'product_detail' product.id %}">
+                  {{ product.name }}
+                </a>
+              </h2>
+
+              <div class="price">£{{ product.price }}</div>
+
+              {% if product.category %}
+                <p class="category small mt-1">
+                  <a href="{% url 'shop' %}?category={{ product.category.type }}">
+                    {{ product.category.readable_type }}
                   </a>
-                  <div class="card-body">
-                    <h2 class="card-title">
-                      <a href="{% url "product_detail" product.id %}" class="product-link">{{ product.name }}</a>
-                    </h2>
-                    <div class="price">£{{ product.price }}</div>
-                    {% if product.category %}
-                      <p class="small mt-1 mb-0">
-                        <a class="category"
-                          href="{% url 'shop' %}?category={{ product.category.type }}">
-                          <i class="fas fa-tag me-1"></i>
-                          {{ product.category.readable_type }}
-                        </a>
-                      </p>
-                    {% endif %}
-                    {% if product.rating %}
-                      <small class="rating">
-                        <i class="fas fa-star me-1"></i>
-                        {{ product.rating }} / 5
-                      </small>
-                    {% else %}
-                      <small class="rating">No Rating</small>
-                    {% endif %}
-                    {% if request.user.is_superuser %}
-                      <div class="edit-del-links">
-                        <small>
-                            <a class="edit-link" href="{% url 'edit_product' product.id %}">Edit</a>  
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
-                      </div>
-                    {% endif %}
-                  </div>
-                </article>
-              </div>
-              {% endfor %}
+                </p>
+              {% endif %}
+
+              {% if product.rating %}
+                <small>
+                  ⭐ {{ product.rating }}/5
+                </small>
+              {% endif %}
+
             </div>
-          </div>
-    </section>
+
+          </article>
+
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+
   </section>
+</section>
 
-  <script>
-  $('#sort-selector').on('change', function () {
-    const currentUrl = new URL(window.location);
-    const selectedVal = $(this).val();
+<script>
+document.getElementById('sort-selector').addEventListener('change', function () {
+  const url = new URL(window.location.href);
+  const val = this.value;
 
-    if (selectedVal !== "reset") {
-        const parts = selectedVal.split("_");
-        const sort = parts[0];
-        const direction = parts[1];
+  if (val === "reset") {
+    url.searchParams.delete("sort");
+    url.searchParams.delete("direction");
+  } else {
+    const [sort, direction] = val.split("_");
+    url.searchParams.set("sort", sort);
+    url.searchParams.set("direction", direction);
+  }
 
-        currentUrl.searchParams.set("sort", sort);
-        currentUrl.searchParams.set("direction", direction);
-    } else {
-        currentUrl.searchParams.delete("sort");
-        currentUrl.searchParams.delete("direction");
-    }
-
-    window.location.replace(currentUrl);
+  window.location.href = url;
 });
-  </script>
-{% endblock content %}
+
+const openBtn = document.getElementById('openFiltersBtn');
+const closeBtn = document.getElementById('closeFiltersBtn');
+const overlay = document.getElementById('filterOverlay');
+
+if (openBtn) {
+  openBtn.addEventListener('click', () => {
+    overlay.classList.add('active');
+  });
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+}
+
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    overlay.classList.remove('active');
+  }
+});
+</script>
+
+{% endblock %}
