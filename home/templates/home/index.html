@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}Gamers Guild{% endblock title %}
-{% block meta_description %}Welcome to Gamers Guild.{% endblock meta_description %}
-
+{% block title %}
+  Gamers Guild
+{% endblock title %}
+{% block meta_description %}
+  Welcome to Gamers Guild.
+{% endblock meta_description %}
 {% block page_header %}
   <div class="container header-container">
     <div class="row">
@@ -17,36 +19,31 @@
       <h1>Welcome to Gamers Guild</h1>
     </div>
   </section>
-
   <section class="games-container">
     <div class="sort-filter-container">
+      <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
+              type="button"
+              id="openFiltersBtn">
+        <i class="fas fa-filter me-2"></i> Filters
+      </button>
       <section class="filter px-4">
         <div class="d-md-none">
-
-  <button class="btn filters-btn w-100 mb-2"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mobileFiltersCollapse"
-          aria-expanded="false"
-          aria-controls="mobileFiltersCollapse">
-    <i class="fas fa-filter me-2"></i> Filter By
-  </button>
-
-  <div class="collapse" id="mobileFiltersCollapse">
-    <div class="card card-body p-3">
-
-      {% include "includes/mobile-game-filter.html" %}
-
-      <a href="{% url 'home' %}" class="btn clear-filters-btn mt-2">
-        Clear Filters
-      </a>
-
-    </div>
-  </div>
-
-</div>
+          <button class="btn filters-btn w-100 mb-2"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mobileFiltersCollapse"
+                  aria-expanded="false"
+                  aria-controls="mobileFiltersCollapse">
+            <i class="fas fa-filter me-2"></i> Filter By
+          </button>
+          <div class="collapse" id="mobileFiltersCollapse">
+            <div class="card card-body p-3">
+              {% include "includes/mobile-game-filter.html" %}
+              <a href="{% url 'home' %}" class="btn clear-filters-btn mt-2">Clear Filters</a>
+            </div>
+          </div>
+        </div>
       </section>
-      
       <section class="sort-dropdown px-4">
         <select id="sort-selector" class="form-select form-select-sm">
           <option value="reset"
@@ -85,11 +82,141 @@
         </div>
       </section>
       <section class="main-games">
-        <div class="filter-wrapper d-none d-md-block">
+        <div class="filter-wrapper d-none d-lg-block">
+          <div class="filter-sidebar">
+            <p class="filter-header mb-2">Filter By</p>
+            <div class="accordion" id="accordionDesktopFilters">
 
-        <p class="filter-header mb-2">Filter By</p>
-
-        <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion-item">
+                <p class="accordion-header genre-header">
+                  <button class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#desktopGenre">Genre</button>
+                </p>
+                <div id="desktopGenre" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <form method="GET" action="{% url 'home' %}">
+                      {% for genre in genres %}
+                        <div class="genre-badge">
+                          <label>
+                            <input type="checkbox"
+                                   name="genre"
+                                   value="{{ genre.id }}"
+                                   onchange="this.form.submit()"
+                                   {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
+                            {{ genre.name }}
+                          </label>
+                        </div>
+                      {% endfor %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <p class="accordion-header genre-header">
+                  <button class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#desktopPlayers">Player Count</button>
+                </p>
+                <div id="desktopPlayers" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <form method="GET" action="{% url 'home' %}">
+                      <div class="mb-2">
+                        <label>Min Players:</label>
+                        <input type="number"
+                               name="min_players"
+                               value="{{ request.GET.min_players }}">
+                      </div>
+                      <div class="mb-2">
+                        <label>Max Players:</label>
+                        <input type="number"
+                               name="max_players"
+                               value="{{ request.GET.max_players }}">
+                      </div>
+                      <button type="submit" class="btn btn-sm mt-2">Apply</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <p class="accordion-header genre-header">
+                  <button class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#desktopPlaytime">Playtime</button>
+                </p>
+                <div id="desktopPlaytime" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <form method="GET" action="{% url 'home' %}">
+                      <label class="mb-2">Max Playtime (minutes):</label>
+                      <input class="slider mb-2"
+                             type="range"
+                             id="desktopPlaytimeSlider"
+                             name="playtime"
+                             min="0"
+                             max="300"
+                             value="{{ request.GET.playtime|default:90 }}"
+                             oninput="document.getElementById('desktopPlaytimeInput').value = this.value">
+                      <div>
+                        <input type="number"
+                               id="desktopPlaytimeInput"
+                               name="playtime"
+                               min="0"
+                               max="300"
+                               value="{{ request.GET.playtime|default:90 }}"
+                               oninput="document.getElementById('desktopPlaytimeSlider').value = this.value">
+                        <span>mins</span>
+                      </div>
+                      <button type="submit" class="btn btn-sm mt-2">Apply</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="{% url 'home' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+          </div>
+        </div>
+        <div class="container-fluid games px-4">
+          <div class="card-display row">
+            <div class="col-12 mt-3">
+              <div class="row g-4">
+                {% for boardgame in boardgames %}
+                  <div class="col-md-4 d-flex">
+                    <article class="boardgame-card h-100 w-100">
+                      <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                         class="boardgame-link">
+                        {% if boardgame.image %}
+                          <img src="{{ boardgame.image.url }}"
+                               class="card-img-top"
+                               alt="{{ boardgame.title }}">
+                        {% else %}
+                          <img class="card-img-top" alt="Boardgame placeholder">
+                        {% endif %}
+                      </a>
+                      <div class="card-body">
+                        <h2 class="card-title">
+                          <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                             class="boardgame-link">{{ boardgame.title }}</a>
+                        </h2>
+                        <hr>
+                        <div class="player-count card-text">
+                          <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="filter-overlay-container">
+        <div class="filter-overlay-panel">
+          <p class="filter-header mb-2">Filter By</p>
+          <div class="accordion" id="accordionPanelsStayOpenExample">
             <div class="accordion-item">
               <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button collapsed"
@@ -190,45 +317,12 @@
             </div>
           </div>
           <a href="{% url 'home' %}" class="btn clear-filters-btn">Clear Filters</a>
-        </div>
-        <div class="container-fluid games px-4">
-          <div class="card-display row">
-            <div class="col-12 mt-3">
-              <div class="row g-4">
-                {% for boardgame in boardgames %}
-                  <div class="col-md-4 d-flex">
-                    <article class="boardgame-card h-100 w-100">
-                      <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                         class="boardgame-link">
-                        {% if boardgame.image %}
-                          <img src="{{ boardgame.image.url }}"
-                               class="card-img-top"
-                               alt="{{ boardgame.title }}">
-                        {% else %}
-                          <img class="card-img-top" alt="Boardgame placeholder">
-                        {% endif %}
-                      </a>
-                      <div class="card-body">
-                        <h2 class="card-title">
-                          <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                             class="boardgame-link">{{ boardgame.title }}</a>
-                        </h2>
-                        <hr>
-                        <div class="player-count card-text">
-                          <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
+          <button class="btn close-filters-btn w-100 mt-3 d-lg-none"
+                  id="closeFiltersBtn">Close Filters</button>
         </div>
       </div>
     </section>
-  </section>
-  <script>
+    <script>
 $(document).ready(function () {
 
     $('.btt-link').on('click', function () {
@@ -269,5 +363,29 @@ $(document).ready(function () {
     };
 
 });
-  </script>
-{% endblock content %}
+
+const openBtn = document.getElementById('openFiltersBtn');
+const closeBtn = document.getElementById('closeFiltersBtn');
+const overlay = document.querySelector('.filter-overlay-container');
+
+if (openBtn && overlay) {
+  openBtn.addEventListener('click', () => {
+    overlay.classList.add('active');
+  });
+}
+
+if (closeBtn && overlay) {
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+}
+
+if (overlay) {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+}
+    </script>
+  {% endblock content %}

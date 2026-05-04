@@ -45,75 +45,107 @@
     <header class="fixed-top">
       <nav class="navbar navbar-expand-md fixed-top">
   <div class="container-fluid">
+    {% include "includes/mobile-top-header.html" %}
 
-    <button class="navbar-toggler border-0 bg-transparent order-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-      <i class="fa-solid fa-bars nav-icon"></i>
+  <div class="d-md-none">
 
-    </button>
+    <ul class="navbar-nav">
 
-    <h1 class="navbar-brand site-logo order-1 ms-2 m-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+      </li>
+
+    </ul>
+
+    <form method="GET" action="{% url 'shop' %}" class="d-flex mt-2">
+      <input class="form-control search-bar me-2"
+             type="search"
+             name="q"
+             placeholder="Search Gamers Guild">
+      <button class="btn search-btn">Search</button>
+    </form>
+
+  </div>
+
+  <div class="d-none d-md-flex w-100 align-items-center">
+
+    <h1 class="navbar-brand site-logo d-none d-md-flex me-4 m-0">
       <a href="{% url 'home' %}" class="text-decoration-none">
         Gamers Guild
       </a>
     </h1>
 
-    <div class="d-flex align-items-center ms-auto gap-3 order-2">
+    <ul class="navbar-nav flex-row gap-3 me-3">
 
-      <a class="nav-link icon-link"
-         href="{% url 'profile' %}">
-        <i class="fa-solid fa-user nav-icon"></i>
-      </a>
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+           href="{% url 'home' %}">
+          Home
+        </a>
+      </li>
 
-      <a class="nav-link icon-link position-relative"
+      <li class="nav-item">
+        <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
+           href="{% url 'shop' %}">
+          Shop
+        </a>
+      </li>
+
+    </ul>
+
+    <form method="GET"
+          action="{% url 'shop' %}"
+          class="d-flex flex-nowrap mx-auto flex-grow-1 me-md-3" 
+          style="max-width: 100%;">
+      <input class="form-control search-bar me-2"
+             type="search"
+             name="q"
+             placeholder="Search Gamers Guild">
+      <button class="btn search-btn">Search</button>
+    </form>
+
+    <div class="d-flex align-items-center gap-2 gap-lg-3 ms-auto">
+
+      <div class="nav-item dropdown">
+        <a class="nav-link icon-link dropdown-toggle"
+           href="#"
+           data-bs-toggle="dropdown">
+          <i class="fa-solid fa-user nav-icon"></i>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+          {% if user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+          {% else %}
+            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <a class="nav-link icon-link d-flex align-items-center gap-1"
          href="{% url 'view_bag' %}">
         <i class="fa-solid fa-cart-shopping nav-icon"></i>
+
+        {% if grand_total %}
+          <span class="bag-total d-none d-lg-inline">
+            £{{ grand_total|floatformat:2 }}
+          </span>
+        {% endif %}
       </a>
-
-    </div>
-
-    <div class="collapse navbar-collapse w-100 order-3" id="navbarSupportedContent">
-
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-
-        <li class="nav-item">
-          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-             href="{% url 'home' %}">
-            Home
-          </a>
-        </li>
-
-        <li class="nav-item d-block d-md-none">
-          {% include "includes/mobile-shop-menu.html" %}
-        </li>
-
-        <li class="nav-item d-none d-md-block">
-          <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
-             href="{% url 'shop' %}">
-            Shop
-          </a>
-        </li>
-
-      </ul>
-
-      <form method="GET" action="{% url 'shop' %}" class="d-flex" role="search">
-        <input class="form-control search-bar me-2"
-               type="search"
-               name="q"
-               placeholder="Search Gamers Guild"
-               aria-label="Search">
-        <button class="btn search-btn" type="submit">Search</button>
-      </form>
 
     </div>
 
   </div>
+
+</div>
 </nav>
 
     </header>
