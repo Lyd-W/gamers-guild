@@ -160,6 +160,10 @@ h1 {
   margin: 0;
 }
 
+h3 {
+  font-size: 1.2rem;
+}
+
 .dropdown-menu {
   background-color: var(--secondary-color);
   border: 1px solid var(--primary-highlight);
@@ -183,14 +187,11 @@ h1 {
 .checkout-page-title,
 .login-page-title,
 .profile-title,
+.bag-page-title,
 .add-product-page-title,
 .edit-product-page-title
 {
    margin-top: 5rem;
-}
-
-.bag-page-title {
-  margin-top: 2rem;
 }
 
 .shop-container a,
@@ -642,10 +643,6 @@ padding: 0.3rem;
 
 /* Bag page */
 
-.container {
-  max-width: 100%;
-}
-
 .table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -886,6 +883,10 @@ select option[value=""] {
   background-color: var(--primary-color);
 }
 
+.profile-title {
+  max-width: auto;
+  margin: 5rem auto;
+}
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -963,6 +964,14 @@ select option[value=""] {
 
   .main-shop, .main-games {
     display: flex;
+  }
+
+  .bag-container,
+  .profile-title,
+  .shop-container,
+  .shop-category-bar {
+    margin-left: 2rem;
+    margin-right: 2.5rem;
   }
 }
 
@@ -1088,12 +1097,20 @@ select option[value=""] {
   .sort-dropdown {
     margin-right: 2rem;
   }
+
+  .profile-title {
+    min-width: 250px;
+  }
 }
 
 @media (min-width: 1200px) {
-
+  .profile-title {
+    padding: 0 2rem;
+  }
 }
 
 @media (min-width: 1400px) {
-
+  .profile-title {
+    padding: 0 4rem;
+  }
 }
