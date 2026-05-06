@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib import messages
-from django.db.models import Q
-from django.db.models.functions import Lower
+from django.db.models import Q, Avg
+from django.db.models.functions import Lower, Coalesce
+from django.db.models import FloatField
+
 from .models import Boardgame, Genre
 
 
@@ -9,62 +10,66 @@ def home(request):
     boardgames = Boardgame.objects.all()
     genres = Genre.objects.all()
 
-    query = None
-    selected_genres = []
-    sort = None
-    direction = None
+    query = request.GET.get('q')
+    selected_genres = request.GET.getlist('genre')
 
-    if 'q' in request.GET:
-        query = request.GET.get('q')
-        if query:
-            boardgames = boardgames.filter(
-                Q(title__icontains=query) |
-                Q(description__icontains=query)
-            )
-
-    if 'genre' in request.GET:
-        selected_genres = request.GET.getlist('genre')
-        if selected_genres:
-            boardgames = boardgames.filter(
-                genres__id__in=selected_genres
-            ).distinct()
-
-    if 'sort' in request.GET:
-        sort = request.GET.get('sort')
-        direction = request.GET.get('direction')
-
-        if sort == 'title':
-            boardgames = boardgames.annotate(
-                lower_title=Lower('title')
-            )
-            sortkey = 'lower_title'
-        elif sort == 'playtime':
-            sortkey = 'playtime'
-        elif sort == 'release_year':
-            sortkey = 'release_year'
-        else:
-            sortkey = sort
-
-        if direction == 'desc':
-            sortkey = f'-{sortkey}'
-
-        boardgames = boardgames.order_by(sortkey)
-
-    current_sorting = f"{sort}_{direction}"
+    sort = request.GET.get('sort')
+    direction = request.GET.get('direction', 'asc')
 
     min_players = request.GET.get('min_players')
     max_players = request.GET.get('max_players')
+    playtime = request.GET.get('playtime')
+
+    if query:
+        boardgames = boardgames.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+    if selected_genres:
+        boardgames = boardgames.filter(
+            genres__id__in=selected_genres
+        ).distinct()
 
     if min_players:
         boardgames = boardgames.filter(min_players__lte=min_players)
 
     if max_players:
         boardgames = boardgames.filter(max_players__gte=max_players)
-        
-    playtime = request.GET.get('playtime')
 
     if playtime:
         boardgames = boardgames.filter(playtime__lte=playtime)
+
+    sortkey = "title"
+
+    if sort == "rating":
+        boardgames = boardgames.annotate(
+            avg_rating=Coalesce(
+                Avg('reviews__rating'),
+                0.0,
+                output_field=FloatField()
+            )
+        )
+        sortkey = "avg_rating"
+
+    elif sort == "title":
+        boardgames = boardgames.annotate(
+            lower_title=Lower('title')
+        )
+        sortkey = "lower_title"
+
+    elif sort == "playtime":
+        sortkey = "playtime"
+
+    elif sort == "release_year":
+        sortkey = "release_year"
+
+    if direction == "desc":
+        sortkey = f"-{sortkey}"
+
+    boardgames = boardgames.order_by(sortkey)
+
+    current_sorting = f"{sort}_{direction}" if sort else "None_None"
 
     context = {
         'boardgames': boardgames,

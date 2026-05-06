@@ -86,7 +86,6 @@
           <div class="filter-sidebar">
             <p class="filter-header mb-2">Filter By</p>
             <div class="accordion" id="accordionDesktopFilters">
-
               <div class="accordion-item">
                 <p class="accordion-header genre-header">
                   <button class="accordion-button collapsed"
@@ -202,8 +201,25 @@
                         </h2>
                         <hr>
                         <div class="player-count card-text">
-                          <i class="fa-solid fa-people-group"></i> {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                          <i class="fa-solid fa-people-group"></i>
+                          {{ boardgame.min_players }} - {{ boardgame.max_players }}
                         </div>
+                        <p class="card-text star-rating">
+                          {% if boardgame.avg_rating %}
+                            {% with rating=boardgame.avg_rating %}
+                              {% for i in "12345" %}
+                                {% if forloop.counter <= rating %}
+                                  ★
+                                {% else %}
+                                  ☆
+                                {% endif %}
+                              {% endfor %}
+                              ({{ rating|floatformat:1 }})
+                            {% endwith %}
+                          {% else %}
+                            No ratings yet
+                          {% endif %}
+                        </p>
                       </div>
                     </article>
                   </div>
@@ -321,8 +337,9 @@
                   id="closeFiltersBtn">Close Filters</button>
         </div>
       </div>
-    </section>
-    <script>
+    </div>
+  </section>
+  <script>
 $(document).ready(function () {
 
     $('.btt-link').on('click', function () {
@@ -387,5 +404,5 @@ if (overlay) {
     }
   });
 }
-    </script>
-  {% endblock content %}
+  </script>
+{% endblock content %}

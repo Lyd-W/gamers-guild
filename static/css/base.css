@@ -439,6 +439,7 @@ padding: 0.3rem;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 .card-title {
   font-weight: 700;
   color: var(--text);
@@ -453,6 +454,7 @@ padding: 0.3rem;
   font-size: 1rem;
   padding-left: 0.75rem;
 }
+
 .card-date {
   font-size: 0.7rem;
   padding-left: 0.75rem;
@@ -480,6 +482,11 @@ padding: 0.3rem;
 
 .edit-link {
     margin-inline-end: 8px;
+}
+
+.star-rating {
+  color: var(--primary-highlight);
+  font-size: 1.1rem;
 }
 
 /* Boardgame detail page */

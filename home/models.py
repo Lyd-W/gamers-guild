@@ -49,3 +49,26 @@ class Boardgame(models.Model):
                 'min_players': ('Minimum number of players must be less than '
                                 'or equal to maximum number of players.')
             })
+
+
+class Review(models.Model):
+    boardgame = models.ForeignKey(
+        Boardgame,
+        on_delete=models.CASCADE,
+        related_name='reviews'
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    rating = models.IntegerField(
+        choices=[(i, i) for i in range(1, 6)]
+    )
+    comment = models.TextField(blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('boardgame', 'user')
+
+    def __str__(self):
+        return f"{self.boardgame.title} - {self.rating}"
