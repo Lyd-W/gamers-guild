@@ -1,6 +1,6 @@
 # Gamers Guild
 
-Deployed link: [Gamers Guild]( "Gamers Guild | Heroku")
+Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "Gamers Guild | Heroku")
 
 ## Contents
 * [Project Overview](#project-overview)
@@ -227,8 +227,6 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 | --success | `#4C8C4A` | Success buttons (send, submit) |
 
 
-### Images
-
 [Back to contents](#contents)
 
 ---------------------------------------------
@@ -242,6 +240,10 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 ### Form Validation
 
 ### Database Security
+
+### Payment Security
+- Stripe is used to securely process payments
+- Sensitive card data is handled by Stripe and never stored on the application server
 
 [Back to contents](#contents)
 
@@ -261,7 +263,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 
 - Product listing and individual product pages  
 - Add to cart functionality  
-- Secure checkout process  
+- Secure checkout process with Stripe
 - Admin product management (CRUD)
 - Intergration of e-commerce within a relational database  
 
@@ -285,11 +287,12 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 - [Python](https://www.python.org/ "Python")
 
 ### Libraries and Frameworks
-- [Bootstrap v5.3.8](https://getbootstrap.com/ "Bootstrap v5.3 Homepage")
-- [Django](https://www.djangoproject.com/ "Django Homepage")
-- [Favicon](https://favicon.io/ "Favicon Homepage")
-- [Font Awesome](https://fontawesome.com/search?q=menu&o=r&ic=free "Font Awesome Homepage")
-- [Google Fonts](https://fonts.google.com/ "Google Fonts Homepage")
+- [Bootstrap v5.3.8](https://getbootstrap.com/ "Bootstrap v5.3 | Homepage")
+- [Django](https://www.djangoproject.com/ "Django | Homepage")
+- [Favicon](https://favicon.io/ "Favicon | Homepage")
+- [Font Awesome](https://fontawesome.com/search?q=menu&o=r&ic=free "Font Awesome | Homepage")
+- [Google Fonts](https://fonts.google.com/ "Google Fonts | Homepage")
+- [Stripe](https://stripe.com/gb "Stipe | Homepage")
 
 ### Tools and Programmes
 - [Black](https://pypi.org/project/black/ "Black | Code Formatter")
@@ -430,11 +433,88 @@ The Gamers Guild database supports both community interaction and e-commerce fun
 
 ### Images:
 
+Images were sourced from various websites, details are listed below.
 
+- Ark Nova image – [Board Games Geek](https://boardgamegeek.com/image/6293412/ark-nova "Board Games Geek | Ark Nova")
+- Azul image – [Board Games Geek](https://boardgamegeek.com/image/6973671/azul "Board Games Geek | Azul Image")
+- Brass Birmingham image – [Board Games Geek](https://boardgamegeek.com/image/3490053/brass-birmingham "Board Games Geek | Brass Birmingham Image")
+- Carcassonne image - [Board Games Geek](https://boardgamegeek.com/image/8621446/carcassonne "Board Game Geek | Carcassonne Image") 
+- Catan image – [Board Game Geeks](https://boardgamegeek.com/image/9156909/catan "Board Game Geek | Catan Image")
+- D&D Official Dice Set image - [Element Games](https://elementgames.co.uk/vampire-counts/role-playing-games-books/rpg-dice/official-dice-set-dungeons-and-dragons-ddn-vat "Element Games | D&D Official Dice Set")
+- Dungeon Mayhem image – [Board Games Geek](https://boardgamegeek.com/image/5324418/dungeon-mayhem-monster-madness "Board Games Geek | Dungeon Mayhem Image")
+- Exploding Kittens image – [Board Games Geek]( https://boardgamegeek.com/image/2691976/exploding-kittens "Board Games Geek | Exploding Kittens")
+- Flashpoint image – [Board Game Geeks](https://boardgamegeek.com/image/1129370/flash-point-fire-rescue "Board Game Geek | Flashpoint Image")
+- Gamers Guild Fav Icon and Logo - [Fav Icon](https://favicon.io/favicon-generator/ "Fav Icon | Generator")
+- Gamers Guild Dice Tray images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gamers Guild Hoody images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gamers Guild T Shirt images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gloomhaven image – [Board Games Geek](https://boardgamegeek.com/image/7546274/gloomhaven-second-edition "Board Games Geek | Gloomhaven Image")
+- Gloomhaven Organiser image - [Folded Space](https://foldedspace.com/product/gloomhaven-second-edition "Folded Space | Gloomhaven Organiser")
+- Hero Quest image - [Board Games Geek](https://boardgamegeek.com/image/338410/heroquest "Board Game Geek | Hero Quest Image")
+- Lords of Waterdeep image - [Board Games Geek](https://boardgamegeek.com/image/9230112/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep Image")
+- MicroMacro image - [Hachette Boardgames](https://www.hachetteboardgames.co.uk/shop/eswmmfh-micromacro-crime-city-full-house-2289 " Hachette Boardgames | MicroMacro")
+- One Deck Dungeon image – [Board Games Geek](https://boardgamegeek.com/image/3496794/one-deck-dungeon-forest-of-shadows "Board Games Geek | One Deck Dungeon Image")
+- One Night Werewolf image - [Board Games Geek](https://boardgamegeek.com/image/8783294/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf Image")
+- Pandemic image – [Board Games Geek](https://boardgamegeek.com/image/1534148/pandemic "Board Games Geek | Pandemic Image")
+- Pandemic: In The Lab image – [Z-Man Games](https://www.zmangames.com/game/pandemic-in-the-lab/ "Z-Man Games | Pandemic: In The Lab")
+- Pandemic: On The Brink image – [Z-Man Games](https://www.zmangames.com/game/pandemic-on-the-brink/ "Z-Man Games | Pandemic: On The Brink")
+- Pandemic: State of Emergency image – [Z-Man Games](https://www.zmangames.com/game/pandemic-state-of-emergency/ "Z-Man Games | Pandemic: State of Emergency")
+- Placeholder image - Created by [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
+- Robinson Crusoe Deluxe Tokens image - [The Game Steward](https://www.thegamesteward.com/products/robinson-crusoe-resin-tokens-board-game-accessory "The Game Steward | Robinson Crusoe Resin Tokens")
+- Robinson Crusoe image - [Board Games Geek](https://boardgamegeek.com/image/3165731/robinson-crusoe-adventures-on-the-cursed-island "Board Game Geek | Robinson Crusoe Image")
+- Robinson Crusoe Organiser image - [Folded Space](hhttps://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
+- Robinson Crusoe Playmat image - [Portal Game](https://shopportalgames.com/products/robinson-crusoe-playmat "Portal Games | Robinson Crusoe Playmat")
+- Terraforming Mars image - [Board Games Geek](https://boardgamegeek.com/image/3536616/terraforming-mars "Board Game Geek | Terraforming Mars Image")
+- The Fox Experiment image - [Board Games Geek](https://boardgamegeek.com/image/7557488/the-fox-experiment "Board Game Geek | The Fox Experiment Image")
+- Through the Ages image – [Board Games Geek](https://boardgamegeek.com/image/2663291/through-the-ages-a-new-story-of-civilization "Board Games Geek | Through the Ages Image")
+- Tiny Epic Dungeons image – [Board Games Geek](https://boardgamegeek.com/image/6029065/tiny-epic-dungeons "Board Games Geek | Tiny Epic Dungeons Image")
+- Tiny Epic Dungeons Playmat image – [Board Games Geek](https://boardgamegeek.com/image/6821417/tiny-epic-dungeons-official-game-mat "Board Games Geek | Tiny Epic Dungeons Playmat Image")
+- Tiny Epic Tactics image – [Board Games Geek](https://boardgamegeek.com/image/4574827/tiny-epic-tactics "Board Games Geek | Tiny Epic Tactics Image")
+- Tiny Epic Zombies image – [Board Games Geek](https://boardgamegeek.com/image/3937056/tiny-epic-zombies "Board Games Geek | Tiny Epic Zombies Image")
+- Wingspan image – [Board Games Geek](https://boardgamegeek.com/image/4458123/wingspan "Board Games Geek | Wingspan Image")
+- Zombicide image - [Board Game Geek](https://boardgamegeek.com/image/6091316/zombicide-2nd-edition "Board Game Geek | Zombicide Image")
 
 ### Content:
 
-- 
+Content was sourced from various websites, details are listed below.
+
+- Ark Nova information – [Board Games Geek](https://boardgamegeek.com/boardgame/342942/ark-nova "Board Games Geek | Ark Nova")
+- Azul information – [Board Games Geek](https://boardgamegeek.com/boardgame/230802/azul "Board Games Geek | Azul")
+- Brass Birmingham information – [Board Games Geek](https://boardgamegeek.com/boardgame/224517/brass-birmingham "Board Games Geek | Brass Birmingham")
+- Carcassonne information - [Zatu](https://zatu.com/products/carcassonne-2015-new-edition?_pos=2&_psq=carcasso&_ss=e&_v=1.0 "Zatu | Carcassonne")
+- Catan information - [Catan](https://www.catan.com/ "Catan | Homepage")
+- D&D Official Dice Set information - [Magic Madhouse](https://magicmadhouse.co.uk/wizards-of-the-coast-d-d-official-dice-set "Magic Madhouse | D&D Official Dice Set")
+- Dungeon Mayhem information – [Board Games Geek]( https://boardgamegeek.com/boardgame/295577/dungeon-mayhem-monster-madness "Board Games Geek | Dungeon Mayhem")
+- Exploding Kittens information – [Board Games Geek](https://boardgamegeek.com/boardgame/172225/exploding-kittens "Board Games Geek | Exploding Kittens")
+- Gamers Guild Dice Tray information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gamers Guild Hoody information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gamers Guild T Shirt information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
+- Gloomhaven information – [Board Games Geek](https://boardgamegeek.com/boardgame/390478/gloomhaven-second-edition "Board Games Geek | Gloomhaven")
+- Gloomhaven Organiser information - [Folded Space](https://foldedspace.com/product/gloomhaven-second-edition "Folded Space | Gloomhaven Organiser")
+- Flash Point information – [Board Games Geek]( https://boardgamegeek.com/boardgame/100901/flash-point-fire-rescue "Board Games Geek | Flash Point")
+- Hero Quest information [Asmodee](https://www.asmodee.co.uk/collections/all-heroquest-games "Asmodee | Hero Quest")
+- Lords of Waterdeep information - [Board Games Geek](https://boardgamegeek.com/boardgame/110327/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep")
+- MicroMacro information - [Zatu](https://zatu.com/products/micromacro-crime-city-full-house?_pos=3&_sid=e49eeb6f5&_ss=r "Zatu | MicroMacro")
+- One Deck Dungeon information – [Board Games Geek](https://boardgamegeek.com/boardgame/224821/one-deck-dungeon-forest-of-shadows "Board Games Geek | One Deck Dungeon")
+- One Night Werewolf information - [Board Games Geek]( https://boardgamegeek.com/boardgame/147949/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf")
+- Pandemic information – [Zman Games](https://www.zmangames.com/game/pandemic/ "Zman Games | Pandemic")
+- Pandemic: In The Lab information – [Z-Man Games](https://www.zmangames.com/game/pandemic-in-the-lab/ "Z-Man Games | Pandemic: In The Lab")
+- Pandemic: On The Brink information – [Z-Man Games](https://www.zmangames.com/game/pandemic-on-the-brink/ "Z-Man Games | Pandemic: On The Brink")
+- Pandemic: State of Emergency information – [Z-Man Games](https://www.zmangames.com/game/pandemic-state-of-emergency/ "Z-Man Games | Pandemic: State of Emergency")
+- Robinson Crusoe Deluxe Tokens information - [The Game Steward](https://www.thegamesteward.com/products/robinson-crusoe-resin-tokens-board-game-accessory "The Game Steward | Robinson Crusoe Resin Tokens")
+- Robinson Crusoe information - [Portal Games](https://shopportalgames.com/collections/robinson-crusoe/products/robinson-crusoe-2e "Portal Games | Robinson Crusoe")
+- Robinson Crusoe Organiser information - [Folded Space](hhttps://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
+- Robinson Crusoe Playmat information - [Portal Game](https://shopportalgames.com/products/robinson-crusoe-playmat "Portal Games | Robinson Crusoe Playmat")
+- Terraforming Mars information - [Board Games Geek]( https://boardgamegeek.com/boardgame/167791/terraforming-mars "Board Game Geek | Terraforming Mars")
+- The Fox Experiment information - [Board Games Geek](https://boardgamegeek.com/boardgame/368432/the-fox-experiment "Board Game Geek | The Fox Experiment")
+- Through the Ages information – [Board Games Geek](https://boardgamegeek.com/boardgame/182028/through-the-ages-a-new-story-of-civilization "Board Games Geek | Through the Ages")
+- Tiny Epic Dungeons information – [Board Games Geek](https://boardgamegeek.com/boardgame/331787/tiny-epic-dungeons "Board Games Geek | Tiny Epic Dungeons")
+- Tiny Epic Dungeons Playmat information – [Board Games Geek](https://boardgamegeek.com/boardgameaccessory/360513/tiny-epic-dungeons-official-game-mat "Board Games Geek | Tiny Epic Dungeons Playmat")
+- Tiny Epic Tactics information – [Board Games Geek](https://boardgamegeek.com/boardgame/272409/tiny-epic-tactics "Board Games Geek | Tiny Epic Tactics")
+- Tiny Epic Zombies information – [Board Games Geek](https://boardgamegeek.com/boardgame/244536/tiny-epic-zombies "Board Games Geek | Tiny Epic Zombies")
+- Wingspan information – [Board Games Geek](https://boardgamegeek.com/boardgame/266192/wingspan "Board Games Geek | Wingspan")
+- Zombicide information - [Zombicide](https://www.zombicide.com/2nd-edition/ "Zombicide | 2nd Edition")
+
 
 ### Visual Content:
 
