@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Gamers Guild | Search Results
+{% endblock title %}
+
+{% block content %}
+
+<section class="home-page-title">
+    <h1>Search Results</h1>
+    <p class="text-highlight mb-0">
+      Results for "{{ query }}"
+    </p>
+</section>
+
+<section class="results-container">
+
+  <div class="container-fluid games">
+
+    <h3 class="mb-3">Board Games</h3>
+
+    <div class="row g-4">
+
+      {% for boardgame in boardgames %}
+        <div class="col-md-4 col-lg-3 d-flex">
+
+          <article class="boardgame-card h-100 w-100">
+
+            <a href="{% url 'boardgame_detail' boardgame.slug %}" class="boardgame-link">
+
+              {% if boardgame.image %}
+                <img src="{{ boardgame.image.url }}"
+                     class="card-img-top"
+                     alt="{{ boardgame.title }}">
+              {% else %}
+                <img src="{% static 'images/no-image.png' %}"
+                     class="card-img-top"
+                     alt="No image">
+              {% endif %}
+
+            </a>
+
+            <div class="card-body">
+
+              <h2 class="card-title">
+                <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                   class="boardgame-link">
+                  {{ boardgame.title }}
+                </a>
+              </h2>
+
+              <div class="player-count card-text">
+                <i class="fa-solid fa-people-group"></i>
+                {{ boardgame.min_players }} - {{ boardgame.max_players }}
+              </div>
+
+              <p class="card-text small">
+                {{ boardgame.release_year }} • {{ boardgame.playtime }} min
+              </p>
+
+              <p class="card-text star-rating">
+                {% if boardgame.avg_rating %}
+                  {% with rating=boardgame.avg_rating %}
+                    {% for i in "12345" %}
+                      {% if rating >= forloop.counter %}
+                        <i class="fas fa-star"></i>
+                      {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
+                        <i class="fas fa-star-half-alt"></i>
+                      {% else %}
+                        <i class="far fa-star"></i>
+                      {% endif %}
+                    {% endfor %}
+
+                    <span class="rating-number">
+                      ({{ rating|floatformat:1 }})
+                    </span>
+                  {% endwith %}
+                {% else %}
+                  No ratings yet
+                {% endif %}
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      {% empty %}
+        <p>No board games found.</p>
+      {% endfor %}
+
+    </div>
+
+    <hr class="my-5">
+
+    <h3 class="mb-3">Products</h3>
+
+    <div class="row g-4">
+
+      {% for product in products %}
+        <div class="col-md-4 col-lg-3 d-flex">
+
+          <article class="product-card h-100 w-100">
+
+            <a href="{% url 'product_detail' product.id %}">
+              {% if product.image %}
+                <img src="{{ product.image.url }}"
+                     class="card-img-top"
+                     alt="{{ product.name }}">
+              {% else %}
+                <img src="{% static 'images/no-image.png' %}"
+                     class="card-img-top"
+                     alt="No image">
+              {% endif %}
+            </a>
+
+            <div class="card-body">
+
+              <h2 class="card-title">
+                <a href="{% url 'product_detail' product.id %}" class="product-link">
+                  {{ product.name }}
+                </a>
+              </h2>
+
+              <div class="price">
+                £{{ product.price }}
+              </div>
+
+              {% if product.category %}
+                <p class="category small mt-1">
+                  {{ product.category.readable_type }}
+                </p>
+              {% endif %}
+
+              {% if product.rating %}
+                <p class="rating small">
+                  ⭐ {{ product.rating }}/5
+                </p>
+              {% endif %}
+
+            </div>
+
+          </article>
+
+        </div>
+
+      {% empty %}
+        <p>No products found.</p>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock content %}

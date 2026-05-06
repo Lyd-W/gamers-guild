@@ -6,7 +6,7 @@ from django.db.models import FloatField
 from .models import Boardgame, Genre, Review
 from .forms import ReviewForm
 from django.contrib import messages
-
+from shop.models import Product
 
 def home(request):
     boardgames = Boardgame.objects.all()
@@ -126,3 +126,32 @@ def boardgame_detail(request, slug):
             "reviews": reviews,
         }
     )
+
+
+def search(request):
+    query = request.GET.get('q')
+
+    boardgames = Boardgame.objects.all()
+    products = Product.objects.all()
+
+    if query:
+        boardgames = boardgames.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        products = products.filter(
+            Q(name__icontains=query) |
+            Q(description__icontains=query)
+        )
+    else:
+        boardgames = Boardgame.objects.none()
+        products = Product.objects.none()
+
+    context = {
+        "query": query,
+        "boardgames": boardgames,
+        "products": products,
+    }
+
+    return render(request, "home/search/results.html", context)

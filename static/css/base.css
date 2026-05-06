@@ -969,7 +969,8 @@ select option[value=""] {
   .bag-container,
   .profile-title,
   .shop-container,
-  .shop-category-bar {
+  .shop-category-bar,
+  .results-container {
     margin-left: 2rem;
     margin-right: 2.5rem;
   }
