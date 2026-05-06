@@ -3,7 +3,9 @@ from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from django.db.models import FloatField
 
-from .models import Boardgame, Genre
+from .models import Boardgame, Genre, Review
+from .forms import ReviewForm
+from django.contrib import messages
 
 
 def home(request):
@@ -42,14 +44,16 @@ def home(request):
 
     sortkey = "title"
 
-    if sort == "rating":
-        boardgames = boardgames.annotate(
-            avg_rating=Coalesce(
-                Avg('reviews__rating'),
-                0.0,
-                output_field=FloatField()
-            )
+    boardgames = boardgames.annotate(
+        avg_rating=Coalesce(
+            Avg('reviews__rating'),
+            0.0,
+            output_field=FloatField()
         )
+    )
+    sortkey = "title"
+
+    if sort == "rating":
         sortkey = "avg_rating"
 
     elif sort == "title":
@@ -85,8 +89,40 @@ def home(request):
 def boardgame_detail(request, slug):
     boardgame = get_object_or_404(Boardgame, slug=slug)
 
+    review = None
+    if request.user.is_authenticated:
+        review = Review.objects.filter(
+            boardgame=boardgame,
+            user=request.user
+        ).first()
+
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            messages.error(request, "You must be logged in to leave a review.")
+            form = ReviewForm()  # fallback
+        else:
+            form = ReviewForm(request.POST, instance=review)
+
+            if form.is_valid():
+                new_review = form.save(commit=False)
+                new_review.boardgame = boardgame
+                new_review.user = request.user
+                new_review.save()
+                from django.shortcuts import redirect
+
+                messages.success(request, "Review submitted!")
+                return redirect('boardgame_detail', slug=boardgame.slug)
+    else:
+        form = ReviewForm(instance=review)
+
+        reviews = boardgame.reviews.all().order_by('-created_on')
+
     return render(
         request,
         "home/boardgame_detail.html",
-        {"boardgame": boardgame}
+        {
+            "boardgame": boardgame,
+            "form": form,
+            "reviews": reviews,
+        }
     )

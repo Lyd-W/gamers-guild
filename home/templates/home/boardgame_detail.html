@@ -1,51 +1,96 @@
-
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-<section class="boardgame-detail">
-  <div class="boardgame-display row">
-    <div class="boardgame-image-container col-12 col-lg-4">
-      {% if boardgame.image %}
-      <img
-        src="{{ boardgame.image.url }}"
-        class="boardgame-image"
-        alt="{{ boardgame.title }}"
-      >
-      {% else %}
-      <img
-        class="boardgame-image"
-        alt="Boardgame placeholder"
-      >
-      {% endif %}
+  <section class="boardgame-detail">
+    <div class="boardgame-display row">
+      <div class="boardgame-image-container col-12 col-lg-4">
+        {% if boardgame.image %}
+          <img src="{{ boardgame.image.url }}"
+               class="boardgame-image"
+               alt="{{ boardgame.title }}" />
+        {% else %}
+          <img class="boardgame-image" alt="Boardgame placeholder" />
+        {% endif %}
+      </div>
+      <div class="boardgame-intro col-12 col-lg-8">
+        <header class="boardgame-header">
+          <h2 class="boardgame-title">{{ boardgame.title }}</h2>
+          <div class="boardgame-meta">
+            <p>
+              Genres:
+              {% for genre in boardgame.genres.all %}
+                {{ genre.name }}
+                {% if not forloop.last %},{% endif %}
+              {% empty %}
+                None
+              {% endfor %}
+            </p>
+            Released in {{ boardgame.release_year }}
+          </div>
+        </header>
+        <hr />
+        <section class="information-section">
+          <div class="boardgame-description">{{ boardgame.description| safe }}</div>
+          <div class="players information-title">
+            Number of Players:
+            <p>{{ boardgame.min_players }} - {{ boardgame.max_players }}</p>
+          </div>
+          <div class="playtime">
+            Playtime:
+            <p>{{ boardgame.playtime }} minutes</p>
+          </div>
+          <hr />
+          <section class="review-section">
+            <h3>Leave a Review</h3>
+            {% if user.is_authenticated %}
+              <form method="POST">
+                {% csrf_token %}
+                <div class="mb-2">
+                  <label>Rating:</label>
+                  {{ form.rating }}
+                </div>
+                <div class="mb-2">
+                  <label>Comment:</label>
+                  {{ form.comment }}
+                </div>
+                <button type="submit" class="btn">Submit Review</button>
+              </form>
+            {% else %}
+              <p>
+                <a href="{% url 'account_login' %}">Log in</a> to leave a review.
+              </p>
+            {% endif %}
+            <hr />
+            <section class="reviews-list">
+              <h3>Reviews</h3>
+              {% for review in reviews %}
+                <div class="review mb-3">
+                  <strong>{{ review.user.username }}</strong>
+                  <br />
+                  <p class="star-rating">
+                    {% for i in "12345" %}
+                      {% if review.rating >= forloop.counter %}
+                        <i class="fas fa-star"></i>
+                      {% elif review.rating >= forloop.counter|add:"-0.5" %}
+                        <i class="fas fa-star-half-alt"></i>
+                      {% else %}
+                        <i class="far fa-star"></i>
+                      {% endif %}
+                    {% endfor %}
+                    <span class="rating-number">({{ review.rating }}/5)</span>
+                  </p>
+                  <p>{{ review.comment }}</p>
+                </div>
+              {% empty %}
+                <p>No reviews yet.</p>
+              {% endfor %}
+            </section>
+          </section>
+        </section>
+      </div>
     </div>
-    <div class="boardgame-intro col-12 col-lg-8">
-      <header class="boardgame-header">
-        <h2 class="boardgame-title">{{ boardgame.title }}</h2>
-        <div class="boardgame-meta">
-          <p> Genres:{% for genre in boardgame.genres.all %}
-    {{ genre.name }}{% if not forloop.last %}, {% endif %}
-  {% empty %}
-    None
-  {% endfor %}
-</p> Released in {{ boardgame.release_year }}
-        </div>
-      </header>
-
-      <hr>
-
-      <section class="information-section">
-        <div class="boardgame-description">{{boardgame.description| safe}}</div>
-        <div class="players information-title">Number of Players:
-          <p>{{ boardgame.min_players }} - {{ boardgame.max_players }}</p>
-        </div>
-        <div class="playtime"> Playtime: 
-          <p>{{ boardgame.playtime}} minutes
-        </div>
-      </section>
-    </div>
-  </div>
-
-{% endblock content %} {% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
-{% endblock %}
+  {% endblock content %}
+  {% block extras %}
+    <script src="{% static 'js/comments.js' %}"></script>
+  {% endblock extras %}
+</section>

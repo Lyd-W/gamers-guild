@@ -208,13 +208,18 @@
                           {% if boardgame.avg_rating %}
                             {% with rating=boardgame.avg_rating %}
                               {% for i in "12345" %}
-                                {% if forloop.counter <= rating %}
-                                  ★
+                                {% if rating >= forloop.counter %}
+                                  <i class="fas fa-star"></i>
+
+                                {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
+                                  <i class="fas fa-star-half-alt"></i>
+
                                 {% else %}
-                                  ☆
+                                  <i class="far fa-star"></i>
                                 {% endif %}
                               {% endfor %}
-                              ({{ rating|floatformat:1 }})
+
+                              <span class="rating-number">({{ rating|floatformat:1 }})</span>
                             {% endwith %}
                           {% else %}
                             No ratings yet

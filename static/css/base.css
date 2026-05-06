@@ -484,7 +484,8 @@ padding: 0.3rem;
     margin-inline-end: 8px;
 }
 
-.star-rating {
+.star-rating i,
+.rating-number {
   color: var(--primary-highlight);
   font-size: 1.1rem;
 }
