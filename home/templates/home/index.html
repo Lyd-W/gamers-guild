@@ -204,6 +204,14 @@
                           <i class="fa-solid fa-people-group"></i>
                           {{ boardgame.min_players }} - {{ boardgame.max_players }}
                         </div>
+                        <div class="release-year card-text">
+                          <i class="fa-solid fa-hourglass-half"></i>
+                          {{ boardgame.playtime }} minutes
+                        </div>
+                        <div class="release-year card-text">
+                          <i class="fa-solid fa-calendar"></i>
+                          {{ boardgame.release_year }}
+                        </div>
                         <p class="card-text star-rating">
                           {% if boardgame.avg_rating %}
                             {% with rating=boardgame.avg_rating %}
