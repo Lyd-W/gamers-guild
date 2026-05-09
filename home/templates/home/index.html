@@ -21,17 +21,13 @@
   </section>
   <section class="games-container">
     <div class="sort-filter-container">
-
       <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
               type="button"
               id="openFiltersBtn">
         <i class="fas fa-filter me-2"></i> Filters
       </button>
-
       <section class="filter px-4">
-
         <div class="d-md-none">
-
           <button class="btn filters-btn w-100 mb-2"
                   type="button"
                   data-bs-toggle="collapse"
@@ -40,7 +36,6 @@
                   aria-controls="mobileFiltersCollapse">
             <i class="fas fa-filter me-2"></i> Filter By
           </button>
-
           <div class="collapse" id="mobileFiltersCollapse">
             <div class="card card-body p-3">
               {% include "includes/mobile-game-filter.html" %}
@@ -86,7 +81,6 @@
           </p>
         </div>
       </section>
-      
       <section class="main-games">
         <div class="filter-wrapper d-none d-lg-block">
           <div class="filter-sidebar">
@@ -105,7 +99,8 @@
                       {% for genre in genres %}
                         <div class="genre-badge">
                           <label>
-                            <input type="checkbox"
+                            <input class="form-check-input"
+                                   type="checkbox"
                                    name="genre"
                                    value="{{ genre.id }}"
                                    onchange="this.form.submit()"
@@ -188,59 +183,69 @@
             <div class="card-display row">
               <div class="col-12 mt-3">
                 <div class="row g-4">
-                  {% for boardgame in boardgames %}
-                    <div class="col-md-4 d-flex">
-                      <article class="boardgame-card h-100 w-100">
-                        <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                           class="boardgame-link">
-                          {% if boardgame.image %}
-                            <img src="{{ boardgame.image.url }}"
-                                 class="card-img-top"
-                                 alt="{{ boardgame.title }}">
-                          {% else %}
-                            <img class="card-img-top" alt="Boardgame placeholder">
-                          {% endif %}
-                        </a>
-                        <div class="card-body">
-                          <h2 class="card-title">
-                            <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                               class="boardgame-link">{{ boardgame.title }}</a>
-                          </h2>
-                          <hr>
-                          <div class="player-count card-text">
-                            <i class="fa-solid fa-people-group"></i>
-                            {{ boardgame.min_players }} - {{ boardgame.max_players }}
-                          </div>
-                          <div class="release-year card-text">
-                            <i class="fa-solid fa-hourglass-half"></i>
-                            {{ boardgame.playtime }} minutes
-                          </div>
-                          <div class="release-year card-text">
-                            <i class="fa-solid fa-calendar"></i>
-                            {{ boardgame.release_year }}
-                          </div>
-                          <p class="card-text star-rating">
-                            {% if boardgame.avg_rating %}
-                              {% with rating=boardgame.avg_rating %}
-                                {% for i in "12345" %}
-                                  {% if rating >= forloop.counter %}
-                                    <i class="fas fa-star"></i>
-                                  {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
-                                    <i class="fas fa-star-half-alt"></i>
-                                  {% else %}
-                                    <i class="far fa-star"></i>
-                                  {% endif %}
-                                {% endfor %}
-                                <span class="rating-number">({{ rating|floatformat:1 }})</span>
-                              {% endwith %}
+                  {% if boardgames %}
+                    {% for boardgame in boardgames %}
+                      <div class="col-md-4 d-flex">
+                        <article class="boardgame-card h-100 w-100">
+                          <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                             class="boardgame-link">
+                            {% if boardgame.image %}
+                              <img src="{{ boardgame.image.url }}"
+                                   class="card-img-top"
+                                   alt="{{ boardgame.title }}">
                             {% else %}
-                              No ratings yet
+                              <img class="card-img-top" alt="Boardgame placeholder">
                             {% endif %}
-                          </p>
-                        </div>
-                      </article>
+                          </a>
+                          <div class="card-body">
+                            <h2 class="card-title">
+                              <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                                 class="boardgame-link">{{ boardgame.title }}</a>
+                            </h2>
+                            <hr>
+                            <div class="player-count card-text">
+                              <i class="fa-solid fa-people-group"></i>
+                              {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                            </div>
+                            <div class="release-year card-text">
+                              <i class="fa-solid fa-hourglass-half"></i>
+                              {{ boardgame.playtime }} minutes
+                            </div>
+                            <div class="release-year card-text">
+                              <i class="fa-solid fa-calendar"></i>
+                              {{ boardgame.release_year }}
+                            </div>
+                            <p class="card-text star-rating">
+                              {% if boardgame.avg_rating %}
+                                {% with rating=boardgame.avg_rating %}
+                                  {% for i in "12345" %}
+                                    {% if rating >= forloop.counter %}
+                                      <i class="fas fa-star"></i>
+                                    {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
+                                      <i class="fas fa-star-half-alt"></i>
+                                    {% else %}
+                                      <i class="far fa-star"></i>
+                                    {% endif %}
+                                  {% endfor %}
+                                  <span class="rating-number">({{ rating|floatformat:1 }})</span>
+                                {% endwith %}
+                              {% else %}
+                                No ratings yet
+                              {% endif %}
+                            </p>
+                          </div>
+                        </article>
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <div class="col-12">
+                      <div class="empty-results-message text-center py-5">
+                        <h3>No games found</h3>
+                        <p>No games match your current filters.</p>
+                        <a href="{% url 'home' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+                      </div>
                     </div>
-                  {% endfor %}
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -268,7 +273,8 @@
                     {% for genre in genres %}
                       <div class="genre-badge">
                         <label>
-                          <input type="checkbox"
+                          <input class="form-check-input"
+                                 type="checkbox"
                                  name="genre"
                                  value="{{ genre.id }}"
                                  onchange="this.form.submit()"

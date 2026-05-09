@@ -66,99 +66,86 @@
       </div>
     </div>
     <section class="main-shop">
-
-<div class="filter-wrapper d-none d-lg-block">
-  <div class="filter-sidebar">
-
-    <p class="filter-header mb-2">Filter By</p>
-    <p class="categories-header">Category</p>
-
-    <form method="GET" action="{% url 'shop' %}">
-      {% for sub in subcategories %}
-        <div class="form-check mb-2">
-          <input class="form-check-input"
-                 type="checkbox"
-                 name="category"
-                 value="{{ sub.type }}"
-                 onchange="this.form.submit()"
-                 {% if sub.type in current_categories %}checked{% endif %}>
-
-          <label class="form-check-label">
-            {{ sub.readable_type|default:sub.type }}
-          </label>
-        </div>
-      {% endfor %}
-    </form>
-
-    <a href="{% url 'shop' %}"
-       class="btn clear-filters-btn mt-3">
-      Clear Filters
-    </a>
-
-  </div>
-</div>
-
-  <div class="filter-overlay-container"
-       id="filterOverlay">
-
-    <div class="filter-overlay-panel">
-      <button class="btn-close mb-3" id="closeFiltersBtn"></button>
-
-      <p class="filter-header">Filters</p>
-
-      <form method="GET" action="{% url 'shop' %}">
-        {% for sub in subcategories %}
-          <div class="form-check mb-2">
-            <input class="form-check-input"
-                   type="checkbox"
-                   name="category"
-                   value="{{ sub.type }}"
-                   onchange="this.form.submit()"
-                   {% if sub.type in current_categories %}checked{% endif %}>
-
-            <label class="form-check-label">
-              {{ sub.readable_type|default:sub.type }}
-            </label>
-          </div>
-        {% endfor %}
-      </form>
-
-      <a href="{% url 'shop' %}"
-         class="btn clear-filters-btn mt-3">
-        Clear Filters
-      </a>
-    </div>
-  </div>
-  <div class="products container-fluid px-4">
-    <div class="products-scroll">
-      <div class="row g-4">
-        {% for product in products %}
-          <div class="col-12 col-md-4 col-lg-3 d-flex">
-            <article class="product-card h-100 w-100">
-              <a href="{% url 'product_detail' product.id %}">
-                {% if product.image %}<img src="{{ product.image.url }}" class="card-img-top">{% endif %}
-              </a>
-              <div class="card-body">
-                <h2 class="card-title">
-                  <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
-                </h2>
-                <div class="price">£{{ product.price }}</div>
-                {% if product.category %}
-                  <p class="category small mt-1">
-                    <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
-                  </p>
-                {% endif %}
-                {% if product.rating %}<small>⭐ {{ product.rating }}/5</small>{% endif %}
+      <div class="filter-wrapper d-none d-lg-block">
+        <div class="filter-sidebar">
+          <p class="filter-header mb-2">Filter By</p>
+          <p class="categories-header">Category</p>
+          <form method="GET" action="{% url 'shop' %}">
+            {% for sub in subcategories %}
+              <div class="form-check mb-2">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="category"
+                       value="{{ sub.type }}"
+                       onchange="this.form.submit()"
+                       {% if sub.type in current_categories %}checked{% endif %}>
+                <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
               </div>
-            </article>
-          </div>
-        {% endfor %}
+            {% endfor %}
+          </form>
+          <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-</section>
-<script>
+      <div class="filter-overlay-container" id="filterOverlay">
+        <div class="filter-overlay-panel">
+          <button class="btn-close mb-3" id="closeFiltersBtn"></button>
+          <p class="filter-header">Filters</p>
+          <form method="GET" action="{% url 'shop' %}">
+            {% for sub in subcategories %}
+              <div class="form-check mb-2">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="category"
+                       value="{{ sub.type }}"
+                       onchange="this.form.submit()"
+                       {% if sub.type in current_categories %}checked{% endif %}>
+                <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
+              </div>
+            {% endfor %}
+          </form>
+          <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+        </div>
+      </div>
+      <div class="products container-fluid px-4">
+        <div class="products-scroll">
+          <div class="row g-4">
+            {% if products %}
+              {% for product in products %}
+                <div class="col-12 col-md-4 col-lg-3 d-flex">
+                  <article class="product-card h-100 w-100">
+                    <a href="{% url 'product_detail' product.id %}">
+                      {% if product.image %}<img src="{{ product.image.url }}" class="card-img-top">{% endif %}
+                    </a>
+                    <div class="card-body">
+                      <h2 class="card-title">
+                        <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                      </h2>
+                      <div class="price">£{{ product.price }}</div>
+                      {% if product.category %}
+                        <p class="category small mt-1">
+                          <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
+                        </p>
+                      {% endif %}
+                      {% if product.rating %}<small>⭐ {{ product.rating }}/5</small>{% endif %}
+                    </div>
+                  </article>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="col-12">
+                <div class="empty-results-message text-center py-5">
+                  <h3>No products found</h3>
+                  <p>No items match your current filters.</p>
+                  <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <script>
 document.getElementById('sort-selector').addEventListener('change', function () {
   const url = new URL(window.location.href);
   const val = this.value;
@@ -196,5 +183,5 @@ overlay.addEventListener('click', (e) => {
     overlay.classList.remove('active');
   }
 });
-</script>
+  </script>
 {% endblock %}

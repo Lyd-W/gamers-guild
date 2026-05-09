@@ -394,10 +394,13 @@ h3 {
 }
 
 .clear-filters-btn {
-  border: var(--primary-highlight) solid;
-  border-width: 0.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: fit-content;
+  border: 0.1rem solid var(--primary-highlight);
   color: var(--text);
-  display: flex;
   margin-bottom: 0.3rem;
 }
 
@@ -770,11 +773,19 @@ h3 {
 
 /* Forms */
 
-form input,
+form input:not([type="checkbox"]):not([type="radio"]),
 form select,
 form textarea {
   width: 100%;
   max-width: 100%;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1rem !important;
+  height: 1rem !important;
+  max-width: 1rem;
+  flex-shrink: 0;
 }
 
 input[type="file"] {
