@@ -178,65 +178,64 @@
           </div>
         </div>
         <div class="container-fluid games px-4">
-          <div class="card-display row">
-            <div class="col-12 mt-3">
-              <div class="row g-4">
-                {% for boardgame in boardgames %}
-                  <div class="col-md-4 d-flex">
-                    <article class="boardgame-card h-100 w-100">
-                      <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                         class="boardgame-link">
-                        {% if boardgame.image %}
-                          <img src="{{ boardgame.image.url }}"
-                               class="card-img-top"
-                               alt="{{ boardgame.title }}">
-                        {% else %}
-                          <img class="card-img-top" alt="Boardgame placeholder">
-                        {% endif %}
-                      </a>
-                      <div class="card-body">
-                        <h2 class="card-title">
-                          <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                             class="boardgame-link">{{ boardgame.title }}</a>
-                        </h2>
-                        <hr>
-                        <div class="player-count card-text">
-                          <i class="fa-solid fa-people-group"></i>
-                          {{ boardgame.min_players }} - {{ boardgame.max_players }}
-                        </div>
-                        <div class="release-year card-text">
-                          <i class="fa-solid fa-hourglass-half"></i>
-                          {{ boardgame.playtime }} minutes
-                        </div>
-                        <div class="release-year card-text">
-                          <i class="fa-solid fa-calendar"></i>
-                          {{ boardgame.release_year }}
-                        </div>
-                        <p class="card-text star-rating">
-                          {% if boardgame.avg_rating %}
-                            {% with rating=boardgame.avg_rating %}
-                              {% for i in "12345" %}
-                                {% if rating >= forloop.counter %}
-                                  <i class="fas fa-star"></i>
-
-                                {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
-                                  <i class="fas fa-star-half-alt"></i>
-
-                                {% else %}
-                                  <i class="far fa-star"></i>
-                                {% endif %}
-                              {% endfor %}
-
-                              <span class="rating-number">({{ rating|floatformat:1 }})</span>
-                            {% endwith %}
+          <div class="games-scroll">
+            <div class="card-display row">
+              <div class="col-12 mt-3">
+                <div class="row g-4">
+                  {% for boardgame in boardgames %}
+                    <div class="col-md-4 d-flex">
+                      <article class="boardgame-card h-100 w-100">
+                        <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                           class="boardgame-link">
+                          {% if boardgame.image %}
+                            <img src="{{ boardgame.image.url }}"
+                                 class="card-img-top"
+                                 alt="{{ boardgame.title }}">
                           {% else %}
-                            No ratings yet
+                            <img class="card-img-top" alt="Boardgame placeholder">
                           {% endif %}
-                        </p>
-                      </div>
-                    </article>
-                  </div>
-                {% endfor %}
+                        </a>
+                        <div class="card-body">
+                          <h2 class="card-title">
+                            <a href="{% url 'boardgame_detail' boardgame.slug %}"
+                               class="boardgame-link">{{ boardgame.title }}</a>
+                          </h2>
+                          <hr>
+                          <div class="player-count card-text">
+                            <i class="fa-solid fa-people-group"></i>
+                            {{ boardgame.min_players }} - {{ boardgame.max_players }}
+                          </div>
+                          <div class="release-year card-text">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                            {{ boardgame.playtime }} minutes
+                          </div>
+                          <div class="release-year card-text">
+                            <i class="fa-solid fa-calendar"></i>
+                            {{ boardgame.release_year }}
+                          </div>
+                          <p class="card-text star-rating">
+                            {% if boardgame.avg_rating %}
+                              {% with rating=boardgame.avg_rating %}
+                                {% for i in "12345" %}
+                                  {% if rating >= forloop.counter %}
+                                    <i class="fas fa-star"></i>
+                                  {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
+                                    <i class="fas fa-star-half-alt"></i>
+                                  {% else %}
+                                    <i class="far fa-star"></i>
+                                  {% endif %}
+                                {% endfor %}
+                                <span class="rating-number">({{ rating|floatformat:1 }})</span>
+                              {% endwith %}
+                            {% else %}
+                              No ratings yet
+                            {% endif %}
+                          </p>
+                        </div>
+                      </article>
+                    </div>
+                  {% endfor %}
+                </div>
               </div>
             </div>
           </div>

@@ -1,182 +1,114 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %}
-Shop Board Games and Accessories | Gamers Guild
-{% endblock %}
-
+{% block title %}Shop Board Games and Accessories | Gamers Guild{% endblock %}
 {% block content %}
-
-<section class="shop-page-title">
-  <h1>Welcome to the Gamers Guild Shop</h1>
-</section>
-
-<section class="shop-category-bar">
-  <div class="d-flex gap-3 overflow-auto px-3 py-2">
-
-    <a href="{% url 'shop' %}"
-       class="{% if not selected_parent %}active{% endif %}">
-      All
-    </a>
-
-    {% for parent in parent_categories %}
-      <a href="{% url 'shop' %}?parent={{ parent.type }}"
-         class="{% if selected_parent == parent.type %}active{% endif %}">
-        {{ parent.readable_type|default:parent.type }}
-      </a>
-    {% endfor %}
-
-  </div>
-</section>
-
-<section class="shop-container">
-
-  <div class="sort-filter-container">
-
-    <button class="btn filters-btn d-md-inline-flex d-lg-none"
-            id="openFiltersBtn">
-      <i class="fas fa-filter me-2"></i> Filters
-    </button>
-
-    <div class="sort-dropdown">
-      <select id="sort-selector" class="form-select form-select-sm">
-        <option value="reset">Sort by...</option>
-        <option value="price_asc">Price (low to high)</option>
-        <option value="price_desc">Price (high to low)</option>
-        <option value="rating_asc">Rating (low to high)</option>
-        <option value="rating_desc">Rating (high to low)</option>
-        <option value="name_asc">Name (A-Z)</option>
-        <option value="name_desc">Name (Z-A)</option>
-        <option value="category_asc">Category (A-Z)</option>
-        <option value="category_desc">Category (Z-A)</option>
-      </select>
-
-      <p class=" product-count mt-2 mb-0">
-        {{ products|length }} Products
-        {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
-      </p>
+  <section class="shop-page-title">
+    <h1>Welcome to the Gamers Guild Shop</h1>
+  </section>
+  <section class="shop-category-bar">
+    <div class="d-flex gap-3 overflow-auto px-3 py-2">
+      <a href="{% url 'shop' %}"
+         class="{% if not selected_parent %}active{% endif %}">All</a>
+      {% for parent in parent_categories %}
+        <a href="{% url 'shop' %}?parent={{ parent.type }}"
+           class="{% if selected_parent == parent.type %}active{% endif %}">
+          {{ parent.readable_type|default:parent.type }}
+        </a>
+      {% endfor %}
     </div>
-
-  </div>
-
-  <section class="main-shop">
-
-    <aside class="filter-sidebar d-none d-lg-block">
-
-      <p class="filter-header mb-2">Filter By</p>
-
-      <form method="GET" action="{% url 'shop' %}">
-
-        {% for sub in subcategories %}
-          <div class="form-check mb-1">
-            <input class="form-check-input"
-                   type="checkbox"
-                   name="category"
-                   value="{{ sub.type }}"
-                   onchange="this.form.submit()"
-                   {% if sub.type in current_categories %}checked{% endif %}>
-            <label class="form-check-label">
-              {{ sub.readable_type|default:sub.type }}
-            </label>
-          </div>
-        {% endfor %}
-
-      </form>
-
-      <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">
-        Clear Filters
-      </a>
-
-    </aside>
-
-    <div class="filter-overlay-container" id="filterOverlay">
-
-      <div class="filter-overlay-panel">
-
-        <button class="btn-close mb-3" id="closeFiltersBtn"></button>
-
-        <p class="filter-header">Filters</p>
-
+  </section>
+  <section class="shop-container">
+    <div class="sort-filter-container">
+      <button class="btn filters-btn d-md-inline-flex d-lg-none"
+              id="openFiltersBtn">
+        <i class="fas fa-filter me-2"></i> Filters
+      </button>
+      <div class="sort-dropdown">
+        <select id="sort-selector" class="form-select form-select-sm">
+          <option value="reset">Sort by...</option>
+          <option value="price_asc">Price (low to high)</option>
+          <option value="price_desc">Price (high to low)</option>
+          <option value="rating_asc">Rating (low to high)</option>
+          <option value="rating_desc">Rating (high to low)</option>
+          <option value="name_asc">Name (A-Z)</option>
+          <option value="name_desc">Name (Z-A)</option>
+          <option value="category_asc">Category (A-Z)</option>
+          <option value="category_desc">Category (Z-A)</option>
+        </select>
+        <p class=" product-count mt-2 mb-0">
+          {{ products|length }} Products
+          {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
+        </p>
+      </div>
+    </div>
+    <section class="main-shop">
+      <aside class="filter-sidebar d-none d-lg-block">
+        <p class="filter-header mb-2">Filter By</p>
         <form method="GET" action="{% url 'shop' %}">
-
           {% for sub in subcategories %}
-            <div class="form-check mb-2">
+            <div class="form-check mb-1">
               <input class="form-check-input"
                      type="checkbox"
                      name="category"
                      value="{{ sub.type }}"
                      onchange="this.form.submit()"
                      {% if sub.type in current_categories %}checked{% endif %}>
-              <label class="form-check-label">
-                {{ sub.readable_type|default:sub.type }}
-              </label>
+              <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
             </div>
           {% endfor %}
-
         </form>
-
-        <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">
-          Clear Filters
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="products container-fluid px-4">
-
-      <div class="row g-4">
-
-        {% for product in products %}
-        <div class="col-12 col-md-4 col-lg-3 d-flex">
-
-          <article class="product-card h-100 w-100">
-
-            <a href="{% url 'product_detail' product.id %}">
-              {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top">
-              {% endif %}
-            </a>
-
-            <div class="card-body">
-
-              <h2 class="card-title">
-                <a href="{% url 'product_detail' product.id %}">
-                  {{ product.name }}
-                </a>
-              </h2>
-
-              <div class="price">£{{ product.price }}</div>
-
-              {% if product.category %}
-                <p class="category small mt-1">
-                  <a href="{% url 'shop' %}?category={{ product.category.type }}">
-                    {{ product.category.readable_type }}
-                  </a>
-                </p>
-              {% endif %}
-
-              {% if product.rating %}
-                <small>
-                  ⭐ {{ product.rating }}/5
-                </small>
-              {% endif %}
-
-            </div>
-
-          </article>
-
+        <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+      </aside>
+      <div class="filter-overlay-container" id="filterOverlay">
+        <div class="filter-overlay-panel">
+          <button class="btn-close mb-3" id="closeFiltersBtn"></button>
+          <p class="filter-header">Filters</p>
+          <form method="GET" action="{% url 'shop' %}">
+            {% for sub in subcategories %}
+              <div class="form-check mb-2">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="category"
+                       value="{{ sub.type }}"
+                       onchange="this.form.submit()"
+                       {% if sub.type in current_categories %}checked{% endif %}>
+                <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
+              </div>
+            {% endfor %}
+          </form>
+          <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
         </div>
-        {% endfor %}
-
       </div>
-
-    </div>
-
+      <div class="products container-fluid px-4">
+        <div class="products-scroll">
+          <div class="row g-4">
+            {% for product in products %}
+              <div class="col-12 col-md-4 col-lg-3 d-flex">
+                <article class="product-card h-100 w-100">
+                  <a href="{% url 'product_detail' product.id %}">
+                    {% if product.image %}<img src="{{ product.image.url }}" class="card-img-top">{% endif %}
+                  </a>
+                  <div class="card-body">
+                    <h2 class="card-title">
+                      <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                    </h2>
+                    <div class="price">£{{ product.price }}</div>
+                    {% if product.category %}
+                      <p class="category small mt-1">
+                        <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
+                      </p>
+                    {% endif %}
+                    {% if product.rating %}<small>⭐ {{ product.rating }}/5</small>{% endif %}
+                  </div>
+                </article>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
-</section>
-
-<script>
+  <script>
 document.getElementById('sort-selector').addEventListener('change', function () {
   const url = new URL(window.location.href);
   const val = this.value;
@@ -214,6 +146,5 @@ overlay.addEventListener('click', (e) => {
     overlay.classList.remove('active');
   }
 });
-</script>
-
+  </script>
 {% endblock %}
