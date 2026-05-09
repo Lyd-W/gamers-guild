@@ -21,13 +21,17 @@
   </section>
   <section class="games-container">
     <div class="sort-filter-container">
+
       <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
               type="button"
               id="openFiltersBtn">
         <i class="fas fa-filter me-2"></i> Filters
       </button>
+
       <section class="filter px-4">
+
         <div class="d-md-none">
+
           <button class="btn filters-btn w-100 mb-2"
                   type="button"
                   data-bs-toggle="collapse"
@@ -36,6 +40,7 @@
                   aria-controls="mobileFiltersCollapse">
             <i class="fas fa-filter me-2"></i> Filter By
           </button>
+
           <div class="collapse" id="mobileFiltersCollapse">
             <div class="card card-body p-3">
               {% include "includes/mobile-game-filter.html" %}
@@ -81,6 +86,7 @@
           </p>
         </div>
       </section>
+      
       <section class="main-games">
         <div class="filter-wrapper d-none d-lg-block">
           <div class="filter-sidebar">
