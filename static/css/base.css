@@ -905,6 +905,20 @@ select option[value=""] {
   max-width: auto;
   margin: 5rem auto;
 }
+
+.filter-overlay-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+
+  display: none;
+}
+
+.filter-overlay-container.active {
+  display: block;
+}
+
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -1040,7 +1054,6 @@ select option[value=""] {
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 2000;
-    display: none;
   }
 
   .filter-overlay-panel {
@@ -1057,8 +1070,6 @@ select option[value=""] {
   }
 
   .filter-overlay-container.active {
-    display: block;
-    display: block;
     pointer-events: auto;
   }
 
@@ -1176,10 +1187,6 @@ select option[value=""] {
   .products-scroll::-webkit-scrollbar-track {
     background-color: var(--secondary-color);
     border-radius: 10px;
-  }
-
-  .filter-overlay-container {
-    display: none !important;
   }
 
   .sort-dropdown {
