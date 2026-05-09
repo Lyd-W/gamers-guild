@@ -428,5 +428,26 @@ if (overlay) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const genreCollapse = document.getElementById('desktopGenre');
+
+  if (!genreCollapse) return;
+
+  if (localStorage.getItem('genreAccordionOpen') === 'true') {
+    genreCollapse.classList.add('show');
+  }
+
+  genreCollapse.addEventListener('shown.bs.collapse', () => {
+    localStorage.setItem('genreAccordionOpen', 'true');
+  });
+
+  genreCollapse.addEventListener('hidden.bs.collapse', () => {
+    localStorage.setItem('genreAccordionOpen', 'false');
+  });
+
+});
+
   </script>
 {% endblock content %}
