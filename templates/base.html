@@ -121,6 +121,8 @@
 
         <ul class="dropdown-menu dropdown-menu-end">
           {% if user.is_authenticated %}
+            <li class="dropdown-item">
+              You are logged in as {{ request.user.username }} </li>
             <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
           {% else %}
