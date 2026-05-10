@@ -92,36 +92,49 @@ def home(request):
 def boardgame_detail(request, slug):
     boardgame = get_object_or_404(Boardgame, slug=slug)
 
-    reviews = boardgame.reviews.all().order_by('-created_on')
-
+    reviews = []
+    
     review = None
-
     if request.user.is_authenticated:
         review = Review.objects.filter(
             boardgame=boardgame,
             user=request.user
         ).first()
 
+    if request.user.is_staff:
+        reviews = boardgame.reviews.all().order_by('-created_on')
+
+    elif request.user.is_authenticated:
+        reviews = boardgame.reviews.filter(
+            Q(is_approved=True) | Q(user=request.user)
+        ).order_by('-created_on')
+
+    else:
+        reviews = boardgame.reviews.filter(
+            is_approved=True
+        ).order_by('-created_on')
+        
     if request.method == "POST":
         if not request.user.is_authenticated:
             messages.error(request, "You must be logged in to leave a review.")
             return redirect('boardgame_detail', slug=boardgame.slug)
 
-        review_id = request.POST.get("review_id")
+    review_id = request.POST.get("review_id")
 
-        if review_id:
-            review = Review.objects.get(id=review_id)
+    if review_id:
+        review = Review.objects.get(id=review_id, boardgame=boardgame)
 
-        form = ReviewForm(request.POST, instance=review)
+    form = ReviewForm(request.POST, instance=review)
 
-        if form.is_valid():
-            new_review = form.save(commit=False)
-            new_review.boardgame = boardgame
-            new_review.user = request.user
-            new_review.save()
+    if form.is_valid():
+        new_review = form.save(commit=False)
+        new_review.boardgame = boardgame
+        new_review.user = request.user
+        new_review.is_approved = False
+        new_review.save()
 
-            messages.success(request, "Review submitted!")
-            return redirect('boardgame_detail', slug=boardgame.slug)
+        messages.success(request, "Review submitted!")
+        return redirect('boardgame_detail', slug=boardgame.slug)
 
     else:
         form = ReviewForm(instance=review)
@@ -192,3 +205,27 @@ def search(request):
     }
 
     return render(request, "home/search/results.html", context)
+
+
+@login_required
+def approve_review(request, review_id):
+    if not request.user.is_staff:
+        return redirect('home')
+
+    review = get_object_or_404(Review, id=review_id)
+    review.is_approved = True
+    review.save()
+
+    return redirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def unapprove_review(request, review_id):
+    if not request.user.is_staff:
+        return redirect('home')
+
+    review = get_object_or_404(Review, id=review_id)
+    review.is_approved = False
+    review.save()
+
+    return redirect(request.META.get('HTTP_REFERER'))
