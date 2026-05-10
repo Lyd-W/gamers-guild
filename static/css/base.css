@@ -572,7 +572,7 @@ input[type="range"].slider::-webkit-slider-thumb {
 .message-container {
   position: fixed;
   top: 5rem;
-  left: 80%;
+  left: 50%;
   transform: translateX(-50%);
   right: auto;
   width: calc(100% - 2rem);
@@ -1234,6 +1234,9 @@ select option[value=""] {
   .shop-container {
     padding-bottom: 1rem;
   }
+
+  .message-container {
+  left: 80%;
 }
 
 @media (min-width: 1200px) {
