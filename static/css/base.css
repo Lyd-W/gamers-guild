@@ -174,6 +174,11 @@ h3 {
   font-size: 1.2rem;
 }
 
+h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
 .dropdown-menu {
   background-color: var(--secondary-color);
   border: 1px solid var(--primary-highlight);
@@ -952,6 +957,33 @@ select option[value=""] {
   display: block;
 }
 
+/* Footer */
+
+.footer {
+  border-top: solid var(--bs-border-color);
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  background: var(--secondary-color);
+}
+
+.footer-links {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer i {
+  color: var(--primary-highlight);
+  margin-left: 0.75rem;
+}
+
+.footer i:hover {
+  color: var(--text);
+}
+
+.footer a {
+  text-decoration: none;
+}
+
 /* Media Queries */
 
 @media (max-width: 576px) {
@@ -966,6 +998,9 @@ select option[value=""] {
   .filter-sidebar {
     display: none !important;
   }
+      .btt-btn {
+        bottom: 60px;
+    }
 }
 
 @media (min-width: 768px) {
