@@ -8,4 +8,5 @@ urlpatterns = [
     path("<slug:slug>/favourite/", views.toggle_favourite, 
          name="toggle_favourite"),
     path("<slug:slug>/", views.boardgame_detail, name="boardgame_detail"),
+    path("<slug:slug>/delete_review/<int:review_id>/", views.delete_review, name="delete_review"),
 ]

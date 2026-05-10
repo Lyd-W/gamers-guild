@@ -10,6 +10,7 @@ from .forms import ReviewForm
 from django.contrib import messages
 from shop.models import Product
 
+
 def home(request):
     boardgames = Boardgame.objects.all()
     genres = Genre.objects.all()
@@ -91,7 +92,10 @@ def home(request):
 def boardgame_detail(request, slug):
     boardgame = get_object_or_404(Boardgame, slug=slug)
 
+    reviews = boardgame.reviews.all().order_by('-created_on')
+
     review = None
+
     if request.user.is_authenticated:
         review = Review.objects.filter(
             boardgame=boardgame,
@@ -101,23 +105,26 @@ def boardgame_detail(request, slug):
     if request.method == "POST":
         if not request.user.is_authenticated:
             messages.error(request, "You must be logged in to leave a review.")
-            form = ReviewForm()  # fallback
-        else:
-            form = ReviewForm(request.POST, instance=review)
+            return redirect('boardgame_detail', slug=boardgame.slug)
 
-            if form.is_valid():
-                new_review = form.save(commit=False)
-                new_review.boardgame = boardgame
-                new_review.user = request.user
-                new_review.save()
-                from django.shortcuts import redirect
+        review_id = request.POST.get("review_id")
 
-                messages.success(request, "Review submitted!")
-                return redirect('boardgame_detail', slug=boardgame.slug)
+        if review_id:
+            review = Review.objects.get(id=review_id)
+
+        form = ReviewForm(request.POST, instance=review)
+
+        if form.is_valid():
+            new_review = form.save(commit=False)
+            new_review.boardgame = boardgame
+            new_review.user = request.user
+            new_review.save()
+
+            messages.success(request, "Review submitted!")
+            return redirect('boardgame_detail', slug=boardgame.slug)
+
     else:
         form = ReviewForm(instance=review)
-
-        reviews = boardgame.reviews.all().order_by('-created_on')
 
     return render(
         request,
@@ -128,6 +135,20 @@ def boardgame_detail(request, slug):
             "reviews": reviews,
         }
     )
+
+
+@login_required
+def delete_review(request, slug, review_id):
+    boardgame = get_object_or_404(Boardgame, slug=slug)
+    review = get_object_or_404(Review, id=review_id, boardgame=boardgame)
+
+    if review.user != request.user:
+        messages.error(request, "You cannot delete this review.")
+        return redirect('boardgame_detail', slug=slug)
+
+    review.delete()
+    messages.success(request, "Review deleted.")
+    return redirect('boardgame_detail', slug=slug)
 
 
 @login_required

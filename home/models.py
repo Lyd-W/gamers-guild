@@ -77,6 +77,8 @@ class Review(models.Model):
     )
     comment = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    is_approved = models.BooleanField(default=False)
 
     class Meta:
         unique_together = ('boardgame', 'user')
