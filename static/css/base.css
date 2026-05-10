@@ -565,6 +565,16 @@ input[type="range"].slider::-webkit-slider-thumb {
   margin: 6rem 2rem 0;
 }
 
+.favourite-btn i {
+  color: var(--secondary-highlight);
+  margin-right: 0.35rem;
+  transition: transform 0.2s ease;
+}
+
+.favourite-btn:hover i {
+  transform: scale(1.15);
+}
+
 /* Propduct Page */
 .qty-group {
   max-width: 8rem;
@@ -581,6 +591,14 @@ input[type="range"].slider::-webkit-slider-thumb {
 .username {
   margin-left: 5.75rem;
 }
+
+.favourite-card-title a {
+  color: var(--text);
+  text-decoration: none;
+  padding-left: 1rem;
+}
+
+
 
 /* Toasts */
 

@@ -6,6 +6,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from home.models import Boardgame
 
 
 @login_required
@@ -23,12 +24,15 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    
+    favourite_games = request.user.favourite_boardgames.all()
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
         'on_profile_page': True,
+        'favourite_games': favourite_games,
     }
 
     return render(request, template, context)

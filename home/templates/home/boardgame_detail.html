@@ -43,6 +43,22 @@
             Playtime:
             <p>{{ boardgame.playtime }} minutes</p>
           </div>
+          {% if user.is_authenticated %}
+            <form action="{% url 'toggle_favourite' boardgame.slug %}"
+                  method="POST"
+                  class="mb-3">
+              {% csrf_token %}
+              <button type="submit" class="btn favourite-btn">
+                {% if user in boardgame.favourites.all %}
+                  <i class="fas fa-heart"></i>
+                  Remove Favourite
+                {% else %}
+                  <i class="far fa-heart"></i>
+                  Add to Favourites
+                {% endif %}
+              </button>
+            </form>
+          {% endif %}
           <hr />
           <section class="review-section">
             <h3>Leave a Review</h3>

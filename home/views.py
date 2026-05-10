@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from django.db.models import FloatField
+from django.contrib.auth.decorators import login_required
+
 
 from .models import Boardgame, Genre, Review
 from .forms import ReviewForm
@@ -126,6 +128,20 @@ def boardgame_detail(request, slug):
             "reviews": reviews,
         }
     )
+
+
+@login_required
+def toggle_favourite(request, slug):
+    boardgame = get_object_or_404(Boardgame, slug=slug)
+
+    if request.user in boardgame.favourites.all():
+        boardgame.favourites.remove(request.user)
+        messages.success(request, "Removed from favourites.")
+    else:
+        boardgame.favourites.add(request.user)
+        messages.success(request, "Added to favourites.")
+
+    return redirect('boardgame_detail', slug=slug)
 
 
 def search(request):
