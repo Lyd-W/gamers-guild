@@ -38,6 +38,12 @@ class Boardgame(models.Model):
         MinValueValidator(1)
         ])
     max_players = models.PositiveIntegerField()
+    min_age = models.PositiveIntegerField(validators=[
+        MinValueValidator(3),
+        MaxValueValidator(100)
+    ],
+        default=3
+    )
 
     def __str__(self):
         return self.title
