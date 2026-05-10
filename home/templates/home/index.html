@@ -71,11 +71,6 @@
         </select>
         <div class="col-12 col-md-6">
           <p>
-            {% if search_term or current_genres or current_sorting != 'None_None' %}
-              <span class="small">
-                <a href="{% url 'home' %}" class="text-highlight">Clear Filters</a> |
-              </span>
-            {% endif %}
             {{ boardgames|length }} Games
             {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
           </p>
