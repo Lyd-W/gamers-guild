@@ -20,8 +20,16 @@ def add_to_bag(request, item_id):
     if size:
         product_size = get_object_or_404(
             ProductSize, product=product, size=size)
+        
+        if product_size.stock <= 0:
+            messages.error(request, f"{product.name} ({size}) is out of stock.")
+            return redirect(redirect_url)
 
         if quantity > product_size.stock:
+            messages.warning(
+                request,
+                f"Only {product_size.stock} left in stock for {product.name} ({size})."
+            )
             quantity = product_size.stock
 
         if item_id in bag:

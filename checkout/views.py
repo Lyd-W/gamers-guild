@@ -72,19 +72,36 @@ def checkout(request):
                     product = Product.objects.get(id=item_id)
 
                     if isinstance(item_data, int):
+                        quantity = item_data
+                        
+                        if quantity <= 0:
+                            continue
+                        
                         OrderLineItem.objects.create(
                             order=order,
                             product=product,
-                            quantity=item_data,
+                            quantity=quantity,
                         )
                     else:
                         for size, quantity in item_data["items_by_size"].items():
+                            
+                            if quantity <= 0:
+                                continue
+                            
                             OrderLineItem.objects.create(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+                            
+                            product_size = ProductSize.objects.get(
+                                product=product,
+                                size=size
+                            )
+
+                            product_size.stock = max(0, product_size.stock - quantity)
+                            product_size.save()
 
                 except Product.DoesNotExist:
                     messages.error(
