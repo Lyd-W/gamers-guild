@@ -34,6 +34,11 @@ class Boardgame(models.Model):
         MinValueValidator(1)
     ])
     genres = models.ManyToManyField(Genre, related_name='boardgames')
+    favourites = models.ManyToManyField(
+        User,
+        related_name='favourite_boardgames',
+        blank=True
+    )
     min_players = models.PositiveIntegerField(validators=[
         MinValueValidator(1)
         ])
