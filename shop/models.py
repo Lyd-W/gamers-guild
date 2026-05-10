@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
@@ -32,9 +33,18 @@ class Product(models.Model):
                               blank=True)
     image_URL = models.URLField(null=True, blank=True)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    stock = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
+    
+    @property
+    def is_in_stock(self): 
+
+        if self.has_sizes:
+            return self.sizes.filter(stock__gt=0).exists()
+
+        return self.stock > 0
 
 
 class ProductSize(models.Model):

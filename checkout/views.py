@@ -77,27 +77,48 @@ def checkout(request):
                         if quantity <= 0:
                             continue
                         
+                        if quantity > product.stock:
+                            messages.error(
+                                request,
+                                f"Sorry, only {product.stock} of {product.name} remaining."
+                            )
+                            order.delete()
+                            return redirect(reverse("view_bag"))
+                        
                         OrderLineItem.objects.create(
                             order=order,
                             product=product,
                             quantity=quantity,
                         )
+                        
+                        product.stock = max(0, product.stock - quantity)
+                        product.save()
+                        
                     else:
                         for size, quantity in item_data["items_by_size"].items():
                             
                             if quantity <= 0:
                                 continue
                             
+                            product_size = ProductSize.objects.get(
+                                product=product,
+                                size=size
+                            )
+
+                            if quantity > product_size.stock:
+                                messages.error(
+                                    request,
+                                    f"Sorry, only {product_size.stock} "
+                                    f"of {product.name} in size {size} remaining."
+                                )
+                                order.delete()
+                                return redirect(reverse("view_bag"))
+                            
                             OrderLineItem.objects.create(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
-                            )
-                            
-                            product_size = ProductSize.objects.get(
-                                product=product,
-                                size=size
                             )
 
                             product_size.stock = max(0, product_size.stock - quantity)

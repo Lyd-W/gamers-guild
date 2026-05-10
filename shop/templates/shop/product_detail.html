@@ -49,7 +49,7 @@
           <select class="form-select w-auto" name="product_size" id="id_product_size">
             <option value="Choose a size"></option>
             {% for size in product.sizes.all %}
-              <option value="{{ size.size }}">
+              <option value="{{ size.size }}" {% if size.stock == 0 %}disabled{% endif %}>
                 {{ size.get_size_display }}
                 {% if size.stock == 0 %}(Out of stock){% endif %}
               </option>
@@ -97,9 +97,13 @@
           </span>
           <span class="text-uppercase">Keep Shopping</span>
         </a>
-        <input type="submit"
-               class="btn rounded-0 text-uppercase mt-5 add-to-bag-btn"
-               value="Add to Bag">
+        {% if product.is_in_stock %}
+          <input type="submit"
+                 class="btn rounded-0 text-uppercase mt-5 add-to-bag-btn"
+                 value="Add to Bag">
+        {% else %}
+          <button class="btn rounded-0 text-uppercase mt-5 add-to-bag-btn" disabled>Out of Stock</button>
+        {% endif %}
       </div>
       <input type="hidden" name="redirect_url" value="{{ request.path }}">
     </form>
