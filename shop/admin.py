@@ -17,7 +17,7 @@ class ProductAdmin(SummernoteModelAdmin):
     )
     summernote_fields = ('description',)
     inlines = [ProductSizeInline]
-    
+
     def get_fields(self, request, obj=None):
 
         fields = [
@@ -26,7 +26,6 @@ class ProductAdmin(SummernoteModelAdmin):
             'name',
             'description',
             'price',
-            'rating',
             'image',
             'image_URL',
             'has_sizes',
