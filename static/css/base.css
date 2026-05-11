@@ -575,7 +575,7 @@ input[type="range"].slider::-webkit-slider-thumb {
   transform: scale(1.15);
 }
 
-.deleteConfirm {
+#deleteConfirm {
   color: var(--primary-highlight);
 }
 
