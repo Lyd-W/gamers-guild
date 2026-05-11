@@ -16,7 +16,7 @@ def add_to_bag(request, item_id):
     redirect_url = request.POST.get('redirect_url', '/')
     size = request.POST.get('product_size')
     if product.has_sizes and not size:
-        messages.error(request, "Please select a valid size.")
+        messages.warning(request, "Please select a valid size.")
         return redirect(redirect_url)
     
     bag = request.session.get('bag', {})
@@ -30,7 +30,7 @@ def add_to_bag(request, item_id):
         )
 
         if product_size.stock <= 0:
-            messages.error(
+            messages.warning(
                 request,
                 f"{product.name} ({size}) is out of stock."
             )
@@ -51,7 +51,7 @@ def add_to_bag(request, item_id):
             remaining_stock = product_size.stock - current_quantity
 
             if remaining_stock <= 0:
-                messages.error(
+                messages.warning(
                     request,
                     f"You already have all available stock of {product.name} ({size}) in your bag."
                 )
@@ -81,7 +81,7 @@ def add_to_bag(request, item_id):
     else:
 
         if product.stock <= 0:
-            messages.error(
+            messages.warning(
                 request,
                 f"{product.name} is out of stock."
             )
@@ -94,7 +94,7 @@ def add_to_bag(request, item_id):
             remaining_stock = product.stock - current_quantity
 
             if remaining_stock <= 0:
-                messages.error(
+                messages.warning(
                     request,
                     f"You already have all available stock of {product.name} in your bag."
                 )
@@ -226,7 +226,7 @@ def remove_from_bag(request, item_id):
 
     except Exception as e:
 
-        messages.error(
+        messages.warning(
             request,
             f'Error removing item: {e} from bag, please try again.'
         )

@@ -114,7 +114,7 @@
                       </form>
                       <form method="post" action="{% url 'unapprove_review' review.id %}">
                         {% csrf_token %}
-                        <button class="btn btn-sm">Decline</button>
+                        <button class="btn btn-sm btn-decline">Decline</button>
                       </form>
                     </div>
                   {% endif %}

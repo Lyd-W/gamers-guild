@@ -53,6 +53,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="d-md-none">
               <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="dropdown-item log-in-status text-center">You are logged in as {{ request.user.username }}</li>
+                {% endif %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
@@ -108,7 +111,7 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     {% if user.is_authenticated %}
-                      <li class="dropdown-item">You are logged in as {{ request.user.username }}</li>
+                      <li class="dropdown-item log-in-status">You are logged in as {{ request.user.username }}</li>
                       <li>
                         <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                       </li>

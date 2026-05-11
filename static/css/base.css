@@ -139,6 +139,11 @@ header {
   color: var(--primary-highlight);
 }
 
+.btn-delete:hover,
+.btn-decline:hover {
+  color: var(--danger);
+}
+
 body {
   font-family: var(--font-primary);
   background-color: var(--primary-color);
@@ -191,6 +196,15 @@ h4 {
 .dropdown-item:hover {
   background-color: var(--primary-color);
   color: var(--primary-highlight);
+}
+
+.log-in-status {
+  color:var(--primary-highlight)
+}
+
+.log-in-status:hover {
+  color: var(--primary-highlight);
+  background-color: var(--secondary-color);
 }
 
 .bag-total {
@@ -667,6 +681,20 @@ input[type="range"].slider::-webkit-slider-thumb {
   overflow: visible;
 }
 
+.toast-header-warning {
+  border: solid var(--danger) 3px;
+  margin-bottom: 0.1rem;
+}
+
+.toast-header-success {
+  border: solid var(--success) 3px;
+  margin-bottom: 0.1rem;
+}
+
+.toast-header-info {
+  margin-bottom: 0.1rem;
+}
+
 .view-bag-btn {
   justify-content: center;
 }
@@ -690,38 +718,20 @@ input[type="range"].slider::-webkit-slider-thumb {
   right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
-.arrow-primary {
-  border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-  border-bottom-color: #6c757d !important;
-}
 
 .arrow-success {
-  border-bottom-color: #28a745 !important;
+  border-bottom-color: var(--success) !important;
 }
 
-.arrow-danger {
-  border-bottom-color: #dc3545 !important;
-}
 
 .arrow-warning {
-  border-bottom-color: #ffc107 !important;
+  border-bottom-color: var(--danger) !important;
 }
 
 .arrow-info {
-  border-bottom-color: #17a2b8 !important;
+  border-bottom-color: var(--primary-highlight) !important;
 }
 
-.arrow-light {
-  border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-  border-bottom-color: #343a40 !important;
-}
 
 .bag-notification-wrapper {
   height: 100px;
@@ -836,6 +846,10 @@ input[type="range"].slider::-webkit-slider-thumb {
 .order-history {
   max-height: 486px;
   overflow-y: auto;
+}
+
+.order-confirmation-wrapper {
+  border-radius: 1rem;
 }
 
 /* Forms */

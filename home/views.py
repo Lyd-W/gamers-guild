@@ -116,7 +116,7 @@ def boardgame_detail(request, slug):
         
     if request.method == "POST":
         if not request.user.is_authenticated:
-            messages.error(request, "You must be logged in to leave a review.")
+            messages.warning(request, "You must be logged in to leave a review.")
             return redirect('boardgame_detail', slug=boardgame.slug)
 
     review_id = request.POST.get("review_id")
@@ -156,7 +156,7 @@ def delete_review(request, slug, review_id):
     review = get_object_or_404(Review, id=review_id, boardgame=boardgame)
 
     if review.user != request.user:
-        messages.error(request, "You cannot delete this review.")
+        messages.warning(request, "You cannot delete this review.")
         return redirect('boardgame_detail', slug=slug)
 
     review.delete()

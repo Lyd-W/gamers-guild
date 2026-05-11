@@ -34,7 +34,7 @@ def cache_checkout_data(request):
         )
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, "Sorry, your payment cannot be \
+        messages.warning(request, "Sorry, your payment cannot be \
             processed right now. Please try again later.")
         return HttpResponse(content=e, status=400)
 
@@ -78,7 +78,7 @@ def checkout(request):
                             continue
                         
                         if quantity > product.stock:
-                            messages.error(
+                            messages.warning(
                                 request,
                                 f"Sorry, only {product.stock} of {product.name} remaining."
                             )
@@ -106,7 +106,7 @@ def checkout(request):
                             )
 
                             if quantity > product_size.stock:
-                                messages.error(
+                                messages.warning(
                                     request,
                                     f"Sorry, only {product_size.stock} "
                                     f"of {product.name} in size {size} remaining."
@@ -125,7 +125,7 @@ def checkout(request):
                             product_size.save()
 
                 except Product.DoesNotExist:
-                    messages.error(
+                    messages.warning(
                         request,
                         "One of the products in your bag "
                         "wasn't found in our database.",
@@ -139,7 +139,7 @@ def checkout(request):
                 reverse("checkout_success", args=[order.order_number]))
 
         else:
-            messages.error(
+            messages.warning(
                 request, "There was an error with your form. Please check your details."
             )
 
@@ -147,7 +147,7 @@ def checkout(request):
         bag = request.session.get("bag", {})
 
         if not bag:
-            messages.error(
+            messages.warning(
                 request, "There's nothing in your bag at the moment.")
             return redirect(reverse("shop"))
 
