@@ -2,19 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{% block title %}Gamers Guild{% endblock title %}</title>
-
-        <meta name="description" content="{% block meta_description %}Gamers Guild - your hub for board games and RPGs. Explore game guides, discover new titles, and shop expansions, dice, accessories, and gaming merchandise.{% endblock meta_description %}">
-
-        <meta name="keywords" content="{% block meta_keywords %}board games, RPGs, dice, tabletop games, gaming accessories{% endblock meta_keywords %}">
-
-        <meta property="og:title" content="{% block og_title %}Gamers Guild{% endblock og_title %}">
-        <meta property="og:description" content="{% block og_description %}Discover board games, RPGs, and gaming gear at Gamers Guild.{% endblock og_description %}">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {% block title %}
+        Gamers Guild
+      {% endblock title %}
+    </title>
+    <meta name="description"
+          content="{% block meta_description %}Gamers Guild - your hub for board games and RPGs. Explore game guides, discover new titles, and shop expansions, dice, accessories, and gaming merchandise.{% endblock meta_description %}">
+    <meta name="keywords"
+          content="{% block meta_keywords %}board games, RPGs, dice, tabletop games, gaming accessories{% endblock meta_keywords %}">
+    <meta property="og:title"
+          content="{% block og_title %}Gamers Guild{% endblock og_title %}">
+    <meta property="og:description"
+          content="{% block og_description %}Discover board games, RPGs, and gaming gear at Gamers Guild.{% endblock og_description %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
     {% block extra_meta %}
     {% endblock extra_meta %}
     {% block corecss %}
@@ -44,192 +48,155 @@
   <body>
     <header class="fixed-top">
       <nav class="navbar navbar-expand-md fixed-top">
-  <div class="container-fluid">
-    {% include "includes/mobile-top-header.html" %}
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-  <div class="d-md-none">
-
-    <ul class="navbar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}">Home</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'shop' %}">Shop</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About</a>
-      </li>
-
-    </ul>
-
-    <form method="GET" action="{% url 'search' %}" class="d-flex mt-2">
-      <input class="form-control search-bar me-2"
-             type="search"
-             name="q"
-             placeholder="Search Gamers Guild">
-      <button class="btn search-btn">Search</button>
-    </form>
-
-  </div>
-
-  <div class="d-none d-md-flex w-100 align-items-center">
-
-    <h1 class="navbar-brand site-logo d-none d-md-flex me-4 m-0">
-      <a href="{% url 'home' %}" class="text-decoration-none">
-        Gamers Guild
-      </a>
-    </h1>
-
-    <ul class="navbar-nav flex-row gap-3 me-3">
-
-      <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
-           href="{% url 'home' %}">
-          Home
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
-           href="{% url 'shop' %}">
-          Shop
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" 
-          href="{% url 'about' %}">
-          About
-        </a>
-      </li>
-
-    </ul>
-
-    <form method="GET"
-          action="{% url 'search' %}"
-          class="d-flex flex-nowrap mx-auto flex-grow-1 me-md-3" 
-          style="max-width: 100%;">
-      <input class="form-control search-bar me-2"
-             type="search"
-             name="q"
-             placeholder="Search Gamers Guild">
-      <button class="btn search-btn">Search</button>
-    </form>
-
-    <div class="d-flex align-items-center gap-2 gap-lg-3 ms-auto">
-
-      <div class="nav-item dropdown">
-        <a class="nav-link icon-link dropdown-toggle"
-           href="#"
-           data-bs-toggle="dropdown">
-          <i class="fa-solid fa-user nav-icon"></i>
-        </a>
-
-        <ul class="dropdown-menu dropdown-menu-end">
-          {% if user.is_authenticated %}
-            <li class="dropdown-item">
-              You are logged in as {{ request.user.username }} </li>
-            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-          {% else %}
-            <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-            <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <a class="nav-link icon-link d-flex align-items-center gap-1"
-         href="{% url 'view_bag' %}">
-        <i class="fa-solid fa-cart-shopping nav-icon"></i>
-
-        {% if grand_total %}
-          <span class="bag-total d-none d-lg-inline">
-            £{{ grand_total|floatformat:2 }}
-          </span>
-        {% endif %}
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-</nav>
-
-    </header>
-    {% if messages %}
-      <div class="message-container">
-        {% for message in messages %}
-          {% with message.level as level %}
-            {% if level == 40 %}
-              {% include "includes/toasts/toast_error.html" %}
-            {% elif level == 30 %}
-              {% include "includes/toasts/toast_warning.html" %}
-            {% elif level == 25 %}
-              {% include "includes/toasts/toast_success.html" %}
-            {% else %}
-              {% include "includes/toasts/toast_info.html" %}
-            {% endif %}
-          {% endwith %}
-        {% endfor %}
-      </div>
-    {% endif %}
-    {% block page_header %}
-    {% endblock page_header %}
-    {% block content %}
-    {% endblock content %}
-    <div class="btt-btn">
-      <a class="btt-link">
-        <i class="fas fa-arrow-up"></i>
-      </a>
-    </div>
-
-    <footer class="footer">
-      <h4 class="footer-text text-center"> Gamers Guild © </h4>
-      <p class="footer-text footer-links text-center">
-        Join our communties:
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Join us on Instagram! (opens in a new tab)"
-        >
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a
-          href="https://www.youtube.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Join us on YouTube! (opens in a new tab)"
-        >
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Join us on Facebook! (opens in a new tab)"
-        >
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a
-          href="https://www.x.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Join us on X! (opens in a new tab)"
-        >
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-      </p>
-    </footer>
-    {% block postloadjs %}
-
-    <script>
+        <div class="container-fluid">
+          {% include "includes/mobile-top-header.html" %}
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-md-none">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+              </ul>
+              <form method="GET" action="{% url 'search' %}" class="d-flex mt-2">
+                <input class="form-control search-bar me-2"
+                       type="search"
+                       name="q"
+                       placeholder="Search Gamers Guild">
+                <button class="btn search-btn">Search</button>
+              </form>
+            </div>
+            <div class="d-none d-md-flex w-100 align-items-center">
+              <h1 class="navbar-brand site-logo d-none d-md-flex me-4 m-0">
+                <a href="{% url 'home' %}" class="text-decoration-none">Gamers Guild</a>
+              </h1>
+              <ul class="navbar-nav flex-row gap-3 me-3">
+                <li class="nav-item">
+                  <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                     href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if request.resolver_match.url_name == 'shop' %}active{% endif %}"
+                     href="{% url 'shop' %}">Shop</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                     href="{% url 'about' %}">About</a>
+                </li>
+              </ul>
+              <form method="GET"
+                    action="{% url 'search' %}"
+                    class="d-flex flex-nowrap mx-auto flex-grow-1 me-md-3"
+                    style="max-width: 100%">
+                <input class="form-control search-bar me-2"
+                       type="search"
+                       name="q"
+                       placeholder="Search Gamers Guild">
+                <button class="btn search-btn">Search</button>
+              </form>
+              <div class="d-flex align-items-center gap-2 gap-lg-3 ms-auto">
+                <div class="nav-item dropdown">
+                  <a class="nav-link icon-link dropdown-toggle"
+                     href="#"
+                     data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-user nav-icon"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    {% if user.is_authenticated %}
+                      <li class="dropdown-item">You are logged in as {{ request.user.username }}</li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                      </li>
+                    {% else %}
+                      <li>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </div>
+                <a class="nav-link icon-link d-flex align-items-center gap-1"
+                   href="{% url 'view_bag' %}">
+                  <i class="fa-solid fa-cart-shopping nav-icon"></i>
+                  {% if grand_total %}<span class="bag-total d-none d-lg-inline">£{{ grand_total|floatformat:2 }}</span>{% endif %}
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      {% if messages %}
+        <div class="message-container">
+          {% for message in messages %}
+            {% with message.level as level %}
+              {% if level == 40 %}
+                {% include "includes/toasts/toast_error.html" %}
+              {% elif level == 30 %}
+                {% include "includes/toasts/toast_warning.html" %}
+              {% elif level == 25 %}
+                {% include "includes/toasts/toast_success.html" %}
+              {% else %}
+                {% include "includes/toasts/toast_info.html" %}
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% block page_header %}
+      {% endblock page_header %}
+      <body class="d-flex flex-column min-vh-100">
+        <main class="flex-grow-1">
+          {% block content %}
+          {% endblock content %}
+        </main>
+        <div class="btt-btn">
+          <a class="btt-link">
+            <i class="fas fa-arrow-up"></i>
+          </a>
+        </div>
+        <footer class="footer">
+          <h4 class="footer-text text-center">Gamers Guild ©</h4>
+          <p class="footer-text footer-links text-center">
+            Join our communties:
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener"
+               aria-label="Join us on Instagram! (opens in a new tab)">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/"
+               target="_blank"
+               rel="noopener"
+               aria-label="Join us on YouTube! (opens in a new tab)">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://www.facebook.com/"
+               target="_blank"
+               rel="noopener"
+               aria-label="Join us on Facebook! (opens in a new tab)">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.x.com/"
+               target="_blank"
+               rel="noopener"
+               aria-label="Join us on X! (opens in a new tab)">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </p>
+        </footer>
+      </body>
+      {% block postloadjs %}
+        <script>
       const bttBtn = $('.btt-btn');
 
       $(window).on('scroll', function () {
@@ -245,13 +212,12 @@
       });
 
       bttBtn.hide();
-    </script>
-
-    <script>
+        </script>
+        <script>
       document.querySelectorAll('.toast').forEach(el => {
           new bootstrap.Toast(el).show();
           });
-    </script>
-    {% endblock postloadjs %}
-  </body>
-</html>
+        </script>
+      {% endblock postloadjs %}
+    </body>
+  </html>
