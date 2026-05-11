@@ -575,7 +575,11 @@ input[type="range"].slider::-webkit-slider-thumb {
   transform: scale(1.15);
 }
 
-/* Propduct Page */
+.deleteConfirm {
+  color: var(--primary-highlight);
+}
+
+/* Product Page */
 .qty-group {
   max-width: 8rem;
   flex-wrap: nowrap;
@@ -597,7 +601,6 @@ input[type="range"].slider::-webkit-slider-thumb {
   text-decoration: none;
   padding-left: 1rem;
 }
-
 
 
 /* Toasts */
