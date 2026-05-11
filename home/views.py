@@ -49,7 +49,10 @@ def home(request):
 
     boardgames = boardgames.annotate(
         avg_rating=Coalesce(
-            Avg('reviews__rating'),
+            Avg(
+                'reviews__rating',
+                filter=Q(reviews__is_approved=True)
+            ),
             0.0,
             output_field=FloatField()
         )
@@ -90,7 +93,19 @@ def home(request):
 
 
 def boardgame_detail(request, slug):
-    boardgame = get_object_or_404(Boardgame, slug=slug)
+    boardgame = get_object_or_404(
+        Boardgame.objects.annotate(
+            avg_rating=Coalesce(
+                Avg(
+                    'reviews__rating',
+                    filter=Q(reviews__is_approved=True)
+                ),
+                0.0,
+                output_field=FloatField()
+            )
+        ),
+        slug=slug
+    )
 
     reviews = []
     
