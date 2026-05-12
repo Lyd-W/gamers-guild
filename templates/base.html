@@ -204,21 +204,156 @@
       </body>
       {% block postloadjs %}
         <script>
-      const bttBtn = $('.btt-btn');
+const bttBtn = $('.btt-btn');
 
-      $(window).on('scroll', function () {
-        if ($(this).scrollTop() > 300) {
-          bttBtn.fadeIn();
-        } else {
-          bttBtn.fadeOut();
+function handleBttVisibility() {
+    const gameScroll = document.querySelector('.games-scroll');
+
+    let show = false;
+
+    if ($(window).scrollTop() > 300) {
+        show = true;
+    }
+
+    if (gameScroll && gameScroll.scrollTop > 300) {
+        show = true;
+    }
+
+    if (show) {
+        bttBtn.addClass('show').fadeIn();
+    } else {
+        bttBtn.removeClass('show').fadeOut();
+    }
+}
+
+$(window).on('scroll', handleBttVisibility);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const gameScroll = document.querySelector('.games-scroll');
+
+    if (gameScroll) {
+        gameScroll.addEventListener('scroll', handleBttVisibility);
+    }
+
+    handleBttVisibility();
+});
+
+function scrollToTopSmart() {
+    const gameScroll = document.querySelector('.games-scroll');
+    const productScroll = document.querySelector('.products-scroll');
+
+    const scrollContainer =
+        (gameScroll && gameScroll.scrollHeight > gameScroll.clientHeight)
+            ? gameScroll
+            : (productScroll && productScroll.scrollHeight > productScroll.clientHeight)
+                ? productScroll
+                : null;
+
+    if (scrollContainer) {
+        scrollContainer.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.btt-link').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToTopSmart();
+        });
+    });
+});
+
+
+(function () {
+
+    const bttBtn = document.querySelector('.btt-btn');
+    if (!bttBtn) return;
+
+    function getActiveScrollable() {
+        const games = document.querySelector('.games-scroll');
+        const products = document.querySelector('.products-scroll');
+
+        const candidates = [games, products].filter(Boolean);
+
+        for (const el of candidates) {
+            const isScrollable = el.scrollHeight > el.clientHeight;
+            const isScrolled = el.scrollTop > 0;
+
+            if (isScrollable && (isScrolled || document.activeElement === el)) {
+                return el;
+            }
         }
-      });
 
-      $('.btt-link').on('click', function () {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-      });
+        return null;
+    }
 
-      bttBtn.hide();
+    function getScrollPosition(target) {
+        if (target) return target.scrollTop;
+        return window.scrollY || document.documentElement.scrollTop;
+    }
+
+    function scrollToTop(target) {
+        if (target) {
+            target.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    function updateBttVisibility() {
+        const target = getActiveScrollable();
+        const scrollPos = getScrollPosition(target);
+
+        if (scrollPos > 300) {
+            bttBtn.classList.add('show');
+            bttBtn.style.display = 'block';
+        } else {
+            bttBtn.classList.remove('show');
+            bttBtn.style.display = 'none';
+        }
+    }
+
+    function handleClick() {
+        const target = getActiveScrollable();
+        scrollToTop(target);
+    }
+
+    bttBtn.addEventListener('click', handleClick);
+
+    window.addEventListener('scroll', updateBttVisibility);
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const games = document.querySelector('.games-scroll');
+        const products = document.querySelector('.products-scroll');
+
+        if (games) {
+            games.addEventListener('scroll', updateBttVisibility);
+        }
+
+        if (products) {
+            products.addEventListener('scroll', updateBttVisibility);
+        }
+
+        updateBttVisibility();
+    });
+
+})();
+
         </script>
         <script>
       document.querySelectorAll('.toast').forEach(el => {
