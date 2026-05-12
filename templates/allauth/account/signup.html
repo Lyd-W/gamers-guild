@@ -1,12 +1,12 @@
 {% extends "account/base.html" %}
 {% load allauth i18n %}
 
-{% block title %}Sign Up | Gamers Guild{% endblock title %}
+{% block title %}Register | Gamers Guild{% endblock title %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 {% block inner_content %}
 
-<h2 class="mb-4">{% trans "Sign Up" %}</h2>
+<h2 class="mb-4">{% trans "Register" %}</h2>
     {% setvar link %}
         <a href="{{ login_url }}">
         {% endsetvar %}
@@ -14,7 +14,7 @@
         </a>
     {% endsetvar %}
     {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
+        {% blocktranslate %}Already have an account? Then please {{ link }}log in{{ end_link }}.{% endblocktranslate %}
     {% endelement %}
     {% if not SOCIALACCOUNT_ONLY %}
         {% url 'account_signup' as action_url %}
@@ -27,7 +27,7 @@
             {% endslot %}
             {% slot actions %}
                 {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
+                    {% trans "Register" %}
                 {% endelement %}
             {% endslot %}
         {% endelement %}

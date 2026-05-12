@@ -20,6 +20,7 @@ Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "
   + [Database Security](#database-security)
 * [Features](#features)
   + [Core Features](#core-features)
+  + [Page Features](#page-feastures)
   + [Shop Features](#shop-features)
 * [Future Enhancements](#future-enhancements)  
 * [Technologies Used](#technologies-used)  
@@ -177,7 +178,7 @@ The application is deployed online and built with scalability, security, and mai
 
 ## Wireframes
 
-Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage"). A mobile first approach was taken throughout, the wireframes provide a visual representation of the expected layout and structure of the website. Within the wireframes, key element placement is visible for navigation, content and interactive areas.  
+Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage"). A mobile first approach was taken throughout, the wireframes provide a visual representation of the expected layout and structure of the website. Within the wireframes, key element placement is visible for navigation, content and interactive areas. Differences to the Wirefrmaes may occur during the development of the website where improvments are implimented.
 
 [Mobile Wireframes](docs/mobile-wireframes.pdf "Mobile Wireframes")
 
@@ -218,7 +219,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 | --primary-highlight | `#D4AF37` | BButtons, hover states, important text, borders |
 | --text | `#E6E6E6` | Body text, headers, links |
 | --secondary-highlight | `#B63E3E` | Alerts, error messages, warnings, accent highlights |
-| --success | `#4C8C4A` | Success buttons (send, submit) |
+| --success | `#4C8C4A` | Success messages |
 
 
 [Back to contents](#contents)
@@ -252,6 +253,140 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 - Comment and review system (CRUD functionality)  
 - Favourite/save functionality  
 - Admin content management  
+
+### Page Features
+
+Gamers Guild focuses on simplicity, usability, and community. Features are designed to support both casual visitors and registered users while maintaining secure content management.
+
+#### Favicon
+
+Gamers Guild takes a simple, user friendly approach to design. The Gamers Guild logo is used as the website favicon, ensuring the site remains easily recognisable to returning users while strengthening overall brand identity. The Gamers Guild logo was created using [Favicon](https://favicon.io/ "Favicon | Homepage"), using the brands colours.
+
+Key features include:
+- Brand logo favicon
+
+![Favicon](docs/favicon.png "Gamers Guild Favicon")
+
+<br>
+
+#### Header
+
+The header provides consistent navigation across the site and adapts responsively to different screen sizes.
+
+Key features include:
+- Website branding
+- Navigation links with underlining to indicate current page
+- Authentication-aware options via the profile tab (login/register or logout)
+- Log in status in Metallic Gold to highlight whether a user is logged in and the current user's username or not logged in.
+- Highlight hover effect in Matallic Gold
+- Alabaster Grey text with Metallic Gold outline to headings, creating depth and styling in keeping with the websites focus of board games
+- Responsive across screen sizes
+- Sleek Metallic Gold border to the bottom of the header to help segement the website
+- User friendly search bar, clearly identified
+- Profile and trolly icons for simplistic, yet fun navigation
+- Capital letters for headings to mimic board games styles
+- Metallic Gold burger menu on mobile
+
+On smaller devices such as mobiles, the header collapses into a mobile-friendly menu then expands out for clarity as screen sizes increase.
+
+<br>
+
+[Desktop header](docs/nav-desktop.png "Desktop Header")
+
+[Desktop header dropdown menu](docs/nav-open-desktop.png "Desktop Header Dropdown Menu")
+
+[Desktop header with hover effect on 'SHOP'](docs/nav-hover-desktop.png "Desktop Header Hover Effect")
+
+[Tablet header](docs/nav-tablet.png "Tablet Header")
+
+[Tablet header open](docs/nav-open-tablet.png "Tablet Header Open")
+
+[Mobile header](docs/nav-closed-mobile.jpg "Mobile Header")
+
+[Mobile header open](docs/nav-open-mobile.jpg "Mobile Header Open")
+
+<br>
+
+#### Home Section
+
+The home page displays a list of board games in a clean, visually appealing layout that resembles common board game styling. 
+
+Key features include:
+- List of board games displayed as cards
+- Cards are responsive when hovered over on larger screens
+- Responsive on different screen sizes
+- 'Jump to top' button at the bottom of the page with hover effect in Metallic Gold
+
+Each board game card includes:
+- A featured image
+- Board game title
+- Amount of players
+- Age rating
+- Playtime
+- Release year
+- Users star rating or 'No ratings yet'
+
+On larger screens, when the user hovers over a board game the board game card moves slightly to provide a better user experience. Users can click through to individual board game pages for full details. 
+
+<br>
+
+[Desktop home preview](docs/home-desktop.png "Desktop Home Preview")
+
+[Desktop home with hover effect](docs/home-hover-desktop.png "Desktop Home With Hover Effect")
+
+[Tablet home preview](docs/home-tablet.png "Tablet Home Preview")
+
+[Mobile home portrait preview](docs/home-portrait-mobile.png "Mobile Home Portrait Preview")
+
+[Mobile home landscape preview](docs/home-landscape-mobile.png "Mobile Home Landscape Preview")
+
+<br>
+
+#### Registration
+
+New users can register for an account using a secure and intuitive form. On the registration page, there is a link to the log in page in case a user has incorrectly navigated to the registration page. The registration form gives validation feedback to users if they try to submit the form with an empty field that is required and offers password requirements. 
+
+Upon successful registration, users receive clear feedback and are notified to varify their email address via the link recieved in their verification email. Once their email address has been varified via the link, they are able to log in and use the website.
+
+Key features include:
+- User friendly form
+- Link to log in page
+- Form validation
+- Password requirements
+- 'Register' button with hover effect
+- Email verification
+
+<br>
+
+[Registration preview for desktop](docs/registration.png "Registration Preview | Desktop")
+
+[Registration preview for tablet](docs/registration-tablet.png "Registration Preview | Tablet")
+
+[Registration preview for mobile](docs/registration-mobile.png "Registration Preview | Mobile")
+
+[Registration validation](docs/registration-validation.png "Registration Validation")
+
+[Registration feedback](docs/registration-feedback.png "Registration Feedback")
+
+<br>
+
+#### Footer
+
+The footer contains:
+- Copyright information
+- Social media links that open in a new tab
+- Consistent branding
+- Sleek Metallic Gold border to the top of the footer to help segement the website
+
+The footer offers a clear and simple display making it easy to read without drawing attention away from the main website and remains accessible across all pages and screen sizes.
+
+[Footer preview for desktop](docs/footer-desktop.png "Footer | Desktop")
+
+[Footer preview for tablet](docs/footer-tablet.png "Footer | Tablet")
+
+[Footer preview for mobile](docs/footer-mobile.jpg "Footer | Mobile")
+
+<br>
 
 ### Shop Features
 
