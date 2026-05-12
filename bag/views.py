@@ -18,7 +18,7 @@ def add_to_bag(request, item_id):
     if product.has_sizes and not size:
         messages.warning(request, "Please select a valid size.")
         return redirect(redirect_url)
-    
+
     bag = request.session.get('bag', {})
 
     if size:

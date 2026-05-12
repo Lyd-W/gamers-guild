@@ -24,7 +24,7 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-    
+
     favourite_games = request.user.favourite_boardgames.all()
 
     template = 'profiles/profile.html'

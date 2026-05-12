@@ -13,6 +13,7 @@ class BoardgameAdmin(SummernoteModelAdmin):
     summernote_fields = ('description')
     filter_horizontal = ('genres',)
 
+
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('boardgame', 'user', 'rating', 'is_approved', 'created_on')

@@ -108,7 +108,7 @@ def boardgame_detail(request, slug):
     )
 
     reviews = []
-    
+
     review = None
     if request.user.is_authenticated:
         review = Review.objects.filter(
@@ -128,7 +128,7 @@ def boardgame_detail(request, slug):
         reviews = boardgame.reviews.filter(
             is_approved=True
         ).order_by('-created_on')
-        
+
     if request.method == "POST":
         if not request.user.is_authenticated:
             messages.warning(request, "You must be logged in to leave a review.")

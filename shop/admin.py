@@ -49,5 +49,6 @@ class ProductAdmin(SummernoteModelAdmin):
 
         return []
 
+
 admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)
