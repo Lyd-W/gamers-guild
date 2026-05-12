@@ -10,5 +10,4 @@ urlpatterns = [
     path("<slug:slug>/", views.boardgame_detail, name="boardgame_detail"),
     path("<slug:slug>/delete_review/<int:review_id>/", views.delete_review, name="delete_review"),
     path("review/<int:review_id>/approve/", views.approve_review, name="approve_review"),
-    path("review/<int:review_id>/unapprove/", views.unapprove_review, name="unapprove_review"),
 ]

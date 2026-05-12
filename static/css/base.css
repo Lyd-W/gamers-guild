@@ -255,7 +255,11 @@ h4 {
 
 .shop-page-title,
 .home-page-title {
-  padding: 1rem 2rem;
+  padding:0 2rem;
+}
+
+.about-page-title {
+  margin-bottom: 0.5rem;
 }
 
 .search-bar {
@@ -595,6 +599,11 @@ input[type="range"].slider::-webkit-slider-thumb {
 
 #deleteConfirm {
   color: var(--primary-highlight);
+}
+
+.admin-review-tools {
+  display: flex;
+  gap: 1rem;
 }
 
 /* Product Page */
@@ -1102,6 +1111,14 @@ select option[value=""] {
     flex-wrap: wrap;
     justify-items: center;
     justify-content: flex-end;
+  }
+
+    .sort-filter-container-shop {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: space-between;
   }
 
   .sort-dropdown {

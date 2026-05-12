@@ -170,7 +170,7 @@ def delete_review(request, slug, review_id):
     boardgame = get_object_or_404(Boardgame, slug=slug)
     review = get_object_or_404(Review, id=review_id, boardgame=boardgame)
 
-    if review.user != request.user:
+    if review.user != request.user and not request.user.is_staff:
         messages.warning(request, "You cannot delete this review.")
         return redirect('boardgame_detail', slug=slug)
 
@@ -229,18 +229,6 @@ def approve_review(request, review_id):
 
     review = get_object_or_404(Review, id=review_id)
     review.is_approved = True
-    review.save()
-
-    return redirect(request.META.get('HTTP_REFERER'))
-
-
-@login_required
-def unapprove_review(request, review_id):
-    if not request.user.is_staff:
-        return redirect('home')
-
-    review = get_object_or_404(Review, id=review_id)
-    review.is_approved = False
     review.save()
 
     return redirect(request.META.get('HTTP_REFERER'))

@@ -123,17 +123,17 @@
                       <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
                       <button class="btn btn-delete" data-review-id="{{ review.id }}">Delete</button>
                     {% endif %}
+                    {% if not review.is_approved %}<p class="text-warning mb-1">Pending approval</p>{% endif %}
                     {% if user.is_staff %}
                       <div class="admin-review-tools">
-                        {% if not review.is_approved %}<p class="text-warning mb-1">Pending approval</p>{% endif %}
                         <form method="post" action="{% url 'approve_review' review.id %}">
                           {% csrf_token %}
                           <button class="btn btn-sm">Approve</button>
                         </form>
-                        <form method="post" action="{% url 'unapprove_review' review.id %}">
-                          {% csrf_token %}
-                          <button class="btn btn-sm btn-decline">Decline</button>
-                        </form>
+                        <button class="btn btn-sm btn-delete"
+                                data-review-id="{{ review.id }}">
+                            Delete
+                        </button>
                       </div>
                     {% endif %}
                   </div>
