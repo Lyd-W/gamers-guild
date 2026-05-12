@@ -54,21 +54,21 @@ Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "
 ----------------------------------------------
 
 ## Project Overview
-Gamers Guild is a full stack Django web application designed to bring gamers together within a shared, community-driven platform. The application enables users to browse a curated collection of games, explore detailed game pages, and engage with other users through interactive features such as comments, reviews, and personalised content.
+Gamers Guild is a full stack Django web application designed to bring gamers together within a shared, community-driven platform. The application enables users to browse a curated collection of games, explore detailed game pages, and engage with other users through interactive features such as comments and reviews.
 
 The platform prioritises clarity, usability, and meaningful interaction, avoiding unnecessary complexity or distractions. By focusing on community-driven content rather than algorithm-heavy recommendations, Gamers Guild encourages users to share experiences, discover new games organically, and contribute to a collaborative environment.
 
 Built using Django, the project demonstrates full CRUD functionality, secure authentication, and relational database design. It showcases the integration between backend logic and frontend presentation, ensuring a seamless and responsive experience across all devices.
 
-In addition to its community features, Gamers Guild includes an integrated shop that allows users to browse and purchase gaming-related accessories and add-ons. These include items such as customisable game pieces, themed accessories, and enhancements that complement gameplay. This expands the platform beyond discussion into a more complete user experience, while also demonstrating e-commerce functionality within a full stack application.
+In addition to its community features, Gamers Guild includes an integrated shop that allows users to browse and purchase gaming-related accessories and add-ons. These include items such as game pieces, branded accessories, and enhancements that complement gameplay. This expands the platform beyond discussion into a more complete user experience, while also demonstrating e-commerce functionality within a full stack application.
 
 **Purpose:**
 
 The purpose of Gamers Guild is to provide a welcoming and interactive platform where gamers can explore, discuss, and share their experiences in a structured and engaging environment.
 
-Many existing gaming platforms rely heavily on ratings, advertisements, or algorithm-driven suggestions, which can limit authentic interaction. Gamers Guild addresses this by prioritising user-generated content, allowing users to communicate through comments and discussions rather than relying solely on numerical systems.
+Many existing gaming platforms rely heavily on advertisements, or algorithm-driven suggestions, which can limit authentic interaction. Gamers Guild addresses this by prioritising user-generated content, allowing users to communicate through review comments rather than relying solely on numerical systems.
 
-The inclusion of a shop enhances this experience by connecting community interaction with practical user needs. Users can move seamlessly from discovering games and engaging in discussions to purchasing related accessories and enhancements, creating a cohesive and engaging user journey.
+The inclusion of a shop enhances this experience by connecting community interaction with practical user needs. Users can move seamlessly from discovering games and engaging in game reviews to purchasing related accessories and enhancements, creating a cohesive and engaging user journey.
 
 **Key objectives include:**
 
@@ -83,7 +83,7 @@ The inclusion of a shop enhances this experience by connecting community interac
 Gamers Guild is designed for a broad range of users who engage with gaming content in different ways:
 
 - Casual gamers looking to discover new games and read community opinions  
-- Enthusiast gamers who enjoy discussion, reviews, and sharing experiences  
+- Enthusiast gamers who enjoy reading reviews, and sharing experiences  
 - Beginner to intermediate players seeking guidance and recommendations  
 - Users who prefer community-driven platforms over commercial review sites  
 - Players interested in saving and organising favourite games  
@@ -97,15 +97,15 @@ The platform also appeals to users interested in gaming-related purchases:
 
 **Platform:**
 
-Gamers Guild is a fully responsive web application designed using a mobile-first approach, ensuring usability across desktop, tablet, and mobile devices.
+Gamers Guild is a fully responsive web application, ensuring usability across desktop, tablet, and mobile devices.
 
 The platform supports multiple levels of user interaction:
 
 - **Public Users**  
-  Can browse games, view details, and read discussions without registering  
+  Can browse games, view details, and read review comments without registering  
 
 - **Authenticated Users**  
-  Can register, log in, post, edit, and delete comments or reviews, and save favourite games  
+  Can register, log in, post, edit, and delete review comments, and save favourite games  
 
 - **Administrators**  
   Have full control over content, including managing games, moderating user-generated content, and maintaining platform quality  
@@ -170,12 +170,6 @@ The application is deployed online and built with scalability, security, and mai
 ---------------------------------------------
 
 ## Project Goals and Objectives
-
-[Back to contents](#contents)
-
----------------------------------------------
-
-## Target Audience
 
 [Back to contents](#contents)
 
