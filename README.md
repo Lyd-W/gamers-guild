@@ -282,7 +282,7 @@ Key features include:
 - Alabaster Grey text with Metallic Gold outline to headings, creating depth and styling in keeping with the websites focus of board games
 - Responsive across screen sizes
 - Sleek Metallic Gold border to the bottom of the header to help segement the website
-- User friendly search bar, clearly identified
+- Search Functionality: A global search bar is available directly from the navigation area, allowing users to quickly search for additional board games, products, and content without leaving the page.
 - Profile and trolly icons for simplistic, yet fun navigation
 - Capital letters for headings to mimic board games styles
 - Metallic Gold burger menu on mobile
@@ -291,31 +291,45 @@ On smaller devices such as mobiles, the header collapses into a mobile-friendly 
 
 <br>
 
-[Desktop header](docs/nav-desktop.png "Desktop Header")
+[Header display for mobile](docs/nav-closed-mobile.jpg "Header | Mobile")
 
-[Desktop header dropdown menu](docs/nav-open-desktop.png "Desktop Header Dropdown Menu")
+[Header opendisplay for mobile](docs/nav-open-mobile.jpg "Header Open | Mobile")
 
-[Desktop header with hover effect on 'SHOP'](docs/nav-hover-desktop.png "Desktop Header Hover Effect")
+[Header display for tablet](docs/nav-tablet.png "Header | Tablet")
 
-[Tablet header](docs/nav-tablet.png "Tablet Header")
+[Header open display for tablet](docs/nav-open-tablet.png "Header Open | Tablet")
 
-[Tablet header open](docs/nav-open-tablet.png "Tablet Header Open")
+[Header display for desktop](docs/nav-desktop.png "Header | Desktop")
 
-[Mobile header](docs/nav-closed-mobile.jpg "Mobile Header")
+[Header dropdown menu display for desktop](docs/nav-open-desktop.png "Header Dropdown Menu | Desktop")
 
-[Mobile header open](docs/nav-open-mobile.jpg "Mobile Header Open")
+[Header with hover effect on 'SHOP' for desktop](docs/nav-hover-desktop.png "Header Hover Effect | Desktop")
 
 <br>
 
 #### Home Section
 
-The home page displays a list of board games in a clean, visually appealing layout that resembles common board game styling. 
+The Home page acts as the central hub for discovering and browsing board games within Gamers Guild. Designed with usability and accessibility in mind, the page allows users to quickly search, filter, and sort games while maintaining a smooth browsing experience across devices.
 
 Key features include:
-- List of board games displayed as cards
-- Cards are responsive when hovered over on larger screens
-- Responsive on different screen sizes
-- 'Jump to top' button at the bottom of the page with hover effect in Metallic Gold
+
+- A dynamic board game catalogue displaying a range of tabletop games in responsive card layouts
+- A “Filter By” sidebar and mobile filter system allowing users to narrow results based on game attribute
+- Genre filtering with multiple selectable genre options to help users quickly find games matching their interests
+- Player Count filtering where users can enter minimum and maximum player values. The input fields only accept numerical values, preventing invalid text input
+- Playtime filtering with both a draggable range slider and manual minute input field, allowing users to easily customise their preferred game duration
+- A live game count display showing how many board games currently match the selected filters
+- A “Sort by” dropdown menu enabling games to be organised by Title, Rating, Playtime, and Release Date in ascending or descending order
+- Clickable board game cards that direct users to dedicated game detail pages containing expanded information, ratings, and additional content
+- A dedicated internal scrolling board game section which allows the game list to scroll independently while keeping filtering and sorting controls visible for improved usability
+- A “Back to Top” button providing users with a convenient way to quickly return to the top of the scrollable game list
+- Responsive filter menus and overlays designed for desktop, tablet, and mobile browsing experiences
+- Dynamic rendering powered through Django templates and database-driven board game models to ensure content updates automatically throughout the application
+- Empty-state handling for unmatched searches and filters. If no games meet the selected criteria, users are shown the message:
+
+![No games found | No games match your current filters preview](docs/no-games-found.png "No Games Message")
+
+<br>
 
 Each board game card includes:
 - A featured image
@@ -326,23 +340,22 @@ Each board game card includes:
 - Release year
 - Users star rating or 'No ratings yet'
 
-On larger screens, when the user hovers over a board game the board game card moves slightly to provide a better user experience. Users can click through to individual board game pages for full details. 
 
 <br>
 
-[Desktop home preview](docs/home-desktop.png "Desktop Home Preview")
+[Home preview for mobile - portrait](docs/home-portrait-mobile.png "Home | Mobile Portrait")
 
-[Desktop home with hover effect](docs/home-hover-desktop.png "Desktop Home With Hover Effect")
+[Home preview for mobile - landscape](docs/home-landscape-mobile.png "Home | Mobile Landscape")
 
-[Tablet home preview](docs/home-tablet.png "Tablet Home Preview")
+[Home preview for tablet](docs/home-tablet.png "Home Preview | Tablet")
 
-[Mobile home portrait preview](docs/home-portrait-mobile.png "Mobile Home Portrait Preview")
+[Home preview for desktop](docs/home-desktop.png "Home Preview | Desktop")
 
-[Mobile home landscape preview](docs/home-landscape-mobile.png "Mobile Home Landscape Preview")
+[Desktop home with hover effect](docs/home-hover-desktop.png "Home With Hover Effect | Desktop")
 
 <br>
 
-#### Registration
+#### Register
 
 New users can register for an account using a secure and intuitive form. On the registration page, there is a link to the log in page in case a user has incorrectly navigated to the registration page. The registration form gives validation feedback to users if they try to submit the form with an empty field that is required and offers password requirements. 
 
@@ -358,15 +371,297 @@ Key features include:
 
 <br>
 
-[Registration preview for desktop](docs/registration.png "Registration Preview | Desktop")
+[Register preview for mobile](docs/register-mobile.jpg "Register Preview | Mobile")
 
-[Registration preview for tablet](docs/registration-tablet.png "Registration Preview | Tablet")
+[Register preview for tablet](docs/register-tablet.png "Register Preview | Tablet")
 
-[Registration preview for mobile](docs/registration-mobile.png "Registration Preview | Mobile")
+[Register preview for desktop](docs/register-desktop.png "Register Preview | Desktop")
 
-[Registration validation](docs/registration-validation.png "Registration Validation")
+<br>
 
-[Registration feedback](docs/registration-feedback.png "Registration Feedback")
+[Temp Mail](https://temp-mail.org/en/ "Temp Mail | Homepage") was used to create a temporary email address and [LastPass](https://www.lastpass.com/features/password-generator "LassPass | Passord Generator") for a random password to test and demonstrate the registerion process.
+
+[Register email validation](docs/register-email-validation.png "Register Email Validation")
+
+[Register password validation](docs/register-password-validation.png "Register Password Validation")
+
+[Register verification email](docs/register-verification-email.png "Register Verification Email")
+
+[Register verification confirmation email](docs/register-verification-confirmation-email.png "Register Verification Confirmation Email")
+
+[Register confirm email](docs/register-confirm-email.png "Register Confirm Email")
+
+[Register log in](docs/register-log-in.png "Register Log In")
+
+[Register log in toast](docs/toast-success-log-in.png "Register Log In Toast")
+
+<br>
+
+#### Login and Logout Sections
+
+Registered users can log in securely using their credentials, there's the option to remember log in credentials for quicker access to Gamers Guild in the future, providing a better user experience. In case a new user has incorrectly navigated to the log in page when they do not currently have an account, there is a link to the register page. Clear confirmation messages are displayed on successful login and logout with a prompt before logging out that includes a confirming 'Log Out' button, improving user confidence and clarity.
+
+Once a user has logged in, the profile section updates to display the logged in username and adjusts to the navigation to the relevant options.
+
+Key features include:
+
+- Option to remember login credentials
+- Link to registration page
+- 'Log In' button with hover effect
+- Friendly welcome message on log in page
+- Adjusted navigation for logged in or logged out users
+- Confirmation log out page
+- 'Log Out' button with hover effect in danger
+- Log in error message if the username and/or password are incorrect
+
+<br>
+
+[Login preview for mobile](docs/login-mobile.jpg "Login | Mobile")
+
+[Login preview for tablet](docs/login-tablet.png "Login | Tablet")
+
+[Login preview for desktop](docs/login-desktop.png "Login | Desktop")
+
+[Log out preview for mobile](docs/log-out-mobile.jpg "Log Out | Mobile")
+
+[Log out preview for tablet](docs/log-out-tablet.png "Log Out | Tablet")
+
+[Log out preview for desktop](docs/log-out-desktop.png "Log Out | Desktop")
+
+[Log out button hover effect preview](docs/log-out-button-hover.png "Log Out Button Hover Effect")
+
+[Logged in header display preview](docs/logged-in-user-display.png "Logged In Header Display")
+
+[Logged out header display preview](docs/logged-out-user-display.png "Logged Out Header Display")
+
+[Log in error preview](docs/log-in-error.png "Log In Error Preview")
+
+<br>
+
+#### Shop
+
+The Shop page provides users with a dedicated space to browse gaming merchandise, accessories, and board game add-ons available through Gamers Guild. Designed to maintain the welcoming and community-focused atmosphere of the site, the shop allows users to easily discover products that enhance their tabletop gaming experience.
+
+Key features include:
+
+- A responsive product display showcasing a variety of gaming merchandise and accessories
+- Products available include apparel and tabletop accessories and add ons such as hoodies, t-shirts, tokens, playmats, dice trays, organisers, dice, expansions, and caps
+- A category filter system allowing users to narrow products by specific product types
+- A live product count display showing how many products match the current filters
+- A “Clear Filters” button allowing users to quickly reset all active filters and return to the full product catalogue
+- A “Sort by” dropdown menu enabling products to be ordered by criteria such as price, category, and alphabetical order
+- Clickable product cards that direct users to a dedicated product detail page containing further information about the selected product
+- Responsive layouts for desktop, tablet, and mobile devices, including mobile-friendly filter menus and overlays
+- Dynamic product rendering powered through Django templates and database-driven product models
+- A dedicated internal scrolling product section which allows the product list to scroll independently while keeping filtering and sorting controls visible for improved usability
+- A “Back to Top” button providing users with a convenient way to quickly return to the top of the scrollable product list
+- Consistent styling and hover effects throughout the shop interface to reinforce usability and visual feedback
+- Empty-state handling for unmatched filters. If no products meet the selected criteria, users are shown the message:
+
+![No products found | No items match your current filters preview](docs/no-products-found.png "No Products Message")
+
+<br>
+
+[Shop preview for mobile](docs/shop-mobile.jpg "Shop | Mobile")
+
+[Shop preview for tablet](docs/shop-tablet.png "Shop | Tablet")
+
+[Shop preview for desktop](docs/shop-desktop.png "Shop | Desktop")
+
+<br>
+
+#### About
+
+The About page introduces the purpose and community-focused nature of Gamers Guild, providing users with insight into the platform and its focus on board game discovery, reviews, and tabletop gaming accessories. Designed to reflect the welcoming atmosphere of the site, the page encourages users to engage with the community and get in contact through an integrated contact form.
+
+Key features include:
+
+- A short introduction explaining the purpose of Gamers Guild and its focus on connecting board game enthusiasts through reviews, discovery, and gaming merchandise
+- A clean and responsive layout designed to maintain consistency with the rest of the platform across desktop, tablet, and mobile devices
+- A dedicated contact section allowing users to directly reach out through the contact form
+- Required form fields clearly identified to help guide users when completing the contact form
+- Form validation that prevents incomplete submissions and prompts users to complete any missing required fields before the message can be successfully submitted
+- User friendly feedback designed to improve accessibility and usability throughout the contact process
+- Consistent styling and interactive elements that reinforce the relaxed and community-driven atmosphere of the platform
+- Success toast to inform the user that thier message has been sent
+
+<br>
+
+[About preview for mobile](docs/about-mobile.jpg "About | Mobile")
+
+[About preview for tablet](docs/about-tablet.png "About | Tablet")
+
+[About preview for desktop](docs/about-desktop.png "About | Desktop")
+
+[About validation preview](docs/about-validation.png "About | Validation")
+
+[About success toast](docs/toast-success-messagetoast.png "About | Success Toast")
+
+<br>
+
+#### Board Game Detail
+
+Each board game has its own dedicated detail page, providing users with comprehensive information while maintaining the immersive and community driven atmosphere carried throughout Gamers Guild.
+
+Key features include:
+
+- Displays the board game title, featured image, genres, release year, average rating, player count, minimum age requirement, and estimated playtime. A detailed description introduces the gameplay, theme, and overall experience to help users decide if the game suits their interests.
+- Users can view the average community rating displayed through a star based rating section. If no ratings have been submitted yet, a fallback message clearly informs users.
+- Logged in users can add or remove games from their favourites list using the dedicated favourites button, allowing quick access to preferred titles through their profile.
+- Authenticated users can leave reviews directly on the page by submitting a rating and optional written comment. Reviews are displayed beneath the board game information alongside usernames and star ratings, encouraging community interaction and discussion.
+- Administrator accounts can approve or delete submitted reviews directly from the detail page. Pending reviews are clearly identified to assist with moderation management.
+- Required review fields ensure users cannot submit incomplete reviews, helping maintain structured and meaningful feedback throughout the platform.
+- Review deletion actions trigger a confirmation modal to help prevent accidental removal of content.
+- The layout adapts seamlessly across mobile, tablet, and desktop devices. Images, review sections, forms, and navigation elements scale appropriately for different screen sizes.
+- A floating “back to top” button appears when users scroll through longer content sections, improving navigation and accessibility on pages with extensive descriptions or reviews.
+- The review and favourites systems reinforce the social aspect of Gamers Guild, encouraging players to share experiences, recommendations, and opinions with other members of the community.
+- Administrators can manage board game information, featured images, reviews, and moderation tasks through Django Administration, supporting full CRUD functionality for efficient site management.
+
+The board game detail page combines structured information, interactive community features, and responsive design to create an engaging and user-friendly browsing experience for tabletop gaming enthusiasts.
+
+<br>
+
+[Board Game detail preview for mobile](docs/board-game-detail-mobile.jpg "Board Game Detail | Mobile")
+
+[Board Game detail with reviews preview for mobile](docs/board-game-detail-reviews-mobile.jpg "Board Game Detail With Reviews | Mobile")
+
+[Board Game detail preview for tablet](docs/board-game-detail-tablet.png "Board Game Detail | Tablet")
+
+[Board Game detail with reviews preview for tablet](docs/board-game-detail-with-reviews-tablet.png "Board Game Detail With Reviews | Tablet")
+
+[Board Game detail preview for desktop](docs/board-game-detail-desktop.png "Board Game Detail | Desktop")
+
+[Board Game detail with reviews preview for desktop](docs/board-game-detail-with-reviews-desktop.png "Board Game Detail With Reviews | Desktop")
+
+[Board Game detail form validation for desktop](docs/board-game-detail-form-validation-desktop.png "Board Game Detail Form Validation | Desktop")
+
+[Board Game detail one - Django administration preview for desktop](docs/board-game-django-administration-one-desktop.png "Board Game Detail One - Django Administration | Desktop")
+
+[Board Game detail two - Django administration preview for desktop](docs/board-game-django-administration-two-desktop.png "Board Game Detail Two - Django Administration | Desktop")
+
+<br>
+
+#### Profile
+
+The Profile page provides users with a personalised area to manage their account within Gamers Guild. It brings together delivery information, order history, and favourite board games in one structured dashboard, allowing users to easily review past activity, update their details, and quickly access games they’ve saved.
+
+Key features include:
+
+- A central user dashboard where users can manage account details, view order history, and access their favourite board games.
+- Editable form allowing users to store delivery details such as address, phone number, and country. Includes validation and clear input guidance to ensure accurate data entry.
+- Structured table displaying past orders with order number, date, items purchased, and total cost. Each order links to a detailed view for full breakdowns.
+- Personalised section showing saved board games as clickable cards, each linking directly to the relevant game detail page.
+- Fully responsive layout ensuring usability across mobile, tablet, and desktop devices.
+- Quick access to main site areas (Home, Shop, About, Profile, Bag) with authenticated user options including profile management and logout.
+- Clear form labels, semantic HTML, and consistent layout improve usability and accessibility across all sections.
+- Full CRUD functionality for user profiles, orders, and favourites via Django Administration.
+
+<br>
+
+[Profile preview for mobile](docs/profile-mobile.jpg "Profile | Mobile")
+
+[Profile favourites preview for mobile](docs/profile-favourites-mobile.jpg "Profile Favourites | Mobile")
+
+[Profile preview for tablet](docs/profile-tablet.png "Profile | Tablet")
+
+[Profile favourites preview for tablet](docs/profile-favourites-tablet.png "Profile Favourites | Tablet")
+
+[Profile preview for desktop](docs/profile-desktop.png "Profile | Desktop")
+
+[Profile favourites preview for desktop](docs/profile-favourites-desktop.png "Profile Favourites | Desktop")
+
+<br>
+
+#### Profile Order History
+
+The profile order history page allows users to review previous purchases in a clear and organised layout. Users can access detailed information for each order, including purchased items, delivery details, and payment totals, while maintaining the same responsive and consistent design used throughout the website.
+
+Key features include:
+
+- Displays a full breakdown of previous orders, including order number, date, purchased items, quantities, and totals.
+- Provides dedicated order detail pages accessible directly from the profile page.
+- Shows delivery information and billing details associated with each completed order.
+- Uses responsive table layouts for improved readability across mobile, tablet, and desktop devices.
+- Maintains consistent navigation with links back to the profile, shop, and home pages.
+- Includes authenticated user functionality to ensure users can only access their own order history.
+- Styled using the site’s existing theme and UI components for a consistent browsing experience.
+- Accessibility focused structure using semantic HTML and readable contrast ratios.
+- Includes a back-to-top button for improved usability on longer order pages.
+
+<br>
+
+[Profile previous orders for mobile](docs/profile-order-history-mobile.jpg "Profile Previous Orders | Mobile")
+
+[Profile previous orders for tablet](docs/profile-order-history-tablet.png "Profile Previous Orders | Tablet")
+
+[Profile previous orders for desktop](docs/profile-order-history-desktop.png "Profile Previous Orders | Desktop")
+
+<br>
+
+#### Product Detail
+
+The Product Detail page provides users with a focused overview of individual shop items available through Gamers Guild. Each page highlights key product information, detailed descriptions, selectable options such as size and quantity, and streamlined purchasing controls to create a smooth and user friendly shopping experience.
+
+Key Features Include:
+
+- Displays the product title, featured image, category, price, and detailed description in a clean and structured layout.
+- Products are linked to their category, allowing users to quickly browse related items within the shop.
+- Clothing items include selectable size options with unavailable stock clearly marked as out of stock and disabled from selection.
+- Interactive increment and decrement buttons allow users to adjust product quantity while maintaining minimum and maximum limits.
+- Users can add products directly to their shopping bag using a clear call to action button, supporting a streamlined purchasing flow.
+- A “Keep Shopping” button allows users to quickly return to the main shop page and continue browsing products.
+- The layout adapts across mobile, tablet, and desktop devices to maintain usability and readability on all screen sizes.
+- Semantic HTML, structured sections, and clearly labelled controls improve accessibility and provide an intuitive user experience.
+- JavaScript functionality improves usability through dynamic quantity controls and smooth “Back to Top” scrolling behaviour.
+- Administrators can manage products, categories, descriptions, pricing, images, and stock availability through Django Administration with full CRUD functionality.
+
+<br>
+
+[Product detail for mobile 1/2](docs/product-detail-one-mobile.jpg "Product Detail | Mobile")
+
+[Product detail for mobile 2/2](docs/product-detail-two-mobile.jpg "Product Detail | Mobile")
+
+[Product detail for tablet](docs/product-detail-tablet.png "Product Detail | Tablet")
+
+[Product detail for desktop](docs/product-detail-desktop.png "Product Detail | Desktop")
+
+[Product sizes options for desktop](docs/product-sizes.png "Product Sizes Options | Desktop")
+
+<br>
+
+#### Shopping Bag
+
+The shopping bag page provides users with a clear overview of selected products before checkout. It allows users to review items, update quantities, remove products, and continue shopping, while maintaining the consistent responsive design and styling used throughout the website.
+
+Key features include:
+
+- Displays selected products with quantity controls, sizes if applicable and pricing information before checkout.
+- Includes increment and decrement quantity buttons with validation limits to prevent invalid values.
+- Supports asynchronous item removal using AJAX without requiring manual page navigation.
+- Provides clear empty bag messaging with a large “Keep Shopping” button linking back to the shop page.
+- Maintains responsive layouts for mobile, tablet, and desktop devices.
+- Includes consistent navigation links to the home, shop, about, profile, and authentication pages.
+- Uses semantic HTML and accessible button structures to improve usability and readability.
+- Styled using the website’s existing gaming-themed UI and reusable components.
+- Includes a back-to-top button for improved navigation on longer pages.
+
+<br>
+
+[Shopping bag empty for mobile](docs/shopping-bag-mobile.jpg "Shopping Bag Empty | Mobile")
+
+[Shopping bag with products for mobile](docs/shopping-bag-mobile.jpg "Shopping Bag With Products | Mobile")
+
+[Shopping bag empty for tablet](docs/shopping-bag-tablet.png "Shopping Bag Empty | Tablet")
+
+[Shopping bag with products for tablet](docs/shopping-bag-tablet.png "Shopping Bag With Products | Tablet")
+
+[Shopping bag empty for desktop](docs/shopping-bag-desktop.png "Shopping Bag Empty | Desktop")
+
+[Shopping bag with products for desktop](docs/shopping-bag-desktop.png "Shopping Bag With Products | Desktop")
+
+<br>
+
+#### Checkout
 
 <br>
 

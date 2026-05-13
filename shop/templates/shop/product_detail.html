@@ -86,16 +86,16 @@
         </div>
       </div>
       <div class="col-12 d-flex gap-3 mt-5 flex-wrap align-items-center">
-        <a href="{% url 'shop' %}" class="btn rounded-0">
+        <a href="{% url 'shop' %}" class="btn">
           <span class="icon">
             <i class="fas fa-chevron-left"></i>
           </span>
           <span class="text-uppercase">Keep Shopping</span>
         </a>
         {% if product.is_in_stock %}
-          <button type="submit" class="btn rounded-0 text-uppercase add-to-bag-btn">Add to Bag</button>
+          <button type="submit" class="btn text-uppercase add-to-bag-btn">Add to Bag</button>
         {% else %}
-          <button class="btn rounded-0 text-uppercase add-to-bag-btn" disabled>Out of Stock</button>
+          <button class="btn text-uppercase add-to-bag-btn" disabled>Out of Stock</button>
         {% endif %}
       </div>
       <input type="hidden" name="redirect_url" value="{{ request.path }}">

@@ -140,7 +140,8 @@ header {
 }
 
 .btn-delete:hover,
-.btn-decline:hover {
+.btn-decline:hover,
+.allauth-form-inner-content .btn-logout:hover {
   color: var(--danger);
 }
 

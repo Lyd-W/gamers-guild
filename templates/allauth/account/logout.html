@@ -1,25 +1,24 @@
 {% extends "account/base.html" %}
 {% load allauth i18n %}
-
-{% block title %}Log Out | Gamers Guild{% endblock title %}
-
-{% block head_title %}{% trans "Log Out" %}{% endblock head_title %}
+{% block title %}
+    Log Out | Gamers Guild
+{% endblock title %}
+{% block head_title %}
+    {% trans "Log Out" %}
+{% endblock head_title %}
 {% block inner_content %}
-
-<h2 class="mb-4">{% trans "Log Out" %}</h2>
+    <h2 class="mb-4">{% trans "Log Out" %}</h2>
     {% element p %}
-        {% trans "Are you sure you would like to log out?" %}
-    {% endelement %}
-    {% url 'account_logout' as action_url %}
-    {% element form method="post" action=action_url no_visible_fields=True %}
-        {% slot body %}
-            {% csrf_token %}
-            {{ redirect_field }}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" %}
-                {% trans "Log Out" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
+    {% trans "Are you sure you would like to log out?" %}
+{% endelement %}
+{% url 'account_logout' as action_url %}
+{% element form method="post" action=action_url no_visible_fields=True %}
+{% slot body %}
+{% csrf_token %}
+{{ redirect_field }}
+{% endslot %}
+{% slot actions %}
+<button type="submit" class="btn-logout">{% trans "Log Out" %}</button>
+{% endslot %}
+{% endelement %}
 {% endblock inner_content %}
