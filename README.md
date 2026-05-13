@@ -252,7 +252,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 - User authentication (register, login, logout)  
 - Comment and review system (CRUD functionality)  
 - Favourite/save functionality  
-- Admin content management  
+- Admin content management
 
 ### Page Features
 
@@ -647,21 +647,74 @@ Key features include:
 
 <br>
 
-[Shopping bag empty for mobile](docs/shopping-bag-mobile.jpg "Shopping Bag Empty | Mobile")
+[Shopping bag empty for mobile](docs/shopping-bag-empty-mobile.png "Shopping Bag Empty | Mobile")
 
-[Shopping bag with products for mobile](docs/shopping-bag-mobile.jpg "Shopping Bag With Products | Mobile")
+[Shopping bag with products for mobile](docs/shopping-bag-mobile.png "Shopping Bag With Products | Mobile")
 
-[Shopping bag empty for tablet](docs/shopping-bag-tablet.png "Shopping Bag Empty | Tablet")
+[Shopping bag empty for tablet](docs/shopping-bag-empty-tablet.png "Shopping Bag Empty | Tablet")
 
 [Shopping bag with products for tablet](docs/shopping-bag-tablet.png "Shopping Bag With Products | Tablet")
 
-[Shopping bag empty for desktop](docs/shopping-bag-desktop.png "Shopping Bag Empty | Desktop")
+[Shopping bag empty for desktop](docs/shopping-bag-empty-desktop.png "Shopping Bag Empty | Desktop")
 
 [Shopping bag with products for desktop](docs/shopping-bag-desktop.png "Shopping Bag With Products | Desktop")
 
 <br>
 
 #### Checkout
+
+The checkout page provides a simple and secure process for completing purchases. Users can review their full order summary, including items, quantities, delivery costs, and the grand total before proceeding to payment.
+
+It also includes a clean and structured form for entering personal, delivery, and payment details. Logged-in users have the option to save their delivery information to their profile for a faster checkout experience in the future. Payments are securely handled using Stripe to ensure a safe transaction process.
+
+Key Features
+- Displays a full order summary with items, quantities, and subtotals
+- Clearly shows order total, delivery cost, and grand total
+- Provides a structured form for personal and delivery information
+- Allows logged in users to save delivery details to their profile
+- Secure payment processing using Stripe integration
+- Includes navigation back to the shopping bag for easy editing before purchase
+
+<br>
+
+[Checkout for mobile](docs/checkout-mobile.png "Checkout | Mobile")
+
+[Checkout for tablet](docs/checkout-tablet.png "Checkout | Tablet")
+
+[Checkout for desktop](docs/checkout-desktop.png "Checkout | Desktop")
+
+[Checkout loading screen for desktop](docs/checkout-loading-screen-desktop.png "Checkout Loading Screen | Desktop")
+
+<br>
+
+#### Checkout Success
+
+The checkout success page confirms a completed order and provides users with a clear summary of their purchase. It also notifies the user that a confirmation email has been sent to their registered email address.
+
+The page is designed to present all order details in a structured and easy to read format, including order information, purchased items, delivery details, and billing totals.
+
+Key Features
+- Displays a full order confirmation with order number and date
+- Shows a detailed breakdown of purchased items and quantities
+- Provides complete delivery information for user reference
+- Includes a billing summary with order total, delivery cost, and grand total
+- Offers navigation back to the shop for continued browsing
+
+<br>
+
+[Checkout for mobile](docs/checkout-mobile.png "Checkout | Mobile")
+
+[Checkout success for mobile](docs/checkout-success-mobile.png "Checkout Success | Mobile")
+
+[Checkout for tablet](docs/checkout-tablet.png "Checkout | Tablet")
+
+[Checkout success for tablet](docs/checkout-success-tablet.png "Checkout Success | Tablet")
+
+[Checkout for desktop](docs/checkout-desktop.png "Checkout | Desktop")
+
+[Checkout success for desktop](docs/checkout-success-desktop.png "Checkout Success | Desktop")
+
+[Checkout loading screen for desktop](docs/checkout-loading-screen-desktop.png "Checkout Loading Screen | Desktop")
 
 <br>
 

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   console.log("reviews.js loaded");
 
   const editButtons = document.getElementsByClassName("btn-edit");
@@ -16,15 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const submitButton = reviewForm.querySelector("button[type='submit']");
 
-  // EDIT
   for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-
       let reviewId = e.currentTarget.dataset.reviewId;
 
       let commentContent = document.getElementById(
-        `review-comment${reviewId}`
+        `review-comment${reviewId}`,
       ).innerText;
+
+      let ratingValue = document.getElementById(`review${reviewId}`).dataset
+        .rating;
 
       let hiddenInput = reviewForm.querySelector("input[name='review_id']");
 
@@ -38,18 +38,22 @@ document.addEventListener("DOMContentLoaded", () => {
       hiddenInput.value = reviewId;
 
       commentText.value = commentContent;
+      ratingInput.value = ratingValue;
 
       submitButton.textContent = "Update Review";
+
+      reviewForm.action = window.location.pathname + `#review${reviewId}`;
     });
   }
 
-  // DELETE
-  const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+  const deleteModal = new bootstrap.Modal(
+    document.getElementById("deleteModal"),
+  );
+
   const deleteConfirm = document.getElementById("deleteConfirm");
 
   for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
-
       let reviewId = e.currentTarget.dataset.reviewId;
 
       deleteConfirm.href = `${window.location.pathname}delete_review/${reviewId}/`;
@@ -61,5 +65,4 @@ document.addEventListener("DOMContentLoaded", () => {
   reviewForm.addEventListener("submit", () => {
     submitButton.textContent = "Submit Review";
   });
-
 });
