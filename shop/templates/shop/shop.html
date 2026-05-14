@@ -91,7 +91,8 @@
       <div class="filter-overlay-container" id="filterOverlay">
         <div class="filter-overlay-panel">
           <button class="btn-close mb-3" id="closeFiltersBtn"></button>
-          <p class="filter-header">Filters</p>
+          <p class="filter-header">Filter by</p>
+          <p class="categories-header">Category</p>
           <form method="GET" action="{% url 'shop' %}">
             {% for sub in subcategories %}
               <div class="form-check mb-2">
