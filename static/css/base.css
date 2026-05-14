@@ -306,12 +306,6 @@ h4 {
   margin: 0 1rem 0 0.3rem;
 }
 
-.filter-header,
-.categories-header,
-.genre-header {
-  padding-left: 0.3rem;
-}
-
 .filter-wrapper {
   width: 10%;
   display: flex;
@@ -1104,8 +1098,13 @@ select option[value=""] {
     display: flex;
     flex-wrap: wrap;
     margin-left: 1rem;
-
   }
+
+.filter-header,
+.categories-header,
+.genre-header {
+  padding-left: 0.3rem;
+}
 
 }
 
