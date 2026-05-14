@@ -67,9 +67,15 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'account_logout' %}">Sign Out</a>
+                  <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
                 </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
+                </li>
+                {% endif %}
               </ul>
               <form method="GET" action="{% url 'search' %}" class="d-flex mt-2">
                 <input class="form-control search-bar me-2"
