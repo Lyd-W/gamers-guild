@@ -56,9 +56,7 @@
                                             {% for item in order.lineitems.all %}
                                                 <li class="small">
                                                     {{ item.product.name }}
-                                                    {% if item.product.has_sizes %}
-                                                        (Size {{ item.product_size|upper }})
-                                                    {% endif %}
+                                                    {% if item.product.has_sizes %}(Size {{ item.product_size|upper }}){% endif %}
                                                     x{{ item.quantity }}
                                                 </li>
                                             {% endfor %}
@@ -73,28 +71,30 @@
             </div>
             <h3 class="mt-4">Favourite Games</h3>
             <div class="row">
-                {% for game in favourite_games %}
-                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="boardgame-card h-100">
-                            <a href="{% url 'boardgame_detail' game.slug %}">
-                                <div class="card-img-wrapper">
-                                    {% if game.image %}
-                                        <img src="{{ game.image.url }}"
-                                             class="card-img-top"
-                                             alt="{{ game.title }}">
-                                    {% endif %}
+                <div class="favourites-card">
+                    {% for game in favourite_games %}
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="boardgame-card h-100">
+                                <a href="{% url 'boardgame_detail' game.slug %}">
+                                    <div class="card-img-wrapper">
+                                        {% if game.image %}
+                                            <img src="{{ game.image.url }}"
+                                                 class="card-img-top"
+                                                 alt="{{ game.title }}">
+                                        {% endif %}
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="favourite-card-title">
+                                        <a href="{% url 'boardgame_detail' game.slug %}">{{ game.title }}</a>
+                                    </h4>
                                 </div>
-                            </a>
-                            <div class="card-body">
-                                <h4 class="favourite-card-title">
-                                    <a href="{% url 'boardgame_detail' game.slug %}">{{ game.title }}</a>
-                                </h4>
                             </div>
                         </div>
-                    </div>
-                {% empty %}
-                    <p>You have no favourite games yet.</p>
-                {% endfor %}
+                    {% empty %}
+                        <p>You have no favourite games yet.</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

@@ -71,7 +71,6 @@
         <div class="filter-sidebar">
           <p>{{ products|length }} Products found</p>
           <p class="filter-header mb-2">Filter By</p>
-          <p class="categories-header">Category</p>
           <form method="GET" action="{% url 'shop' %}">
             {% for sub in subcategories %}
               <div class="form-check mb-2">
@@ -92,7 +91,6 @@
         <div class="filter-overlay-panel">
           <button class="btn-close mb-3" id="closeFiltersBtn"></button>
           <p class="filter-header">Filter by</p>
-          <p class="categories-header">Category</p>
           <form method="GET" action="{% url 'shop' %}">
             {% for sub in subcategories %}
               <div class="form-check mb-2">

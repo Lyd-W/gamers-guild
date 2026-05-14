@@ -1100,6 +1100,13 @@ select option[value=""] {
     margin-bottom: 0.5rem;
   }
 
+    .favourites-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+
+  }
+
 }
 
 @media (min-width: 768px) {
