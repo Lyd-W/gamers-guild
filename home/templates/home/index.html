@@ -21,13 +21,17 @@
   </section>
   <section class="games-container">
     <div class="sort-filter-container">
-      <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
-              type="button"
-              id="openFiltersBtn">
-        <i class="fas fa-filter me-2"></i> Filters
-      </button>
+      <div class="filter-games-count">
+        <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
+                type="button"
+                id="openFiltersBtn">
+          <i class="fas fa-filter me-2"></i> Filters
+        </button>
+        <p class="d-none d-md-inline-flex d-lg-none">{{ boardgames|length }} Games found</p>
+      </div>
       <section class="filter px-4">
         <div class="d-md-none">
+          <div class="games-count-mobile">{{ boardgames|length }} Games found</div>
           <button class="btn filters-btn w-100 mb-2"
                   type="button"
                   data-bs-toggle="collapse"
@@ -44,8 +48,8 @@
           </div>
         </div>
       </section>
-      <section class="sort-dropdown">
-        <select id="sort-selector" class="form-select form-select-sm">
+      <section class="sort-dropdown d-flex align-items-center gap-2">
+        <select id="sort-selector" class="form-select form-select-sm w-auto">
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
           <option value="title_asc"
@@ -69,16 +73,11 @@
             Released (Newest to Oldest)
           </option>
         </select>
-        <div class="col-12 col-md-6">
-          <p>
-            {{ boardgames|length }} Games
-            {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
-          </p>
-        </div>
       </section>
       <section class="main-games">
         <div class="filter-wrapper d-none d-lg-block">
           <div class="filter-sidebar">
+            <p>{{ boardgames|length }} Games found</p>
             <p class="filter-header mb-2">Filter By</p>
             <div class="accordion" id="accordionDesktopFilters">
               <div class="accordion-item">
@@ -362,9 +361,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <script>
+    </section>
+    <script>
 $(document).ready(function () {
 
     $('#sort-selector').on('change', function () {
@@ -446,5 +444,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-  </script>
-{% endblock content %}
+    </script>
+  {% endblock content %}

@@ -221,7 +221,7 @@ h4 {
 .add-product-page-title,
 .edit-product-page-title,
 .about-page-title {
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 .shop-container a,
@@ -295,6 +295,11 @@ h4 {
   max-height: fit-content;
   border: solid var(--primary-highlight);
   border-width: 0.1rem;
+}
+
+.filter-games-count {
+  display: flex;
+  align-items: flex-end;
 }
 
 .filter-sidebar {
@@ -1023,7 +1028,6 @@ select option[value=""] {
 
 .profile-title {
   max-width: auto;
-  margin: 5rem auto;
 }
 
 .filter-overlay-container {
@@ -1083,6 +1087,19 @@ select option[value=""] {
       .btt-btn {
         bottom: 60px;
     }
+
+  .games-count-mobile {
+    margin-top: 0.5rem;
+  }
+
+  .sort-dropdown {
+    padding-left: 1.5rem;
+  }
+
+   .sort-dropdown-shop{
+    margin-bottom: 0.5rem;
+  }
+
 }
 
 @media (min-width: 768px) {
@@ -1120,6 +1137,7 @@ select option[value=""] {
     flex-wrap: wrap;
     justify-items: center;
     justify-content: flex-end;
+    align-items: center;
   }
 
     .sort-filter-container-shop {
@@ -1132,7 +1150,7 @@ select option[value=""] {
 
   .sort-dropdown {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
   }
 
   .product-count {

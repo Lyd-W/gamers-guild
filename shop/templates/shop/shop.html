@@ -24,13 +24,18 @@
   </section>
   <section class="shop-container">
     <div class="sort-filter-container-shop">
+      <div class="filter-products-count">
       <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
               type="button"
               id="openFiltersBtn">
         <i class="fas fa-filter me-2"></i> Filters
       </button>
+              <p class="d-none d-md-inline-flex d-lg-none">{{ products|length }} Products found</p>
+      </div>
       <section class="filter px-4">
         <div class="d-md-none">
+                    <div class="products-count-mobile">{{ products|length }} Products found
+                    </div>
           <button class="btn filters-btn w-100 mb-2"
                   type="button"
                   data-bs-toggle="collapse"
@@ -47,8 +52,8 @@
           </div>
         </div>
       </section>
-      <div class="sort-dropdown">
-        <select id="sort-selector" class="form-select form-select-sm">
+      <section class="sort-dropdown sort-dropdown-shop d-flex align-items-center gap-2">
+        <select id="sort-selector" class="form-select form-select-sm w-auto">
           <option value="reset">Sort by...</option>
           <option value="price_asc">Price (low to high)</option>
           <option value="price_desc">Price (high to low)</option>
@@ -58,16 +63,13 @@
           <option value="category_desc">Category (Z-A)</option>
         </select>
         <div class="col-12 col-md-6">
-          <p>
-            {{ products|length }} Products
-            {% if search_term %}found for <strong>"{{ search_term }}"</strong>{% endif %}
-          </p>
         </div>
       </div>
     </div>
     <section class="main-shop">
       <div class="filter-wrapper d-none d-lg-block">
         <div class="filter-sidebar">
+          <p>{{ products|length }} Products found</p>
           <p class="filter-header mb-2">Filter By</p>
           <p class="categories-header">Category</p>
           <form method="GET" action="{% url 'shop' %}">
