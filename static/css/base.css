@@ -1186,6 +1186,11 @@ select option[value=""] {
     background-color: var(--primary-color);
   }
 
+    .favourites-card {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .main-shop,
   .main-games {
     display: flex;
