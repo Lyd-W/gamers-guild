@@ -117,19 +117,25 @@
                 <div id="desktopPlayers" class="accordion-collapse collapse">
                   <div class="accordion-body">
                     <form method="GET" action="{% url 'home' %}">
-                      <div class="mb-2">
-                        <label>Min Players:</label>
-                        <input type="number"
-                               name="min_players"
-                               value="{{ request.GET.min_players }}">
-                      </div>
-                      <div class="mb-2">
-                        <label>Max Players:</label>
-                        <input type="number"
-                               name="max_players"
-                               value="{{ request.GET.max_players }}">
-                      </div>
-                      <button type="submit" class="btn btn-sm mt-2">Apply</button>
+                      {% for p in player_options %}
+                        <div class="player-badge">
+                          <label>
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="players"
+                                   value="{{ p }}"
+                                   onchange="this.form.submit()"
+                                   {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+                            {% if p == 1 %}
+                              1 Player
+                            {% elif p == 6 %}
+                              6+ Players
+                            {% else %}
+                              {{ p }} Players
+                            {% endif %}
+                          </label>
+                        </div>
+                      {% endfor %}
                     </form>
                   </div>
                 </div>
@@ -300,19 +306,25 @@
                      aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body">
                     <form method="GET" action="{% url 'home' %}">
-                      <div>
-                        <label>Min Players:</label>
-                        <input type="number"
-                               name="min_players"
-                               value="{{ request.GET.min_players }}">
-                      </div>
-                      <div>
-                        <label>Max Players:</label>
-                        <input type="number"
-                               name="max_players"
-                               value="{{ request.GET.max_players }}">
-                      </div>
-                      <button type="submit">Apply</button>
+                      {% for p in player_options %}
+                        <div class="player-badge">
+                          <label>
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="players"
+                                   value="{{ p }}"
+                                   onchange="this.form.submit()"
+                                   {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+                            {% if p == 1 %}
+                              1 Player
+                            {% elif p == 6 %}
+                              6+ Players
+                            {% else %}
+                              {{ p }} Players
+                            {% endif %}
+                          </label>
+                        </div>
+                      {% endfor %}
                     </form>
                   </div>
                 </div>

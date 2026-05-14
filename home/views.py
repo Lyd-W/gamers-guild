@@ -35,12 +35,20 @@ def home(request):
         boardgames = boardgames.filter(
             genres__id__in=selected_genres
         ).distinct()
+        
+    player_options = [1, 2, 3, 4, 5, 6]
+    selected_players = request.GET.getlist("players")
 
-    if min_players:
-        boardgames = boardgames.filter(min_players__lte=min_players)
+    selected_players = request.GET.getlist("players")
 
-    if max_players:
-        boardgames = boardgames.filter(max_players__gte=max_players)
+    if selected_players:
+        q = Q()
+
+        for p in selected_players:
+            p = int(p)
+            q |= Q(min_players__lte=p, max_players__gte=p)
+
+        boardgames = boardgames.filter(q)
 
     if playtime:
         boardgames = boardgames.filter(playtime__lte=playtime)
@@ -87,6 +95,8 @@ def home(request):
         'search_term': query,
         'current_genres': selected_genres,
         'current_sorting': current_sorting,
+        'player_options': player_options,
+        'current_players': selected_players,
     }
 
     return render(request, "home/index.html", context)

@@ -1,5 +1,4 @@
 <div class="accordion" id="filterAccordion">
-
   <!-- GENRE -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingGenre">
@@ -9,22 +8,19 @@
               data-bs-target="#collapseGenre"
               aria-expanded="false"
               aria-controls="collapseGenre">
-
         <span>Genre</span>
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
-
     <div id="collapseGenre"
          class="accordion-collapse collapse"
          aria-labelledby="headingGenre">
-
       <div class="accordion-body">
         <form method="GET" action="{% url 'home' %}">
           {% for genre in genres %}
             <div class="genre-badge">
               <label>
-                <input class="form-check-input" 
+                <input class="form-check-input"
                        type="checkbox"
                        name="genre"
                        value="{{ genre.id }}"
@@ -36,10 +32,8 @@
           {% endfor %}
         </form>
       </div>
-
     </div>
   </div>
-
   <!-- PLAYER COUNT -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingPlayers">
@@ -49,41 +43,38 @@
               data-bs-target="#collapsePlayers"
               aria-expanded="false"
               aria-controls="collapsePlayers">
-
         <span>Player Count</span>
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
-
     <div id="collapsePlayers"
          class="accordion-collapse collapse"
          aria-labelledby="headingPlayers">
-
       <div class="accordion-body">
         <form method="GET" action="{% url 'home' %}">
-          <div class="mb-2">
-            <label>Min Players:</label>
-            <input type="number"
-                   name="min_players"
-                   class="form-control"
-                   value="{{ request.GET.min_players }}">
-          </div>
-
-          <div class="mb-2">
-            <label>Max Players:</label>
-            <input type="number"
-                   name="max_players"
-                   class="form-control"
-                   value="{{ request.GET.max_players }}">
-          </div>
-
-          <button type="submit" class="btn btn-sm">Apply</button>
+          {% for p in player_options %}
+            <div class="player-badge">
+              <label>
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="players"
+                       value="{{ p }}"
+                       onchange="this.form.submit()"
+                       {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+                {% if p == 1 %}
+                  1 Player
+                {% elif p == 6 %}
+                  6+ Players
+                {% else %}
+                  {{ p }} Players
+                {% endif %}
+              </label>
+            </div>
+          {% endfor %}
         </form>
       </div>
-
     </div>
   </div>
-
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingPlaytime">
       <button class="accordion-button collapsed d-flex align-items-center"
@@ -92,21 +83,16 @@
               data-bs-target="#collapsePlaytime"
               aria-expanded="false"
               aria-controls="collapsePlaytime">
-
         <span>Playtime</span>
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
-
     <div id="collapsePlaytime"
          class="accordion-collapse collapse"
          aria-labelledby="headingPlaytime">
-
       <div class="accordion-body">
         <form method="GET" action="{% url 'home' %}">
-
           <label>Max Playtime (minutes):</label>
-
           <input class="slider form-range"
                  type="range"
                  id="playtimeSlider"
@@ -115,7 +101,6 @@
                  max="300"
                  value="{{ request.GET.playtime|default:90 }}"
                  oninput="syncFromSlider(this.value)">
-
           <div class="d-flex align-items-center gap-2 mt-2">
             <input type="number"
                    id="playtimeInput"
@@ -127,11 +112,8 @@
                    oninput="syncFromInput(this.value)">
             <span>mins</span>
           </div>
-
         </form>
       </div>
-
     </div>
   </div>
-
 </div>
