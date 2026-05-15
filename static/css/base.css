@@ -1324,6 +1324,27 @@ select option[value=""] {
     min-width: 0;
   }
 
+  .results-container .games,
+  .results-container .products {
+    max-height: none;
+    overflow: visible;
+    display: block;
+}
+
+.results-container .boardgame-card .card-body,
+.results-container .product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.results-container .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: var(--primary-color);
+}
+
     .sort-filter-container {
   position: sticky;
   top: 0;
@@ -1394,7 +1415,7 @@ select option[value=""] {
   .message-container {
   left: 85%;
 }
-
+}
 @media (min-width: 1200px) {
   .profile-title {
     padding: 0 2rem;

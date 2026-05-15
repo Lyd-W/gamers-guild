@@ -612,7 +612,7 @@ Powered by Django Allauth:
 
 [Logged in status on desktop](docs/logged-in-user-display.png "Logged In Status | Desktop")
 
-[Logged in status on desktop](docs/logged-out-user-display.png "Logged In Status | Desktop")
+[Logged out status on desktop](docs/logged-out-user-display.png "Logged Out Status | Desktop")
 
 [Log out danger hover effect](docs/log-out-button-hover.png "Lout Out Danger Hover Effect")
 

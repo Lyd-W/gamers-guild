@@ -45,8 +45,8 @@
           type="image/x-icon"
           href="{% static 'favicon/favicon.ico' %}">
   </head>
-  <body>
-    <header class="fixed-top">
+  <body class="d-flex flex-column min-vh-100">
+    <header>
       <nav class="navbar navbar-expand-md fixed-top">
         <div class="container-fluid">
           {% include "includes/mobile-top-header.html" %}
@@ -170,7 +170,6 @@
       {% endif %}
       {% block page_header %}
       {% endblock page_header %}
-      <body class="d-flex flex-column min-vh-100">
         <main class="flex-grow-1">
           {% block content %}
           {% endblock content %}
@@ -210,7 +209,6 @@
             </a>
           </p>
         </footer>
-      </body>
       {% block postloadjs %}
         <script>
 const bttBtn = $('.btt-btn');
