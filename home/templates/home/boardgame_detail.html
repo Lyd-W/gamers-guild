@@ -11,6 +11,23 @@
         {% else %}
           <img class="boardgame-image" alt="Boardgame placeholder" />
         {% endif %}
+
+        {% if user.is_authenticated %}
+              <form action="{% url 'toggle_favourite' boardgame.slug %}"
+                    method="POST"
+                    class="mb-3">
+                {% csrf_token %}
+                <button type="submit" class="btn favourite-btn">
+                  {% if user in boardgame.favourites.all %}
+                    <i class="fas fa-heart"></i>
+                    Remove Favourite
+                  {% else %}
+                    <i class="far fa-heart"></i>
+                    Add to Favourites
+                  {% endif %}
+                </button>
+              </form>
+            {% endif %}
       </div>
       <div class="boardgame-intro col-12 col-lg-8">
         <header class="boardgame-header">
@@ -61,87 +78,71 @@
               Playtime:
               <p>{{ boardgame.playtime }} minutes</p>
             </div>
+          </div>
+          <hr />
+          <section class="review-section">
+            <h3>Leave a Review</h3>
             {% if user.is_authenticated %}
-              <form action="{% url 'toggle_favourite' boardgame.slug %}"
-                    method="POST"
-                    class="mb-3">
+              <form method="POST" id="reviewForm">
                 {% csrf_token %}
-                <button type="submit" class="btn favourite-btn">
-                  {% if user in boardgame.favourites.all %}
-                    <i class="fas fa-heart"></i>
-                    Remove Favourite
-                  {% else %}
-                    <i class="far fa-heart"></i>
-                    Add to Favourites
-                  {% endif %}
-                </button>
+                <div class="mb-2">
+                  <label>Rating:</label>
+                  {{ form.rating }}
+                </div>
+                <div class="mb-2">
+                  <label>Comment:</label>
+                  {{ form.comment }}
+                </div>
+                <button type="submit" class="btn">Submit Review</button>
               </form>
+            {% else %}
+              <p>
+                <a href="{% url 'account_login' %}" class="text-highlight">Log in</a> to leave a review.
+              </p>
             {% endif %}
             <hr />
-            <section class="review-section">
-              <h3>Leave a Review</h3>
-              {% if user.is_authenticated %}
-                <form method="POST" id="reviewForm">
-                  {% csrf_token %}
-                  <div class="mb-2">
-                    <label>Rating:</label>
-                    {{ form.rating }}
-                  </div>
-                  <div class="mb-2">
-                    <label>Comment:</label>
-                    {{ form.comment }}
-                  </div>
-                  <button type="submit" class="btn">Submit Review</button>
-                </form>
-              {% else %}
-                <p>
-                  <a href="{% url 'account_login' %}" class="text-highlight">Log in</a> to leave a review.
-                </p>
-              {% endif %}
-              <hr />
-              <section class="reviews-list">
-                <h3>Reviews</h3>
-                {% for review in reviews %}
-                  <div class="review mb-3"
-                       id="review{{ review.id }}"
-                       data-rating="{{ review.rating }}">
-                    <strong>{{ review.user.username }}</strong>
-                    <p class="star-rating">
-                      {% for i in "12345" %}
-                        {% if review.rating >= forloop.counter %}
-                          <i class="fas fa-star"></i>
-                        {% elif review.rating >= forloop.counter|add:"-0.5" %}
-                          <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                          <i class="far fa-star"></i>
-                        {% endif %}
-                      {% endfor %}
-                      <span>({{ review.rating }}/5)</span>
-                    </p>
-                    <p class="review-comment" id="review-comment{{ review.id }}">{{ review.comment }}</p>
-                    {% if user.is_authenticated and review.user == user %}
-                      <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
-                      <button class="btn btn-delete" data-review-id="{{ review.id }}">Delete</button>
-                    {% endif %}
-                    {% if not review.is_approved %}<p class="text-warning mb-1">Pending approval</p>{% endif %}
-                    {% if user.is_staff %}
-                      <div class="admin-review-tools">
+            <section class="reviews-list">
+              <h3>Reviews</h3>
+              {% for review in reviews %}
+                <div class="review mb-3"
+                     id="review{{ review.id }}"
+                     data-rating="{{ review.rating }}">
+                  <strong>{{ review.user.username }}</strong>
+                  <p class="star-rating">
+                    {% for i in "12345" %}
+                      {% if review.rating >= forloop.counter %}
+                        <i class="fas fa-star"></i>
+                      {% elif review.rating >= forloop.counter|add:"-0.5" %}
+                        <i class="fas fa-star-half-alt"></i>
+                      {% else %}
+                        <i class="far fa-star"></i>
+                      {% endif %}
+                    {% endfor %}
+                    <span>({{ review.rating }}/5)</span>
+                  </p>
+                  <p class="review-comment" id="review-comment{{ review.id }}">{{ review.comment }}</p>
+                  {% if user.is_authenticated and review.user == user %}
+                    <button class="btn btn-edit" data-review-id="{{ review.id }}">Edit</button>
+                    <button class="btn btn-delete" data-review-id="{{ review.id }}">Delete</button>
+                  {% endif %}
+                  {% if not review.is_approved %}<p class="text-warning mb-1">Pending approval</p>{% endif %}
+                  {% if user.is_staff %}
+                    <div class="admin-review-tools">
+                      <div>Admin Tools</div>
+                      {% if not review.is_approved %}
                         <form method="post" action="{% url 'approve_review' review.id %}">
                           {% csrf_token %}
                           <button class="btn btn-sm">Approve</button>
                         </form>
-                        <button class="btn btn-sm btn-delete"
-                                data-review-id="{{ review.id }}">
-                            Delete
-                        </button>
-                      </div>
-                    {% endif %}
-                  </div>
+                      {% endif %}
+                      <button class="btn btn-sm btn-delete" data-review-id="{{ review.id }}">Delete</button>
+                    </div>
+                  {% endif %}
                 </div>
-              {% empty %}
-                <p>No reviews yet.</p>
-              {% endfor %}
-            </section>
+              </div>
+            {% empty %}
+              <p>No reviews yet.</p>
+            {% endfor %}
             <div class="modal" id="deleteModal">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -158,10 +159,10 @@
             </div>
           </section>
         </section>
-      </div>
+      </section>
     </div>
-    {% endblock content %}
-    {% block extra_js %}
-      <script src="{% static 'js/reviews.js' %}"></script>
-    {% endblock extra_js %}
-  </section>
+  {% endblock content %}
+  {% block extra_js %}
+    <script src="{% static 'js/reviews.js' %}"></script>
+  {% endblock extra_js %}
+</section>
