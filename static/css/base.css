@@ -534,6 +534,7 @@ input[type="range"].slider::-webkit-slider-thumb {
 
 .card-title {
   font-weight: 700;
+  font-size: 1.4rem;
   color: var(--text);
   padding-top: 1rem;
   text-align: center;
@@ -1173,7 +1174,7 @@ select option[value=""] {
     margin-left: 1rem;
     margin-top: 1rem;
     margin-right: 1rem !important;
-    padding: 0 1rem;
+    padding: 1rem;
     background-color: var(--secondary-color);
     border: solid var(--primary-highlight);
     border-radius: 1rem;
