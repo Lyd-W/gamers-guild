@@ -267,7 +267,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 Gamers Guild provides a fully responsive navigation experience across all devices.
 
 ### Desktop Navigation Bar
-- Full-width navigation layout
+- Full width navigation layout
 - Inline links to key pages
 - Search bar integration
 - User account dropdown
@@ -276,13 +276,13 @@ Gamers Guild provides a fully responsive navigation experience across all device
 ### Mobile Navigation Menu
 - Collapsible dropdown menu
 - Optimised for smaller screens
-- Touch-friendly navigation controls
+- Touch friendly navigation controls
 
-#### Suggested Screenshots
-- `desktop-navigation-bar.png`
-- `mobile-navigation-menu.png`
+#### Screenshots
+[Navigation for desktop](docs/navigation-desktop.png "Navigation | Desktop")
 
----
+[Navigation for mobile](docs/navigation-mobile.jpg "Navigation | Mobile")
+
 
 ## Homepage & Game Discovery
 
@@ -299,9 +299,10 @@ Board games are displayed using responsive card layouts featuring:
 
 Each card links to a dedicated game detail page.
 
-#### Suggested Screenshots
-- `homepage-boardgame-grid.png`
-- `boardgame-card-example.png`
+#### Screenshots
+[Board game grid on desktop](docs/home-board-game-grid.png "Board Game Grid | Desktop")
+
+[Board game card example](docs/home-board-game-card.png "Board Game Card Example | Mobile")
 
 ### Sorting Functionality
 Users can sort games dynamically by:
@@ -311,29 +312,37 @@ Users can sort games dynamically by:
 - Playtime (Low–High / High–Low)
 - Release year (Oldest–Newest / Newest–Oldest)
 
-#### Suggested Screenshots
-- `sort-dropdown.png`
+#### Screenshots
+[Homepage 'sort by...' dropdown](docs/home-sort-dropdown.png "Homepage Sort By Dropdown | Desktop")
 
 ### Game Filtering System
 Users can refine results using:
 
-- Genre filtering (checkbox-based)
+- Genre filtering (checkbox based)
 - Player count range selection
 - Playtime slider filtering
 
-#### Suggested Screenshots
-- `genre-filter.png`
-- `player-count-filter.png`
-- `playtime-filter.png`
+#### Screenshots
+[Homepage filters closed on desktop](docs/home-filters-closed-desktop.png "Homepage Filters Closed | Desktop")
+
+[Homepage filters - genre open on desktop](docs/home-filters-genre-open-desktop.png "Homepage Filters - Genre Open | Desktop")
+
+[Homepage filters - player count open on desktop](docs/home-filters-player-count-open-desktop.png "Homepage Filters - Player Count Open | Desktop")
+
+[Homepage filters - playtime open on desktop](docs/home-filters-playtime-open-desktop.png "Homepage Filters - Playtimme Open | Desktop")
 
 ### Mobile Filter Overlay
-- Slide-in filter panel
+- Slide in filter panel
 - Optimised for tablet and mobile UX
 
-#### Suggested Screenshots
-- `mobile-filter-overlay.png`
+#### Screenshots
+[Homepage filters closed on mobile](docs/home-filters-closed-mobile.jpg "Homepage Filters Closed | Mobile")
 
----
+[Homepage filters - genre open on mobile](docs/home-filters-genre-open-mobile.jpg "Homepage Filters - Genre Open | Mobile")
+
+[Homepage filters - player count open on mobile](docs/home-filters-player-count-open-mobile.jpg "Homepage Filters - Player Count Open | Mobile")
+
+[Homepage filters - playtime open on mobile](docs/home-filters-playtime-open-mobile.jpg "Homepage Filters - Playtimme Open | Mobile")
 
 ## Search System
 
@@ -350,12 +359,14 @@ A unified search system across:
 - Direct links to detail pages
 - Placeholder image fallback system
 
-#### Suggested Screenshots
+#### Screenshots
 - `search-results-overview.png`
 - `search-boardgame-results.png`
 - `search-product-results.png`
 
----
+[No games found preview](docs/no-games-found.png "No Games Found Preview")
+
+[No products found preview](docs/no-products-found.png "No Products Found Preview")
 
 ## Shop & Product Catalogue
 
@@ -368,8 +379,8 @@ Products are shown using responsive cards featuring:
 - Category
 - Rating
 
-#### Suggested Screenshots
-- `shop-product-grid.png`
+#### Screenshots
+[Shop grid view on desktop](docs/shop-product-grid-desktop.png "Shop Grid View | Desktop")
 
 ### Shop Navigation & Filtering
 - Horizontal category navigation bar
@@ -377,8 +388,9 @@ Products are shown using responsive cards featuring:
 - URL-based filtering
 
 #### Suggested Screenshots
-- `shop-category-navigation.png`
-- `shop-filter-system.png`
+[Shop category navigation on desktop](docs/shop-category-navigation-desktop.png "Shop Category Navigation | Desktop")
+
+[Shop filter on desktop](docs/shop-filter-desktop.png "Shop Filter | Desktop")
 
 ### Product Sorting
 Users can sort products by:
@@ -389,10 +401,8 @@ Users can sort products by:
 
 (Ascending and descending options available)
 
-#### Suggested Screenshots
-- `shop-sort-options.png`
-
----
+#### Screenshots
+[Shop 'sort by...' on desktop](docs/shop-sort-options-desktop.png "Shop Sort By | Desktop")
 
 ## Product Detail & Inventory System
 
@@ -401,20 +411,20 @@ Users can sort products by:
 - Disabled unavailable options
 - Dynamic stock validation
 
-#### Suggested Screenshots
-- `product-size-selection.png`
-- `disabled-size-option.png`
+#### Screenshots
+[Shop product size selection on desktop](docs/product-size-selection-desktop.png "Shop Product Size Selection | Desktop")
 
 ### Quantity & Stock Controls
 - Increment/decrement buttons
 - Stock-aware quantity limits
 - Conditional add-to-bag functionality
 
-#### Suggested Screenshots
-- `quantity-selector.png`
-- `stock-validation-example.png`
+#### Screenshots
+[Product quantity selection on desktop](docs/product-quantity-selection-desktop.png "Product Quantity Size Selection | Desktop")
 
----
+[Product stock validation on desktop](docs/product-stock-validation-example-desktop.png "Product Stock Validation | Desktop")
+
+[Product all stock in basket validation on desktop](docs/product-all-stock-in-basket-desktop.png "Product All Stock In Basket | Desktop")
 
 ## Shopping Bag (Cart System)
 
@@ -428,17 +438,17 @@ Users can sort products by:
 - Grand total calculation
 - Free delivery threshold messaging
 
-#### Suggested Screenshots
-- `shopping-bag-desktop.png`
-- `shopping-bag-mobile.png`
-- `shopping-bag-summary.png`
+#### Screenshots
+[Shopping bag empty on desktop](docs/shopping-bag-empty-desktop.png "Shopping Bag Empty | Desktop")
+
+[Shopping bag on desktop](docs/shopping-bag-desktop.png "Shopping Bag | Desktop")
+
+[Shopping bag on mobile](docs/shopping-bag-mobile.jpg "Shopping Bag | Mobile")
 
 ### Mobile Optimisation
 - Card-based layout
 - Simplified order summary
-- Touch-friendly controls
-
----
+- Touch-friendly controlsche
 
 ## Checkout & Payments
 
@@ -449,24 +459,23 @@ Users can sort products by:
 - Order confirmation system
 - Email notifications
 
-#### Suggested Screenshots
-- `checkout-page.png`
-- `checkout-order-summary.png`
+#### Screenshots
+[Checkout page on desktop](docs/checkout-desktop.png "Checkout Page | Desktop")
+
+[Checkout page on mobile](docs/checkout-mobile.png "Checkout Page | Mobile")
 
 ### Stripe Integration
 - Secure card payment handling via Stripe Elements
 
-#### Suggested Screenshots
-- `stripe-payment-form.png`
+#### Screenshots
+[Stripe payment form desktop](docs/stripe-payment-form.png "Stripe Payment Form | Desktop")
 
 ### Loading Overlay
 - Prevents duplicate submissions
 - Improves payment UX feedback
 
-#### Suggested Screenshots
-- `checkout-loading-overlay.png`
-
----
+#### Screenshots
+[Checkout loading overlay on desktop](docs/checkout-loading-screen-desktop.png "Checkout Loading Overlay | Desktop")
 
 ## Orders & Confirmation System
 
@@ -478,18 +487,15 @@ Users can sort products by:
 - Billing summary
 - Total cost display
 
-#### Suggested Screenshots
-- `checkout-success-page.png`
-- `order-confirmation-details.png`
+#### Screenshots
+[Checkout success for desktop](docs/checkout-success-desktop.png "Checkout Success | Desktop")
 
 ### Order History
 - Accessible via user profile
 - Displays past purchases and totals
 
-#### Suggested Screenshots
-- `order-history.png`
-
----
+#### Screenshots
+[Order history for desktop](docs/profile-order-history-desktop.png "Order History | Desktop")
 
 ## User Accounts & Authentication
 
@@ -501,16 +507,17 @@ Powered by Django Allauth:
 - Authenticated UI states
 - Protected features
 
-#### Suggested Screenshots
-- `login-page.png`
-- `registration-page.png`
+#### Screenshots
+[Login for desktop](docs/login-desktop.png "Login | Desktop")
+
+[Login error message for desktop](docs/log-in-error.png "Login Error Message | Desktop")
+
+[Registration page for desktop](docs/register-desktop.png "Registration Page | Desktop")
 
 ### Protected Features
-- Reviews (future-ready)
+- Reviews
 - Favourites system
 - Personalised experience
-
----
 
 ## User Profile System
 
@@ -519,25 +526,21 @@ Powered by Django Allauth:
 - Delivery information management
 - Persistent user data
 
-#### Suggested Screenshots
-- `user-profile.png`
+#### Screenshots
+[Profile page for desktop](docs/profile-desktop.png "Profile Page | Desktop")
 
 ### Favourite Games
 - Save and revisit games
 - Stored per user account
 
-#### Suggested Screenshots
-- `favourite-games.png`
-
----
+#### Screenshots
+[Profile page - favourites for desktop](docs/profile-favourites-desktop.png "Profile Page - Favourites | Desktop")
 
 ## Engagement Features
 
 - Favourite games system
-- User-specific saved content
-- Wishlist-ready structure
-
----
+- User specific saved content
+- Wishlist ready structure
 
 ## Content Pages
 
@@ -545,17 +548,15 @@ Powered by Django Allauth:
 - Platform overview
 - Community focus
 
-#### Suggested Screenshots
-- `about-page.png`
+#### Screenshots
+[About page for desktop](docs/about-desktop.png "About | Desktop")
 
 ### Contact Form
 - Name, email, subject, message
 - Submission feedback system
 
-#### Suggested Screenshots
-- `contact-form.png`
-
----
+#### Screenshots
+[About page validation for desktop](docs/about-validation-desktop.png "About validation | Desktop")
 
 ## Admin & Management Tools
 
@@ -564,18 +565,19 @@ Powered by Django Allauth:
 - Image upload handling
 - Staff-only access
 
-#### Suggested Screenshots
-- `add-product-page.png`
-- `edit-product-page.png`
+#### Screenshots
+[Admin panel - add product](docs/add-product-page.png "Admin Panel | Add Product")
+
+[Admin panel - edit product 1/2](docs/edit-product-page-ong-of-one.png "Admin Panel | Edit Product 1/2")
+
+[Admin panel - edit product 2/2](docs/edit-product-page-ong-of-two.png "Admin Panel | Edit Product 2/2")
 
 ### Review Moderation
 - Approve / delete reviews
 - Staff controls
 
-#### Suggested Screenshots
-- `admin-review-controls.png`
-
----
+#### Screenshots
+[Admin panel - review controls](docs/admin-review-controls.png "Admin Panel | Review Controls")
 
 ## UX, Accessibility & UI Enhancements
 
@@ -585,9 +587,34 @@ Powered by Django Allauth:
 - Empty state handling
 - Defensive UI states
 
-#### Suggested Screenshots
-- `toast-notifications.png`
-- `empty-state-example.png`
+#### Screenshots
+[Toast example - log in](docs/toast-success-log-in.png "Toast Example | Log In")
+
+[Toast example - log out](docs/toast-success-log-out.png "Toast Example | Log Out")
+
+[Toast example - add to favourites](docs/toast-success-favourites.png "Toast Example | Added To Favourites")
+
+[Toast example - message success](docs/toast-message-success.png "Toast Example | Message Success")
+
+[Toast example - review success](docs/toast-review-success.png "Toast Example | Review Success")
+
+[Toast example - review deleted success](docs/toasts-review-deleted-success.png "Toast Example | Review Deleted Success")
+
+[Toast example - past order information](docs/toast-information-previous-order.png "Toast Example | Past Order Information")
+
+[Toast example - warning insufficient stock](docs/toast-warning-insufficient-stock.png "Toast Example | Warning Insufficient Stock")
+
+[Toast example - item removed](docs/toast-item-removed.png "Toast Example | Item Removed")
+
+[Shopping bag empty on desktop](docs/shopping-bag-empty-desktop.png "Shopping Bag Empty | Desktop")
+
+[Review validation on desktop](docs/board-game-detail-form-validation-desktop.png "Review Validation | Desktop")
+
+[Logged in status on desktop](docs/logged-in-user-display.png "Logged In Status | Desktop")
+
+[Logged in status on desktop](docs/logged-out-user-display.png "Logged In Status | Desktop")
+
+[Log out danger hover effect](docs/log-out-button-hover.png "Lout Out Danger Hover Effect")
 
 ### Accessibility Features
 - Semantic HTML
@@ -595,8 +622,6 @@ Powered by Django Allauth:
 - Keyboard navigation
 - Responsive typography
 - Visual feedback systems
-
----
 
 ## Technical Implementation
 
@@ -612,8 +637,6 @@ Powered by Django Allauth:
 - Reusable components
 - Responsive grid system
 
----
-
 ## SEO & Metadata
 
 - Dynamic page titles
@@ -621,9 +644,7 @@ Powered by Django Allauth:
 - Open Graph tags
 - Keyword optimisation
 
----
-
-## Future Enhancements
+## Future Enhancements-success
 
 - Product reviews & ratings
 - Wishlist sharing
@@ -633,8 +654,6 @@ Powered by Django Allauth:
 - Admin analytics dashboard
 - Stock improvements
 - Pagination & lazy loading
-
----
 
 [Back to contents](#contents)
 
