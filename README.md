@@ -360,9 +360,9 @@ A unified search system across:
 - Placeholder image fallback system
 
 #### Screenshots
-- `search-results-overview.png`
-- `search-boardgame-results.png`
-- `search-product-results.png`
+[Search results for board games - desktop](docs/search-boardgame-results.png "Search Results for Board Games| Desktop")
+
+[Search results for products - desktop](docs/search-products-results.png "Search Results for Products | Desktop")
 
 [No games found preview](docs/no-games-found.png "No Games Found Preview")
 
