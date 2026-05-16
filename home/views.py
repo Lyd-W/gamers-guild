@@ -3,8 +3,7 @@ from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from django.db.models import FloatField
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseBadRequest
-from django.core.exceptions import PermissionDenied
+from django.core.exceptions import PermissionDenied, BadRequest
 
 
 
@@ -260,7 +259,7 @@ def custom_500(request):
 
 
 def trigger_400(request):
-    return HttpResponseBadRequest()
+    raise BadRequest("Test 400 Error")
 
 
 def trigger_403(request):

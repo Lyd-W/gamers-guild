@@ -1,26 +1,10 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>500 Error | Gamers Guild</title>
-
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
-<body>
-
+{% extends "base.html" %}
+{% block content %}
 <section class="error-section text-center">
   <h2 class="error-title">403 - Permission Denied</h2>
   <p class="error-403-text">Oops! You don't have access to that.</p>
-
-    <div class="error-button-wrapper">
-        <a class="btn" href="{% url 'home' %}">
-            Go back home
-        </a>
-    </div>
+  <div class="error-button-wrapper">
+    <a class="btn" href="{% url 'home' %}">Go back home</a>
+  </div>
 </section>
-
-</body>
-</html>
+{% endblock content %}
