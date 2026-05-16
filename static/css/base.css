@@ -220,7 +220,8 @@ h4 {
 .bag-page-title,
 .add-product-page-title,
 .edit-product-page-title,
-.about-page-title {
+.about-page-title,
+.error-title {
   margin-top: 4rem;
 }
 
