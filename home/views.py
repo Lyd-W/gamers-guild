@@ -256,15 +256,3 @@ def custom_403(request, exception):
 
 def custom_500(request):
     return render(request, "500.html", status=500)
-
-
-def trigger_400(request):
-    raise BadRequest("Test 400 Error")
-
-
-def trigger_403(request):
-    raise PermissionDenied()
-
-
-def trigger_500(request):
-    raise Exception("Test 500")
