@@ -3,6 +3,9 @@ from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from django.db.models import FloatField
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseBadRequest
+from django.core.exceptions import PermissionDenied
+
 
 
 from .models import Boardgame, Genre, Review
@@ -242,3 +245,27 @@ def approve_review(request, review_id):
     review.save()
 
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+def custom_400(request, exception):
+    return render(request, "errors/400.html", status=400)
+
+
+def custom_403(request, exception):
+    return render(request, "errors/403.html", status=403)
+
+
+def custom_500(request):
+    return render(request, "errors/500.html", status=500)
+
+
+def trigger_400(request):
+    return HttpResponseBadRequest("Test 400 Error")
+
+
+def trigger_403(request):
+    raise PermissionDenied
+
+
+def trigger_500(request):
+    raise Exception("Test 500 Error")
