@@ -1,12 +1,29 @@
-{% extends "base.html" %}
-{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 Error | Gamers Guild</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+
 <section class="error-section text-center">
-  <h2 class="error-title">500 - Internal Server Error</h2>
-  <p class="error-500-text">
-    Oops! Something went wrong. Please try again later.
-  </p>
-  <div class="error-button-wrapper">
-    <a class="btn" href="{% url 'home' %}">Go back home</a>
-  </div>
+    <h2 class="error-title">500 - Internal Server Error</h2>
+
+    <p class="error-500-text">
+        Oops! Something went wrong. Please try again later.
+    </p>
+
+    <div class="error-button-wrapper">
+        <a class="btn" href="{% url 'home' %}">
+            Go back home
+        </a>
+    </div>
 </section>
-{% endblock content %}
+
+</body>
+</html>

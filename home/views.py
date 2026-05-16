@@ -260,11 +260,11 @@ def custom_500(request):
 
 
 def trigger_400(request):
-    return HttpResponseBadRequest("Test 400 Error")
+    return render(request, "errors/400.html", status=400)
 
 
 def trigger_403(request):
-    raise PermissionDenied
+    return render(request, "errors/403.html", status=403)
 
 
 def trigger_500(request):
