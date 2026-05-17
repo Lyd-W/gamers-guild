@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -19,10 +19,12 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect('profile')
         else:
             messages.warning(request, 'Could not update your profile. Please check all fields are filled in correctly and try again.')
     else:
         form = UserProfileForm(instance=profile)
+
     orders = profile.orders.all()
 
     favourite_games = request.user.favourite_boardgames.all()
