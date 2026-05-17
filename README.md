@@ -289,7 +289,7 @@ Gamers Guild provides a fully responsive navigation experience across all device
 ### Board Game Display
 Board games are displayed using responsive card layouts featuring:
 
-- Game image
+- An image shown in the proportions of the physical board game box
 - Title
 - Player count
 - Recommended age
@@ -319,7 +319,7 @@ Users can sort games dynamically by:
 Users can refine results using:
 
 - Genre filtering (checkbox based)
-- Player count range selection
+- Player count check box selection
 - Playtime slider filtering
 
 #### Screenshots
@@ -367,6 +367,30 @@ A unified search system across:
 [No games found preview](docs/no-games-found.png "No Games Found Preview")
 
 [No products found preview](docs/no-products-found.png "No Products Found Preview")
+
+## Boardgame Detail Page
+
+### Features
+- An image shown in the proportions of the physical board game box
+- Title
+- Player count
+- Recommended age
+- Playtime
+- Release year
+- Average rating
+- Description
+- Add/remove favourite button with state dependant heart graphic
+- Review and rating section
+- Edit and delete user's own ratings and reviews
+- Overwrite original review and rating when user attempts additional review and rating
+- Pending approvale status indicatior
+- Admin review and rating controls
+
+#### Screenshots
+
+[Boardgame detail](docs/boardgame-detail.png "Boardgame Detail")
+
+[Boardgame detail - reviews section](docs/boardgame-detail-reviews.png "Boardgame Detail | Reviews")
 
 ## Shop & Product Catalogue
 
@@ -431,7 +455,7 @@ Users can sort products by:
 ### Core Features
 - Fully responsive basket layout
 - Separate mobile and desktop interfaces
-- Quantity update controls (AJAX-powered)
+- Quantity update controls
 - Remove item functionality (AJAX)
 - Live subtotal calculations
 - Delivery cost calculation
@@ -579,6 +603,8 @@ Powered by Django Allauth:
 #### Screenshots
 [Admin panel - review controls](docs/admin-review-controls.png "Admin Panel | Review Controls")
 
+[Boardgame detail page - review controls](docs/boardgame-detail-review-controls.png "Boardgame Detail Page | Review Controls")
+
 ## UX, Accessibility & UI Enhancements
 
 ### User Experience Improvements
@@ -586,6 +612,7 @@ Powered by Django Allauth:
 - Scroll-to-top button
 - Empty state handling
 - Defensive UI states
+- Error pages
 
 #### Screenshots
 [Toast example - log in](docs/toast-success-log-in.png "Toast Example | Log In")
@@ -610,11 +637,21 @@ Powered by Django Allauth:
 
 [Review validation on desktop](docs/board-game-detail-form-validation-desktop.png "Review Validation | Desktop")
 
+[Delete review confirmation on desktop](docs/delete-review-confirmation.png "Delete Review Confirmation | Desktop")
+
 [Logged in status on desktop](docs/logged-in-user-display.png "Logged In Status | Desktop")
 
 [Logged out status on desktop](docs/logged-out-user-display.png "Logged Out Status | Desktop")
 
 [Log out danger hover effect](docs/log-out-button-hover.png "Lout Out Danger Hover Effect")
+
+[400 error page preview](docs/400-error.png "400 Error Page")
+
+[403 error page preview](docs/403-error.png "403 Error Page")
+
+[404 error page preview](docs/404-error.png "404 Error Page")
+
+[500 error page preview](docs/500-error.png "500 Error Page")
 
 ### Accessibility Features
 - Semantic HTML
@@ -644,7 +681,7 @@ Powered by Django Allauth:
 - Open Graph tags
 - Keyword optimisation
 
-## Future Enhancements-success
+## Future Enhancements
 
 - Product reviews & ratings
 - Wishlist sharing
@@ -654,12 +691,6 @@ Powered by Django Allauth:
 - Admin analytics dashboard
 - Stock improvements
 - Pagination & lazy loading
-
-[Back to contents](#contents)
-
----------------------------------------------
-
-## Future Enhancements
 
 [Back to contents](#contents)
 

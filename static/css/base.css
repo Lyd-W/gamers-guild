@@ -1037,6 +1037,15 @@ select option[value=""] {
   background-color: var(--primary-color);
 }
 
+input[type="file"]::file-selector-button {
+  background: var(--primary-color);
+  border: var(--primary-highlight) solid 1px;
+  color: var(--text);
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  padding: 0.35rem 0.75rem;
+}
+
 .profile-title {
   max-width: auto;
 }

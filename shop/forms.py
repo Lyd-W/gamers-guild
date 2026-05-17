@@ -17,20 +17,18 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        
+        self.fields['category'].queryset = Category.objects.all()
 
-    self.helper = FormHelper()
-    self.helper.form_method = 'post'
-    
-    self.fields['category'].queryset = Category.objects.all()
-
-    self.helper.layout = Layout(
-        Field('name', css_class='form-control rounded-0'),
-        Field('description', css_class='form-control rounded-0'),
-        Field('price', css_class='form-control rounded-0'),
-        Field('category', css_class='form-select rounded-0'),
-        Field('image'),
-        Submit('submit', 'Save Product', css_class='btn btn-primary rounded-0')
-    )
+        self.helper.layout = Layout(
+            Field('name', css_class='form-control rounded-0'),
+            Field('description', css_class='form-control rounded-0'),
+            Field('price', css_class='form-control rounded-0'),
+            Field('category', css_class='form-select rounded-0'),
+            Field('image'),
+        )
