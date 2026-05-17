@@ -27,3 +27,13 @@ class ProductFormTests(TestCase):
         })
 
         self.assertFalse(form.is_valid())
+        
+    def test_form_has_helper(self):
+        form = ProductForm()
+
+        self.assertEqual(form.helper.form_method, "post")
+        
+    def test_category_queryset_exists(self):
+        form = ProductForm()
+
+        self.assertTrue(form.fields['category'].queryset.exists())
