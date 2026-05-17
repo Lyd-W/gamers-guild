@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse, HttpResponse
+from django.shortcuts import (render, redirect, get_object_or_404,
+                              reverse, HttpResponse)
 from django.contrib import messages
 from shop.models import Product, ProductSize
 
@@ -53,13 +54,19 @@ def add_to_bag(request, item_id):
             if remaining_stock <= 0:
                 messages.warning(
                     request,
-                    f"You already have all available stock of {product.name} ({size}) in your bag."
+                    (
+                        f"You already have all available stock of "
+                        f"{product.name} ({size}) in your bag."
+                    )
                 )
                 return redirect(redirect_url)
 
             messages.warning(
                 request,
-                f"Only {remaining_stock} more of {product.name} ({size}) available."
+                (
+                    f"Only {remaining_stock} more of "
+                    f"{product.name} ({size}) available."
+                )
             )
 
             quantity = remaining_stock
@@ -96,7 +103,10 @@ def add_to_bag(request, item_id):
             if remaining_stock <= 0:
                 messages.warning(
                     request,
-                    f"You already have all available stock of {product.name} in your bag."
+                    (
+                        f"You already have all available stock of "
+                        f"{product.name} in your bag."
+                    )
                 )
                 return redirect(redirect_url)
 
@@ -150,7 +160,10 @@ def adjust_bag(request, item_id):
 
             messages.warning(
                 request,
-                f"Only {product_size.stock} available for {product.name} ({size})."
+                (
+                    f"Only {product_size.stock} available for "
+                    f"{product.name} ({size})."
+                )
             )
 
         if quantity > 0:
@@ -181,7 +194,10 @@ def adjust_bag(request, item_id):
     if size:
         messages.info(
             request,
-            f'Successfully updated quantity of {product.name} (Size: {size}) in your bag!'
+            (
+                f"Successfully updated quantity of "
+                f"{product.name} (Size: {size}) in your bag!"
+            )
         )
     else:
         messages.info(
@@ -209,7 +225,10 @@ def remove_from_bag(request, item_id):
 
             messages.success(
                 request,
-                f'Successfully removed {product.name} (Size: {size}) from your bag!'
+                (
+                    f"Successfully removed {product.name} "
+                    f"(Size: {size}) from your bag!"
+                )
             )
 
         else:

@@ -29,7 +29,7 @@
         </button>
         <p class="d-none d-md-inline-flex d-lg-none">{{ boardgames|length }} Games found</p>
       </div>
-      <section class="filter px-4">
+      <div class="filter px-4">
         <div class="d-md-none">
           <div class="games-count-mobile">{{ boardgames|length }} Games found</div>
           <button class="btn filters-btn w-100 mb-2"
@@ -47,8 +47,8 @@
             </div>
           </div>
         </div>
-      </section>
-      <section class="sort-dropdown d-flex align-items-center gap-2">
+      </div>
+      <div class="sort-dropdown d-flex align-items-center gap-2">
         <select id="sort-selector" class="form-select form-select-sm w-auto">
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -73,20 +73,20 @@
             Released (Newest to Oldest)
           </option>
         </select>
-      </section>
-      <section class="main-games">
+      </div>
+      <div class="main-games">
         <div class="filter-wrapper d-none d-lg-block">
           <div class="filter-sidebar">
             <p>{{ boardgames|length }} Games found</p>
             <p class="filter-header mb-2">Filter By</p>
             <div class="accordion" id="accordionDesktopFilters">
               <div class="accordion-item">
-                <p class="accordion-header genre-header">
+                <div class="accordion-header genre-header">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopGenre">Genre</button>
-                </p>
+                </div>
                 <div id="desktopGenre" class="accordion-collapse collapse">
                   <div class="accordion-body">
                     <form method="GET" action="{% url 'home' %}">
@@ -108,12 +108,12 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <p class="accordion-header genre-header">
+                <div class="accordion-header genre-header">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopPlayers">Player Count</button>
-                </p>
+                </div>
                 <div id="desktopPlayers" class="accordion-collapse collapse">
                   <div class="accordion-body">
                     <form method="GET" action="{% url 'home' %}">
@@ -141,12 +141,12 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <p class="accordion-header genre-header">
+                <div class="accordion-header genre-header">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopPlaytime">Playtime</button>
-                </p>
+                </div>
                 <div id="desktopPlaytime" class="accordion-collapse collapse">
                   <div class="accordion-body">
                     <form method="GET" action="{% url 'home' %}">
@@ -212,7 +212,7 @@
                                 <i class="fa-solid fa-child-reaching"></i>
                                 {{ boardgame.min_age }} +
                               </div>
-                              <div class="release-year card-text">
+                              <div class="playtime card-text">
                                 <i class="fa-solid fa-hourglass-half"></i>
                                 {{ boardgame.playtime }} minutes
                               </div>
@@ -256,20 +256,20 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
         <div class="filter-overlay-container">
           <div class="filter-overlay-panel">
             <p class="filter-header mb-2">Filter By</p>
             <div class="accordion" id="accordionPanelsStayOpenExample">
               <div class="accordion-item">
-                <p class="accordion-header genre-header" id="panelsStayOpen-headingOne">
+                <div class="accordion-header genre-header" id="panelsStayOpen-headingOne">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#panelsStayOpen-collapseOne"
                           aria-expanded="false"
                           aria-controls="panelsStayOpen-collapseOne">Genre</button>
-                </p>
+                </div>
                 <div id="panelsStayOpen-collapseOne"
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingOne">
@@ -293,14 +293,14 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <p class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
+                <div class="accordion-header genre-header" id="panelsStayOpen-headingTwo">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#panelsStayOpen-collapseTwo"
                           aria-expanded="false"
                           aria-controls="panelsStayOpen-collapseTwo">Player Count</button>
-                </p>
+                </div>
                 <div id="panelsStayOpen-collapseTwo"
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingTwo">
@@ -330,14 +330,14 @@
                 </div>
               </div>
               <div class="accordion-item">
-                <p class="accordion-header" id="panelsStayOpen-headingThree">
+                <div class="accordion-header" id="panelsStayOpen-headingThree">
                   <button class="accordion-button collapsed"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#panelsStayOpen-collapseThree"
                           aria-expanded="false"
                           aria-controls="panelsStayOpen-collapseThree">Playtime</button>
-                </p>
+                </div>
                 <div id="panelsStayOpen-collapseThree"
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingThree">
