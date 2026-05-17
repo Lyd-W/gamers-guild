@@ -243,7 +243,7 @@ def approve_review(request, review_id):
     review.is_approved = True
     review.save()
 
-    return redirect(request.META.get('HTTP_REFERER'))
+    return redirect('boardgame_detail', slug=review.boardgame.slug)
 
 
 def custom_400(request, exception):
