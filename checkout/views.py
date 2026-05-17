@@ -42,6 +42,8 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+    
+    intent = None
 
     if request.method == "POST":
         bag = request.session.get("bag", {})
@@ -91,9 +93,6 @@ def checkout(request):
                             quantity=quantity,
                         )
 
-                        product.stock = max(0, product.stock - quantity)
-                        product.save()
-
                     else:
                         for size, quantity in item_data["items_by_size"].items():
 
@@ -135,20 +134,26 @@ def checkout(request):
 
             request.session["save_info"] = "save-info" in request.POST
 
+            request.session.pop("bag", None)
+            request.session.save()
+
             return redirect(
-                reverse("checkout_success", args=[order.order_number]))
+                reverse("checkout_success", args=[order.order_number])
+            )
 
         else:
             messages.warning(
                 request, "There was an error with your form. Please check your details."
             )
-
+            return render(request, "checkout/checkout.html", {
+                "order_form": order_form,
+                "stripe_public_key": stripe_public_key,
+            })
     else:
-        bag = request.session.get("bag", {})
+        bag = request.session.get("bag")
 
-        if not bag:
-            messages.warning(
-                request, "There's nothing in your bag at the moment.")
+        if not bag or bag == {}:
+            messages.warning(request, "There's nothing in your bag at the moment.")
             return redirect(reverse("shop"))
 
         current_bag = bag_contents(request)
@@ -192,8 +197,8 @@ def checkout(request):
         context = {
             "order_form": order_form,
             "stripe_public_key": stripe_public_key,
-            "client_secret": intent.client_secret,
         }
+        context["client_secret"] = intent.client_secret
 
         return render(request, "checkout/checkout.html", context)
 
@@ -229,6 +234,7 @@ def checkout_success(request, order_number):
     )
 
     if "bag" in request.session:
-        del request.session["bag"]
+        request.session.pop("bag", None)
+        request.session.save()
 
     return render(request, "checkout/checkout_success.html", {"order": order})

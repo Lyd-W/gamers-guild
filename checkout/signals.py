@@ -30,6 +30,14 @@ def update_on_save(sender, instance, created, **kwargs):
                 pass
 
 
+@receiver(post_save, sender=OrderLineItem)
+def reduce_simple_stock(sender, instance, created, **kwargs):
+    if created and not instance.product_size:
+        product = instance.product
+        product.stock = max(0, product.stock - instance.quantity)
+        product.save()
+
+
 @receiver(post_delete, sender=OrderLineItem)
 def update_on_delete(sender, instance, **kwargs):
     instance.order.update_total()
