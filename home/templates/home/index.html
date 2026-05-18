@@ -89,7 +89,7 @@
                 </div>
                 <div id="desktopGenre" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       {% for genre in genres %}
                         <div class="genre-badge">
                           <label>
@@ -116,7 +116,7 @@
                 </div>
                 <div id="desktopPlayers" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       {% for p in player_options %}
                         <div class="player-badge">
                           <label>
@@ -149,7 +149,7 @@
                 </div>
                 <div id="desktopPlaytime" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       <label class="mb-2">Max Playtime (minutes):</label>
                       <input class="slider mb-2"
                              type="range"
@@ -195,7 +195,8 @@
                                      class="card-img-top"
                                      alt="{{ boardgame.title }}">
                               {% else %}
-                                <img class="card-img-top" alt="Boardgame placeholder">
+                                <img class="card-img-top" 
+                                     alt="Boardgame placeholder">
                               {% endif %}
                             </div>
                           </a>
@@ -274,7 +275,7 @@
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingOne">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       {% for genre in genres %}
                         <div class="genre-badge">
                           <label>
@@ -305,7 +306,7 @@
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       {% for p in player_options %}
                         <div class="player-badge">
                           <label>
@@ -342,7 +343,7 @@
                      class="accordion-collapse collapse"
                      aria-labelledby="panelsStayOpen-headingThree">
                   <div class="accordion-body">
-                    <form method="GET" action="{% url 'home' %}">
+                    <form method="get" action="{% url 'home' %}">
                       <label>Max Playtime (minutes):</label>
                       <input class="slider"
                              type="range"

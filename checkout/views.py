@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponse
 from django.contrib import messages
-from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
 
@@ -42,7 +42,7 @@ def cache_checkout_data(request):
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    
+
     intent = None
 
     if request.method == "POST":
@@ -82,7 +82,8 @@ def checkout(request):
                         if quantity > product.stock:
                             messages.warning(
                                 request,
-                                f"Sorry, only {product.stock} of {product.name} remaining."
+                                f"Sorry, only {product.stock} of "
+                                f"{product.name} remaining."
                             )
                             order.delete()
                             return redirect(reverse("view_bag"))
@@ -94,7 +95,9 @@ def checkout(request):
                         )
 
                     else:
-                        for size, quantity in item_data["items_by_size"].items():
+                        for size, quantity in (
+                                item_data["items_by_size"].items()
+                        ):
 
                             if quantity <= 0:
                                 continue
@@ -107,8 +110,8 @@ def checkout(request):
                             if quantity > product_size.stock:
                                 messages.warning(
                                     request,
-                                    f"Sorry, only {product_size.stock} "
-                                    f"of {product.name} in size {size} remaining."
+                                    f"Sorry, only {product_size.stock} of "
+                                    f"{product.name} in size {size} remaining."
                                 )
                                 order.delete()
                                 return redirect(reverse("view_bag"))
@@ -120,7 +123,9 @@ def checkout(request):
                                 product_size=size,
                             )
 
-                            product_size.stock = max(0, product_size.stock - quantity)
+                            product_size.stock = max(
+                                0,
+                                product_size.stock - quantity)
                             product_size.save()
 
                 except Product.DoesNotExist:
@@ -143,7 +148,8 @@ def checkout(request):
 
         else:
             messages.warning(
-                request, "There was an error with your form. Please check your details."
+                request,
+                "There was an error with your form. Please check your details.",
             )
             return render(request, "checkout/checkout.html", {
                 "order_form": order_form,
@@ -153,7 +159,8 @@ def checkout(request):
         bag = request.session.get("bag")
 
         if not bag or bag == {}:
-            messages.warning(request, "There's nothing in your bag at the moment.")
+            messages.warning(
+                request, "There's nothing in your bag at the moment.")
             return redirect(reverse("shop"))
 
         current_bag = bag_contents(request)
@@ -191,7 +198,8 @@ def checkout(request):
 
         if not stripe_public_key:
             messages.warning(
-                request, "Stripe public key is missing. Did you forget to set it?"
+                request,
+                "Stripe public key is missing. Did you forget to set it?",
             )
 
         context = {

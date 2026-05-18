@@ -16,7 +16,7 @@ class PermissionTests(BaseTestCase):
     def test_only_staff_can_approve_review(self):
         self.client.login(username="user", password="pass")
 
-        response = self.client.post(
+        self.client.post(
             f"/review/{self.review.id}/approve/"
         )
 
@@ -26,7 +26,7 @@ class PermissionTests(BaseTestCase):
     def test_staff_can_approve_review(self):
         self.client.login(username="staff", password="pass")
 
-        response = self.client.post(
+        self.client.post(
             f"/review/{self.review.id}/approve/"
         )
 

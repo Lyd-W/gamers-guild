@@ -33,7 +33,7 @@ class ProductModelTests(TestCase):
             category=self.cat
         )
         self.assertFalse(product.is_in_stock)
-    
+
     def test_get_readable_type(self):
         cat = Category.objects.create(
             type="board_games",
@@ -62,7 +62,7 @@ class ProductSizeTests(TestCase):
         )
 
         self.assertFalse(self.product.is_in_stock)
-        
+
     def test_product_size_string_representation(self):
         size = ProductSize.objects.create(
             product=self.product,

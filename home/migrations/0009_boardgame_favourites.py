@@ -15,6 +15,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='boardgame',
             name='favourites',
-            field=models.ManyToManyField(blank=True, related_name='favourite_boardgames', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='favourite_boardgames',
+                to=settings.AUTH_USER_MODEL),
         ),
     ]

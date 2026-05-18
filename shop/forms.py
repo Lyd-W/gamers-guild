@@ -2,7 +2,7 @@ from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Submit
+from crispy_forms.layout import Layout, Field
 
 
 class ProductForm(forms.ModelForm):
@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
 
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        
+
         self.fields['category'].queryset = Category.objects.all()
 
         self.helper.layout = Layout(

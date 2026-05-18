@@ -28,7 +28,7 @@ class ShopViewTests(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Catan")
-        
+
     def test_empty_search_redirects(self):
         response = self.client.get(reverse("shop"), {"q": ""})
 
@@ -71,7 +71,7 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_category_filter_applies(self):
         response = self.client.get(
             reverse("shop"),
@@ -79,7 +79,7 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_parent_filter_applies(self):
         parent = Category.objects.create(type="games")
         child = Category.objects.create(type="board_games", parent=parent)
@@ -97,7 +97,7 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_sort_products_by_category_desc(self):
         response = self.client.get(
             reverse("shop"),
@@ -105,7 +105,7 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_parent_and_category_combined_filter(self):
         parent = Category.objects.create(type="games")
         child = Category.objects.create(type="board_games", parent=parent)
@@ -131,7 +131,7 @@ class ShopViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Catan")
-        
+
     def test_subcategory_default_branch(self):
         response = self.client.get(reverse("shop"))
 
@@ -159,7 +159,7 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_name_sort_lower_annotation_triggered(self):
         Product.objects.create(
             name="zulu",
@@ -179,15 +179,17 @@ class ShopViewTests(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        
+
     def test_empty_search_message(self):
         response = self.client.get(reverse("shop"), {"q": ""})
 
         messages_list = list(get_messages(response.wsgi_request))
 
-        self.assertTrue(
-            any("didn't say what you were looking for" in str(m) for m in messages_list)
-        )
+        self.assertTrue(any(
+            "didn't say what you were looking for" in str(m)
+            for m in messages_list
+        ))
+
 
 class AdminProductTests(TestCase):
 
@@ -205,7 +207,7 @@ class AdminProductTests(TestCase):
             category=self.cat,
             stock=5
         )
-        
+
     def test_non_admin_cannot_access_add(self):
         response = self.client.get(reverse("add_product"))
         self.assertEqual(response.status_code, 302)
@@ -214,7 +216,7 @@ class AdminProductTests(TestCase):
         self.client.login(username="admin", password="pass")
         response = self.client.get(reverse("add_product"))
         self.assertEqual(response.status_code, 200)
-    
+
     def test_admin_can_post_add_product(self):
         self.client.login(username="admin", password="pass")
 

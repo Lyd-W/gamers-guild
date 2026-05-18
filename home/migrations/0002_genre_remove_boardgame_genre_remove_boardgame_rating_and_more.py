@@ -13,7 +13,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Genre',
             fields=[
-                ('id', models.PositiveIntegerField(choices=[(1, 'Dungeon Crawler'), (2, 'Roleplaying'), (3, 'Cooperative'), (4, 'Deck Builder'), (5, 'Strategy'), (6, 'Worker Placement'), (7, 'Engine Builder'), (8, 'Legacy'), (9, 'Tile Laying'), (10, 'Social Deduction'), (11, 'Drafting'), (12, 'Party'), (13, '4X'), (14, 'Area Control'), (15, 'Puzzle'), (16, 'Miniature'), (17, 'Travel'), (18, 'Survival'), (19, 'Roll and Write'), (20, 'Adult')], primary_key=True, serialize=False)),
+                (
+                    'id',
+                    models.PositiveIntegerField(choices=[
+                        (1, 'Dungeon Crawler'),
+                        (2, 'Roleplaying'),
+                        (3, 'Cooperative'),
+                        (4, 'Deck Builder'),
+                        (5, 'Strategy'),
+                        (6, 'Worker Placement'),
+                        (7, 'Engine Builder'),
+                        (8, 'Legacy'),
+                        (9, 'Tile Laying'),
+                        (10, 'Social Deduction'),
+                        (11, 'Drafting'),
+                        (12, 'Party'),
+                        (13, '4X'),
+                        (14, 'Area Control'),
+                        (15, 'Puzzle'),
+                        (16, 'Miniature'),
+                        (17, 'Travel'),
+                        (18, 'Survival'),
+                        (19, 'Roll and Write'),
+                        (20, 'Adult')
+                    ], primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=50)),
             ],
         ),
@@ -33,6 +56,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='boardgame',
             name='genres',
-            field=models.ManyToManyField(related_name='boardgames', to='home.genre'),
+            field=models.ManyToManyField(related_name='boardgames',
+                                         to='home.genre'),
         ),
     ]

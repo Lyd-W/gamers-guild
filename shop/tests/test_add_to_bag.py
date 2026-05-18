@@ -15,7 +15,7 @@ class BagTests(TestCase):
         )
 
     def test_add_to_bag_post(self):
-        response = self.client.post(
+        self.client.post(
             reverse("add_to_bag", args=[self.product.id]),
             {
                 "quantity": 2,

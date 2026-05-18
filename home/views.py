@@ -3,9 +3,6 @@ from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from django.db.models import FloatField
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import PermissionDenied, BadRequest
-
-
 
 from .models import Boardgame, Genre, Review
 from .forms import ReviewForm
@@ -23,8 +20,6 @@ def home(request):
     sort = request.GET.get('sort')
     direction = request.GET.get('direction', 'asc')
 
-    min_players = request.GET.get('min_players')
-    max_players = request.GET.get('max_players')
     playtime = request.GET.get('playtime')
 
     if query:
@@ -37,7 +32,7 @@ def home(request):
         boardgames = boardgames.filter(
             genres__id__in=selected_genres
         ).distinct()
-        
+
     player_options = [1, 2, 3, 4, 5, 6]
     selected_players = request.GET.getlist("players")
 
@@ -143,7 +138,8 @@ def boardgame_detail(request, slug):
 
     if request.method == "POST":
         if not request.user.is_authenticated:
-            messages.warning(request, "You must be logged in to leave a review.")
+            messages.warning(
+                request, "You must be logged in to leave a review.")
             return redirect('boardgame_detail', slug=boardgame.slug)
 
     review_id = request.POST.get("review_id")

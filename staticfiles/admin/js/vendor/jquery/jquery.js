@@ -9123,7 +9123,7 @@ jQuery.extend( {
 
 	ajaxSettings: {
 		url: location.href,
-		type: "GET",
+		type: "get",
 		isLocal: rlocalProtocol.test( location.protocol ),
 		global: true,
 		processData: true,
@@ -9699,7 +9699,7 @@ jQuery._evalUrl = function( url, options, doc ) {
 		url: url,
 
 		// Make this explicit, since user can override this through ajaxSetup (trac-11264)
-		type: "GET",
+		type: "get",
 		dataType: "script",
 		cache: true,
 		async: false,
@@ -9989,7 +9989,7 @@ jQuery.ajaxPrefilter( "script", function( s ) {
 		s.cache = false;
 	}
 	if ( s.crossDomain ) {
-		s.type = "GET";
+		s.type = "get";
 	}
 } );
 
@@ -10215,10 +10215,10 @@ jQuery.fn.load = function( url, params, callback ) {
 		jQuery.ajax( {
 			url: url,
 
-			// If "type" variable is undefined, then "GET" method will be used.
+			// If "type" variable is undefined, then "get" method will be used.
 			// Make value of this field explicit since
 			// user can override it through ajaxSetup method
-			type: type || "GET",
+			type: type || "get",
 			dataType: "html",
 			data: params
 		} ).done( function( responseText ) {

@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
@@ -35,9 +34,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     @property
-    def is_in_stock(self): 
+    def is_in_stock(self):
 
         if self.has_sizes:
             return self.sizes.filter(stock__gt=0).exists()

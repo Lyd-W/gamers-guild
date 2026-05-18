@@ -34,7 +34,7 @@
         </section>
       </div>
     </div>
-    <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+    <form class="form" action="{% url 'add_to_bag' product.id %}" method="post">
       {% csrf_token %}
       {% if product.has_sizes %}
         <div>

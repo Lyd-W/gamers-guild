@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='boardgame',
             name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='boardgames/'),
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to='boardgames/'),
         ),
     ]

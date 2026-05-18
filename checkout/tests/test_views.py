@@ -48,6 +48,7 @@ class CheckoutViewTests(TestCase):
             street_address1="Test St",
         )
 
-        response = self.client.get(reverse("checkout_success", args=[order.order_number]))
+        response = self.client.get(reverse("checkout_success",
+                                           args=[order.order_number]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout_success.html")

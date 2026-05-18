@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-  Shop Board Games and Accessories | Gamers Guild
+  Shop Board Games
+  and Accessories | Gamers Guild
 {% endblock title %}
 {% block meta_description %}
   Shop Board Games and Accessories | Gamers Guild
@@ -25,17 +26,16 @@
   <section class="shop-container">
     <div class="sort-filter-container-shop">
       <div class="filter-products-count">
-      <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
-              type="button"
-              id="openFiltersBtn">
-        <i class="fas fa-filter me-2"></i> Filters
-      </button>
-              <p class="d-none d-md-inline-flex d-lg-none">{{ products|length }} Products found</p>
+        <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
+                type="button"
+                id="openFiltersBtn">
+          <i class="fas fa-filter me-2"></i> Filters
+        </button>
+        <p class="d-none d-md-inline-flex d-lg-none">{{ products|length }} Products found</p>
       </div>
-      <section class="filter px-4">
+      <div class="filter px-4">
         <div class="d-md-none">
-                    <div class="products-count-mobile">{{ products|length }} Products found
-                    </div>
+          <div class="products-count-mobile">{{ products|length }} Products found</div>
           <button class="btn filters-btn w-100 mb-2"
                   type="button"
                   data-bs-toggle="collapse"
@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
       <section class="sort-dropdown sort-dropdown-shop d-flex align-items-center gap-2">
         <select id="sort-selector" class="form-select form-select-sm w-auto">
           <option value="reset">Sort by...</option>
@@ -62,130 +62,151 @@
           <option value="category_asc">Category (A-Z)</option>
           <option value="category_desc">Category (Z-A)</option>
         </select>
-        <div class="col-12 col-md-6">
-        </div>
-      </div>
-    </div>
-    <section class="main-shop">
-      <div class="filter-wrapper d-none d-lg-block">
-        <div class="filter-sidebar">
-          <p>{{ products|length }} Products found</p>
-          <p class="filter-header mb-2">Filter By</p>
-          <form method="GET" action="{% url 'shop' %}">
-            {% for sub in subcategories %}
-              <div class="form-check mb-2">
-                <input class="form-check-input"
-                       type="checkbox"
-                       name="category"
-                       value="{{ sub.type }}"
-                       onchange="this.form.submit()"
-                       {% if sub.type in current_categories %}checked{% endif %}>
-                <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
-              </div>
-            {% endfor %}
-          </form>
-          <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
-        </div>
-      </div>
-      <div class="filter-overlay-container" id="filterOverlay">
-        <div class="filter-overlay-panel">
-          <button class="btn-close mb-3" id="closeFiltersBtn"></button>
-          <p class="filter-header">Filter by</p>
-          <form method="GET" action="{% url 'shop' %}">
-            {% for sub in subcategories %}
-              <div class="form-check mb-2">
-                <input class="form-check-input"
-                       type="checkbox"
-                       name="category"
-                       value="{{ sub.type }}"
-                       onchange="this.form.submit()"
-                       {% if sub.type in current_categories %}checked{% endif %}>
-                <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
-              </div>
-            {% endfor %}
-          </form>
-          <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
-        </div>
-      </div>
-      <div class="products container-fluid px-4">
-        <div class="products-scroll">
-          <div class="row g-4">
-            {% if products %}
-              {% for product in products %}
-                <div class="col-12 col-md-4 col-lg-3 d-flex">
-                  <article class="product-card h-100 w-100">
-                    <a href="{% url 'product_detail' product.id %}">
-                      <div class="card-img-wrapper">
-                          {% if product.image %}
-                              <img src="{{ product.image.url }}" class="card-img-top">
-                          {% endif %}
-                      </div>
-                    </a>
-                    <div class="card-body">
-                      <h2 class="card-title">
-                        <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
-                      </h2>
-                      <div class="price">£{{ product.price }}</div>
-                      {% if product.category %}
-                        <p class="category small mt-1">
-                          <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
-                        </p>
-                      {% endif %}
-                    </div>
-                  </article>
-                </div>
-              {% endfor %}
-            {% else %}
-              <div class="col-12">
-                <div class="empty-results-message text-center py-5">
-                  <h3>No products found</h3>
-                  <p>No items match your current filters.</p>
-                  <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
-                </div>
-              </div>
-            {% endif %}
+        <div class="col-12 col-md-6"></div>
+      </section>
+      <section class="main-shop">
+        <div class="filter-wrapper d-none d-lg-block">
+          <div class="filter-sidebar">
+            <p>{{ products|length }} Products found</p>
+            <p class="filter-header mb-2">Filter By</p>
+            <form method="get" action="{% url 'shop' %}">
+              {% for sub in subcategories %}
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="category"
+                    value="{{ sub.type }}"
+                    onchange="this.form.submit()"
+                    {%
+                    if
+                    sub.type
+                    in
+                    current_categories
+                    %}checked{%
+                    endif
+                    %}
+                    />
+                    <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
+                  </div>
+                {% endfor %}
+              </form>
+              <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+            </div>
           </div>
-        </div>
+          <div class="filter-overlay-container" id="filterOverlay">
+            <div class="filter-overlay-panel">
+              <button class="btn-close mb-3" id="closeFiltersBtn"></button>
+              <p class="filter-header">Filter by</p>
+              <form method="get" action="{% url 'shop' %}">
+                {% for sub in subcategories %}
+                  <div class="form-check mb-2">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="category"
+                      value="{{ sub.type }}"
+                      onchange="this.form.submit()"
+                      {%
+                      if
+                      sub.type
+                      in
+                      current_categories
+                      %}checked{%
+                      endif
+                      %}
+                      />
+                      <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
+                    </div>
+                  {% endfor %}
+                </form>
+                <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+              </div>
+            </div>
+            <div class="products container-fluid px-4">
+              <div class="products-scroll">
+                <div class="row g-4">
+                  {% if products %}
+                    {% for product in products %}
+                      <div class="col-12 col-md-4 col-lg-3 d-flex">
+                        <article class="product-card h-100 w-100">
+                          <a href="{% url 'product_detail' product.id %}">
+                            <div class="card-img-wrapper">
+                              {% if product.image %}
+                                <img src="{{ product.image.url }}"
+                                     class="card-img-top"
+                                     alt="{{ product.name }}" />
+                              {% endif %}
+                            </div>
+                          </a>
+                          <div class="card-body">
+                            <h2 class="card-title">
+                              <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                            </h2>
+                            <div class="price">£{{ product.price }}</div>
+                            {% if product.category %}
+                              <p class="category small mt-1">
+                                <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
+                              </p>
+                            {% endif %}
+                          </div>
+                        </article>
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <div class="col-12">
+                      <div class="empty-results-message text-center py-5">
+                        <h3>No products found</h3>
+                        <p>No items match your current filters.</p>
+                        <a href="{% url 'shop' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </section>
+          <script>
+      document
+        .getElementById("sort-selector")
+        .addEventListener("change", function () {
+          const url = new URL(window.location.href);
+          const val = this.value;
+
+          if (val === "reset") {
+            url.searchParams.delete("sort");
+            url.searchParams.delete("direction");
+          } else {
+            const [sort, direction] = val.split("_");
+            url.searchParams.set("sort", sort);
+            url.searchParams.set("direction", direction);
+          }
+
+          window.location.href = url;
+        });
+
+      const openBtn = document.getElementById("openFiltersBtn");
+      const closeBtn = document.getElementById("closeFiltersBtn");
+      const overlay = document.getElementById("filterOverlay");
+
+      if (openBtn) {
+        openBtn.addEventListener("click", () => {
+          overlay.classList.add("active");
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          overlay.classList.remove("active");
+        });
+      }
+
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove("active");
+        }
+      });
+          </script>
+        {% endblock content %}
       </div>
     </section>
-  </section>
-  <script>
-document.getElementById('sort-selector').addEventListener('change', function () {
-  const url = new URL(window.location.href);
-  const val = this.value;
-
-  if (val === "reset") {
-    url.searchParams.delete("sort");
-    url.searchParams.delete("direction");
-  } else {
-    const [sort, direction] = val.split("_");
-    url.searchParams.set("sort", sort);
-    url.searchParams.set("direction", direction);
-  }
-
-  window.location.href = url;
-});
-
-const openBtn = document.getElementById('openFiltersBtn');
-const closeBtn = document.getElementById('closeFiltersBtn');
-const overlay = document.getElementById('filterOverlay');
-
-if (openBtn) {
-  openBtn.addEventListener('click', () => {
-    overlay.classList.add('active');
-  });
-}
-
-if (closeBtn) {
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
-}
-
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    overlay.classList.remove('active');
-  }
-});
-  </script>
-{% endblock %}

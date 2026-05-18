@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from decimal import Decimal
 from profiles.models import UserProfile
 from checkout.models import Order
-from shop.models import Product
 from home.models import Boardgame
 
 
@@ -21,7 +20,7 @@ class ProfileViewTests(TestCase):
         self.profile = UserProfile.objects.get(user=self.user)
 
         self.client.login(username="testuser", password="password123")
-        
+
     def create_boardgame(**kwargs):
         defaults = {
             "title": "Test Game",
@@ -30,13 +29,13 @@ class ProfileViewTests(TestCase):
         }
         defaults.update(kwargs)
         return Boardgame.objects.create(**defaults)
-        
+
     def test_profile_page_loads(self):
         response = self.client.get(reverse("profile"))
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "profiles/profile.html")
-        
+
     def test_profile_update(self):
         response = self.client.post(reverse("profile"), {
             "default_phone_number": "123456",
@@ -54,7 +53,7 @@ class ProfileViewTests(TestCase):
 
         self.assertEqual(self.profile.default_phone_number, "123456")
         self.assertEqual(response.status_code, 200)
-        
+
     def test_profile_invalid_update(self):
         response = self.client.post(reverse("profile"), {
             "default_country": "INVALID",
@@ -64,7 +63,7 @@ class ProfileViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Could not update your profile")
-        
+
     def test_favourites_display(self):
         game = Boardgame.objects.create(
             title="Catan",
@@ -75,7 +74,7 @@ class ProfileViewTests(TestCase):
             playtime=60,
             min_players=2,
             max_players=4,
-)
+        )
 
         self.user.favourite_boardgames.add(game)
 
@@ -83,8 +82,8 @@ class ProfileViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Catan")
-        
-        
+
+
 class ProfileOrderHistoryTests(TestCase):
 
     def setUp(self):
@@ -111,14 +110,14 @@ class ProfileOrderHistoryTests(TestCase):
             street_address1="Test Street",
             grand_total=Decimal("50.00"),
         )
-        
+
     def test_order_appears_in_profile(self):
         response = self.client.get(reverse("profile"))
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "ABC123")
-        
-        
+
+
 class OrderHistoryViewTests(TestCase):
 
     def setUp(self):
@@ -145,7 +144,7 @@ class OrderHistoryViewTests(TestCase):
             street_address1="Test Street",
             grand_total=Decimal("75.00"),
         )
-        
+
     def test_order_history_view(self):
         response = self.client.get(
             reverse("order_history", args=[self.order.order_number])
@@ -156,7 +155,7 @@ class OrderHistoryViewTests(TestCase):
             response,
             "checkout/checkout_success.html"
         )
-        
+
 
 class ProfileOwnershipTests(TestCase):
 
@@ -174,7 +173,7 @@ class ProfileOwnershipTests(TestCase):
 
         self.profile1 = UserProfile.objects.get(user=self.user1)
         self.profile2 = UserProfile.objects.get(user=self.user2)
-        
+
     def test_profile_is_user_specific(self):
         self.client.login(username="user1", password="pass123")
 
@@ -227,7 +226,7 @@ class OrderIsolationTests(TestCase):
             street_address1="Street 2",
             grand_total=200
         )
-        
+
     def test_user_cannot_see_other_users_orders(self):
         self.client.login(username="user1", password="pass123")
 
@@ -235,8 +234,8 @@ class OrderIsolationTests(TestCase):
 
         self.assertContains(response, "ORDER1")
         self.assertNotContains(response, "ORDER2")
-        
-        
+
+
 class FavouriteIsolationTests(TestCase):
 
     def setUp(self):
@@ -272,7 +271,7 @@ class FavouriteIsolationTests(TestCase):
             min_players=2,
             max_players=6,
         )
-        
+
     def test_favourites_are_user_specific(self):
         self.user1.favourite_boardgames.add(self.game1)
         self.user2.favourite_boardgames.add(self.game2)
@@ -282,7 +281,7 @@ class FavouriteIsolationTests(TestCase):
 
         self.assertContains(response, "Catan")
         self.assertNotContains(response, "Risk")
-        
+
 
 class ProfileUpdateIsolationTests(TestCase):
 
@@ -300,7 +299,7 @@ class ProfileUpdateIsolationTests(TestCase):
 
         self.profile1 = UserProfile.objects.get(user=self.user1)
         self.profile2 = UserProfile.objects.get(user=self.user2)
-        
+
     def test_profile_update_is_isolated(self):
         self.client.login(username="user1", password="pass123")
 
@@ -314,4 +313,4 @@ class ProfileUpdateIsolationTests(TestCase):
 
         self.assertEqual(self.profile1.default_phone_number, "999999")
 
-        self.assertIsNone(self.profile2.default_phone_number)  
+        self.assertIsNone(self.profile2.default_phone_number)

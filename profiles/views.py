@@ -6,7 +6,6 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
-from home.models import Boardgame
 
 
 @login_required
@@ -21,7 +20,10 @@ def profile(request):
             messages.success(request, 'Profile updated successfully')
             return redirect('profile')
         else:
-            messages.warning(request, 'Could not update your profile. Please check all fields are filled in correctly and try again.')
+            messages.warning(
+                request,
+                "Could not update your profile. Please check all fields are filled in correctly and try again."
+                )
     else:
         form = UserProfileForm(instance=profile)
 

@@ -115,6 +115,10 @@ header {
   padding-bottom: 0.25rem;
 }
 
+.search-form {
+    max-width: 100%;
+}
+
 .btn,
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type="submit"] {
@@ -1452,6 +1456,4 @@ input[type="file"]::file-selector-button {
   .profile-title {
     padding: 0 4rem;
   }
-}
-
 }

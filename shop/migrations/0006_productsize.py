@@ -14,10 +14,35 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ProductSize',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('size', models.CharField(choices=[('S', 'Small'), ('M', 'Medium'), ('L', 'Large'), ('XL', 'XL'), ('XXL', 'XXL'), ('XXXL', 'XXXL')], max_length=4)),
-                ('stock', models.PositiveIntegerField(default=0)),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sizes', to='shop.product')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID')
+                ),
+                (
+                    'size',
+                    models.CharField(
+                        choices=[
+                            ('S', 'Small'),
+                            ('M', 'Medium'),
+                            ('L', 'Large'),
+                            ('XL', 'XL'),
+                            ('XXL', 'XXL'),
+                            ('XXXL', 'XXXL')],
+                        max_length=4)
+                ),
+                (
+                    'stock', models.PositiveIntegerField(default=0)),
+                (
+                    'product',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='sizes',
+                        to='shop.product')
+                ),
             ],
         ),
     ]

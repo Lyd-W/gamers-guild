@@ -14,6 +14,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='boardgame',
             name='min_age',
-            field=models.PositiveIntegerField(default=3, validators=[django.core.validators.MinValueValidator(3), django.core.validators.MaxValueValidator(100)]),
+            field=models.PositiveIntegerField(
+                default=3,
+                validators=[
+                    django.core.validators.MinValueValidator(3),
+                    django.core.validators.MaxValueValidator(100)
+                ]),
         ),
     ]
