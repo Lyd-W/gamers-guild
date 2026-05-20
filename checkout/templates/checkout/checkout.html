@@ -105,14 +105,14 @@
 
                     <div class="form-check form-check-inline float-end">
                         {% if user.is_authenticated %}
-                            <label class="form-check-label" for="id-save-info">
-                                Save this delivery information to my profile
-                            </label>
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   id="id-save-info"
-                                   name="save-info"
-                                   checked>
+                        <input class="form-check-input"
+                            type="checkbox"
+                            id="id-save-info"
+                            name="save-info"
+                            checked>
+                        <label class="form-check-label" for="id-save-info">
+                            Save this delivery information to my profile
+                        </label>
                         {% else %}
                             <label class="form-check-label" for="id-save-info">
                                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a>
@@ -126,7 +126,6 @@
 
                 <fieldset class="px-3">
                     <legend class="fieldset-label w-auto">Payment</legend>
-
                     <div id="card-element"></div>
                     <div class="text-danger" id="card-errors" role="alert"></div>
 
