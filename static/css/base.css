@@ -1058,10 +1058,6 @@ input[type="file"]::file-selector-button {
   padding: 0.35rem 0.75rem;
 }
 
-.profile-title {
-  max-width: auto;
-}
-
 .filter-overlay-container {
   position: fixed;
   inset: 0;
