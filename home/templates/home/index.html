@@ -116,13 +116,15 @@
                         {% for genre in genres %}
                           <div class="genre-badge form-check">
 
-                            <input class="form-check-input"
-                                  type="checkbox"
-                                  name="genre"
-                                  value="{{ genre.id }}"
-                                  id="genre_{{ genre.id }}"
-                                  onchange="this.form.submit()"
-                                  {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="genre"
+                              value="{{ genre.id }}"
+                              id="genre_{{ genre.id }}"
+                              onchange="this.form.submit()"
+                              {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}
+                            >
 
                             <label class="form-check-label" for="genre_{{ genre.id }}">
                               {{ genre.name }}
@@ -160,16 +162,17 @@
                         <legend class="visually-hidden">Number of players</legend>
 
                         {% for p in player_options %}
-
                           <div class="player-badge form-check">
 
-                            <input class="form-check-input"
-                                  type="checkbox"
-                                  name="players"
-                                  value="{{ p }}"
-                                  id="players_{{ p }}"
-                                  onchange="this.form.submit()"
-                                  {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              name="players"
+                              value="{{ p }}"
+                              id="players_{{ p }}"
+                              onchange="this.form.submit()"
+                              {% if p|stringformat:'s' in current_players %}checked{% endif %}
+                            >
 
                             <label class="form-check-label" for="players_{{ p }}">
                               {% if p == 1 %}
@@ -182,7 +185,6 @@
                             </label>
 
                           </div>
-
                         {% endfor %}
 
                       </fieldset>
