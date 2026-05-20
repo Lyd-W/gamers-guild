@@ -99,7 +99,10 @@
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopGenre">Genre</button>
                 </div>
-                <div id="desktopGenre" class="accordion-collapse collapse">
+                <div id="desktopGenre"
+                     class="accordion-collapse collapse"
+                     role="region"
+                     aria-labelledby="headingGenre">
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
                       {% for genre in genres %}
@@ -126,7 +129,10 @@
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopPlayers">Player Count</button>
                 </div>
-                <div id="desktopPlayers" class="accordion-collapse collapse">
+                <div id="desktopPlayers" 
+                     class="accordion-collapse collapse"
+                     role="region"
+                     aria-labelledby="headingPlayers">>
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
                       {% for p in player_options %}
@@ -159,7 +165,10 @@
                           data-bs-toggle="collapse"
                           data-bs-target="#desktopPlaytime">Playtime</button>
                 </div>
-                <div id="desktopPlaytime" class="accordion-collapse collapse">
+                <div id="desktopPlaytime" 
+                     class="accordion-collapse collapse"
+                     role="region"
+                     aria-labelledby="headingPlaytime">>
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
                       <label class="mb-2">Max Playtime (minutes):</label>
@@ -199,40 +208,54 @@
                     {% for boardgame in boardgames %}
                       <div class="col-md-4 d-flex">
                         <article class="boardgame-card h-100 w-100">
+
                           <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                             class="boardgame-link">
+                            class="boardgame-link">
+
                             <div class="card-img-wrapper">
                               {% if boardgame.image %}
                                 <img src="{{ boardgame.image.url }}"
-                                     class="card-img-top"
-                                     alt="{{ boardgame.title }}">
+                                    class="card-img-top"
+                                    alt="{{ boardgame.title }}">
                               {% else %}
-                                <img class="card-img-top" alt="Boardgame placeholder">
+                                <img src="{% static 'images/noimage.png' %}"
+                                    class="card-img-top"
+                                    alt="Boardgame placeholder">
                               {% endif %}
                             </div>
+
                           </a>
+
                           <div class="card-body">
                             <h2 class="card-title">
                               <a href="{% url 'boardgame_detail' boardgame.slug %}"
-                                 class="boardgame-link">{{ boardgame.title }}</a>
+                                class="boardgame-link">
+                                {{ boardgame.title }}
+                              </a>
                             </h2>
+
                             <hr>
+
                             <div class="player-count card-text">
                               <i class="fa-solid fa-people-group"></i>
                               {{ boardgame.min_players }} - {{ boardgame.max_players }}
                             </div>
+
                             <div class="min-age card-text">
                               <i class="fa-solid fa-child-reaching"></i>
                               {{ boardgame.min_age }} +
                             </div>
+
                             <div class="playtime card-text">
                               <i class="fa-solid fa-hourglass-half"></i>
                               {{ boardgame.playtime }} minutes
                             </div>
+
                             <div class="release-year card-text">
                               <i class="fa-solid fa-calendar"></i>
                               {{ boardgame.release_year }}
                             </div>
+
                             <p class="card-text star-rating">
                               {% if boardgame.avg_rating %}
                                 {% with rating=boardgame.avg_rating %}
@@ -245,24 +268,31 @@
                                       <i class="far fa-star"></i>
                                     {% endif %}
                                   {% endfor %}
-                                  <span class="rating-number">({{ rating|floatformat:1 }})</span>
+                                  <span class="rating-number">
+                                    ({{ rating|floatformat:1 }})
+                                  </span>
                                 {% endwith %}
                               {% else %}
-                                No ratings yet
+                                <span>No ratings yet</span>
                               {% endif %}
                             </p>
-                          </article>
-                        </div>
-                      {% endfor %}
-                    {% else %}
-                      <div class="col-12">
-                        <div class="empty-results-message text-center py-5">
-                          <h3>No games found</h3>
-                          <p>No games match your current filters.</p>
-                          <a href="{% url 'home' %}" class="btn clear-filters-btn mt-3">Clear Filters</a>
-                        </div>
+
+                          </div>
+
+                        </article>
                       </div>
-                    {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    <div class="col-12">
+                      <div class="empty-results-message text-center py-5">
+                        <h3>No games found</h3>
+                        <p>No games match your current filters.</p>
+                        <a href="{% url 'home' %}" class="btn clear-filters-btn mt-3">
+                          Clear Filters
+                        </a>
+                      </div>
+                    </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
