@@ -1,7 +1,7 @@
 {% load allauth %}
 {{ attrs.errors }}
 
-<div>
+<div class="form-field">
     {% if attrs.type == "textarea" %}
         <label for="{{ attrs.id }}">
             {% slot label %}{% endslot %}
