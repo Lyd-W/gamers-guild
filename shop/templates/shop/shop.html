@@ -12,18 +12,20 @@
     <h1>Welcome to the Gamers Guild Shop</h1>
   </section>
   <section class="shop-category-bar">
-    <div class="d-flex gap-3 overflow-auto px-3 py-2">
-      <a href="{% url 'shop' %}"
-         class="{% if not selected_parent %}active{% endif %}">All</a>
-      {% for parent in parent_categories %}
-        <a href="{% url 'shop' %}?parent={{ parent.type }}"
-           class="{% if selected_parent == parent.type %}active{% endif %}">
-          {{ parent.readable_type|default:parent.type }}
-        </a>
-      {% endfor %}
-    </div>
+    <h2 class="shop-categories">
+      <div class="d-flex gap-3 overflow-auto px-3 py-2">
+        <a href="{% url 'shop' %}"
+           class="{% if not selected_parent %}active{% endif %}">All</a>
+        {% for parent in parent_categories %}
+          <a href="{% url 'shop' %}?parent={{ parent.type }}"
+             class="{% if selected_parent == parent.type %}active{% endif %}">
+            {{ parent.readable_type|default:parent.type }}
+          </a>
+        {% endfor %}
+      </div>
+    </h2>
   </section>
-  <section class="shop-container">
+  <div class="shop-container">
     <div class="sort-filter-container-shop">
       <div class="filter-products-count">
         <button class="btn filters-btn d-none d-md-inline-flex d-lg-none"
@@ -80,7 +82,7 @@
                          name="category"
                          value="{{ sub.type }}"
                          onchange="this.form.submit()"
-                         {% if sub.type in current_categories %}checked{% endif %} />
+                         {% if sub.type in current_categories %}checked{% endif %}>
                   <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
                 </div>
               {% endfor %}
@@ -103,7 +105,7 @@
                          name="category"
                          value="{{ sub.type }}"
                          onchange="this.form.submit()"
-                         {% if sub.type in current_categories %}checked{% endif %} />
+                         {% if sub.type in current_categories %}checked{% endif %}>
                   <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
                 </div>
               {% endfor %}
@@ -123,7 +125,7 @@
                           {% if product.image %}
                             <img src="{{ product.image.url }}"
                                  class="card-img-top"
-                                 alt="{{ product.name }}" />
+                                 alt="{{ product.name }}">
                           {% endif %}
                         </div>
                       </a>
@@ -155,5 +157,7 @@
           </div>
         </div>
       </div>
-      <script src="{% static 'js/shop.js' %}"></script>
-    {% endblock content %}
+    </div>
+  </div>
+  <script src="{% static 'js/shop.js' %}"></script>
+{% endblock content %}
