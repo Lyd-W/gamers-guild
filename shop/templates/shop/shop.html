@@ -12,8 +12,8 @@
     <h1>Welcome to the Gamers Guild Shop</h1>
   </section>
   <section class="shop-category-bar">
-    <h2 class="shop-categories">
-      <div class="d-flex gap-3 overflow-auto px-3 py-2">
+    <div class="d-flex gap-3 overflow-auto px-3 py-2">
+        <h2 class="shop-categories">
         <a href="{% url 'shop' %}"
            class="{% if not selected_parent %}active{% endif %}">All</a>
         {% for parent in parent_categories %}
@@ -22,8 +22,8 @@
             {{ parent.readable_type|default:parent.type }}
           </a>
         {% endfor %}
-      </div>
-    </h2>
+      </h2>
+    </div>
   </section>
   <div class="shop-container">
     <div class="sort-filter-container-shop">
