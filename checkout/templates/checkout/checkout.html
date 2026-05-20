@@ -84,7 +84,9 @@
         <div class="col-12 col-lg-6">
             <p>Please fill out the form below to complete your order</p>
 
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+            <form action="{% url 'checkout' %}" 
+                  method="post" 
+                  id="payment-form">
                 {% csrf_token %}
 
                 <fieldset>

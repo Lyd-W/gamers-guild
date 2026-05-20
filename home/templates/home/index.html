@@ -263,7 +263,6 @@
                         </div>
                       </div>
                     {% endif %}
-                  </div>
                 </div>
               </div>
             </div>
@@ -284,6 +283,7 @@
                 </div>
                 <div id="panelsStayOpen-collapseOne"
                      class="accordion-collapse collapse"
+                     role="region"
                      aria-labelledby="panelsStayOpen-headingOne">
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
@@ -295,7 +295,7 @@
                                    name="genre"
                                    value="{{ genre.id }}"
                                    onchange="this.form.submit()"
-                                   {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %} />
+                                   {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
                             {{ genre.name }}
                           </label>
                         </div>
@@ -315,6 +315,7 @@
                 </div>
                 <div id="panelsStayOpen-collapseTwo"
                      class="accordion-collapse collapse"
+                     role="region"
                      aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
@@ -352,6 +353,7 @@
                 </div>
                 <div id="panelsStayOpen-collapseThree"
                      class="accordion-collapse collapse"
+                     role="region"
                      aria-labelledby="panelsStayOpen-headingThree">
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">

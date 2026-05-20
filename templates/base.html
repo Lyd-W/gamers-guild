@@ -2,31 +2,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       {% block title %}
         Gamers Guild
       {% endblock title %}
     </title>
     <meta name="description"
-          content="{% block meta_description %}Gamers Guild - your hub for board games and RPGs. Explore game guides, discover new titles, and shop expansions, dice, accessories, and gaming merchandise.{% endblock meta_description %}" />
+          content="{% block meta_description %}Gamers Guild - your hub for board games and RPGs. Explore game guides, discover new titles, and shop expansions, dice, accessories, and gaming merchandise.{% endblock meta_description %}">
     <meta name="keywords"
-          content="{% block meta_keywords %}board games, RPGs, dice, tabletop games, gaming accessories{% endblock meta_keywords %}" />
+          content="{% block meta_keywords %}board games, RPGs, dice, tabletop games, gaming accessories{% endblock meta_keywords %}">
     <meta property="og:title"
-          content="{% block og_title %}Gamers Guild{% endblock og_title %}" />
+          content="{% block og_title %}Gamers Guild{% endblock og_title %}">
     <meta property="og:description"
-          content="{% block og_description %}Discover board games, RPGs, and gaming gear at Gamers Guild.{% endblock og_description %}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+          content="{% block og_description %}Discover board games, RPGs, and gaming gear at Gamers Guild.{% endblock og_description %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
     {% block extra_meta %}
     {% endblock extra_meta %}
     {% block corecss %}
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet" />
+            rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet" />
-      <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+            rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock corecss %}
     {% block extra_css %}
     {% endblock extra_css %}
@@ -43,7 +43,7 @@
     {% endblock extra_js %}
     <link rel="icon"
           type="image/x-icon"
-          href="{% static 'favicon/favicon.ico' %}" />
+          href="{% static 'favicon/favicon.ico' %}">
   </head>
   <body>
     <div class="d-flex flex-column min-vh-100">
@@ -84,7 +84,7 @@
                   <input class="form-control search-bar me-2"
                          type="search"
                          name="q"
-                         placeholder="Search Gamers Guild" />
+                         placeholder="Search Gamers Guild">
                   <button class="btn search-btn">Search</button>
                 </form>
               </div>
@@ -112,7 +112,7 @@
                   <input class="form-control search-bar me-2"
                          type="search"
                          name="q"
-                         placeholder="Search Gamers Guild" />
+                         placeholder="Search Gamers Guild" >
                   <button class="btn search-btn">Search</button>
                 </form>
                 <div class="d-flex align-items-center gap-2 gap-lg-3 ms-auto">
