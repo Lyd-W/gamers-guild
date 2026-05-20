@@ -102,25 +102,39 @@
                           aria-controls="desktopGenre">Genre</button>
                 </h2>
                 <div id="desktopGenre"
-                     class="accordion-collapse collapse"
-                     role="region"
-                     aria-labelledby="desktopHeadingGenre">
+                    class="accordion-collapse collapse"
+                    role="region"
+                    aria-labelledby="desktopHeadingGenre">
+
                   <div class="accordion-body">
+
                     <form method="get" action="{% url 'home' %}">
-                      {% for genre in genres %}
-                        <div class="genre-badge">
-                          <label>
+
+                      <fieldset>
+                        <legend class="visually-hidden">Game genres</legend>
+
+                        {% for genre in genres %}
+                          <div class="genre-badge form-check">
+
                             <input class="form-check-input"
-                                   type="checkbox"
-                                   name="genre"
-                                   value="{{ genre.id }}"
-                                   onchange="this.form.submit()"
-                                   {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
-                            {{ genre.name }}
-                          </label>
-                        </div>
-                      {% endfor %}
+                                  type="checkbox"
+                                  name="genre"
+                                  value="{{ genre.id }}"
+                                  id="genre_{{ genre.id }}"
+                                  onchange="this.form.submit()"
+                                  {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
+
+                            <label class="form-check-label" for="genre_{{ genre.id }}">
+                              {{ genre.name }}
+                            </label>
+
+                          </div>
+                        {% endfor %}
+
+                      </fieldset>
+
                     </form>
+
                   </div>
                 </div>
               </div>
@@ -134,31 +148,47 @@
                           aria-controls="desktopPlayers">Player Count</button>
                 </h2>
                 <div id="desktopPlayers"
-                     class="accordion-collapse collapse"
-                     role="region"
-                     aria-labelledby="desktopHeadingPlayers">
+                    class="accordion-collapse collapse"
+                    role="region"
+                    aria-labelledby="desktopHeadingPlayers">
+
                   <div class="accordion-body">
+
                     <form method="get" action="{% url 'home' %}">
-                      {% for p in player_options %}
-                        <div class="player-badge">
-                          <label>
+
+                      <fieldset>
+                        <legend class="visually-hidden">Number of players</legend>
+
+                        {% for p in player_options %}
+
+                          <div class="player-badge form-check">
+
                             <input class="form-check-input"
-                                   type="checkbox"
-                                   name="players"
-                                   value="{{ p }}"
-                                   onchange="this.form.submit()"
-                                   {% if p|stringformat:'s' in current_players %}checked{% endif %}>
-                            {% if p == 1 %}
-                              1 Player
-                            {% elif p == 6 %}
-                              6+ Players
-                            {% else %}
-                              {{ p }} Players
-                            {% endif %}
-                          </label>
-                        </div>
-                      {% endfor %}
+                                  type="checkbox"
+                                  name="players"
+                                  value="{{ p }}"
+                                  id="players_{{ p }}"
+                                  onchange="this.form.submit()"
+                                  {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+
+                            <label class="form-check-label" for="players_{{ p }}">
+                              {% if p == 1 %}
+                                1 Player
+                              {% elif p == 6 %}
+                                6+ Players
+                              {% else %}
+                                {{ p }} Players
+                              {% endif %}
+                            </label>
+
+                          </div>
+
+                        {% endfor %}
+
+                      </fieldset>
+
                     </form>
+
                   </div>
                 </div>
               </div>
@@ -177,16 +207,17 @@
                      aria-labelledby="desktopHeadingPlaytime">
                   <div class="accordion-body">
                     <form method="get" action="{% url 'home' %}">
-                      <label class="mb-2">Max Playtime (minutes):</label>
+                      <label for="desktopPlaytimeSlider" class="mb-2">
+                        Max Playtime (minutes):
+                      </label>
                       <input class="slider mb-2"
-                             type="range"
-                             id="desktopPlaytimeSlider"
-                             name="playtime"
-                             min="0"
-                             max="300"
-                             value="{{ request.GET.playtime|default:90 }}"
-                             oninput="document.getElementById('desktopPlaytimeInput').value = this.value"
-                             aria-label="playtime slider">
+                            type="range"
+                            id="desktopPlaytimeSlider"
+                            name="playtime"
+                            min="0"
+                            max="300"
+                            value="{{ request.GET.playtime|default:90 }}"
+                            oninput="document.getElementById('desktopPlaytimeInput').value = this.value">
                       <div>
                         <input type="number"
                                id="desktopPlaytimeInput"
@@ -198,7 +229,9 @@
                                aria-label="playtime input">
                         <span>mins</span>
                       </div>
-                      <button type="submit" class="btn btn-sm mt-2">Apply</button>
+                      <button type="submit" 
+                              class="btn btn-sm mt-2"
+                              aria-label="Apply Playtime filter">Apply</button>
                     </form>
                   </div>
                 </div>
@@ -445,13 +478,12 @@
                             oninput="syncFromInput(this.value)">
 
                       <span>mins</span>
-
                     </div>
-
+                    
                   </form>
-
+                  
                 </div>
-
+                
               </div>
             </div>
 
