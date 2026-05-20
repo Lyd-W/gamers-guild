@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-      <section class="sort-dropdown sort-dropdown-shop d-flex align-items-center gap-2">
+      <div class="sort-dropdown sort-dropdown-shop d-flex align-items-center gap-2">
         <select id="sort-selector" class="form-select form-select-sm w-auto">
           <option value="reset">Sort by...</option>
           <option value="price_asc">Price (low to high)</option>
@@ -63,13 +63,16 @@
           <option value="category_desc">Category (Z-A)</option>
         </select>
         <div class="col-12 col-md-6"></div>
-      </section>
-      <section class="main-shop">
+      </div>
+      <div class="main-shop">
         <div class="filter-wrapper d-none d-lg-block">
           <div class="filter-sidebar">
             <p>{{ products|length }} Products found</p>
             <p class="filter-header mb-2">Filter By</p>
             <form method="get" action="{% url 'shop' %}">
+              {% if selected_parent %}
+                <input type="hidden" name="parent" value="{{ selected_parent }}">
+              {% endif %}
               {% for sub in subcategories %}
                 <div class="form-check mb-2">
                   <input
@@ -78,14 +81,9 @@
                     name="category"
                     value="{{ sub.type }}"
                     onchange="this.form.submit()"
-                    {%
-                    if
-                    sub.type
-                    in
-                    current_categories
-                    %}checked{%
-                    endif
-                    %}
+                    {% if sub.type in current_categories %}
+                    checked
+                    {% endif %}
                     />
                     <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
                   </div>
@@ -99,6 +97,9 @@
               <button class="btn-close mb-3" id="closeFiltersBtn"></button>
               <p class="filter-header">Filter by</p>
               <form method="get" action="{% url 'shop' %}">
+                {% if selected_parent %}
+                  <input type="hidden" name="parent" value="{{ selected_parent }}">
+                {% endif %}
                 {% for sub in subcategories %}
                   <div class="form-check mb-2">
                     <input
@@ -107,14 +108,8 @@
                       name="category"
                       value="{{ sub.type }}"
                       onchange="this.form.submit()"
-                      {%
-                      if
-                      sub.type
-                      in
-                      current_categories
-                      %}checked{%
-                      endif
-                      %}
+                      {% if sub.type in current_categories %}checked
+                      {% endif %}
                       />
                       <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
                     </div>
@@ -146,7 +141,8 @@
                             <div class="price">£{{ product.price }}</div>
                             {% if product.category %}
                               <p class="category small mt-1">
-                                <a href="{% url 'shop' %}?category={{ product.category.type }}">{{ product.category.readable_type }}</a>
+                                <a href="{% url 'shop' %}?{% if selected_parent %}parent={{ selected_parent }}&{% endif %}category={{ product.category.type }}">                                  {{ product.category.readable_type }}
+                                </a>
                               </p>
                             {% endif %}
                           </div>
@@ -165,48 +161,6 @@
                 </div>
               </div>
             </div>
-          </section>
-          <script>
-      document
-        .getElementById("sort-selector")
-        .addEventListener("change", function () {
-          const url = new URL(window.location.href);
-          const val = this.value;
-
-          if (val === "reset") {
-            url.searchParams.delete("sort");
-            url.searchParams.delete("direction");
-          } else {
-            const [sort, direction] = val.split("_");
-            url.searchParams.set("sort", sort);
-            url.searchParams.set("direction", direction);
-          }
-
-          window.location.href = url;
-        });
-
-      const openBtn = document.getElementById("openFiltersBtn");
-      const closeBtn = document.getElementById("closeFiltersBtn");
-      const overlay = document.getElementById("filterOverlay");
-
-      if (openBtn) {
-        openBtn.addEventListener("click", () => {
-          overlay.classList.add("active");
-        });
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => {
-          overlay.classList.remove("active");
-        });
-      }
-
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) {
-          overlay.classList.remove("active");
-        }
-      });
-          </script>
+          </div>
+<script src="{% static 'js/shop.js' %}"></script>
         {% endblock content %}
-      </div>
-    </section>

@@ -12,7 +12,8 @@ def all_products(request):
     products = Product.objects.all()
 
     query = None
-    selected_categories = []
+    selected_parent = request.GET.get('parent')
+    selected_categories = request.GET.getlist('category')
     sort = None
     direction = None
 
@@ -27,7 +28,9 @@ def all_products(request):
         queries = Q(name__icontains=query) | Q(description__icontains=query)
         products = products.filter(queries)
 
-    selected_parent = request.GET.get('parent')
+
+        if selected_parent in [None, "", "None"]:
+            selected_parent = None
     selected_categories = request.GET.getlist('category')
 
     if selected_parent:
@@ -39,8 +42,11 @@ def all_products(request):
     parent_categories = Category.objects.filter(parent__isnull=True)
 
     if selected_parent:
+
         subcategories = Category.objects.filter(parent__type=selected_parent)
+
     else:
+
         subcategories = Category.objects.filter(parent__isnull=False)
 
     sort = request.GET.get('sort')

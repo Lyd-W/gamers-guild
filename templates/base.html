@@ -174,10 +174,12 @@
           {% endfor %}
         </div>
       {% endif %}
-      {% block page_header %}
-      {% endblock page_header %}
-      {% block content %}
-      {% endblock content %}
+      <main class="flex-grow-1">
+        {% block page_header %}
+        {% endblock page_header %}
+        {% block content %}
+        {% endblock content %}
+      </main>
       <div class="btt-btn">
         <a class="btt-link">
           <i class="fas fa-arrow-up"></i>
