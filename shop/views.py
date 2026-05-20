@@ -28,7 +28,6 @@ def all_products(request):
         queries = Q(name__icontains=query) | Q(description__icontains=query)
         products = products.filter(queries)
 
-
         if selected_parent in [None, "", "None"]:
             selected_parent = None
     selected_categories = request.GET.getlist('category')
