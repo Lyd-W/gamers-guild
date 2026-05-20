@@ -12,7 +12,7 @@
   <div class="bag-container container mb-2">
     <div class="row">
       <div class="col">
-        <h1 class="bag-page-title">Shopping Bag</h1>
+        <h2 class="bag-page-title">Shopping Bag</h2>
       </div>
     </div>
     <div class="row">
@@ -62,7 +62,9 @@
                             data-item_id="{{ item.item_id }}">
                       <i class="fas fa-plus"></i>
                     </button>
-                    {% if item.product.has_sizes %}<input type="hidden" name="product_size" value="{{ item.size }}">{% endif %}
+                    {% if item.product.has_sizes %}
+                      <input type="hidden" name="product_size" value="{{ item.size }}">
+                    {% endif %}
                   </div>
                 </form>
                 <div class="d-flex justify-content-between mt-2">
@@ -164,10 +166,12 @@
                                   id="increment-qty_{{ item.item_id }}">
                             <i class="fas fa-plus fa-sm"></i>
                           </button>
-                          {% if item.product.has_sizes %}<input type="hidden" name="product_size" value="{{ item.size }}">{% endif %}
+                          {% if item.product.has_sizes %}
+                            <input type="hidden" name="product_size" value="{{ item.size }}">
+                          {% endif %}
                         </div>
                       </form>
-                      <a class="update-link text-info" 
+                      <a class="update-link text-info"
                          href="#"
                          data-item_id="{{ item.item_id }}">
                         <small>Update</small>
@@ -218,16 +222,16 @@
                 </tr>
               </table>
             </div>
-          {% else %}
-            <p class="mb-5">Your bag is empty.</p>
-            <a href="{% url 'shop' %}" class="btn">
-              <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-              </span>
-              <span class="text-uppercase">Keep Shopping</span>
-            </a>
-          {% endif %}
-        </div>
+          </div>
+        {% else %}
+          <p class="mb-5">Your bag is empty.</p>
+          <a href="{% url 'shop' %}" class="btn">
+            <span class="icon">
+              <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+          </a>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -235,7 +239,5 @@
 {% block postloadjs %}
   {{ block.super }}
   {% include "shop/includes/quantity_input_script.html" %}
-  <script
-    src="{% static 'js/bag.js' %}">
-  </script>
+  <script src="{% static 'js/bag.js' %}"></script>
 {% endblock postloadjs %}
