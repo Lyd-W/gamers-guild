@@ -132,7 +132,6 @@
 
                           </div>
                         {% endfor %}
-
                       </fieldset>
 
                     </form>
@@ -158,36 +157,35 @@
 
                     <form method="get" action="{% url 'home' %}">
 
-                      <fieldset>
-                        <legend class="visually-hidden">Number of players</legend>
+                     <fieldset>
+                      <legend class="visually-hidden">Number of players</legend>
 
-                        {% for p in player_options %}
-                          <div class="player-badge form-check">
+                      {% for p in player_options %}
+                        <div class="player-badge form-check">
 
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              name="players"
-                              value="{{ p }}"
-                              id="players_{{ p }}"
-                              onchange="this.form.submit()"
-                              {% if p|stringformat:'s' in current_players %}checked{% endif %}
-                            >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="players"
+                            value="{{ p }}"
+                            id="players_{{ p }}"
+                            onchange="this.form.submit()"
+                            {% if p|stringformat:'s' in current_players %}checked{% endif %}
+                          >
 
-                            <label class="form-check-label" for="players_{{ p }}">
-                              {% if p == 1 %}
-                                1 Player
-                              {% elif p == 6 %}
-                                6+ Players
-                              {% else %}
-                                {{ p }} Players
-                              {% endif %}
-                            </label>
+                          <label class="form-check-label" for="players_{{ p }}">
+                            {% if p == 1 %}
+                              1 Player
+                            {% elif p == 6 %}
+                              6+ Players
+                            {% else %}
+                              {{ p }} Players
+                            {% endif %}
+                          </label>
 
-                          </div>
-                        {% endfor %}
-
-                      </fieldset>
+                        </div>
+                      {% endfor %}
+                    </fieldset>
 
                     </form>
 

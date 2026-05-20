@@ -133,39 +133,52 @@
 
         <form method="get" action="{% url 'home' %}">
 
-          <label for="playtimeSlider" id="playtimeLabel" class="mb-2">
-            Max Playtime (minutes)
-          </label>
+          <fieldset>
+            <legend class="visually-hidden">Playtime filter</legend>
 
-          <input class="slider form-range"
-                 type="range"
-                 id="playtimeSlider"
-                 name="playtime"
-                 min="0"
-                 max="300"
-                 value="{{ request.GET.playtime|default:90 }}"
-                 oninput="syncFromSlider(this.value)">
+            <label for="playtimeSlider" id="playtimeLabel" class="mb-2">
+              Max Playtime (minutes)
+            </label>
 
-          <div class="d-flex align-items-center gap-2 mt-2">
+            <input
+              class="slider form-range"
+              type="range"
+              id="playtimeSlider"
+              name="playtime"
+              min="0"
+              max="300"
+              value="{{ request.GET.playtime|default:90 }}"
+              aria-labelledby="playtimeLabel"
+              oninput="syncFromSlider(this.value)"
+            >
 
-            <input type="number"
-                   id="playtimeInput"
-                   name="playtime"
-                   class="form-control"
-                   min="0"
-                   max="300"
-                   value="{{ request.GET.playtime|default:90 }}"
-                   aria-labelledby="playtimeLabel"
-                   oninput="syncFromInput(this.value)">
+            <div class="d-flex align-items-center gap-2 mt-2">
 
-            <span>mins</span>
+              <label class="visually-hidden" for="playtimeInput">
+                Playtime minutes
+              </label>
 
-          </div>
+              <input
+                type="number"
+                id="playtimeInput"
+                name="playtime"
+                class="form-control"
+                min="0"
+                max="300"
+                value="{{ request.GET.playtime|default:90 }}"
+                aria-labelledby="playtimeLabel"
+                oninput="syncFromInput(this.value)"
+              >
 
-          <button type="submit"
-                  class="btn btn-sm mt-2">
-            Apply
-          </button>
+              <span>mins</span>
+
+            </div>
+
+            <button type="submit" class="btn btn-sm mt-2">
+              Apply
+            </button>
+
+          </fieldset>
 
         </form>
 
