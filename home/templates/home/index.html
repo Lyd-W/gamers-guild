@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="sort-dropdown d-flex align-items-center gap-2">
-        <select id="sort-selector" class="form-select form-select-sm w-auto">
+        <select id="sort-selector" class="form-select form-select-sm w-auto" aria-label="Sort by dropdown">
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
           <option value="title_asc"
@@ -185,7 +185,8 @@
                              min="0"
                              max="300"
                              value="{{ request.GET.playtime|default:90 }}"
-                             oninput="document.getElementById('desktopPlaytimeInput').value = this.value">
+                             oninput="document.getElementById('desktopPlaytimeInput').value = this.value"
+                             aria-label="playtime slider">
                       <div>
                         <input type="number"
                                id="desktopPlaytimeInput"
@@ -193,7 +194,8 @@
                                min="0"
                                max="300"
                                value="{{ request.GET.playtime|default:90 }}"
-                               oninput="document.getElementById('desktopPlaytimeSlider').value = this.value">
+                               oninput="document.getElementById('desktopPlaytimeSlider').value = this.value"
+                               aria-label="playtime input">
                         <span>mins</span>
                       </div>
                       <button type="submit" class="btn btn-sm mt-2">Apply</button>
