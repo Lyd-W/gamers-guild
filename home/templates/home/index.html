@@ -53,17 +53,29 @@
           <option value="reset"
                   {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
           <option value="title_asc"
-                  {% if current_sorting == 'title_asc' %}selected{% endif %}>Title (A to Z)</option>
+                  {% if current_sorting == 'title_asc' %}selected{% endif %}>
+            Title (A to Z)
+          </option>
           <option value="title_desc"
-                  {% if current_sorting == 'title_desc' %}selected{% endif %}>Title (Z to A)</option>
+                  {% if current_sorting == 'title_desc' %}selected{% endif %}>
+            Title (Z to A)
+          </option>
           <option value="rating_asc"
-                  {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                  {% if current_sorting == 'rating_asc' %}selected{% endif %}>
+            Rating (low to high)
+          </option>
           <option value="rating_desc"
-                  {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                  {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+            Rating (high to low)
+          </option>
           <option value="playtime_asc"
-                  {% if current_sorting == 'playtime_asc' %}selected{% endif %}>Playtime (Low to High)</option>
+                  {% if current_sorting == 'playtime_asc' %}selected{% endif %}>
+            Playtime (Low to High)
+          </option>
           <option value="playtime_desc"
-                  {% if current_sorting == 'playtime_desc' %}selected{% endif %}>Playtime (High to Low)</option>
+                  {% if current_sorting == 'playtime_desc' %}selected{% endif %}>
+            Playtime (High to Low)
+          </option>
           <option value="release_year_asc"
                   {% if current_sorting == 'release_year_asc' %}selected{% endif %}>
             Released (Oldest to Newest)
@@ -195,8 +207,7 @@
                                      class="card-img-top"
                                      alt="{{ boardgame.title }}">
                               {% else %}
-                                <img class="card-img-top" 
-                                     alt="Boardgame placeholder">
+                                <img class="card-img-top" alt="Boardgame placeholder">
                               {% endif %}
                             </div>
                           </a>
@@ -209,37 +220,37 @@
                             <div class="player-count card-text">
                               <i class="fa-solid fa-people-group"></i>
                               {{ boardgame.min_players }} - {{ boardgame.max_players }}
-                              <div class="min-age card-text">
-                                <i class="fa-solid fa-child-reaching"></i>
-                                {{ boardgame.min_age }} +
-                              </div>
-                              <div class="playtime card-text">
-                                <i class="fa-solid fa-hourglass-half"></i>
-                                {{ boardgame.playtime }} minutes
-                              </div>
-                              <div class="release-year card-text">
-                                <i class="fa-solid fa-calendar"></i>
-                                {{ boardgame.release_year }}
-                              </div>
-                              <p class="card-text star-rating">
-                                {% if boardgame.avg_rating %}
-                                  {% with rating=boardgame.avg_rating %}
-                                    {% for i in "12345" %}
-                                      {% if rating >= forloop.counter %}
-                                        <i class="fas fa-star"></i>
-                                      {% elif rating >= forloop.counter|add:"-0.5" %}
-                                        <i class="fas fa-star-half-alt"></i>
-                                      {% else %}
-                                        <i class="far fa-star"></i>
-                                      {% endif %}
-                                    {% endfor %}
-                                    <span class="rating-number">({{ rating|floatformat:1 }})</span>
-                                  {% endwith %}
-                                {% else %}
-                                  No ratings yet
-                                {% endif %}
-                              </p>
                             </div>
+                            <div class="min-age card-text">
+                              <i class="fa-solid fa-child-reaching"></i>
+                              {{ boardgame.min_age }} +
+                            </div>
+                            <div class="playtime card-text">
+                              <i class="fa-solid fa-hourglass-half"></i>
+                              {{ boardgame.playtime }} minutes
+                            </div>
+                            <div class="release-year card-text">
+                              <i class="fa-solid fa-calendar"></i>
+                              {{ boardgame.release_year }}
+                            </div>
+                            <p class="card-text star-rating">
+                              {% if boardgame.avg_rating %}
+                                {% with rating=boardgame.avg_rating %}
+                                  {% for i in "12345" %}
+                                    {% if rating >= forloop.counter %}
+                                      <i class="fas fa-star"></i>
+                                    {% elif rating >= forloop.counter|add:"-0.5" %}
+                                      <i class="fas fa-star-half-alt"></i>
+                                    {% else %}
+                                      <i class="far fa-star"></i>
+                                    {% endif %}
+                                  {% endfor %}
+                                  <span class="rating-number">({{ rating|floatformat:1 }})</span>
+                                {% endwith %}
+                              {% else %}
+                                No ratings yet
+                              {% endif %}
+                            </p>
                           </article>
                         </div>
                       {% endfor %}
@@ -375,87 +386,7 @@
         </div>
       </div>
     </section>
-    <script>
-$(document).ready(function () {
 
-    $('#sort-selector').on('change', function () {
+<script src="{% static 'js/index.js' %}"></script>
 
-        const currentUrl = new URL(window.location.href);
-        const selectedVal = $(this).val();
-
-        if (selectedVal !== "reset") {
-            const parts = selectedVal.split("_");
-            const direction = parts.pop();
-            const sort = parts.join("_");
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-        }
-
-        window.location.replace(currentUrl);
-    });
-
-    window.syncFromSlider = function (value) {
-        $('#playtimeInput').val(value);
-    };
-
-    window.syncFromInput = function (value) {
-        let val = parseInt(value) || 0;
-
-        if (val < 0) val = 0;
-        if (val > 300) val = 300;
-
-        $('#playtimeSlider').val(val);
-    };
-
-});
-
-const openBtn = document.getElementById('openFiltersBtn');
-const closeBtn = document.getElementById('closeFiltersBtn');
-const overlay = document.querySelector('.filter-overlay-container');
-
-if (openBtn && overlay) {
-  openBtn.addEventListener('click', () => {
-    overlay.classList.add('active');
-  });
-}
-
-if (closeBtn && overlay) {
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
-}
-
-if (overlay) {
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      overlay.classList.remove('active');
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  const genreCollapse = document.getElementById('desktopGenre');
-
-  if (!genreCollapse) return;
-
-  if (localStorage.getItem('genreAccordionOpen') === 'true') {
-    genreCollapse.classList.add('show');
-  }
-
-  genreCollapse.addEventListener('shown.bs.collapse', () => {
-    localStorage.setItem('genreAccordionOpen', 'true');
-  });
-
-  genreCollapse.addEventListener('hidden.bs.collapse', () => {
-    localStorage.setItem('genreAccordionOpen', 'false');
-  });
-
-});
-
-    </script>
   {% endblock content %}
