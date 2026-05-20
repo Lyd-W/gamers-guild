@@ -167,10 +167,17 @@
                           {% if item.product.has_sizes %}<input type="hidden" name="product_size" value="{{ item.size }}">{% endif %}
                         </div>
                       </form>
-                      <a class="update-link text-info" data-item_id="{{ item.item_id }}"><small>Update</small></a>
+                      <a class="update-link text-info" 
+                         href="#"
+                         data-item_id="{{ item.item_id }}">
+                        <small>Update</small>
+                      </a>
                       <a class="remove-item text-danger float-end"
+                         href="#"
                          id="remove_{{ item.item_id }}"
-                         data-size="{{ item.size }}"><small>Remove</small></a>
+                         data-size="{{ item.size }}">
+                        <small>Remove</small>
+                      </a>
                     </td>
                     <td>
                       <p>£{{ item.subtotal|floatformat:2 }}</p>
@@ -228,37 +235,7 @@
 {% block postloadjs %}
   {{ block.super }}
   {% include "shop/includes/quantity_input_script.html" %}
-  <script>
-$(document).ready(function () {
-
-    $('.update-link').on('click', function () {
-        const form = $(this).closest('td').find('form');
-        if (form.length) {
-            form.submit();
-        }
-    });
-
-    $('.remove-item').on('click', function () {
-
-        const csrfToken = "{{ csrf_token }}";
-        const itemId = $(this).attr('id').split('remove_')[1];
-        const size = $(this).data('size');
-
-        const url = `/bag/remove/${itemId}/`;
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: {
-                product_size: size,
-                csrfmiddlewaretoken: csrfToken
-            },
-            success: function () {
-                location.reload();
-            }
-        });
-    });
-
-});
+  <script
+    src="{% static 'js/bag.js' %}">
   </script>
 {% endblock postloadjs %}

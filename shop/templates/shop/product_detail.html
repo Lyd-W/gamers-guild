@@ -42,7 +42,7 @@
             <strong>Size:</strong>
           </label>
           <select class="form-select w-auto" name="product_size" id="id_product_size">
-            <option value=""Choose a size></option>
+            <option value="">Choose a size</option>
             {% for size in product.sizes.all %}
               <option value="{{ size.size }}" {% if size.stock == 0 %}disabled{% endif %}>
                 {{ size.get_size_display }}

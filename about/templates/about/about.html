@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}About | Gamers Guild{% endblock %}
+{% block title %}
+    About | Gamers Guild
+{% endblock title %}
 {% block content %}
     <section class="about-page container">
         <div class="about-page-title">
@@ -9,7 +11,7 @@
         <div class="about-content">
             <p>
                 Gamers Guild is a community-driven site for discovering and
-                reviewing board games, and shopping the latest boardgames accessories and addons.
+                reviewing board games, and shopping the latest boardgames accessories and add-ons.
             </p>
 
         </div>
@@ -20,7 +22,7 @@
             </p>
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <form method="POST">
+                    <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}
                         <button type="submit" class="btn">Send Message</button>
