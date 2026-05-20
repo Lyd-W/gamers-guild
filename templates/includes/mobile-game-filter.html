@@ -1,6 +1,7 @@
 <div class="accordion" id="filterAccordion">
-  <!-- GENRE -->
+
   <div class="accordion-item">
+
     <h2 class="accordion-header" id="headingGenre">
       <button class="accordion-button collapsed d-flex align-items-center"
               type="button"
@@ -12,30 +13,41 @@
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
+
     <div id="collapseGenre"
          class="accordion-collapse collapse"
+         role="region"
          aria-labelledby="headingGenre">
+
       <div class="accordion-body">
+
         <form method="get" action="{% url 'home' %}">
+
           {% for genre in genres %}
             <div class="genre-badge">
               <label>
+
                 <input class="form-check-input"
                        type="checkbox"
                        name="genre"
                        value="{{ genre.id }}"
                        onchange="this.form.submit()"
                        {% if genre.id|stringformat:'s' in current_genres %}checked{% endif %}>
+
                 {{ genre.name }}
+
               </label>
             </div>
           {% endfor %}
+
         </form>
+
       </div>
     </div>
   </div>
-  <!-- PLAYER COUNT -->
+
   <div class="accordion-item">
+
     <h2 class="accordion-header" id="headingPlayers">
       <button class="accordion-button collapsed d-flex align-items-center"
               type="button"
@@ -47,20 +59,27 @@
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
+
     <div id="collapsePlayers"
          class="accordion-collapse collapse"
+         role="region"
          aria-labelledby="headingPlayers">
+
       <div class="accordion-body">
+
         <form method="get" action="{% url 'home' %}">
+
           {% for p in player_options %}
             <div class="player-badge">
               <label>
+
                 <input class="form-check-input"
                        type="checkbox"
                        name="players"
                        value="{{ p }}"
                        onchange="this.form.submit()"
                        {% if p|stringformat:'s' in current_players %}checked{% endif %}>
+
                 {% if p == 1 %}
                   1 Player
                 {% elif p == 6 %}
@@ -68,14 +87,19 @@
                 {% else %}
                   {{ p }} Players
                 {% endif %}
+
               </label>
             </div>
           {% endfor %}
+
         </form>
+
       </div>
     </div>
   </div>
+
   <div class="accordion-item">
+
     <h2 class="accordion-header" id="headingPlaytime">
       <button class="accordion-button collapsed d-flex align-items-center"
               type="button"
@@ -87,12 +111,20 @@
         <i class="fa-solid fa-chevron-down ms-auto accordion-icon"></i>
       </button>
     </h2>
+
     <div id="collapsePlaytime"
          class="accordion-collapse collapse"
+         role="region"
          aria-labelledby="headingPlaytime">
+
       <div class="accordion-body">
+
         <form method="get" action="{% url 'home' %}">
-          <label>Max Playtime (minutes):</label>
+
+          <label for="playtimeSlider">
+            Max Playtime (minutes):
+          </label>
+
           <input class="slider form-range"
                  type="range"
                  id="playtimeSlider"
@@ -101,7 +133,9 @@
                  max="300"
                  value="{{ request.GET.playtime|default:90 }}"
                  oninput="syncFromSlider(this.value)">
+
           <div class="d-flex align-items-center gap-2 mt-2">
+
             <input type="number"
                    id="playtimeInput"
                    name="playtime"
@@ -110,10 +144,15 @@
                    max="300"
                    value="{{ request.GET.playtime|default:90 }}"
                    oninput="syncFromInput(this.value)">
+
             <span>mins</span>
+
           </div>
+
         </form>
+
       </div>
     </div>
   </div>
+
 </div>
