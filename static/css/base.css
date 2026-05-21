@@ -196,6 +196,14 @@ h4 {
   margin-bottom: 0;
 }
 
+.shop-categories {
+  font-size: 1.2rem;
+}
+
+.shop-categories a {
+  padding-right: 0.5rem;
+}
+
 .dropdown-menu {
   background-color: var(--secondary-color);
   border: 1px solid var(--primary-highlight);
@@ -1102,6 +1110,7 @@ input[type="file"]::file-selector-button {
 
   .sort-dropdown-shop {
     margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
   }
 
   .favourites-card {
@@ -1122,6 +1131,10 @@ input[type="file"]::file-selector-button {
   .categories-header,
   .genre-header {
     padding-left: 0.3rem;
+  }
+
+  .shop-categories a {
+    font-size: 0.9rem;
   }
 
 }
