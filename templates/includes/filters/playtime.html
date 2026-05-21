@@ -63,6 +63,7 @@
               max="300"
               value="{{ request.GET.playtime|default:90 }}"
               oninput="document.getElementById('{{ prefix }}PlaytimeSlider').value = this.value"
+              aria-label="Input max playtime in minutes"
             >
 
             <span>mins</span>
