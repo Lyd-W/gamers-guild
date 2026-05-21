@@ -20,6 +20,7 @@
   <div id="{{ prefix }}Playtime"
        class="accordion-collapse collapse"
        data-bs-parent="#{{ prefix }}AccordionFilters"
+       role="region"
        aria-labelledby="{{ prefix }}HeadingPlaytime">
 
     <div class="accordion-body">
@@ -48,6 +49,7 @@
             max="300"
             value="{{ request.GET.playtime|default:90 }}"
             oninput="document.getElementById('{{ prefix }}PlaytimeInput').value = this.value"
+            aria-label="Max playtime in minutes"
           >
 
           <div class="d-flex align-items-center gap-2 mt-2">
