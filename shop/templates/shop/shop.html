@@ -77,13 +77,24 @@
               {% endif %}
               {% for sub in subcategories %}
                 <div class="form-check mb-2">
-                  <input class="form-check-input"
-                         type="checkbox"
-                         name="category"
-                         value="{{ sub.type }}"
-                         onchange="this.form.submit()"
-                         {% if sub.type in current_categories %}checked{% endif %}>
-                  <label class="form-check-label">{{ sub.readable_type|default:sub.type }}</label>
+
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="category"
+                    value="{{ sub.type }}"
+                    id="desktop-category-{{ forloop.counter }}"
+                    onchange="this.form.submit()"
+                    {% if sub.type in current_categories %}checked{% endif %}
+                  >
+
+                  <label
+                    class="form-check-label"
+                    for="desktop-category-{{ forloop.counter }}"
+                  >
+                    {{ sub.readable_type|default:sub.type }}
+                  </label>
+
                 </div>
               {% endfor %}
             </form>
@@ -92,7 +103,10 @@
         </div>
         <div class="filter-overlay-container" id="filterOverlay">
           <div class="filter-overlay-panel">
-            <button class="btn-close mb-3" id="closeFiltersBtn"></button>
+            <button class="btn-close mb-3" 
+                    id="closeFiltersBtn"
+                    aria-label="Close Filters">
+                  </button>
             <p class="filter-header">Filter by</p>
             <form method="get" action="{% url 'shop' %}">
               {% if selected_parent %}
@@ -106,7 +120,7 @@
                     type="checkbox"
                     name="category"
                     value="{{ sub.type }}"
-                    id="desktop-category-{{ forloop.counter }}"
+                    id="overlay-category-{{ forloop.counter }}"
                     onchange="this.form.submit()"
                     {% if sub.type in current_categories %}checked{% endif %}
                   >
