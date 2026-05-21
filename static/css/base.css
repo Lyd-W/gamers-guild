@@ -247,15 +247,27 @@ h4 {
 }
 
 .shop-container a,
-.shop-category-bar a {
+.shop-category-bar a
+{
   color: inherit;
   text-decoration: none;
   transition: 0.2s ease;
 }
 
 .shop-container a:hover,
-.shop-category-bar a:hover {
+.shop-category-bar a:hover,
+.review-login a:hover {
   color: #c9a227;
+}
+
+.review-login a {
+  text-decoration: none;
+  transition: 0.2s ease;
+  color: #c9a227;
+}
+
+.review-login a:hover {
+  text-decoration: underline;
 }
 
 .categories {
