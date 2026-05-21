@@ -33,15 +33,15 @@
                      class="boardgame-link">{{ boardgame.title }}</a>
                 </h2>
                 <div class="player-count card-text">
-                  <i class="fa-solid fa-people-group"></i>
+                  <i class="bi bi-people-fill"></i>
                   {{ boardgame.min_players }} - {{ boardgame.max_players }}
                 </div>
                 <p class="card-text small">
-                  <i class="fa-solid fa-hourglass-half"></i>
+                  <i class="bi bi-hourglass-split"></i>
                   {{ boardgame.playtime }} minutes
                 </p>
                 <p class="card-text">
-                  <i class="fa-solid fa-calendar"></i>
+                  <i class="bi bi-calendar3"></i>
                   {{ boardgame.release_year }}
                 </p>
                 <p class="card-text star-rating">
@@ -49,11 +49,11 @@
                     {% with rating=boardgame.avg_rating %}
                       {% for i in "12345" %}
                         {% if rating >= forloop.counter %}
-                          <i class="fas fa-star"></i>
+                          <i class="bi bi-star-fill"></i>
                         {% elif rating >= forloop.counter|add:"-1" and rating < forloop.counter %}
-                          <i class="fas fa-star-half-alt"></i>
+                          <i class="bi bi-star-half"></i>
                         {% else %}
-                          <i class="far fa-star"></i>
+                          <i class="bi bi-star"></i>
                         {% endif %}
                       {% endfor %}
                       <span class="rating-number">({{ rating|floatformat:1 }})</span>

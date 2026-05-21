@@ -32,7 +32,7 @@
                   data-bs-target="#mobileFiltersCollapse"
                   aria-expanded="false"
                   aria-controls="mobileFiltersCollapse">
-            <i class="fas fa-filter me-2"></i>
+            <i class="bi bi-funnel-fill"></i>
             Filter By
           </button>
           <div class="collapse" id="mobileFiltersCollapse">
@@ -50,7 +50,7 @@
       <!-- Tablet Filter Toggle -->
       <div class="filter-games-count d-none d-md-flex d-lg-none">
         <button class="btn filters-btn" type="button" id="openFiltersBtn">
-          <i class="fas fa-filter me-2"></i>
+          <i class="bi bi-funnel-fill"></i>
           Filters
         </button>
         <p>{{ boardgames|length }} Games found</p>
@@ -120,19 +120,19 @@
                             </h3>
                             <hr>
                             <div class="player-count card-text">
-                              <i class="fa-solid fa-people-group"></i>
+                              <i class="bi bi-people-fill"></i>
                               {{ boardgame.min_players }} - {{ boardgame.max_players }}
                             </div>
                             <div class="min-age card-text">
-                              <i class="fa-solid fa-child-reaching"></i>
+                              <i class="bi bi-cake2-fill"></i>
                               {{ boardgame.min_age }} +
                             </div>
                             <div class="playtime card-text">
-                              <i class="fa-solid fa-hourglass-half"></i>
+                              <i class="bi bi-hourglass-split"></i>
                               {{ boardgame.playtime }} minutes
                             </div>
                             <div class="release-year card-text">
-                              <i class="fa-solid fa-calendar"></i>
+                              <i class="bi bi-calendar3"></i>
                               {{ boardgame.release_year }}
                             </div>
                             <p class="card-text star-rating">
@@ -140,11 +140,11 @@
                                 {% with rating=boardgame.avg_rating %}
                                   {% for i in "12345" %}
                                     {% if rating >= forloop.counter %}
-                                      <i class="fas fa-star"></i>
+                                      <i class="bi bi-star-fill"></i>
                                     {% elif rating >= forloop.counter|add:"-0.5" %}
-                                      <i class="fas fa-star-half-alt"></i>
+                                      <i class="bi bi-star-half"></i>
                                     {% else %}
-                                      <i class="far fa-star"></i>
+                                      <i class="bi bi-star"></i>
                                     {% endif %}
                                   {% endfor %}
                                   <span class="rating-number">({{ rating|floatformat:1 }})</span>

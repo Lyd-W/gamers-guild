@@ -41,11 +41,11 @@
             {% with rating=boardgame.avg_rating %}
               {% for i in "12345" %}
                 {% if rating >= forloop.counter %}
-                  <i class="fas fa-star"></i>
+                  <i class="bi bi-star-fill"></i>
                 {% elif rating >= forloop.counter|add:"-0.5" %}
-                  <i class="fas fa-star-half-alt"></i>
+                  <i class="bi bi-star-half"></i>
                 {% else %}
-                  <i class="far fa-star"></i>
+                  <i class="bi bi-star"></i>
                 {% endif %}
               {% endfor %}
               <span>({{ rating|floatformat:1 }})</span>
@@ -115,16 +115,27 @@
 
         <strong>{{ review.user.username }}</strong>
 
-        <p class="star-rating">
-          {% for i in "12345" %}
-            {% if review.rating >= forloop.counter %}
-              <i class="fas fa-star"></i>
-            {% else %}
-              <i class="far fa-star"></i>
-            {% endif %}
-          {% endfor %}
+        <div class="star-rating">
+          {% if boardgame.avg_rating %}
+            {% with rating=boardgame.avg_rating %}
+              {% for i in "12345" %}
+                {% if rating >= forloop.counter %}
+                  <i class="bi bi-star-fill"></i>
+                {% elif rating >= forloop.counter|add:"-0.5" %}
+                  <i class="bi bi-star-half"></i>
+                {% else %}
+                  <i class="bi bi-star"></i>
+                {% endif %}
+              {% endfor %}
+              <span>({{ rating|floatformat:1 }})</span>
+            {% endwith %}
+          {% else %}
+            No ratings yet
+          {% endif %}
           <span>({{ review.rating }}/5)</span>
-        </p>
+        </div>
+
+
 
         <p class="review-comment">
           {{ review.comment }}

@@ -47,7 +47,7 @@
                     <button type="button"
                             class="btn btn-sm decrement-qty flex-shrink-0"
                             data-item_id="{{ item.item_id }}">
-                      <i class="fas fa-minus"></i>
+                      <i class="bi bi-dash-lg"></i>
                     </button>
                     <input class="form-control form-control-sm text-center qty_input"
                            style="width: 60px"
@@ -60,7 +60,7 @@
                     <button type="button"
                             class="btn btn-sm increment-qty flex-shrink-0"
                             data-item_id="{{ item.item_id }}">
-                      <i class="fas fa-plus"></i>
+                      <i class="bi bi-plus-lg"></i>
                     </button>
                     {% if item.product.has_sizes %}
                       <input type="hidden" name="product_size" value="{{ item.size }}">
@@ -98,12 +98,12 @@
               {% endif %}
               <div class="d-grid gap-2">
                 <a href="{% url 'shop' %}" class="btn">
-                  <i class="fas fa-chevron-left me-2"></i>
+                  <i class="bi bi-chevron-left me-2"></i>
                   Back to Shop
                 </a>
                 <a href="{% url 'checkout' %}" class="btn">
                   Secure Checkout
-                  <i class="fas fa-lock ms-2"></i>
+                  <i class="bi bi-lock-fill"></i>
                 </a>
               </div>
             </div>
@@ -150,7 +150,7 @@
                                   class="btn btn-outline-secondary decrement-qty"
                                   data-item_id="{{ item.item_id }}"
                                   id="decrement-qty_{{ item.item_id }}">
-                            <i class="fas fa-minus fa-sm"></i>
+                            <i class="bi bi-dash-lg"></i>
                           </button>
                           <input class="form-control text-center qty_input"
                                  type="number"
@@ -164,7 +164,7 @@
                                   class="btn btn-outline-secondary increment-qty"
                                   data-item_id="{{ item.item_id }}"
                                   id="increment-qty_{{ item.item_id }}">
-                            <i class="fas fa-plus fa-sm"></i>
+                            <i class="bi bi-plus-lg"></i>
                           </button>
                           {% if item.product.has_sizes %}
                             <input type="hidden" name="product_size" value="{{ item.size }}">
@@ -208,14 +208,14 @@
                   <td colspan="5" class="text-end">
                     <a href="{% url 'shop' %}" class="btn">
                       <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="bi bi-chevron-left"></i>
                       </span>
                       <span class="text-uppercase">Back to Shop</span>
                     </a>
                     <a href="{% url 'checkout' %}" class="btn">
                       <span class="text-uppercase">Secure Checkout</span>
                       <span class="icon">
-                        <i class="fas fa-lock"></i>
+                        <i class="bi bi-lock-fill"></i>
                       </span>
                     </a>
                   </td>
@@ -227,7 +227,7 @@
           <p class="mb-5">Your bag is empty.</p>
           <a href="{% url 'shop' %}" class="btn">
             <span class="icon">
-              <i class="fas fa-chevron-left"></i>
+              <i class="bi bi-chevron-left"></i>
             </span>
             <span class="text-uppercase">Keep Shopping</span>
           </a>

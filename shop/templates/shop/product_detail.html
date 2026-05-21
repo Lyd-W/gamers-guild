@@ -23,7 +23,7 @@
             <p class="small mt-1 mb-0">
               <a class="category"
                  href="{% url 'shop' %}?category={{ product.category.type }}">
-                <i class="fas fa-tag me-1"></i>{{ product.category.readable_type }}
+                <i class="bi bi-tag-fill me-1"></i>{{ product.category.readable_type }}
               </a>
             </p>
           {% endif %}
@@ -64,7 +64,7 @@
                     id="decrement-qty_{{ product.id }}"
                     aria-label="Decrease Quantity">
               <span class="icon">
-                <i class="fas fa-minus"></i>
+                <i class="bi bi-dash-lg"></i>
               </span>
             </button>
             <input class="form-control qty_input text-center"
@@ -82,7 +82,7 @@
                     id="increment-qty_{{ product.id }}"
                     aria-label="Decrease Quantity">
               <span class="icon">
-                <i class="fas fa-plus"></i>
+                <i class="bi bi-plus-lg"></i>
               </span>
             </button>
           </div>
@@ -91,7 +91,7 @@
       <div class="col-12 d-flex gap-3 mt-5 flex-wrap align-items-center">
         <a href="{% url 'shop' %}" class="btn">
           <span class="icon">
-            <i class="fas fa-chevron-left"></i>
+            <i class="bi bi-chevron-left"></i>
           </span>
           <span class="text-uppercase">Keep Shopping</span>
         </a>
