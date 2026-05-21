@@ -3,11 +3,8 @@
   {% if filter_mode == "desktop" %}
     <div class="filter-sidebar">
 
-
   {% elif filter_mode == "overlay" %}
-    <div class="filter-overlay-panel">
-      <p class="filter-header mb-2">Filter By</p>
-
+    <p class="filter-header mb-2">Filter By</p>
   {% endif %}
 
   <div class="accordion"
@@ -19,7 +16,7 @@
 
   </div>
 
-  {% if filter_mode == "desktop" or filter_mode == "overlay" %}
+  {% if filter_mode == "desktop" %}
     </div>
   {% endif %}
 
