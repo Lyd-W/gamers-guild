@@ -1,0 +1,85 @@
+
+<div class="accordion-item">
+
+  <h2 class="accordion-header"
+      id="{{ prefix }}HeadingPlaytime">
+
+    <button class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{ prefix }}Playtime"
+            aria-expanded="false"
+            aria-controls="{{ prefix }}Playtime">
+
+      Playtime
+
+    </button>
+
+  </h2>
+
+  <div id="{{ prefix }}Playtime"
+       class="accordion-collapse collapse"
+       data-bs-parent="#{{ prefix }}AccordionFilters"
+       aria-labelledby="{{ prefix }}HeadingPlaytime">
+
+    <div class="accordion-body">
+
+      <form method="get" action="{% url 'home' %}">
+
+        <fieldset>
+
+          <legend class="visually-hidden">
+            Playtime filter
+          </legend>
+
+          <label for="{{ prefix }}PlaytimeSlider"
+                 class="mb-2">
+
+            Max Playtime (minutes)
+
+          </label>
+
+          <input
+            class="slider form-range"
+            type="range"
+            id="{{ prefix }}PlaytimeSlider"
+            name="playtime"
+            min="0"
+            max="300"
+            value="{{ request.GET.playtime|default:90 }}"
+            oninput="document.getElementById('{{ prefix }}PlaytimeInput').value = this.value"
+          >
+
+          <div class="d-flex align-items-center gap-2 mt-2">
+
+            <input
+              type="number"
+              id="{{ prefix }}PlaytimeInput"
+              name="playtime"
+              class="form-control"
+              min="0"
+              max="300"
+              value="{{ request.GET.playtime|default:90 }}"
+              oninput="document.getElementById('{{ prefix }}PlaytimeSlider').value = this.value"
+            >
+
+            <span>mins</span>
+
+          </div>
+
+          <button type="submit"
+                  class="btn btn-sm mt-2">
+
+            Apply
+
+          </button>
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

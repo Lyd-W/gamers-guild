@@ -1,0 +1,66 @@
+<div class="accordion-item">
+
+  <h2 class="accordion-header"
+      id="{{ prefix }}HeadingGenre">
+
+    <button class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{ prefix }}Genre"
+            aria-expanded="false"
+            aria-controls="{{ prefix }}Genre">
+
+      Genre
+
+    </button>
+
+  </h2>
+
+  <div id="{{ prefix }}Genre"
+       class="accordion-collapse collapse"
+       data-bs-parent="#{{ prefix }}AccordionFilters"
+       aria-labelledby="{{ prefix }}HeadingGenre">
+
+    <div class="accordion-body">
+
+      <form method="get" action="{% url 'home' %}">
+
+        <fieldset>
+          <legend class="visually-hidden">
+            Game genres
+          </legend>
+
+          {% for genre in genres %}
+            <div class="form-check genre-badge">
+
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="genre"
+                value="{{ genre.id }}"
+                id="{{ prefix }}_genre_{{ genre.id }}"
+                onchange="this.form.submit()"
+                {% if genre.id|stringformat:'s' in current_genres %}
+                  checked
+                {% endif %}
+              >
+
+              <label class="form-check-label"
+                     for="{{ prefix }}_genre_{{ genre.id }}">
+
+                {{ genre.name }}
+
+              </label>
+
+            </div>
+          {% endfor %}
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

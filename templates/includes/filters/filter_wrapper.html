@@ -1,0 +1,26 @@
+<div class="filter-wrapper--{{ filter_mode }}">
+
+  {% if filter_mode == "desktop" %}
+    <div class="filter-sidebar">
+
+
+  {% elif filter_mode == "overlay" %}
+    <div class="filter-overlay-panel">
+      <p class="filter-header mb-2">Filter By</p>
+
+  {% endif %}
+
+  <div class="accordion"
+       id="{{ filter_mode }}AccordionFilters">
+
+    {% include "includes/filters/genres.html" with prefix=filter_mode %}
+    {% include "includes/filters/player_count.html" with prefix=filter_mode %}
+    {% include "includes/filters/playtime.html" with prefix=filter_mode %}
+
+  </div>
+
+  {% if filter_mode == "desktop" or filter_mode == "overlay" %}
+    </div>
+  {% endif %}
+
+</div>

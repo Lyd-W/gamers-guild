@@ -1,0 +1,72 @@
+<div class="accordion-item">
+
+  <h2 class="accordion-header"
+      id="{{ prefix }}HeadingPlayers">
+
+    <button class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{ prefix }}Players"
+            aria-expanded="false"
+            aria-controls="{{ prefix }}Players">
+
+      Player Count
+
+    </button>
+
+  </h2>
+
+  <div id="{{ prefix }}Players"
+       class="accordion-collapse collapse"
+       data-bs-parent="#{{ prefix }}AccordionFilters"
+       aria-labelledby="{{ prefix }}HeadingPlayers">
+
+    <div class="accordion-body">
+
+      <form method="get" action="{% url 'home' %}">
+
+        <fieldset>
+          <legend class="visually-hidden">
+            Number of players
+          </legend>
+
+          {% for p in player_options %}
+            <div class="form-check player-badge">
+
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="players"
+                value="{{ p }}"
+                id="{{ prefix }}_players_{{ p }}"
+                onchange="this.form.submit()"
+                {% if p|stringformat:'s' in current_players %}
+                  checked
+                {% endif %}
+              >
+
+              <label class="form-check-label"
+                     for="{{ prefix }}_players_{{ p }}">
+
+                {% if p == 1 %}
+                  1 Player
+                {% elif p == 6 %}
+                  6+ Players
+                {% else %}
+                  {{ p }} Players
+                {% endif %}
+
+              </label>
+
+            </div>
+          {% endfor %}
+
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
