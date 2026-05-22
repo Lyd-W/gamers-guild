@@ -150,6 +150,7 @@
                           {% if product.image %}
                             <img src="{{ product.image.url }}"
                                  class="card-img-top"
+                                 loading="lazy"
                                  alt="{{ product.name }}">
                           {% endif %}
                         </div>

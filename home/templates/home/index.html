@@ -105,10 +105,12 @@
                               {% if boardgame.image %}
                                 <img src="{{ boardgame.image.url }}"
                                      class="card-img-top"
+                                     loading="lazy"
                                      alt="{{ boardgame.title }}">
                               {% else %}
                                 <img src="{% static 'images/noimage.png' %}"
                                      class="card-img-top"
+                                     loading="lazy"
                                      alt="Boardgame placeholder">
                               {% endif %}
                             </div>
