@@ -1,11 +1,18 @@
 :root {
-  --primary-color: #1b1b1d; /* Carbon Black */
-  --secondary-color: #2c2a36; /* Shadow Grey */
-  --primary-highlight: #d4af37; /* Metallic Gold*/
-  --secondary-highlight: #b63e3e; /* Intense Cherry */
-  --text: #e6e6e6; /* Alabaster Grey */
-  --danger: #b63e3e; /* Intense Cherry */
-  --success: #4c8c4a; /* Sea Green */
+  --primary-color: #1b1b1d;
+  /* Carbon Black */
+  --secondary-color: #2c2a36;
+  /* Shadow Grey */
+  --primary-highlight: #d4af37;
+  /* Metallic Gold*/
+  --secondary-highlight: #b63e3e;
+  /* Intense Cherry */
+  --text: #e6e6e6;
+  /* Alabaster Grey */
+  --danger: #b63e3e;
+  /* Intense Cherry */
+  --success: #4c8c4a;
+  /* Sea Green */
   --font-primary: "Roboto", sans-serif;
   --font-heading: "Cinzel", serif;
   --bs-body-bg: #1b1b1d;
@@ -18,6 +25,22 @@
   --bs-dropdown-color: #e6e6e6;
   --bs-dropdown-link-hover-bg: #1b1b1d;
   --bs-dropdown-link-hover-color: #d4af37;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('static/fonts/roboto-variablefont_wdthwght.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('static/fonts/cinzel-variablefont_wght.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 *,
@@ -115,6 +138,10 @@ header {
   padding-bottom: 0.25rem;
 }
 
+.search-form {
+  max-width: 100%;
+}
+
 .btn,
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type="submit"] {
@@ -185,6 +212,14 @@ h4 {
   margin-bottom: 0;
 }
 
+.shop-categories {
+  font-size: 1.2rem;
+}
+
+.shop-categories a {
+  padding-right: 0.5rem;
+}
+
 .dropdown-menu {
   background-color: var(--secondary-color);
   border: 1px solid var(--primary-highlight);
@@ -200,7 +235,7 @@ h4 {
 }
 
 .log-in-status {
-  color:var(--primary-highlight)
+  color: var(--primary-highlight)
 }
 
 .log-in-status:hover {
@@ -220,20 +255,35 @@ h4 {
 .bag-page-title,
 .add-product-page-title,
 .edit-product-page-title,
-.about-page-title {
-  margin-top: 5rem;
+.about-page-title,
+.error-title,
+.boardgame-title,
+.boardgame-image {
+  margin-top: 4rem;
 }
 
 .shop-container a,
-.shop-category-bar a {
+.shop-category-bar a
+{
   color: inherit;
   text-decoration: none;
   transition: 0.2s ease;
 }
 
 .shop-container a:hover,
-.shop-category-bar a:hover {
+.shop-category-bar a:hover,
+.review-login a:hover {
   color: #c9a227;
+}
+
+.review-login a {
+  text-decoration: none;
+  transition: 0.2s ease;
+  color: #c9a227;
+}
+
+.review-login a:hover {
+  text-decoration: underline;
 }
 
 .categories {
@@ -256,7 +306,7 @@ h4 {
 
 .shop-page-title,
 .home-page-title {
-  padding:0 2rem;
+  padding: 0 2rem;
 }
 
 .about-page-title {
@@ -297,24 +347,6 @@ h4 {
   border-width: 0.1rem;
 }
 
-.filter-sidebar {
-  margin: 0 1rem 0 0.3rem;
-}
-
-.filter-header,
-.categories-header,
-.genre-header {
-  padding-left: 0.3rem;
-}
-
-.filter-wrapper {
-  width: 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-left: 1rem;
-  padding-left: 0.3rem;
-}
 
 .accordion-body input {
   width: 100%;
@@ -393,7 +425,7 @@ h4 {
   border-top: 1px solid var(--primary-highlight);
 }
 
-.accordion-item + .accordion-item {
+.accordion-item+.accordion-item {
   border-top: 0;
 }
 
@@ -405,13 +437,6 @@ h4 {
   border-top: 1px solid var(--primary-highlight);
 }
 
-.filter-wrapper-mobile {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  margin-bottom: 0.4rem;
-  padding: 0.25rem;
-}
 
 .category-badge {
   display: block;
@@ -535,6 +560,7 @@ input[type="range"].slider::-webkit-slider-thumb {
 
 .card-title {
   font-weight: 700;
+  font-size: 1.4rem;
   color: var(--text);
   padding-top: 1rem;
   text-align: center;
@@ -587,10 +613,21 @@ input[type="range"].slider::-webkit-slider-thumb {
 
 /* Boardgame detail page */
 
-.boardgame-detail,
 .product-detail {
   margin: 6rem 2rem 0;
 }
+
+.boardgame-detail {
+  margin: 6rem 0;
+}
+
+.boardgame-image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
 
 .detail-rating {
   margin-bottom: 0;
@@ -606,13 +643,23 @@ input[type="range"].slider::-webkit-slider-thumb {
   transform: scale(1.15);
 }
 
+.review-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #deleteConfirm {
   color: var(--primary-highlight);
 }
 
 .admin-review-tools {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 /* Product Page */
@@ -918,8 +965,8 @@ input.form-control:-webkit-autofill:active,
 }
 
 label.required::after {
-    content: " *";
-    color: var(--danger);
+  content: " *";
+  color: var(--danger);
 }
 
 /* Checkout page */
@@ -1021,9 +1068,13 @@ select option[value=""] {
   background-color: var(--primary-color);
 }
 
-.profile-title {
-  max-width: auto;
-  margin: 5rem auto;
+input[type="file"]::file-selector-button {
+  background: var(--primary-color);
+  border: var(--primary-highlight) solid 1px;
+  color: var(--text);
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  padding: 0.35rem 0.75rem;
 }
 
 .filter-overlay-container {
@@ -1031,7 +1082,6 @@ select option[value=""] {
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
-
   display: none;
 }
 
@@ -1076,13 +1126,45 @@ select option[value=""] {
 }
 
 @media (max-width: 767px) {
-  .filter-wrapper,
-  .filter-sidebar {
-    display: none !important;
+
+  .btt-btn {
+    bottom: 60px;
   }
-      .btt-btn {
-        bottom: 60px;
-    }
+
+  .games-count-mobile {
+    margin-top: 0.5rem;
+  }
+
+
+  .sort-dropdown-shop {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .favourites-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+  }
+
+  .sort-filter-container {
+    margin-left: 1.5rem;
+  }
+
+  .main-games {
+    margin-top: 1rem;
+  }
+
+  .filter-header,
+  .categories-header,
+  .genre-header {
+    padding-left: 0.3rem;
+  }
+
+  .shop-categories a {
+    font-size: 0.9rem;
+  }
+
 }
 
 @media (min-width: 768px) {
@@ -1115,14 +1197,23 @@ select option[value=""] {
   }
 
   .sort-filter-container {
-    margin: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: baseline;
   }
 
-    .sort-filter-container-shop {
+  .filter-games-count {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex: 1;
+  }
+
+
+  .filter-games-count .filters-btn {
+    margin-left: 0;
+  }
+
+  .sort-filter-container-shop {
     margin: 0.5rem 0.5rem 0 0.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -1130,18 +1221,10 @@ select option[value=""] {
     justify-content: space-between;
   }
 
-  .sort-dropdown {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
   .product-count {
     margin-right: 1rem;
   }
 
-  .filter {
-    margin-left: 0.75rem;
-  }
 
   .products,
   .games {
@@ -1157,7 +1240,13 @@ select option[value=""] {
 
   .product-card,
   .boardgame-card {
+    margin-top: 1.5rem;
     background-color: var(--primary-color);
+  }
+
+  .favourites-card {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .main-shop,
@@ -1173,6 +1262,11 @@ select option[value=""] {
   .results-container {
     margin-left: 2rem;
     margin-right: 2.5rem;
+  }
+
+  .boardgame-detail,
+  .product-detail {
+    margin: 6rem 2rem 0;
   }
 }
 
@@ -1190,6 +1284,10 @@ select option[value=""] {
     font-size: 0.9rem;
   }
 
+  .filter-overlay-container:not(.active) {
+    display: none !important;
+  }
+
   .filters-btn {
     display: inline-flex;
     align-items: center;
@@ -1200,11 +1298,6 @@ select option[value=""] {
     height: 38px;
     padding: 0 0.5rem;
     font-size: 0.9rem;
-  }
-
-  .sort-dropdown {
-    display: flex;
-    align-items: center;
   }
 
   .filter-overlay-container {
@@ -1225,32 +1318,36 @@ select option[value=""] {
     overflow-y: auto;
     border-right: 2px solid var(--primary-highlight);
     z-index: 2001;
-  }
-
-  .filter-overlay-container.active {
-    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .main-games,
   .main-shop {
-    height: calc(100vh - 140px);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .games-content {
+    min-height: 0;
+    flex: 1;
+  }
+
+  .games,
+  .products {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 210px);
   }
 
   .games-scroll,
   .products-scroll {
-    height: 100%;
+    flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
   }
 
-  .sort-filter-container {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: var(--primary-color);
-    padding-top: 0.5rem;
-  }
 
   .games-container,
   .shop-container {
@@ -1259,26 +1356,13 @@ select option[value=""] {
 
   .games,
   .products {
-  border: 1px solid var(--primary-highlight);
-  border-radius: 1rem;
-  overflow: hidden;
-  margin: 0;
-  }
-
-  .sort-filter-container {
+    border: 1px solid var(--primary-highlight);
+    border-radius: 1rem;
+    overflow: hidden;
     margin: 0;
-    justify-content: space-between;
   }
 
-  .sort-dropdown,
-  .filter {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
 
-  .sort-dropdown {
-    margin-right: 1rem;
-  }
 }
 
 @media (min-width: 992px) {
@@ -1292,34 +1376,70 @@ select option[value=""] {
     align-items: flex-start;
     gap: 1.5rem;
     min-width: 0;
+    width: 100%;
   }
 
-    .sort-filter-container {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: var(--primary-color);
-  padding: 0.75rem 1rem;
-}
+  .results-container .games,
+  .results-container .products {
+    max-height: none;
+    overflow: visible;
+    display: block;
+  }
 
-  .filter-wrapper,
-  .filter-sidebar {
-  flex: 0 0 220px;
-  position: sticky;
-  top: 5rem;
-  align-self: flex-start;
+  .results-container .boardgame-card .card-body,
+  .results-container .product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .results-container .card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: var(--primary-color);
+  }
+
+  .games-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding-top: 0;
+    margin-right: 2rem;
+  }
+
+  .sort-filter-container {
+    margin-right: 1rem;
+  }
+
+  .filter-sidebar-header {
+    flex-direction: column;
+  }
+
+  .filter-wrapper {
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+    flex: 0 0 220px;
+  }
+
+  .accordion {
+    margin-top: 0;
   }
 
   .games,
   .products {
-  flex: 1;
-  min-width: 0;
-  border: 1px solid var(--primary-highlight);
-  border-radius: 1rem;
-  background-color: var(--secondary-color);
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 160px);
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--primary-highlight);
+    border-radius: 1rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 160px);
+    padding-top: 0 !important;
   }
 
   .products-scroll,
@@ -1345,10 +1465,7 @@ select option[value=""] {
   .products-scroll::-webkit-scrollbar-track {
     background-color: var(--secondary-color);
     border-radius: 10px;
-  }
-
-  .sort-dropdown {
-    margin-right: 1rem;
+    margin: 1rem;
   }
 
   .profile-title {
@@ -1361,7 +1478,8 @@ select option[value=""] {
   }
 
   .message-container {
-  left: 85%;
+    left: 85%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1374,6 +1492,4 @@ select option[value=""] {
   .profile-title {
     padding: 0 4rem;
   }
-}
-
 }

@@ -27,6 +27,23 @@
   --bs-dropdown-link-hover-color: #d4af37;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('static/fonts/roboto-variablefont_wdthwght.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('static/fonts/cinzel-variablefont_wght.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+
+}
+
 *,
 *::before,
 *::after {
@@ -179,6 +196,7 @@ h6,
 .navbar-brand,
 .nav-link {
   font-family: var(--font-heading);
+  font-variant-caps: small-caps;
   color: var(--text);
   -webkit-text-stroke: 0.5px var(--primary-highlight);
 }
@@ -351,6 +369,7 @@ h4 {
 .accordion-button {
   background-color: var(--secondary-color);
   color: var(--text);
+  font-variant-caps: small-caps;
   border: none;
   box-shadow: none;
   padding: 0.75rem 1rem;
