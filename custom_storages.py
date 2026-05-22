@@ -14,5 +14,5 @@ class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
     default_acl = "public-read"
     object_parameters = {
-        "CacheControl": "max-age=86400, public",
+        "CacheControl": "max-age=2592000, public",
     }

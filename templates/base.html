@@ -38,7 +38,7 @@
           type="image/x-icon"
           href="{% static 'favicon/favicon.ico' %}">
   </head>
-  <body>
+  <body id="top">
     <div class="d-flex flex-column min-vh-100">
       <header>
         <nav class="navbar navbar-expand-md fixed-top">
@@ -176,7 +176,9 @@
         {% endblock content %}
       </main>
       <div class="btt-btn">
-        <a class="btt-link">
+        <a class="btt-link" 
+           href="#top"
+           aria-label="Back to top">
           <i class="bi bi-arrow-up"></i>
         </a>
       </div>
