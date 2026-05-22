@@ -102,17 +102,56 @@
                           <a href="{% url 'boardgame_detail' boardgame.slug %}"
                              class="boardgame-link">
                             <div class="card-img-wrapper">
-                              {% if boardgame.image %}
+                             {% if boardgame.image %}
+
+                              {% if forloop.counter == 1 %}
                                 <img src="{{ boardgame.image.url }}"
-                                     class="card-img-top"
-                                     loading="lazy"
-                                     alt="{{ boardgame.title }}">
+                                    class="card-img-top"
+                                    alt="{{ boardgame.title }}"
+                                    fetchpriority="high"
+                                    loading="eager"
+                                    decoding="async">
+
+                              {% elif forloop.counter <= 3 %}
+                                <img src="{{ boardgame.image.url }}"
+                                    class="card-img-top d-none d-md-block"
+                                    alt="{{ boardgame.title }}"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    decoding="async">
+
+                                <img src="{{ boardgame.image.url }}"
+                                    class="card-img-top d-md-none"
+                                    alt="{{ boardgame.title }}"
+                                    loading="lazy"
+                                    decoding="async">
+
+                              {% else %}
+                                <img src="{{ boardgame.image.url }}"
+                                    class="card-img-top"
+                                    alt="{{ boardgame.title }}"
+                                    loading="lazy"
+                                    decoding="async">
+                              {% endif %}
+
+                            {% else %}
+
+                              {% if forloop.counter == 1 %}
+                                <img src="{% static 'images/noimage.png' %}"
+                                    class="card-img-top"
+                                    alt="Boardgame placeholder"
+                                    fetchpriority="high"
+                                    loading="eager"
+                                    decoding="async">
                               {% else %}
                                 <img src="{% static 'images/noimage.png' %}"
-                                     class="card-img-top"
-                                     loading="lazy"
-                                     alt="Boardgame placeholder">
+                                    class="card-img-top"
+                                    alt="Boardgame placeholder"
+                                    loading="lazy"
+                                    decoding="async">
                               {% endif %}
+
+                            {% endif %}
                             </div>
                           </a>
                           <div class="card-body">
