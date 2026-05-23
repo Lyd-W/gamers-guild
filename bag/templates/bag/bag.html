@@ -47,7 +47,14 @@
                     <button type="button"
                             class="btn btn-sm decrement-qty flex-shrink-0"
                             data-item_id="{{ item.item_id }}">
-                      <i class="bi bi-dash-lg"></i>
+                      <svg xmlns="http://www.w3.org/2000/svg" 
+                           width="16" 
+                           height="16" 
+                           fill="currentColor" 
+                           class="bi bi-dash-lg" 
+                           viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                      </svg>
                     </button>
                     <input class="form-control form-control-sm text-center qty_input"
                            style="width: 60px"
@@ -60,7 +67,14 @@
                     <button type="button"
                             class="btn btn-sm increment-qty flex-shrink-0"
                             data-item_id="{{ item.item_id }}">
-                      <i class="bi bi-plus-lg"></i>
+                      <svg xmlns="http://www.w3.org/2000/svg" 
+                           width="16" 
+                           height="16" 
+                           fill="currentColor" 
+                           class="bi bi-plus-lg" 
+                           viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                      </svg>
                     </button>
                     {% if item.product.has_sizes %}
                       <input type="hidden" name="product_size" value="{{ item.size }}">
@@ -98,12 +112,26 @@
               {% endif %}
               <div class="d-grid gap-2">
                 <a href="{% url 'shop' %}" class="btn">
-                  <i class="bi bi-chevron-left me-2"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                       width="16" 
+                       height="16" 
+                       fill="currentColor" 
+                       class="bi bi-chevron-left" 
+                       viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  </svg>
                   Back to Shop
                 </a>
                 <a href="{% url 'checkout' %}" class="btn">
                   Secure Checkout
-                  <i class="bi bi-lock-fill"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                       width="16" 
+                       height="16" 
+                       fill="currentColor" 
+                       class="bi bi-lock-fill" 
+                       viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -150,7 +178,14 @@
                                   class="btn btn-outline-secondary decrement-qty"
                                   data-item_id="{{ item.item_id }}"
                                   id="decrement-qty_{{ item.item_id }}">
-                            <i class="bi bi-dash-lg"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="16" 
+                                height="16" 
+                                fill="currentColor" 
+                                class="bi bi-dash-lg" 
+                                viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                            </svg>
                           </button>
                           <input class="form-control text-center qty_input"
                                  type="number"
@@ -164,7 +199,14 @@
                                   class="btn btn-outline-secondary increment-qty"
                                   data-item_id="{{ item.item_id }}"
                                   id="increment-qty_{{ item.item_id }}">
-                            <i class="bi bi-plus-lg"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="16" 
+                                height="16" 
+                                fill="currentColor" 
+                                class="bi bi-plus-lg" 
+                                viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                            </svg>
                           </button>
                           {% if item.product.has_sizes %}
                             <input type="hidden" name="product_size" value="{{ item.size }}">
@@ -208,14 +250,28 @@
                   <td colspan="5" class="text-end">
                     <a href="{% url 'shop' %}" class="btn">
                       <span class="icon">
-                        <i class="bi bi-chevron-left"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            width="16" 
+                            height="16" 
+                            fill="currentColor" 
+                            class="bi bi-chevron-left" 
+                            viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                        </svg>
                       </span>
                       <span class="text-uppercase">Back to Shop</span>
                     </a>
                     <a href="{% url 'checkout' %}" class="btn">
                       <span class="text-uppercase">Secure Checkout</span>
                       <span class="icon">
-                        <i class="bi bi-lock-fill"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            width="16" 
+                            height="16" 
+                            fill="currentColor" 
+                            class="bi bi-lock-fill" 
+                            viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+                        </svg>
                       </span>
                     </a>
                   </td>
@@ -227,7 +283,14 @@
           <p class="mb-5">Your bag is empty.</p>
           <a href="{% url 'shop' %}" class="btn">
             <span class="icon">
-              <i class="bi bi-chevron-left"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    fill="currentColor" 
+                    class="bi bi-chevron-left" 
+                    viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+              </svg>
             </span>
             <span class="text-uppercase">Keep Shopping</span>
           </a>
