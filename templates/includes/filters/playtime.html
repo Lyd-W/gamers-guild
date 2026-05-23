@@ -26,7 +26,16 @@
     <div class="accordion-body">
 
       <form method="get" action="{% url 'home' %}">
-
+        {% for g in current_genres %}
+          <input type="hidden" name="genre" value="{{ g }}">
+        {% endfor %}
+        {% for p in current_players %}
+          <input type="hidden" name="players" value="{{ p }}">
+        {% endfor %}
+        {% if request.GET.sort %}
+          <input type="hidden" name="sort" value="{{ request.GET.sort }}">
+          <input type="hidden" name="direction" value="{{ request.GET.direction }}">
+        {% endif %}
         <fieldset>
 
           <legend class="visually-hidden">

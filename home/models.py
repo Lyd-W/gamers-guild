@@ -52,6 +52,21 @@ class Boardgame(models.Model):
 
     def __str__(self):
         return self.title
+    
+    @property
+    def star_ratings(self):
+        if not hasattr(self, 'avg_rating') or not self.avg_rating:
+            return []
+        result = []
+        rating = self.avg_rating
+        for i in range(1, 6):
+            if rating >= i:
+                result.append('full')
+            elif rating >= i - 0.5:
+                result.append('half')
+            else:
+                result.append('empty')
+        return result
 
     def clean(self):
         super().clean()

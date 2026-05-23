@@ -205,11 +205,20 @@ def toggle_favourite(request, slug):
 def search(request):
     query = request.GET.get('q')
 
-    boardgames = Boardgame.objects.all()
-    products = Product.objects.all()
+    boardgames = Boardgame.objects.none()
+    products = Product.objects.none()
 
     if query:
-        boardgames = boardgames.filter(
+        boardgames = Boardgame.objects.annotate(
+            avg_rating=Coalesce(
+                Avg(
+                    'reviews__rating',
+                    filter=Q(reviews__is_approved=True)
+                ),
+                0.0,
+                output_field=FloatField()
+            )
+        ).filter(
             Q(title__icontains=query) |
             Q(description__icontains=query)
         )

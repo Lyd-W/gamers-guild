@@ -649,6 +649,10 @@ input[type="range"].slider::-webkit-slider-thumb {
   font-size: 1.1rem;
 }
 
+.star-rating {
+  padding-bottom: 0.5rem;
+}
+
 /* Boardgame detail page */
 
 .product-detail {
