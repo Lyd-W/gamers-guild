@@ -292,10 +292,12 @@ nav h4 {
 .about-page-title,
 .error-title,
 .boardgame-title,
-.boardgame-image,
-.confirmation-title {
+.confirmation-title,
+.boardgame-image
+{
   margin-top: 4rem;
 }
+
 
 .shop-container a,
 .shop-category-bar a
