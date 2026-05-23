@@ -292,7 +292,8 @@ nav h4 {
 .about-page-title,
 .error-title,
 .boardgame-title,
-.boardgame-image {
+.boardgame-image,
+.confirmation-title {
   margin-top: 4rem;
 }
 
