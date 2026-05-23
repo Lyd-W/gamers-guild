@@ -36,8 +36,6 @@ def home(request):
     player_options = [1, 2, 3, 4, 5, 6]
     selected_players = request.GET.getlist("players")
 
-    selected_players = request.GET.getlist("players")
-
     if selected_players:
         q = Q()
 
@@ -49,8 +47,6 @@ def home(request):
 
     if playtime:
         boardgames = boardgames.filter(playtime__lte=playtime)
-
-    sortkey = "title"
 
     boardgames = boardgames.annotate(
         avg_rating=Coalesce(
