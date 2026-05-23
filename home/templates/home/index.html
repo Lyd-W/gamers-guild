@@ -108,7 +108,7 @@
           <div class="games-scroll">
             <div class="card-display row">
               <div class="col-12">
-                <div class="row g-4">
+                <div class="row g-3 g-md-4">
                   {% if boardgames %}
                     {% for boardgame in boardgames %}
                       <div class="col-md-4 d-flex">
@@ -124,28 +124,27 @@
                                     alt="{{ boardgame.title }}"
                                     fetchpriority="high"
                                     loading="eager"
-                                    decoding="async">
+                                    decoding="async"
+                                    width="300"
+                                    height="375">
 
                               {% elif forloop.counter <= 3 %}
                                 <img src="{{ boardgame.image.url }}"
-                                    class="card-img-top d-none d-md-block"
-                                    alt="{{ boardgame.title }}"
-                                    fetchpriority="high"
-                                    loading="lazy"
-                                    decoding="async">
-
-                                <img src="{{ boardgame.image.url }}"
-                                    class="card-img-top d-md-none"
+                                    class="card-img-top"
                                     alt="{{ boardgame.title }}"
                                     loading="lazy"
-                                    decoding="async">
+                                    decoding="async"
+                                    width="300"
+                                    height="375">
 
                               {% else %}
                                 <img src="{{ boardgame.image.url }}"
                                     class="card-img-top"
                                     alt="{{ boardgame.title }}"
                                     loading="lazy"
-                                    decoding="async">
+                                    decoding="async"
+                                    width="300"
+                                    height="375">
                               {% endif %}
 
                             {% else %}
