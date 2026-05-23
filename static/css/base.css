@@ -218,6 +218,13 @@ h4 {
   margin-bottom: 0;
 }
 
+article h1,
+section h1,
+aside h1,
+nav h1 {
+  font-size: 2rem;
+}
+
 article h2,
 section h2,
 aside h2,
