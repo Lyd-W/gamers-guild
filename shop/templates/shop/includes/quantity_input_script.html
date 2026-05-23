@@ -22,6 +22,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (currentValue > 1) {
                 input.value = currentValue - 1;
+            } else {
+                const itemId = this.dataset.item_id;
+                const size = input.closest('form')?.querySelector('[name="product_size"]')?.value || '';
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+                fetch(`/bag/remove/${itemId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        product_size: size,
+                        csrfmiddlewaretoken: csrfToken
+                    })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error removing item:', error);
+                });
             }
         });
     });

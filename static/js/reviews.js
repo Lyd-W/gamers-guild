@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const commentText = document.getElementById("id_comment");
   const ratingInput = document.getElementById("id_rating");
 
-  if (!reviewForm) {
-    console.error("reviewForm not found");
-    return;
-  }
-
   const submitButton = reviewForm.querySelector("button[type='submit']");
 
   for (let button of editButtons) {

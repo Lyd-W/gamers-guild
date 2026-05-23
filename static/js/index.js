@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const openBtn = document.getElementById('openFiltersBtn');
 const closeBtn = document.getElementById('closeFiltersBtn');
-const overlay = document.querySelector('.filter-overlay-container');
+const overlay = document.getElementById("filterOverlay")
 
 if (openBtn && overlay) {
   openBtn.addEventListener('click', () => {

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Checkout | Gamers Guild{% endblock title %}
-{% block meta_description %}Gamers Guild checkout page.{% endblock meta_description %}
+{% block title %}Edit Product | Gamers Guild{% endblock title %}
+{% block meta_description %}Gamers Guild Edit Product page.{% endblock meta_description %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -37,13 +37,11 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-$('#new-image').on('change', function () {
+document.getElementById('new-image').addEventListener('change', function () {
     const file = this.files[0];
-
-    if (file) {
-        $('#filename').text(`Image will be set to: ${file.name}`);
-    } else {
-        $('#filename').text('');
+    const filename = document.getElementById('filename');
+    if (filename) {
+        filename.textContent = file ? `Image will be set to: ${file.name}` : '';
     }
 });
     </script>

@@ -8,7 +8,9 @@ document
     url.searchParams.delete("sort");
     url.searchParams.delete("direction");
     } else {
-    const [sort, direction] = val.split("_");
+    const parts = val.split("_");
+    const direction = parts.pop();
+    const sort = parts.join("_");
     url.searchParams.set("sort", sort);
     url.searchParams.set("direction", direction);
     }
