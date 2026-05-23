@@ -5,10 +5,6 @@
     Checkout Success | Gamers Guild
 {% endblock title %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock extra_css %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -19,13 +15,13 @@
 
 {% block content %}
 <div class="container">
-
-
-            <h2 class="confirmation-title">Thank You</h2>
+        <div class="confirmation-title">
+            <h2 >Thank You</h2>
             <p>
                 Your order information is below. A confirmation email will be sent to
                 <strong>{{ order.email }}</strong>.
             </p>
+        </div>
 
     <div class="row">
         <div class="col-12 col-lg-7">
