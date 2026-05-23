@@ -1,27 +1,34 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', () => {
 
-    $('#sort-selector').on('change', function () {
+    const sortSelectors = document.querySelectorAll(
+        '#mobile-sort-selector, #desktop-sort-selector'
+    );
 
-        const currentUrl = new URL(window.location.href);
-        const selectedVal = $(this).val();
+    sortSelectors.forEach(selector => {
+        selector.addEventListener('change', function () {
 
-        if (selectedVal !== "reset") {
-            const parts = selectedVal.split("_");
-            const direction = parts.pop();
-            const sort = parts.join("_");
+            const currentUrl = new URL(window.location.href);
+            const selectedVal = this.value;
 
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-        }
+            if (selectedVal !== "reset") {
+                const parts = selectedVal.split("_");
+                const direction = parts.pop();
+                const sort = parts.join("_");
 
-        window.location.replace(currentUrl);
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+            }
+
+            window.location.replace(currentUrl.toString());
+        });
     });
 
     window.syncFromSlider = function (value) {
-        $('#playtimeInput').val(value);
+        const input = document.getElementById('playtimeInput');
+        if (input) input.value = value;
     };
 
     window.syncFromInput = function (value) {
@@ -30,7 +37,8 @@ $(document).ready(function () {
         if (val < 0) val = 0;
         if (val > 300) val = 300;
 
-        $('#playtimeSlider').val(val);
+        const slider = document.getElementById('playtimeSlider');
+        if (slider) slider.value = val;
     };
 
 });
