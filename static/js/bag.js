@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', function () {
 
-            const csrfToken = "{{ csrf_token }}";
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
             const itemId = this.id.split('remove_')[1];
             const size = this.dataset.size;
 

@@ -169,6 +169,7 @@ def boardgame_detail(request, slug):
             "boardgame": boardgame,
             "form": form,
             "reviews": reviews,
+            "on_boardgame_page": True,
         }
     )
 

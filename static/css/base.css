@@ -643,7 +643,7 @@ input[type="range"].slider::-webkit-slider-thumb {
   margin-inline-end: 8px;
 }
 
-.star-rating i,
+.star-rating svg,
 .rating-number {
   color: var(--primary-highlight);
   font-size: 1.1rem;
@@ -671,13 +671,17 @@ input[type="range"].slider::-webkit-slider-thumb {
   margin-bottom: 0;
 }
 
-.favourite-btn i {
+.favourite-btn {
+  margin-top: 1rem;
+}
+
+.favourite-btn svg {
   color: var(--secondary-highlight);
   margin-right: 0.35rem;
   transition: transform 0.2s ease;
 }
 
-.favourite-btn:hover i {
+.favourite-btn:hover svg {
   transform: scale(1.15);
 }
 
