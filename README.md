@@ -817,6 +817,63 @@ The Gamers Guild database supports both community interaction and e-commerce fun
 
 ### Lighthouse Testing
 
+Lighthouse audits were carried out using Chrome DevTools on the deployed Heroku application. Testing was performed on the home page as the most content-heavy page, containing 24 board game cards with images, filtering, and sorting functionality.
+
+#### Initial Scores
+
+| Page | Device | Performance | Accessibility | Best Practices | SEO |
+|------|--------|-------------|---------------|----------------|-----|
+| Home | Desktop | 82 | | | |
+| Home | Mobile | 72 | 98| 100 | 100|
+
+#### Issues Identified
+
+The following performance issues were identified from the initial audit:
+
+| Issue | Detail | Impact |
+|-------|--------|--------|
+| Render-blocking CSS | Bootstrap CDN (26.9 KB) and base.css blocking initial render | FCP, LCP |
+| Unused CSS | ~25 KB of Bootstrap CSS not used on any page | FCP, LCP |
+| Short cache TTL | CloudFront serving static assets with only 1 day cache lifetime | Repeat visits |
+
+#### Changes Made
+
+**1. Bootstrap CSS optimisation using PurgeCSS**
+
+The full Bootstrap 5.3.2 stylesheet (26.9 KB transfer) was analysed and stripped of all unused rules using [PurgeCSS](https://purgecss.com/). All HTML templates, includes, and JavaScript files were scanned to identify every Bootstrap class in use across the project. A safelist was maintained to preserve classes applied dynamically via JavaScript, such as those used by Bootstrap's collapse, dropdown, accordion, and toast components.
+
+The resulting purged stylesheet was served locally via CloudFront rather than the CDN, reducing the Bootstrap CSS transfer size from 26.9 KB to 11.7 KB — a reduction of 56%.
+
+**2. CloudFront cache TTL increased**
+
+The `AWS_S3_OBJECT_PARAMETERS` setting was updated in `settings.py` to increase the cache lifetime of static assets from 1 day to 1 year:
+
+```python
+AWS_S3_OBJECT_PARAMETERS = {
+    "Expires": "Fri, 1 Jan 2099 20:00:00 GMT",
+    "CacheControl": "max-age=31536000, immutable",
+}
+```
+
+This ensures that returning visitors load cached assets instantly rather than re-downloading them on every visit.
+
+#### Results After Optimisation
+
+| Page | Device | Performance | Accessibility | Best Practices | SEO |
+|------|--------|-------------|---------------|----------------|-----|
+| Home | Desktop | 87 | | | |
+| Home | Mobile | 73 | | | |
+
+#### Remaining Considerations
+
+The mobile score is affected by factors outside the scope of this project:
+
+- **Heroku Eco dyno cold starts** — Eco dynos sleep after 30 minutes of inactivity, adding latency to the initial server response on mobile simulations. Upgrading to a Basic dyno would eliminate this.
+- **Render-blocking CSS** — The remaining 16.8 KB of CSS (base.css + purged Bootstrap) still blocks initial render. Full elimination would require critical CSS inlining, which is a significant implementation effort.
+- **Image payload** — 24 board game cards load on the home page simultaneously. Pagination or a "load more" pattern would reduce initial image requests, but was not implemented as it would conflict with the desktop scrollable card layout UX.
+
+These are documented in [Future Enhancements](#future-enhancements).
+
 
 
 ### Browser Testing
