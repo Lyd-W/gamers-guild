@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -203,7 +204,7 @@ if 'USE_AWS' in os.environ:
     AWS_DEFAULT_ACL = None
     AWS_S3_OBJECT_PARAMETERS = {
         "Expires": "Fri, 1 Jan 2099 20:00:00 GMT",
-        "CacheControl": "max-age=86400",
+        "CacheControl": "max-age=31536000, immutable",
     }
 
     AWS_QUERYSTRING_AUTH = False
