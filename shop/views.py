@@ -152,11 +152,11 @@ def edit_product(request, product_id):
 
 
 @login_required
-def delete_product(request, product_id):
+def delete_product(request, pk):
     if not request.user.is_superuser:
         messages.warning(request, 'Sorry friend, only the storekeeper can go back there.')
         return redirect(reverse('home'))
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, pk=pk)
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('shop'))
