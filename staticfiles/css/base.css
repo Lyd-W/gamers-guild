@@ -115,6 +115,10 @@ header {
   font-size: 1rem;
 }
 
+svg {
+  flex-shrink: 0;
+}
+
 .icon-link:hover .nav-icon,
 .navbar-toggler:hover .nav-icon {
   color: var(--primary-highlight);
