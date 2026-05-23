@@ -1141,12 +1141,12 @@ input[type="file"]::file-selector-button {
   margin-bottom: 0.5rem;
 }
 
-.footer i {
+.footer svg {
   color: var(--primary-highlight);
   margin-left: 0.75rem;
 }
 
-.footer i:hover {
+.footer svg:hover {
   color: var(--text);
 }
 
