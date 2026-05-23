@@ -7,3 +7,4 @@ env.py
 .vscode/
 .DS_Store
 /media
+node_modules/
