@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("reviews.js loaded");
 
   const editButtons = document.getElementsByClassName("btn-edit");
   const deleteButtons = document.getElementsByClassName("btn-delete");
