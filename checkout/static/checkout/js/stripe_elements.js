@@ -71,10 +71,10 @@ form.addEventListener('submit', function (ev) {
     document.getElementById('submit-button').disabled = true;
 
     document.getElementById('payment-form')
-        .classList.toggle('d-none');
+        .style.display = 'none';
 
     document.getElementById('loading-overlay')
-        .classList.toggle('d-none');
+        .style.display = 'block';
 
     const saveInfo = document.getElementById('id-save-info').checked;
 
@@ -160,10 +160,10 @@ form.addEventListener('submit', function (ev) {
             errorDiv.innerHTML = html;
 
             document.getElementById('payment-form')
-                .classList.toggle('d-none');
+                .style.display = 'block';
 
             document.getElementById('loading-overlay')
-                .classList.toggle('d-none');
+                .style.display = 'none';
 
             card.update({ disabled: false });
 
