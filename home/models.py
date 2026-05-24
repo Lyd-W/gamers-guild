@@ -52,7 +52,7 @@ class Boardgame(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     @property
     def star_ratings(self):
         if not hasattr(self, 'avg_rating') or not self.avg_rating:

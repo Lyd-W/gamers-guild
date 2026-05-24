@@ -1,9 +1,12 @@
 venv/
 *sqlite3
 *.py[cod]
+*.pyc
 __pycache__
 .env
 env.py
 .vscode/
 .DS_Store
 /media
+staticfiles/
+.coverage

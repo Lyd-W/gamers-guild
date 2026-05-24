@@ -110,7 +110,8 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.warning(request,
-                             'Failed to add product. Check the form is correctly filled in.')
+                             'Failed to add product. Check the form is correctly filled in.'
+                             )
     else:
         form = ProductForm()
 
@@ -137,7 +138,8 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.warning(request,
-                             'Failed to update product. Please ensure the form is filled out and try again.')
+                             'Failed to update product. Please ensure the form is filled out and try again.'
+                             )
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -154,7 +156,9 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, pk):
     if not request.user.is_superuser:
-        messages.warning(request, 'Sorry friend, only the storekeeper can go back there.')
+        messages.warning(request,
+                         'Sorry, only the storekeeper can go back there.'
+                         )
         return redirect(reverse('home'))
     product = get_object_or_404(Product, pk=pk)
     product.delete()
