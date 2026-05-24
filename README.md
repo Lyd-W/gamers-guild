@@ -1441,10 +1441,16 @@ Following the series of optimisations Lighthouse testing was rerun, starting wit
 | Shop | Mobile | 82 | 95| 100| 100|
 | Product Detail | Desktop | 94 | 100| 96| 100|
 | Product Detail | Mobile | 90 | 100| 100| 100|
-| Bag | Desktop | 87 | 98| 100| 100|
-| Bag | Mobile | 87 | 98| 100| 100|
-| Checkout | Desktop | 87 | 98| 100| 100|
-| Checkout | Mobile | 87 | 98| 100| 100|
+| Bag | Desktop | 93 | 94| 100| 91|
+| Bag | Mobile | 87 | 93| 100| 91|
+| Checkout | Desktop | 86 | 89| 78| 100|
+| Checkout | Mobile | 88 | 89| 79| 100|
+| Checkout Success | Desktop | 90 | 100| 100| 100|
+| Checkout Success | Mobile | 92 | 100| 100| 100|
+| About | Desktop | 88 | 89| 79| 100|
+| About | Mobile | 88 | 89| 79| 100|
+| Profile | Mobile | 88 | 89| 79| 100|
+| Profile | Mobile | 88 | 89| 79| 100|
 
 
 #### Remaining Considerations
