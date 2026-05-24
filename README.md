@@ -60,6 +60,7 @@ Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "
 * [Deployment](#deployment)  
   + [Local Deployment](#local-deployment)  
   + [Heroku Deployment](#heroku-deployment)
+  + [WhiteNoise](#whitenoise)
   + [Stripe Setup](#stripe-setup)
   + [AWS S3 and CloudFront Setup](#aws-s3-and-cloudfront-setup)  
 * [Credits](#credits)
@@ -67,7 +68,6 @@ Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "
   + [Learning Resources and Guidance](#learning-resources-and-guidance)
   + [Image Credits](#image-credits)
   + [Content](#content)
-  + [Visual Content](#visual-content) 
 
 ----------------------------------------------
 
@@ -128,7 +128,7 @@ The platform supports multiple levels of user interaction:
   Can browse games, view details, and read review comments without registering  
 
 - **Authenticated Users**  
-  Can register, log in, post, edit, and delete review comments, and save/ view favourite games  
+  Can register, log in, post, edit, and delete review comments, and save/view favourite games  
 
 - **Administrators**  
   Have full control over content, including managing games, moderating user-generated content, and maintaining platform quality via the admin panel and on page controls  
@@ -169,12 +169,12 @@ The application is deployed online and built with scalability, security, and mai
 | User Story | Expected Outcome |
 |------------|----------------|
 | As a public user, I want to browse a list of games and view individual game details so that I can explore the content without registering. | Public users can see game titles, images, descriptions, and links to more details. |
-| As a new user, I want to register an account securely so that I can participate in discussions and save favorites. | Users can register with validation, receive success feedback, and verify account details. |
+| As a new user, I want to register an account securely so that I can participate in discussions and save favourites. | Users can register with validation, receive success feedback, and verify account details. |
 | As a registered user, I want to log in securely so that I can access my profile and interact with content. | Users can log in with credentials, authentication protects private data. |
 | As a logged-in user, I want to post reviews on games so that I can share my opinions with other users. | Reviews are posted under the game, with moderation if needed. |
 | As a user, I want to edit my own reviews so that I can correct mistakes or update my opinion. | Users can update their own reviews, changes are saved and marked as edited. |
 | As a user, I want to delete my own reviews so that I can remove content I no longer want visible. | Users can delete their own reviews after confirmation, removed content is gone from display. | 
-| As a registered user, I want to save my favorite games so that I can easily revisit them later. | Users can “favorite” games and view a personal list in their profile. |
+| As a registered user, I want to save my favourite games so that I can easily revisit them later. | Users can “favourite” games and view a personal list in their profile. |
 | As an admin, I want to add new games or content so that fresh material is available to the community. | Admins can create new games through the admin panel, new content appears on the site. | 
 | As an admin, I want to edit existing games or content so that I can correct errors or update information. | Admins can update game details, changes reflect immediately on front end. |
 | As an admin, I want to delete outdated or inappropriate games so that the content remains current and safe. | Admins can remove content, confirmed via admin panel, removed items no longer appear to users. |
@@ -230,7 +230,7 @@ The primary goal of Gamers Guild is to deliver a full stack Django web applicati
 
 ## Wireframes
 
-Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage"). A mobile first approach was taken throughout, the wireframes provide a visual representation of the expected layout and structure of the website. Within the wireframes, key element placement is visible for navigation, content and interactive areas. Differences to the Wirefrmaes may occur during the development of the website where improvments are implimented.
+Wireframes were created using [Canva](https://www.canva.com/ "Canva | Homepage"). A mobile first approach was taken throughout, the wireframes provide a visual representation of the expected layout and structure of the website. Within the wireframes, key element placement is visible for navigation, content and interactive areas. Differences to the Wireframes may occur during the development of the website where improvements are implemented.
 
 [Mobile Wireframes](docs/mobile-wireframes.pdf "Mobile Wireframes")
 
@@ -256,7 +256,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 
 ### Colour Scheme
 
-[Coolors](https://coolors.co/1b1b1d-2c2a36-d4af37-e6e6e6-b63e3e-4c8c4a "Coolors") was used to create a fitting colour scheme for Gamers Guild, it has been designed to create a dark, immersive medieval-fantasy atmosphere while maintaining strong usability and readability. A deep near-black (`#1B1B1D`) serves as the primary background to reduce eye strain and establish a moody foundation, complemented by a slightly lighter accent (`#2C2A36`) to add depth and separation between sections such as cards and panels. A rich gold (`#D4AF37`) is used for highlights, buttons, and key UI elements, evoking themes of treasure, armor, and prestige while standing out clearly against the dark background. A muted red (`#B63E3E`) provides contrast for alerts and important feedback, reinforcing a fantasy tone associated with danger or urgency. An additional complementary green (`#4C8C4A`) is used for success messages and positive user feedback. This earthy, muted tone fits naturally within the medieval-fantasy palette, resembling forest and herbal hues often associated with healing and vitality, while still providing clear visual distinction from error states. Finally, a soft off-white (`#E6E6E6`) ensures high readability for text without the harshness of pure white. Together, these colours create a cohesive, thematic interface that balances aesthetic immersion with accessibility and clear visual hierarchy. 
+[Coolors](https://coolors.co/1b1b1d-2c2a36-d4af37-e6e6e6-b63e3e-4c8c4a "Coolors") was used to create a fitting colour scheme for Gamers Guild, it has been designed to create a dark, immersive medieval-fantasy atmosphere while maintaining strong usability and readability. A deep near-black (`#1B1B1D`) serves as the primary background to reduce eye strain and establish a moody foundation, complemented by a slightly lighter accent (`#2C2A36`) to add depth and separation between sections such as cards and panels. A rich gold (`#D4AF37`) is used for highlights, buttons, and key UI elements, evoking themes of treasure, armour, and prestige while standing out clearly against the dark background. A muted red (`#B63E3E`) provides contrast for alerts and important feedback, reinforcing a fantasy tone associated with danger or urgency. An additional complementary green (`#4C8C4A`) is used for success messages and positive user feedback. This earthy, muted tone fits naturally within the medieval-fantasy palette, resembling forest and herbal hues often associated with healing and vitality, while still providing clear visual distinction from error states. Finally, a soft off-white (`#E6E6E6`) ensures high readability for text without the harshness of pure white. Together, these colours create a cohesive, thematic interface that balances aesthetic immersion with accessibility and clear visual hierarchy. 
 
 ![Coolors Scheme](docs/coolors.png)
 
@@ -268,7 +268,7 @@ This combination ensures a clear visual hierarchy while maintaining both aesthet
 |-----------------------|-------------|------------------------------------------------|
 | --primary | `#1B1B1D` | Backgrounds (pages, sections, navbars) |
 | --secondary | `#2C2A36` | Cards, panels, footers  |
-| --primary-highlight | `#D4AF37` | BButtons, hover states, important text, borders |
+| --primary-highlight | `#D4AF37` | Buttons, hover states, important text, borders |
 | --text | `#E6E6E6` | Body text, headers, links |
 | --secondary-highlight | `#B63E3E` | Alerts, error messages, warnings, accent highlights |
 | --success | `#4C8C4A` | Success messages |
@@ -326,7 +326,7 @@ Gamers Guild provides a fully responsive navigation experience across all device
 
 ### State aware Profile menu
 
-The profile menu on both desktop and mobile devices is dyanmically adjusted depending on the users authentication state. Authenticated users are shown personalised account options, while guests are presented with login and registration links. Authenticated users are also shown a welcome message including their username in the profile menu.
+The profile menu on both desktop and mobile devices is dynamically adjusted depending on the user's authentication state. Authenticated users are shown personalised account options, while guests are presented with login and registration links. Authenticated users are also shown a welcome message including their username in the profile menu.
 
 #### Screenshots
 [Navigation for desktop](docs/navigation-desktop.png "Navigation | Desktop")
@@ -371,10 +371,10 @@ Users can sort games dynamically by:
 Users can refine results using:
 
 - Genre filtering (checkbox based)
-- Player count check box selection
+- Player count checkbox selection
 - Playtime slider filtering
 
-Filters can be combined together, along with the sorting functionality, for improved user experience.
+Genre, player count, and playtime filters can be applied simultaneously and combined with the sort options.
 
 #### Screenshots
 [Homepage filters closed on desktop](docs/home-filters-closed-desktop.png "Homepage Filters Closed | Desktop")
@@ -383,7 +383,7 @@ Filters can be combined together, along with the sorting functionality, for impr
 
 [Homepage filters - player count open on desktop](docs/home-filters-player-count-open-desktop.png "Homepage Filters - Player Count Open | Desktop")
 
-[Homepage filters - playtime open on desktop](docs/home-filters-playtime-open-desktop.png "Homepage Filters - Playtimme Open | Desktop")
+[Homepage filters - playtime open on desktop](docs/home-filters-playtime-open-desktop.png "Homepage Filters - Playtime Open | Desktop")
 
 ### Mobile Filter Menu
 - Collapsible filters used to preserve screen space for game display
@@ -396,10 +396,10 @@ Filters can be combined together, along with the sorting functionality, for impr
 
 [Homepage filters - player count open on mobile](docs/home-filters-player-count-open-mobile.jpg "Homepage Filters - Player Count Open | Mobile")
 
-[Homepage filters - playtime open on mobile](docs/home-filters-playtime-open-mobile.jpg "Homepage Filters - Playtimme Open | Mobile")
+[Homepage filters - playtime open on mobile](docs/home-filters-playtime-open-mobile.jpg "Homepage Filters - Playtime Open | Mobile")
 
 ### Tablet Filter Overlay
-- Slide out drawer-style overlay system to increase filter visibility while preserving screen space for game display
+- Slide-out drawer-style overlay system to increase filter visibility while preserving screen space for game display
 - Optimised for touch controls
 
 #### Screenshots
@@ -409,7 +409,7 @@ Filters can be combined together, along with the sorting functionality, for impr
 
 [Homepage filters - player count open on tablet](docs/home-filters-player-count-open-tablet.jpg "Homepage Filters - Player Count Open | Tablet")
 
-[Homepage filters - playtime open on tablet](docs/home-filters-playtime-open-tablet.jpg "Homepage Filters - Playtimme Open | Tablet")
+[Homepage filters - playtime open on tablet](docs/home-filters-playtime-open-tablet.jpg "Homepage Filters - Playtime Open | Tablet")
 
 ## Search System
 
@@ -466,7 +466,6 @@ Products are shown using responsive cards featuring:
 - Product name
 - Price
 - Category
-- Rating
 
 #### Screenshots
 [Shop grid view on desktop](docs/shop-overview.png "Shop Grid View | Desktop")
@@ -683,7 +682,7 @@ Powered by Django Allauth:
 - Full CRUD functionality games
 - Image upload handling
 - Staff-only access
-- Game genres selectable using 
+- Game genres selectable using a horizontal filter selection
 
 [Admin panel - add game 1/3](docs/admin-panel-add-game-1.png "Admin Panel | Add Game 1/3")
 
@@ -738,7 +737,7 @@ Powered by Django Allauth:
 - Empty state handling throughout 
 - Custom error pages (400, 403, 404, 500)
 
-Defensive UI states are implemented throughout the site for example stock-aware quantity limits through conditional add-to-bag functionality and ut of stock notification in size dropdown or disabled out of stock button.
+Defensive UI states are implemented throughout the site for example stock-aware quantity limits through conditional add-to-bag functionality and out of stock notification in size dropdown or disabled out of stock button.
 
 #### Screenshots
 
@@ -770,7 +769,7 @@ Defensive UI states are implemented throughout the site for example stock-aware 
 
 [Logged out status on desktop](docs/logged-out-user-display.png "Logged Out Status | Desktop")
 
-[Log out danger hover effect](docs/log-out-button-hover.png "Lout Out Danger Hover Effect")
+[Log out danger hover effect](docs/log-out-button-hover.png "Log Out Danger Hover Effect")
 
 [400 error page preview](docs/400-error.png "400 Error Page")
 
@@ -836,14 +835,14 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - Allow users to leave reviews on shop products in the same way they can review board games, creating a more complete community experience across both sections of the platform
 
 **Wishlist sharing**
-- Enable users to share their saved game lists and wishlists with other users or publicly, adding a social dimension to the favourites system
+- Enable users to share their saved game lists and Wishlists with other users or publicly, adding a social dimension to the favourites system
 
 **Advanced filtering** 
 - Additional filtering options for the shop including price range sliders, rating filters, and stock availability toggles
 
 **Recommendation engine**
 - Suggest games to users based on their favourites, review history, and genre preferences
-- Suggest products to users based on their order history, previosuly viewed items and favourite games
+- Suggest products to users based on their order history, previously viewed items and favourite games
 
 **Admin analytics dashboard**
 - Provide site administrators with an overview of order volume, popular products, and user engagement metrics
@@ -859,7 +858,7 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - Implement a load more button on scrollable page sections to improve initial page loading and response times
 
 **Inline critical CSS**
-- Set up inline critical CSS to improve initial page laoding and response times, especially home and shop
+- Set up inline critical CSS to improve initial page loading and response times, especially home and shop
 
 [Back to contents](#contents)
 
@@ -884,10 +883,13 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - [django-countries](https://github.com/SmileyChris/django-countries "django-countries | GitHub")
 - [django-crispy-forms](https://django-crispy-forms.readthedocs.io/ "django-crispy-forms | Documentation")
 - [django-storages](https://django-storages.readthedocs.io/ "django-storages | Documentation")
+- [Google Fonts](https://fonts.google.com "Google Fonts | Homepage")
 - [gunicorn](https://gunicorn.org/ "gunicorn | Homepage")
 - [Pillow](https://pillow.readthedocs.io/ "Pillow | Documentation")
+- [PostgreSQL](https://dbs.ci-dbs.net "PostgreSQL | Code Institute")
 - [psycopg2](https://www.psycopg.org/ "psycopg2 | Homepage")
 - [Stripe](https://stripe.com/gb "Stripe | Homepage")
+- [Summernote](https://summernote.org/ "Summernote | Homepage")
 
 ### Tools and Programmes
 
@@ -898,18 +900,22 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - [Coolors](https://coolors.co/ "Coolors")
 - [dbdiagram.io](https://dbdiagram.io/ "dbdiagram.io")
 - [Dev Tools](https://developer.chrome.com/docs/devtools "Chrome | Dev Tools")
+- [DJLint](https://djlint.com/ "DJLint | Homepage")
 - [Favicon.io](https://favicon.io/ "Favicon.io | Homepage")
 - [Flake8](https://flake8.pycqa.org/en/latest/ "Flake8 | Homepage")
 - [GitHub](https://github.com "GitHub Homepage")
 - [Heroku](https://www.heroku.com/ "Heroku")
 - [LastPass](https://www.lastpass.com/features/password-generator "LastPass | Homepage")
 - [Lighthouse](https://developer.chrome.com/docs/lighthouse/ "Google Chrome Dev Tools | Lighthouse")
+- [Prettier](https://prettier.io/ "Prettier | Homepage")
 - [PurgeCSS](https://purgecss.com/ "PurgeCSS | Homepage")
 - [Squoosh](https://squoosh.app/ "Squoosh | Homepage")
 - [Temp-mail](https://temp-mail.org/en/ "Temp-Mail | Homepage")
+- [Visual Studio Code](https://code.visualstudio.com/ "VSCode | Homepage")
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS Validation Service Homepage")
 - [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML Validation Service Homepage")
 - [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/ "WAVE | Homepage")
+- [WhiteNoise](https://whitenoise.readthedocs.io/ "WhiteNoise | Homepage")
 
 [Back to contents](#contents)
 
@@ -1243,28 +1249,28 @@ python manage.py test
 | User Story | Expected Outcome | Result | Pass/Fail | Evidence |
 |------------|----------------|--------|-----------|----------|
 | Browse games as a public user | Public users can view game titles, images, descriptions, and details without logging in | Site is browsable by non-authorised users | Pass | [Game list preview](docs/home-board-game-grid.png "Home Page") |
-| Register a new account | Users can register with validation and receive confirmation feedback | Users can register for an account and recieve an email allowing them to confirm their email address | Pass | [Register page preview](docs/register-desktop.png "Registration Page") |
-| Login securely | Users can log in with valid credentials and are denied with invalid ones | Users who input correct credentials are redirected to the home page and can access their profile to view protected information. Invlaid credentials display an error and prevent access to protected information | Pass | [Login page preview](docs/login-desktop.png "Login Page") |
-| Post reviews | Logged-in users can submit revies that appear under game details | Authorised users can write a review which appears visible to them and moderators, pending moderation. After moderation reviews are visible to all users. Unauthorised users are directed to log in or sign up before leaving a review | Pass | [Review section preview](docs/board-game-detail-with-reviews-tablet.png "Review Section") |
-| Edit own reviews | Users can update their own reviews and see confirmation feedback | Authorised users can edit their own reviews using the edit button which dynamically fills the review form with their original content. The Submit Review button changes state to Update Review to indicate an edit is occuring. Edited reviews are then subject to moderation before being viewable by all users. Edit button is not visible to non-review author users | Pass | [Edit review preview](docs/boardgame-detail-edit-review.png "Edit Review") |
+| Register a new account | Users can register with validation and receive confirmation feedback | Users can register for an account and receive an email allowing them to confirm their email address | Pass | [Register page preview](docs/register-desktop.png "Registration Page") |
+| Login securely | Users can log in with valid credentials and are denied with invalid ones | Users who input correct credentials are redirected to the home page and can access their profile to view protected information. Invalid credentials display an error and prevent access to protected information | Pass | [Login page preview](docs/login-desktop.png "Login Page") |
+| Post reviews | Logged-in users can submit reviews that appear under game details | Authorised users can write a review which appears visible to the review author and moderators, pending moderation. After moderation reviews are visible to all users. Unauthorised users are directed to log in or sign up before leaving a review | Pass | [Review section preview](docs/board-game-detail-with-reviews-tablet.png "Review Section") |
+| Edit own reviews | Users can update their own reviews and see confirmation feedback | Authorised users can edit their own reviews using the edit button which dynamically fills the review form with their original content. The Submit Review button changes state to Update Review to indicate an edit is occurring. Edited reviews are then subject to moderation before being viewable by all users. Edit button is not visible to non-review author users | Pass | [Edit review preview](docs/boardgame-detail-edit-review.png "Edit Review") |
 | Delete own reviews | Users can delete their own reviews with confirmation | Authorised users can click the delete button below their review to delete it after confirming the deletion in a pop up box. Delete button is not visible to non-review author users | Pass | [Delete review preview](docs/boardgame-detail-delete-review.png "Delete Review") |
-| Save favourite games | Users can favourite games and view them in their profile | Authorised users can click the add to favourites button to add a boardgame to their favourites list. Favourited boardgames show an alternate state including a coloured heart icon and remove from favourites text. | Pass | [Favorites preview](docs/profile-favourites-desktop.png "Favourites") |
+| Save favourite games | Users can favourite games and view them in their profile | Authorised users can click the add to favourites button to add a boardgame to their favourites list. Favourited boardgames show an alternate state including a coloured heart icon and remove from favourites text. | Pass | [Favourites preview](docs/profile-favourites-desktop.png "Favourites") |
 | Admin adds new game | Admin can create new game entries via admin panel | Staff and superusers can access the admin panel and use it to add new games, including use of a WYSIWYG rich text description field | Pass | [Admin add game review 1/3](docs/admin-panel-add-game-1.png "Admin Panel Add Game" ) <br><br> [Admin add game preview 2/3](docs/admin-panel-add-game-2.png "Admin Panel Add Game" ) <br><br> [Admin panel add game preview 3/3](docs/admin-panel-add-game-1.png "Admin Panel Add Game")|
 | Admin edits game | Admin can update game details and changes reflect on frontend | Staff and superusers can access the admin panel and use it to edit the information about games, including use of a WYSIWYG rich text description field. Changes occur immediately on the frontend | Pass | [Admin edit game preview 1/2](docs/board-game-django-administration-one-desktop.png "Admin panel Edit Game" ) <br><br> [Admin edit game preview 2/2](docs/board-game-django-administration-two-desktop.png "Admin Panel Edit Game" ) |
 | Admin deletes game | Admin can remove games and they no longer appear on the site | Staff and superusers can access the admin panel and use it to delete games, which immediately reflects on the frontend | Pass | [Admin delete game preview](docs/admin-panel-delete-game.png "Admin Panel Delete Game") |
 | Admin moderates reviews | Admin can approve, decline, or delete reviews | Review moderation can be carried out by staff or superusers either through the admin panel or via on screen buttons below each review. On screen buttons are shown dynamically depending on each review's moderation status. Non-staff or superuser accounts cannot view the moderation buttons | Pass | [Admin moderation preview on page](docs/boardgame-detail-review-controls.png "Admin Controls on Page Review Control") <br><br> [Admin moderation preview in admin panel](docs/admin-review-controls.png "Moderation Controls in Admin panel")|
 | Responsive design | Site adapts correctly across mobile, tablet, and desktop | Site layout was created following a mobile first approach, with media queries used to adapt elements as needed as screen size increases | Pass | [Home responsive preview mobile](docs/home-responsive-mobile.jpg "Mobile Home") <br> <br> [Home responsive preview tablet](docs/home-responsive-tablet.jpg "Tablet Home") <br> <br> [Home responsive preview desktop](docs/home-board-game-grid.png "Desktop Home") |
 | Browse shop products | Users can view a list of products with images, names, and prices | All users can access the shop and view the product catalogue| Pass | [Shop preview](docs/shop-overview.png "Shop Page") |
-| View product details | Users can access individual product pages with full details | All users can access the product detail pages to few further information and descriptions of each item in the product catalogue, as well as see whether the item or individual sizes of the item are in stock | Pass | [Product detail preview](docs/product-detail-desktop.png "Product Detail Page") |
-| Add items to cart | Users can add products to cart and update quantities | All users can add in stock items to their basket and can view the basket, showing the quantity of each item in the basket. Item quantity can be adjusted using on screen buttons, up to the available stock limit. Items can also be removed using the remove button or by decreasing the quantity to 0 | Pass | [Bag preview](docs/shopping-bag-desktop.png "Shopping Bag") |
-| Complete purchase | Users can securely complete checkout and receive confirmation | All users can complete secure checkout using the embedded Stripe element on the checkout page. Authorised users can additionaly save their delivery information to their profile for future purchases. All users are directed to their order confirmation page, after payment has been successful, showing the items orders and the shipping details along with order total and unique order number.| Pass | [Checkout preview](docs/checkout-desktop.png "Checkout Page") |
-| Admin adds product | Admin can create new products via admin panel | Staff and Superusers can add new products via the admin panel, with a WYSIWYG rich text description field or via the add product page. Additions are reflected immediately on the frontend  | Pass | [Admin add product](docs/add-product-page.png "Admin Panel Add Product") <br><br> [Product management page - add product 1/2](docs/add-product-management-page-1.png "Product Management Pages - Add Product 1/2") <br><br> [Product management page - add product 2/2](docs/add-product-management-page-2.png "Product Management Pages - Add Product 2/2") |
+| View product details | Users can access individual product pages with full details | All users can access the product detail pages to view further information and descriptions of each item in the product catalogue, as well as see whether the item or individual sizes of the item are in stock | Pass | [Product detail preview](docs/product-detail-desktop.png "Product Detail Page") |
+| Add items to cart | Users can add products to cart and update quantities | All users can add in stock items to their basket and can view the basket, showing the quantity of each item in the basket. Item quantity can be adjusted using on screen buttons, up to the available stock limit. Items can also be removed using the remove button, or reducing the quantity to zero. | Pass | [Bag preview](docs/shopping-bag-desktop.png "Shopping Bag") |
+| Complete purchase | Users can securely complete checkout and receive confirmation | All users can complete secure checkout using the embedded Stripe element on the checkout page. Authorised users can additionally save their delivery information to their profile for future purchases. All users are directed to their order confirmation page, after payment has been successful, showing the items ordered and the shipping details along with order total and unique order number.| Pass | [Checkout preview](docs/checkout-desktop.png "Checkout Page") |
+| Admin adds product | Admin can create new products via admin panel | Staff and Superusers can add new products via the admin panel, with a WYSIWYG rich text description field or via the add product page. New products are immediately visible on the frontend  | Pass | [Admin add product](docs/add-product-page.png "Admin Panel Add Product") <br><br> [Product management page - add product 1/2](docs/add-product-management-page-1.png "Product Management Pages - Add Product 1/2") <br><br> [Product management page - add product 2/2](docs/add-product-management-page-2.png "Product Management Pages - Add Product 2/2") |
 | Admin edits product | Admin can update product details such as price and description | Staff and Superusers can edit products via the admin panel, with a WYSIWYG rich text description field or via the edit product page. Changes are reflected immediately on the frontend | Pass | [Admin panel - edit product 1/2](docs/edit-product-page-ong-of-one.png "Admin Panel) Edit Product 1/2") <br><br> [Admin panel - edit product 2/2](docs/edit-product-page-ong-of-two.png "Admin Panel - Edit Product 2/2") <br><br> [Edit product Page 1/2](docs/edit-product-management-page-1.png "Product Management Pages - Edit Product 1/2") <br><br> [Edit product Page 2/2](docs/edit-product-management-page-2.png "Product Management Pages - Edit Product 2/2") |
-| Admin deletes product | Admin can remove products and they no longer appear in shop | Staff and Superusers can delete products via the admin panel or via the delete product page. Additions are reflected immediately on the frontend | Pass | [Admin delete product](docs/admin-panel-delete-product.png "Delete Product Admin Panel") |
+| Admin deletes product | Admin can remove products and they no longer appear in shop | Staff and Superusers can delete products via the admin panel or via the delete product page. Deletions are reflected immediately on the frontend | Pass | [Admin delete product](docs/admin-panel-delete-product.png "Delete Product Admin Panel") |
 
 ### Feature Testing
 
-Manual feature testing was carried out on the deployed Heroku application across desktop, tablet, and mobile viewports. Testing was carried out by the developer, friends and family on a variety of devices and browsers. As part of feature testing authentication emails were sent to a genuine email address to test layout and domain name settings.
+Manual feature testing was carried out on the deployed Heroku application across desktop, tablet, and mobile viewports. Testing was carried out by the developer, friends and family on a variety of devices and browsers. As part of feature testing, authentication emails were sent to a genuine email address to test layout and domain name settings.
 
 [Order confirmation email](docs/gamers-guild-order-confirmation-email.pdf "Example confirmation email")
 
@@ -1324,7 +1330,7 @@ Run the local server and the error page should be displayed.
 
 Accessibility testing was carried out using the [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) and manual keyboard navigation testing.
 
-All pages passed without errors. The checkout page could not be tested as an empty checkout instance redirects to the shop page as part of the sites defensive UI.
+All pages passed without errors. The checkout page could not be tested as an empty checkout instance redirects to the shop page as part of the site's defensive UI.
 
 | Page | Result |
 |------|--------|
@@ -1392,13 +1398,13 @@ The following performance issues were identified from the initial audit:
 | Render-blocking CSS | Bootstrap CDN (26.9 KB) and base.css blocking initial render |
 | Unused CSS | ~25 KB of Bootstrap CSS not used on any page |
 | HTTP/1.1 used | Implement CloudFront for S3 buckets |
-| Ununsed JS | ~23 KB of unused JS |
+| Unused JS | ~23 KB of unused JS |
 | Bootstrap icon font | Large size ~131 KB and long render chain|
 | Short cache TTL | CloudFront serving static assets with only 1 day cache lifetime |
 
 #### Changes Made
 
-**1. Image resize and compression**
+**1. Image resizing and compression**
 
 All images were resized using [Squoosh](https://squoosh.app/ "Squoosh | Homepage") to more closely match displayed size on desktop devices and quality was reduced to ~80% to maintain visual impact.
 
@@ -1425,7 +1431,7 @@ This ensures that returning visitors load cached assets instantly rather than re
 
 **4. Removal of Bootstrap Icon Font**
 
-Originally, Bootstrap Icon Font was used to provide iconography across the site. Approximately 15 icons were used across all pages, with the total font size being ~131KB and introducing a long render chain on page load. Bootstrap Icon Font was removed and replaced with inline svg icons, massively reducing the initial page load and reducing the length of the render chain.
+Originally, Bootstrap Icon Font was used to provide iconography across the site. Approximately 15 icons were used across all pages, with the total font size being ~131KB and introducing a long render chain on page load. Bootstrap Icon Font was removed and replaced with inline svg icons, significantly reducing the initial page load and reducing the length of the render chain.
 
 #### Results After Optimisation
 
@@ -1447,11 +1453,46 @@ Following the series of optimisations Lighthouse testing was rerun, starting wit
 | Checkout | Mobile | 88 | 89| 79| 100|
 | Checkout Success | Desktop | 90 | 100| 100| 100|
 | Checkout Success | Mobile | 92 | 100| 100| 100|
-| About | Desktop | 88 | 89| 79| 100|
-| About | Mobile | 88 | 89| 79| 100|
-| Profile | Mobile | 88 | 89| 79| 100|
-| Profile | Mobile | 88 | 89| 79| 100|
+| About | Desktop | 96 | 100| 100| 100|
+| About | Mobile | 92 | 100| 100| 100|
+| Profile | Desktop | 92 | 92| 100| 100|
+| Profile | Mobile | 91 | 92| 100| 100|
 
+[Home desktop - Lighthouse](docs/lighthouse-home-desktop-report.pdf "Home Desktop | Lighthouse")
+
+[Home mobile - Lighthouse](docs/lighthouse-home-mobile-report.pdf "Home Mobile | Lighthouse")
+
+[Boardgame detail desktop - Lighthouse](docs/lighthouse-boardgame-detail-desktop-report.pdf "Boardgame Detail Desktop | Lighthouse")
+
+[Boardgame detail mobile - Lighthouse](docs/lighthouse-boardgame-detail-mobile-report.pdf "Boardgame Detail mobile | Lighthouse")
+
+[Shop desktop - Lighthouse](docs/lighthouse-shop-desktop-report.pdf "Shop Desktop | Lighthouse")
+
+[Shop mobile - Lighthouse](docs/lighthouse-shop-mobile-report.pdf "Shop Mobile | Lighthouse")
+
+[Product detail desktop - Lighthouse](docs/lighthouse-product-detail-desktop-report.pdf "Product Detail Desktop | Lighthouse")
+
+[Product detail mobile - Lighthouse](docs/lighthouse-product-detail-mobile-report.pdf "Product Detail Mobile | Lighthouse")
+
+[Bag desktop - Lighthouse](docs/lighthouse-bag-desktop-report.pdf "Bag Desktop | Lighthouse")
+
+[Bag mobile - Lighthouse](docs/lighthouse-bag-mobile-report.pdf "Bag Mobile | Lighthouse")
+
+[Checkout desktop - Lighthouse](docs/lighthouse-checkout-desktop-report.pdf "Checkout Desktop | Lighthouse")
+
+[Checkout mobile - Lighthouse](docs/lighthouse-checkout-mobile-report.pdf "Checkout Mobile | Lighthouse")
+
+[Checkout success desktop - Lighthouse](docs/lighthouse-checkout-success-desktop-report.pdf "Checkout Success Desktop | Lighthouse")
+
+[Checkout success mobile - Lighthouse](docs/lighthouse-checkout-success-mobile-report.pdf "Checkout Success Mobile | Lighthouse")
+
+[About desktop - Lighthouse](docs/lighthouse-about-desktop-report.pdf "About Desktop | Lighthouse")
+
+[About mobile - Lighthouse](docs/lighthouse-about-mobile-report.pdf "About Mobile | Lighthouse")
+
+[Profile desktop - Lighthouse](docs/lighthouse-profile-desktop-report.pdf "Profile Desktop | Lighthouse")
+
+[Profile mobile - Lighthouse](docs/lighthouse-profile-mobile-report.pdf "Profile Mobile | Lighthouse")
 
 #### Remaining Considerations
 
@@ -1462,6 +1503,8 @@ The mobile score is affected by factors outside the scope of this project:
 - **Image payload** — 24 board game cards load on the home page simultaneously. Pagination or a "load more" pattern would reduce initial image requests, but was not implemented as it would conflict with the desktop scrollable card layout UX.
 
 These are documented in [Future Enhancements](#future-enhancements).
+
+The best practice score for Checkout is reduced due to the use of third party cookies, necessary for Stripe functionality.
 
 
 
@@ -1507,22 +1550,26 @@ pip install -r requirements.txt
 4. Add the newly created **env.py** file to **.gitignore**
 5. Inside **env.py**, assign the following variables:
 ```
-SECRET_KEY
-DATABASE_URL
-CLOUDINARY_URL
+STRIPE_PUBLIC_KEY
+STRIPE_SECRET_KEY
+STRIPE_WH_SECRET
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME
+EMAIL_HOST_USER
+EMAIL_HOST_PASS
 ```
 6. Run database migrations by running the following code in the terminal:
 ```
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py migrate
 ```
 7. Run the following command in the terminal to create a new superuser:
 ```
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 ```
 8. Run the following command in the terminal to run the local development server:
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
 9. In your chosen web browser, navigate to: http://127.0.0.1:8000/ to view the project locally.
 
@@ -1560,10 +1607,10 @@ The project was deployed to Heroku from VS Code, using GitHub integration, early
 
 **3. Prepare the Project for Deployment in the IDE**
 
-- Create a **'requirements.txt'** file to list all of the dependencies required by your project. This can be done by running **'pip3 install -r requirements.txt'** in the terminal, it can then be updated to include any other packages installed by running **'pip3 freeze --local > requirements.txt'** in the terminal.
-- Install **'gunicorn'** using the command **'pip3 install gunicorn~=20.1'** in the terminal and update **'requirements.txt'**.
-- Create a **'Procfile'** in the root directory of the project, add the following line of code to the Procfile **'web: gunicorn project_name.wsgi'**. Ensure project_name matches the project's name.
-- Update the **'ALLOWED_HOSTS'** list in **'settings.py'** to include **'.herokuapp.com',**.
+- Create a `requirements.txt` file to list all of the dependencies required by your project. This can be done by running `pip3 freeze --local > requirements.txt` in the terminal, it can then be updated to include any other packages installed by running `pip3 freeze > requirements.txt`  in the terminal.
+- Install **'gunicorn'** using the command `pip3 install gunicorn` in the terminal and update **'requirements.txt'**.
+- Create a **'Procfile'** in the root directory of the project, add the following line of code to the Procfile `web: gunicorn project_name.wsgi` Ensure project_name matches the project's name.
+- Update the `ALLOWED_HOSTS` list in `settings.py` to include **'.herokuapp.com',**.
 - Commit changes to Github using the following commands
 ```
 git add .
@@ -1573,12 +1620,36 @@ git push
 
 **4. Connect Your GitHub Repository to Heroku**
 
-- On the Heroku dashboard, click on the **'Deploy'** tab, in the **'Deployment method'** section, click **'GitHub Connect to GitHub'** where you will be prompted to authenticate with GitHub.
+- On the Heroku dashboard, click on the **'Deploy'** tab, in the **'Deployment method'** section, click **'Connect to GitHub'** where you will be prompted to authenticate with GitHub.
 - Type your project repo name into the search box and click **'Search'**, select the correct repo name.
 - Scroll down to the **'Manual Deploy'** section, ensure the **'Choose a branch to deploy'** is set to **'main'**, then click on the **'Deploy Branch'** button.
 - Once the **'Your app was successfully deployed.'** message is displayed, click the **'View'** button to open your deployed project in a new tab.
 
 ----------------------------------------------
+
+### WhiteNoise
+
+Gamers Guild uses [WhiteNoise](https://whitenoise.readthedocs.io/) to serve static files directly from the Django application in production, without requiring a separate static file server.
+
+WhiteNoise is configured as middleware in `settings.py`:
+
+```python
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    ...
+]
+```
+
+It sits immediately after `SecurityMiddleware`, which is the recommended position. In this project, WhiteNoise handles static file serving locally and as a fallback, while in production on Heroku with `USE_AWS` enabled, static files are served via AWS S3 and CloudFront instead. WhiteNoise remains in the middleware stack in both environments without causing conflicts.
+
+To install WhiteNoise use the command
+
+```
+pip install whitenoise
+```
+
+It requires no additional configuration beyond the middleware entry — Django's `STATIC_ROOT` and `STATICFILES_DIRS` settings are sufficient for it to locate and serve files correctly.
 
 ### Stripe Setup
 
@@ -1767,108 +1838,121 @@ Once `USE_AWS` is set to `True` in Heroku Config Vars and `DISABLE_COLLECTSTATIC
 
 ---------------------------------------------
 
-## Credits
+## Credits and Acknowledgements
 
 ### Feedback, advice and support
 
-- [Richey Malhotra](https://github.com/richey-malhotra "GitHub | richey-malhotra")
+- With thanks to [Richey Malhotra](https://github.com/richey-malhotra "GitHub | richey-malhotra") who has been encouraging, supportive, and above-all, consistent. His guidance through this turbulent time has been invaluable, with his knowledge, skill and advice being greatly appreciated.
 
 ### Learning Resources and Guidance
 
+- [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
 - [Code Institute](https://codeinstitute.net/ "Code Institute")
 - [MDN](https://developer.mozilla.org/en-US/ "MDN | Homepage")
+- [Reddit](https://www.reddit.com/ "Reddit | Homepage")
 - [Slack](https://slack.com/intl/en-gb/ "Slack")
 - [Stack Overflow](https://stackoverflow.com/ "Stack Overflow")
 - [W3 Schools](https://www.w3schools.com/ "W3 Schools")
+- [YouTube](https://youtube.com/ "YouTube | Homepage")
+
+### Code Attribution
+
+The bag, checkout, and Stripe integration follow patterns established in the Code Institute Boutique Ado walkthrough project, which formed the structural basis for the e-commerce functionality. All code has been reviewed, understood, and adapted to fit the Gamers Guild project's specific requirements, models, and design. Custom implementations, including the board game discovery system, review and rating functionality, filtering and sorting system, favourites feature, self-referential shop category structure, and the automated test suite, were written independently.
 
 ### Image Credits:
 
 Images were sourced from various websites, details are listed below.
 
-- Ark Nova image - [Board Games Geek](https://boardgamegeek.com/image/6293412/ark-nova "Board Games Geek | Ark Nova")
-- Azul image - [Board Games Geek](https://boardgamegeek.com/image/6973671/azul "Board Games Geek | Azul Image")
-- Brass Birmingham image - [Board Games Geek](https://boardgamegeek.com/image/3490053/brass-birmingham "Board Games Geek | Brass Birmingham Image")
-- Carcassonne image - [Board Games Geek](https://boardgamegeek.com/image/8621446/carcassonne "Board Game Geek | Carcassonne Image") 
-- Catan image - [Board Game Geeks](https://boardgamegeek.com/image/9156909/catan "Board Game Geek | Catan Image")
+- Ark Nova image - [Board Game Geek](https://boardgamegeek.com/image/6293412/ark-nova "Board Game Geek | Ark Nova")
+- Azul image - [Board Game Geek](https://boardgamegeek.com/image/6973671/azul "Board Game Geek | Azul Image")
+- Brass Birmingham image - [Board Game Geek](https://boardgamegeek.com/image/3490053/brass-birmingham "Board Game Geek | Brass Birmingham Image")
+- Carcassonne image - [Board Game Geek](https://boardgamegeek.com/image/8621446/carcassonne "Board Game Geek | Carcassonne Image") 
+- Catan image - [Board Game Geek](https://boardgamegeek.com/image/9156909/catan "Board Game Geek | Catan Image")
 - D&D Official Dice Set image - [Element Games](https://elementgames.co.uk/vampire-counts/role-playing-games-books/rpg-dice/official-dice-set-dungeons-and-dragons-ddn-vat "Element Games | D&D Official Dice Set")
-- Dungeon Mayhem image - [Board Games Geek](https://boardgamegeek.com/image/5324418/dungeon-mayhem-monster-madness "Board Games Geek | Dungeon Mayhem Image")
-- Exploding Kittens image - [Board Games Geek]( https://boardgamegeek.com/image/2691976/exploding-kittens "Board Games Geek | Exploding Kittens")
-- Flashpoint image - [Board Game Geeks](https://boardgamegeek.com/image/1129370/flash-point-fire-rescue "Board Game Geek | Flashpoint Image")
+- Dungeon Mayhem image - [Board Game Geek](https://boardgamegeek.com/image/5324418/dungeon-mayhem-monster-madness "Board Game Geek | Dungeon Mayhem Image")
+- Exploding Kittens image - [Board Game Geek]( https://boardgamegeek.com/image/2691976/exploding-kittens "Board Game Geek | Exploding Kittens")
+- Flashpoint image - [Board Game Geek](https://boardgamegeek.com/image/1129370/flash-point-fire-rescue "Board Game Geek | Flashpoint Image")
 - Gamers Guild Fav Icon and Logo - [Fav Icon](https://favicon.io/favicon-generator/ "Fav Icon | Generator")
-- Gamers Guild Dice Tray images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gamers Guild Hoody images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gamers Guild T Shirt images - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gloomhaven image - [Board Games Geek](https://boardgamegeek.com/image/7546274/gloomhaven-second-edition "Board Games Geek | Gloomhaven Image")
+- Gamers Guild Dice Tray images - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gamers Guild Hoody images - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gamers Guild T Shirt images - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gloomhaven image - [Board Game Geek](https://boardgamegeek.com/image/7546274/gloomhaven-second-edition "Board Game Geek | Gloomhaven Image")
 - Gloomhaven Organiser image - [Folded Space](https://foldedspace.com/product/gloomhaven-second-edition "Folded Space | Gloomhaven Organiser")
-- Hero Quest image - [Board Games Geek](https://boardgamegeek.com/image/338410/heroquest "Board Game Geek | Hero Quest Image")
-- Lords of Waterdeep image - [Board Games Geek](https://boardgamegeek.com/image/9230112/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep Image")
+- HeroQuest image - [Board Game Geek](https://boardgamegeek.com/image/338410/heroquest "Board Game Geek | HeroQuest Image")
+- Lords of Waterdeep image - [Board Game Geek](https://boardgamegeek.com/image/9230112/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep Image")
 - MicroMacro image - [Hachette Boardgames](https://www.hachetteboardgames.co.uk/shop/eswmmfh-micromacro-crime-city-full-house-2289 " Hachette Boardgames | MicroMacro")
-- One Deck Dungeon image - [Board Games Geek](https://boardgamegeek.com/image/3496794/one-deck-dungeon-forest-of-shadows "Board Games Geek | One Deck Dungeon Image")
-- One Night Werewolf image - [Board Games Geek](https://boardgamegeek.com/image/8783294/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf Image")
-- Pandemic image - [Board Games Geek](https://boardgamegeek.com/image/1534148/pandemic "Board Games Geek | Pandemic Image")
+- One Deck Dungeon image - [Board Game Geek](https://boardgamegeek.com/image/3496794/one-deck-dungeon-forest-of-shadows "Board Game Geek | One Deck Dungeon Image")
+- One Night Werewolf image - [Board Game Geek](https://boardgamegeek.com/image/8783294/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf Image")
+- Pandemic image - [Board Game Geek](https://boardgamegeek.com/image/1534148/pandemic "Board Game Geek | Pandemic Image")
 - Pandemic: In The Lab image - [Z-Man Games](https://www.zmangames.com/game/pandemic-in-the-lab/ "Z-Man Games | Pandemic: In The Lab")
 - Pandemic: On The Brink image - [Z-Man Games](https://www.zmangames.com/game/pandemic-on-the-brink/ "Z-Man Games | Pandemic: On The Brink")
 - Pandemic: State of Emergency image - [Z-Man Games](https://www.zmangames.com/game/pandemic-state-of-emergency/ "Z-Man Games | Pandemic: State of Emergency")
 - Placeholder image - Created by [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
 - Robinson Crusoe Deluxe Tokens image - [The Game Steward](https://www.thegamesteward.com/products/robinson-crusoe-resin-tokens-board-game-accessory "The Game Steward | Robinson Crusoe Resin Tokens")
-- Robinson Crusoe image - [Board Games Geek](https://boardgamegeek.com/image/3165731/robinson-crusoe-adventures-on-the-cursed-island "Board Game Geek | Robinson Crusoe Image")
-- Robinson Crusoe Organiser image - [Folded Space](hhttps://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
+- Robinson Crusoe image - [Board Game Geek](https://boardgamegeek.com/image/3165731/robinson-crusoe-adventures-on-the-cursed-island "Board Game Geek | Robinson Crusoe Image")
+- Robinson Crusoe Organiser image - [Folded Space](https://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
 - Robinson Crusoe Playmat image - [Portal Game](https://shopportalgames.com/products/robinson-crusoe-playmat "Portal Games | Robinson Crusoe Playmat")
-- Terraforming Mars image - [Board Games Geek](https://boardgamegeek.com/image/3536616/terraforming-mars "Board Game Geek | Terraforming Mars Image")
-- The Fox Experiment image - [Board Games Geek](https://boardgamegeek.com/image/7557488/the-fox-experiment "Board Game Geek | The Fox Experiment Image")
-- Through the Ages image - [Board Games Geek](https://boardgamegeek.com/image/2663291/through-the-ages-a-new-story-of-civilization "Board Games Geek | Through the Ages Image")
-- Tiny Epic Dungeons image - [Board Games Geek](https://boardgamegeek.com/image/6029065/tiny-epic-dungeons "Board Games Geek | Tiny Epic Dungeons Image")
-- Tiny Epic Dungeons Playmat image - [Board Games Geek](https://boardgamegeek.com/image/6821417/tiny-epic-dungeons-official-game-mat "Board Games Geek | Tiny Epic Dungeons Playmat Image")
-- Tiny Epic Tactics image - [Board Games Geek](https://boardgamegeek.com/image/4574827/tiny-epic-tactics "Board Games Geek | Tiny Epic Tactics Image")
-- Tiny Epic Zombies image - [Board Games Geek](https://boardgamegeek.com/image/3937056/tiny-epic-zombies "Board Games Geek | Tiny Epic Zombies Image")
-- Wingspan image - [Board Games Geek](https://boardgamegeek.com/image/4458123/wingspan "Board Games Geek | Wingspan Image")
+- Terraforming Mars image - [Board Game Geek](https://boardgamegeek.com/image/3536616/terraforming-mars "Board Game Geek | Terraforming Mars Image")
+- The Fox Experiment image - [Board Game Geek](https://boardgamegeek.com/image/7557488/the-fox-experiment "Board Game Geek | The Fox Experiment Image")
+- Through the Ages image - [Board Game Geek](https://boardgamegeek.com/image/2663291/through-the-ages-a-new-story-of-civilization "Board Games Geek | Through the Ages Image")
+- Tiny Epic Dungeons image - [Board Game Geek](https://boardgamegeek.com/image/6029065/tiny-epic-dungeons "Board Game Geek | Tiny Epic Dungeons Image")
+- Tiny Epic Dungeons Playmat image - [Board Game Geek](https://boardgamegeek.com/image/6821417/tiny-epic-dungeons-official-game-mat "Board Game Geek | Tiny Epic Dungeons Playmat Image")
+- Tiny Epic Tactics image - [Board Game Geek](https://boardgamegeek.com/image/4574827/tiny-epic-tactics "Board Game Geek | Tiny Epic Tactics Image")
+- Tiny Epic Zombies image - [Board Game Geek](https://boardgamegeek.com/image/3937056/tiny-epic-zombies "Board Game Geek | Tiny Epic Zombies Image")
+- Wingspan image - [Board Game Geek](https://boardgamegeek.com/image/4458123/wingspan "Board Game Geek | Wingspan Image")
 - Zombicide image - [Board Game Geek](https://boardgamegeek.com/image/6091316/zombicide-2nd-edition "Board Game Geek | Zombicide Image")
 
 ### Content:
 
 Content was sourced from various websites, details are listed below.
 
-- Ark Nova information - [Board Games Geek](https://boardgamegeek.com/boardgame/342942/ark-nova "Board Games Geek | Ark Nova")
-- Azul information - [Board Games Geek](https://boardgamegeek.com/boardgame/230802/azul "Board Games Geek | Azul")
-- Brass Birmingham information - [Board Games Geek](https://boardgamegeek.com/boardgame/224517/brass-birmingham "Board Games Geek | Brass Birmingham")
+- Ark Nova information - [Board Game Geek](https://boardgamegeek.com/boardgame/342942/ark-nova "Board Game Geek | Ark Nova")
+- Azul information - [Board Game Geek](https://boardgamegeek.com/boardgame/230802/azul "Board Game Geek | Azul")
+- Brass Birmingham information - [Board Game Geek](https://boardgamegeek.com/boardgame/224517/brass-birmingham "Board Game Geek | Brass Birmingham")
 - Carcassonne information - [Zatu](https://zatu.com/products/carcassonne-2015-new-edition?_pos=2&_psq=carcasso&_ss=e&_v=1.0 "Zatu | Carcassonne")
 - Catan information - [Catan](https://www.catan.com/ "Catan | Homepage")
-- ChatGPT - [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
+- Reviews and descriptions - [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
 - D&D Official Dice Set information - [Magic Madhouse](https://magicmadhouse.co.uk/wizards-of-the-coast-d-d-official-dice-set "Magic Madhouse | D&D Official Dice Set")
-- Dungeon Mayhem information - [Board Games Geek]( https://boardgamegeek.com/boardgame/295577/dungeon-mayhem-monster-madness "Board Games Geek | Dungeon Mayhem")
-- Exploding Kittens information - [Board Games Geek](https://boardgamegeek.com/boardgame/172225/exploding-kittens "Board Games Geek | Exploding Kittens")
-- Gamers Guild Dice Tray information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gamers Guild Hoody information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gamers Guild T Shirt information - [Gemeni](https://gemini.google.com "Google Gemeni | Homepage")
-- Gloomhaven information - [Board Games Geek](https://boardgamegeek.com/boardgame/390478/gloomhaven-second-edition "Board Games Geek | Gloomhaven")
+- Dungeon Mayhem information - [Board Game Geek]( https://boardgamegeek.com/boardgame/295577/dungeon-mayhem-monster-madness "Board Game Geek | Dungeon Mayhem")
+- Exploding Kittens information - [Board Game Geek](https://boardgamegeek.com/boardgame/172225/exploding-kittens "Board Game Geek | Exploding Kittens")
+- Gamers Guild Dice Tray information - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gamers Guild Hoody information - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gamers Guild T Shirt information - [Gemini](https://gemini.google.com "Google Gemini | Homepage")
+- Gloomhaven information - [Board Game Geek](https://boardgamegeek.com/boardgame/390478/gloomhaven-second-edition "Board Game Geek | Gloomhaven")
 - Gloomhaven Organiser information - [Folded Space](https://foldedspace.com/product/gloomhaven-second-edition "Folded Space | Gloomhaven Organiser")
-- Flash Point information - [Board Games Geek]( https://boardgamegeek.com/boardgame/100901/flash-point-fire-rescue "Board Games Geek | Flash Point")
-- Hero Quest information [Asmodee](https://www.asmodee.co.uk/collections/all-heroquest-games "Asmodee | Hero Quest")
-- Lords of Waterdeep information - [Board Games Geek](https://boardgamegeek.com/boardgame/110327/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep")
+- Flash Point information - [Board Game Geek]( https://boardgamegeek.com/boardgame/100901/flash-point-fire-rescue "Board Game Geek | Flash Point")
+- HeroQuest information - [Asmodee](https://www.asmodee.co.uk/collections/all-heroquest-games "Asmodee | HeroQuest")
+- Lords of Waterdeep information - [Board Game Geek](https://boardgamegeek.com/boardgame/110327/lords-of-waterdeep "Board Game Geek | Lords of Waterdeep")
 - MicroMacro information - [Zatu](https://zatu.com/products/micromacro-crime-city-full-house?_pos=3&_sid=e49eeb6f5&_ss=r "Zatu | MicroMacro")
-- One Deck Dungeon information - [Board Games Geek](https://boardgamegeek.com/boardgame/224821/one-deck-dungeon-forest-of-shadows "Board Games Geek | One Deck Dungeon")
-- One Night Werewolf information - [Board Games Geek]( https://boardgamegeek.com/boardgame/147949/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf")
+- One Deck Dungeon information - [Board Game Geek](https://boardgamegeek.com/boardgame/224821/one-deck-dungeon-forest-of-shadows "Board Games Geek | One Deck Dungeon")
+- One Night Werewolf information - [Board Game Geek]( https://boardgamegeek.com/boardgame/147949/one-night-ultimate-werewolf "Board Game Geek | One Night Werewolf")
 - Pandemic information - [Zman Games](https://www.zmangames.com/game/pandemic/ "Zman Games | Pandemic")
 - Pandemic: In The Lab information - [Z-Man Games](https://www.zmangames.com/game/pandemic-in-the-lab/ "Z-Man Games | Pandemic: In The Lab")
 - Pandemic: On The Brink information - [Z-Man Games](https://www.zmangames.com/game/pandemic-on-the-brink/ "Z-Man Games | Pandemic: On The Brink")
 - Pandemic: State of Emergency information - [Z-Man Games](https://www.zmangames.com/game/pandemic-state-of-emergency/ "Z-Man Games | Pandemic: State of Emergency")
 - Robinson Crusoe Deluxe Tokens information - [The Game Steward](https://www.thegamesteward.com/products/robinson-crusoe-resin-tokens-board-game-accessory "The Game Steward | Robinson Crusoe Resin Tokens")
 - Robinson Crusoe information - [Portal Games](https://shopportalgames.com/collections/robinson-crusoe/products/robinson-crusoe-2e "Portal Games | Robinson Crusoe")
-- Robinson Crusoe Organiser information - [Folded Space](hhttps://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
+- Robinson Crusoe Organiser information - [Folded Space](https://foldedspace.com/product/robinson-crusoe "Folded Space | Robinson Crusoe Organiser")
 - Robinson Crusoe Playmat information - [Portal Game](https://shopportalgames.com/products/robinson-crusoe-playmat "Portal Games | Robinson Crusoe Playmat")
-- Terraforming Mars information - [Board Games Geek]( https://boardgamegeek.com/boardgame/167791/terraforming-mars "Board Game Geek | Terraforming Mars")
-- The Fox Experiment information - [Board Games Geek](https://boardgamegeek.com/boardgame/368432/the-fox-experiment "Board Game Geek | The Fox Experiment")
-- Through the Ages information - [Board Games Geek](https://boardgamegeek.com/boardgame/182028/through-the-ages-a-new-story-of-civilization "Board Games Geek | Through the Ages")
-- Tiny Epic Dungeons information - [Board Games Geek](https://boardgamegeek.com/boardgame/331787/tiny-epic-dungeons "Board Games Geek | Tiny Epic Dungeons")
-- Tiny Epic Dungeons Playmat information - [Board Games Geek](https://boardgamegeek.com/boardgameaccessory/360513/tiny-epic-dungeons-official-game-mat "Board Games Geek | Tiny Epic Dungeons Playmat")
-- Tiny Epic Tactics information - [Board Games Geek](https://boardgamegeek.com/boardgame/272409/tiny-epic-tactics "Board Games Geek | Tiny Epic Tactics")
-- Tiny Epic Zombies information - [Board Games Geek](https://boardgamegeek.com/boardgame/244536/tiny-epic-zombies "Board Games Geek | Tiny Epic Zombies")
-- Wingspan information - [Board Games Geek](https://boardgamegeek.com/boardgame/266192/wingspan "Board Games Geek | Wingspan")
+- Terraforming Mars information - [Board Game Geek]( https://boardgamegeek.com/boardgame/167791/terraforming-mars "Board Game Geek | Terraforming Mars")
+- The Fox Experiment information - [Board Game Geek](https://boardgamegeek.com/boardgame/368432/the-fox-experiment "Board Game Geek | The Fox Experiment")
+- Through the Ages information - [Board Game Geek](https://boardgamegeek.com/boardgame/182028/through-the-ages-a-new-story-of-civilization "Board Game Geek | Through the Ages")
+- Tiny Epic Dungeons information - [Board Game Geek](https://boardgamegeek.com/boardgame/331787/tiny-epic-dungeons "Board Game Geek | Tiny Epic Dungeons")
+- Tiny Epic Dungeons Playmat information - [Board Game Geek](https://boardgamegeek.com/boardgameaccessory/360513/tiny-epic-dungeons-official-game-mat "Board Game Geek | Tiny Epic Dungeons Playmat")
+- Tiny Epic Tactics information - [Board Game Geek](https://boardgamegeek.com/boardgame/272409/tiny-epic-tactics "Board Game Geek | Tiny Epic Tactics")
+- Tiny Epic Zombies information - [Board Game Geek](https://boardgamegeek.com/boardgame/244536/tiny-epic-zombies "Board Game Geek | Tiny Epic Zombies")
+- Wingspan information - [Board Game Geek](https://boardgamegeek.com/boardgame/266192/wingspan "Board Games Geek | Wingspan")
 - Zombicide information - [Zombicide](https://www.zombicide.com/2nd-edition/ "Zombicide | 2nd Edition")
 
+### Visual Content
 
-### Visual Content:
+Wireframes were created using Canva
+The colour scheme was generated using Coolors
+The contrast grid was generated using Contrast Grid by Eightshapes
+The Entity Relationship Diagram was created using dbdiagram.io
 
-- 
+---------------------------------------------
 
 [Back to contents](#contents)
+
+---------------------------------------------
