@@ -184,6 +184,7 @@
                           <button type="button"
                                   class="btn btn-outline-secondary decrement-qty"
                                   data-item_id="{{ item.item_id }}"
+                                  aria-label="Decrease quantity"
                                   id="decrement-qty_{{ item.item_id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 width="16" 
@@ -202,10 +203,12 @@
                                  min="1"
                                  max="99"
                                  data-item_id="{{ item.item_id }}"
+                                 aria-label="Quantity"
                                  id="id_qty_{{ item.item_id }}">
                           <button type="button"
                                   class="btn btn-outline-secondary increment-qty"
                                   data-item_id="{{ item.item_id }}"
+                                  aria-label="Increase quantity"
                                   id="increment-qty_{{ item.item_id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 width="16" 

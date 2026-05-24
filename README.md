@@ -1435,8 +1435,12 @@ Following the series of optimisations Lighthouse testing was rerun, starting wit
 |------|--------|-------------|---------------|----------------|-----|
 | Home | Desktop | 87 | 98| 100| 100|
 | Home | Mobile | 73 | 98| 100| 100|
+| Boardgame Detail | Desktop | 92 | 96| 96| 100|
+| Boardgame Detail | Mobile | 90 | 95| 100| 100|
 | Shop | Desktop | 83 | 96| 100| 100|
 | Shop | Mobile | 82 | 95| 100| 100|
+| Product Detail | Desktop | 94 | 100| 96| 100|
+| Product Detail | Mobile | 90 | 100| 100| 100|
 | Bag | Desktop | 87 | 98| 100| 100|
 | Bag | Mobile | 87 | 98| 100| 100|
 | Checkout | Desktop | 87 | 98| 100| 100|
