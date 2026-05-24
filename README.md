@@ -1433,8 +1433,15 @@ Following the series of optimisations Lighthouse testing was rerun, starting wit
 
 | Page | Device | Performance | Accessibility | Best Practices | SEO |
 |------|--------|-------------|---------------|----------------|-----|
-| Home | Desktop | 87 | 98| 100| 91|
+| Home | Desktop | 87 | 98| 100| 100|
 | Home | Mobile | 73 | 98| 100| 100|
+| Shop | Desktop | 83 | 96| 100| 100|
+| Shop | Mobile | 82 | 95| 100| 100|
+| Bag | Desktop | 87 | 98| 100| 100|
+| Bag | Mobile | 87 | 98| 100| 100|
+| Checkout | Desktop | 87 | 98| 100| 100|
+| Checkout | Mobile | 87 | 98| 100| 100|
+
 
 #### Remaining Considerations
 
