@@ -73,7 +73,7 @@ Deployed link: [Gamers Guild](https://gamers-guild-18d9a6433da1.herokuapp.com/ "
 
 ## Project Overview
 
-Gamers Guild is a full stack Django web application designed to bring gamers together within a shared, community-driven platform. The application enables users to browse a curated collection of games, explore detailed game pages, and engage with other users through interactive features such as comments and reviews.
+Gamers Guild is a full stack Django web application designed to bring gamers together within a shared, community-driven platform. The application enables users to browse a curated collection of games, explore detailed game pages, and engage with other users through interactive features such as reviews.
 
 The platform prioritises clarity, usability, and meaningful interaction, avoiding unnecessary complexity or distractions. By focusing on community-driven content rather than algorithm-heavy recommendations, Gamers Guild encourages users to share experiences, discover new games organically, and contribute to a collaborative environment.
 
@@ -626,6 +626,8 @@ Powered by Django Allauth:
 - Order history
 - Saved delivery information
 
+These features can only be accessed by their associated user and are personalised to each user account. Access is controlled by checking user login status through either `{% if user.is_authenticated %}` or `@login_required`.
+
 ## User Profile System
 
 ### Profile Dashboard
@@ -679,7 +681,7 @@ Powered by Django Allauth:
 ### Game Management
 
 - Via admin panel
-- Full CRUD functionality games
+- Full CRUD functionality for games
 - Image upload handling
 - Staff-only access
 - Game genres selectable using a horizontal filter selection
@@ -901,6 +903,7 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - [AWS](https://aws.amazon.com/cloudfront/ "AWS | Homepage")
 - [Black](https://pypi.org/project/black/ "Black | Code Formatter")
 - [Canva](https://www.canva.com/ "Canva | Homepage")
+- [ChatGPT](https://chatgpt.com/ "ChatGPT | Homepage")
 - [Contrast Grid](https://contrast-grid.eightshapes.com/ "Contrast Grid")
 - [Coolors](https://coolors.co/ "Coolors")
 - [dbdiagram.io](https://dbdiagram.io/ "dbdiagram.io")
@@ -908,6 +911,7 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - [DJLint](https://djlint.com/ "DJLint | Homepage")
 - [Favicon.io](https://favicon.io/ "Favicon.io | Homepage")
 - [Flake8](https://flake8.pycqa.org/en/latest/ "Flake8 | Homepage")
+- [Gemini](https://gemini.google.com "Google Gemini | Homepage")
 - [GitHub](https://github.com "GitHub Homepage")
 - [Heroku](https://www.heroku.com/ "Heroku")
 - [LastPass](https://www.lastpass.com/features/password-generator "LastPass | Homepage")
@@ -932,7 +936,7 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 
 The Gamers Guild database is composed of six Django apps, each containing models that reflect a distinct area of the application's functionality. The schema is designed around two parallel domains: community features (board games, reviews, and favourites) and e-commerce (products, orders, and line items), unified through a shared user model provided by Django's built-in `auth` framework.
 
-**Boardgames App**
+**Home App**
 
 The `Boardgame` model is the core community entity. Each game has a title, slug, image, description, release year, playtime, player count range, and minimum age. Games are linked to `Genre` through a many-to-many relationship, and to `User` through a second many-to-many relationship for the favourites system. A foreign key to `User` records which staff member created the entry. Validation is applied at the model level to ensure `min_players` never exceeds `max_players`, and field-level validators constrain `release_year`, `playtime`, and `min_age` to sensible ranges.
 
@@ -979,7 +983,7 @@ The `UserProfile` model extends Django's built-in `User` with a one-to-one relat
 
 ### Entity Relationship Diagram
 
-The ERD below was produced during the planning phase of the project using [dbdiagram](https://dbdiagram.io "dbdiagram | Homepage"). It reflects the intended schema at the design stage. The implemented schema closely follows this structure, with refinements made during development, notably the addition of `ProductSize` for variant stock management, the `is_approved` field on `Review` to support moderation, and the `unique_together` constraint on reviews to prevent duplicate submissions. The hint-trick entity was removed from the project and moved to a future enhancement.
+The ERD below was produced during the planning phase of the project using [dbdiagram](https://dbdiagram.io "dbdiagram | Homepage"). It reflects the intended schema at the design stage. The implemented schema closely follows this structure, with refinements made during development, notably the addition of `ProductSize` for variant stock management, the `is_approved` field on `Review` to support moderation, and the `unique_together` constraint on reviews to prevent duplicate submissions. The hint-trick entity was removed from the project and moved to a future enhancement, as a forum style comment system.
 
 [Entity Relationship Diagram](docs/gg-erd.png "ERD")
 
@@ -1008,7 +1012,7 @@ Responsiveness was tested across a range of real devices and using Chrome DevToo
 | Page | Mobile (375px) | Tablet (768px) | Desktop (1280px) | Notes |
 |------|---------------|----------------|-----------------|-------|
 | Home | Pass | Pass | Pass | Filter overlay functions correctly on tablet |
-| Shop | Pass | Pass | Pass | Category bar scrolls horizontally on mobile |
+| Shop | Pass | Pass | Pass | |
 | Boardgame Detail | Pass | Pass | Pass | Image and detail columns stack correctly |
 | Product Detail | Pass | Pass | Pass | Quantity controls remain accessible |
 | Shopping Bag | Pass | Pass | Pass | Card layout on mobile, table layout on desktop |
@@ -1260,11 +1264,11 @@ python manage.py test
 | Edit own reviews | Users can update their own reviews and see confirmation feedback | Authorised users can edit their own reviews using the edit button which dynamically fills the review form with their original content. The Submit Review button changes state to Update Review to indicate an edit is occurring. Edited reviews are then subject to moderation before being viewable by all users. Edit button is not visible to non-review author users | Pass | [Edit review preview](docs/boardgame-detail-edit-review.png "Edit Review") |
 | Delete own reviews | Users can delete their own reviews with confirmation | Authorised users can click the delete button below their review to delete it after confirming the deletion in a pop up box. Delete button is not visible to non-review author users | Pass | [Delete review preview](docs/boardgame-detail-delete-review.png "Delete Review") |
 | Save favourite games | Users can favourite games and view them in their profile | Authorised users can click the add to favourites button to add a boardgame to their favourites list. Favourited boardgames show an alternate state including a coloured heart icon and remove from favourites text. | Pass | [Favourites preview](docs/profile-favourites-desktop.png "Favourites") |
-| Admin adds new game | Admin can create new game entries via admin panel | Staff and superusers can access the admin panel and use it to add new games, including use of a WYSIWYG rich text description field | Pass | [Admin add game review 1/3](docs/admin-panel-add-game-1.png "Admin Panel Add Game" ) <br><br> [Admin add game preview 2/3](docs/admin-panel-add-game-2.png "Admin Panel Add Game" ) <br><br> [Admin panel add game preview 3/3](docs/admin-panel-add-game-1.png "Admin Panel Add Game")|
+| Admin adds new game | Admin can create new game entries via admin panel | Staff and superusers can access the admin panel and use it to add new games, including use of a WYSIWYG rich text description field | Pass | [Admin add game review 1/3](docs/admin-panel-add-game-1.png "Admin Panel Add Game" ) <br><br> [Admin add game preview 2/3](docs/admin-panel-add-game-2.png "Admin Panel Add Game" ) <br><br> [Admin panel add game preview 3/3](docs/admin-panel-add-game-3.png "Admin Panel Add Game")|
 | Admin edits game | Admin can update game details and changes reflect on frontend | Staff and superusers can access the admin panel and use it to edit the information about games, including use of a WYSIWYG rich text description field. Changes occur immediately on the frontend | Pass | [Admin edit game preview 1/2](docs/board-game-django-administration-one-desktop.png "Admin panel Edit Game" ) <br><br> [Admin edit game preview 2/2](docs/board-game-django-administration-two-desktop.png "Admin Panel Edit Game" ) |
 | Admin deletes game | Admin can remove games and they no longer appear on the site | Staff and superusers can access the admin panel and use it to delete games, which immediately reflects on the frontend | Pass | [Admin delete game preview](docs/admin-panel-delete-game.png "Admin Panel Delete Game") |
 | Admin moderates reviews | Admin can approve, decline, or delete reviews | Review moderation can be carried out by staff or superusers either through the admin panel or via on screen buttons below each review. On screen buttons are shown dynamically depending on each review's moderation status. Non-staff or superuser accounts cannot view the moderation buttons | Pass | [Admin moderation preview on page](docs/boardgame-detail-review-controls.png "Admin Controls on Page Review Control") <br><br> [Admin moderation preview in admin panel](docs/admin-review-controls.png "Moderation Controls in Admin panel")|
-| Responsive design | Site adapts correctly across mobile, tablet, and desktop | Site layout was created following a mobile first approach, with media queries used to adapt elements as needed as screen size increases | Pass | [Home responsive preview mobile](docs/home-responsive-mobile.jpg "Mobile Home") <br> <br> [Home responsive preview tablet](docs/home-responsive-tablet.jpg "Tablet Home") <br> <br> [Home responsive preview desktop](docs/home-board-game-grid.png "Desktop Home") |
+| Responsive design | Site adapts correctly across mobile, tablet, and desktop | Site layout was created following a mobile first approach, with media queries used to adapt elements as needed as screen size increases | Pass | [Home responsive preview mobile](docs/home-responsive-mobile.jpg "Mobile Home") <br> <br> [Home responsive preview tablet](docs/home-responsive-tablet.png "Tablet Home") <br> <br> [Home responsive preview desktop](docs/home-board-game-grid.png "Desktop Home") |
 | Browse shop products | Users can view a list of products with images, names, and prices | All users can access the shop and view the product catalogue| Pass | [Shop preview](docs/shop-overview.png "Shop Page") |
 | View product details | Users can access individual product pages with full details | All users can access the product detail pages to view further information and descriptions of each item in the product catalogue, as well as see whether the item or individual sizes of the item are in stock | Pass | [Product detail preview](docs/product-detail-desktop.png "Product Detail Page") |
 | Add items to cart | Users can add products to cart and update quantities | All users can add in stock items to their basket and can view the basket, showing the quantity of each item in the basket. Item quantity can be adjusted using on screen buttons, up to the available stock limit. Items can also be removed using the remove button, or reducing the quantity to zero. | Pass | [Bag preview](docs/shopping-bag-desktop.png "Shopping Bag") |
@@ -1275,7 +1279,7 @@ python manage.py test
 
 ### Feature Testing
 
-Manual feature testing was carried out on the deployed Heroku application across desktop, tablet, and mobile viewports. Testing was carried out by the developer, friends and family on a variety of devices and browsers. As part of feature testing, authentication emails were sent to a genuine email address to test layout and domain name settings.
+Manual feature testing was carried out on the deployed Heroku application across desktop, tablet, and mobile viewports. Testing was carried out by the developer, friends and family on a variety of devices and browsers. No broken features were discovered during this testing. As part of feature testing, authentication emails were sent to a genuine email address to test layout and domain name settings. 
 
 [Order confirmation email](docs/gamers-guild-order-confirmation-email.pdf "Example confirmation email")
 

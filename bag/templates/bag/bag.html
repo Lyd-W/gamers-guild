@@ -12,7 +12,7 @@
   <div class="bag-container container mb-2">
     <div class="row">
       <div class="col">
-        <h2 class="bag-page-title">Shopping Bag</h2>
+        <h1 class="bag-page-title">Shopping Bag</h1>
       </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
                     {% endif %}
                   </div>
                   <div class="flex-grow-1">
-                    <h6 class="mb-1">{{ item.product.name }}</h6>
+                    <span class="mb-1">{{ item.product.name }}</span>
                     {% if item.size %}
                       <small>Size: {{ item.size|upper }}</small>
                       <br>
@@ -244,13 +244,13 @@
                 {% endfor %}
                 <tr>
                   <td colspan="5" class="pt-5 text-end">
-                    <h6>
+                    <h2 class="totals">
                       <strong>Bag Total: £{{ total|floatformat:2 }}</strong>
-                    </h6>
-                    <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                    <h4 class="mt-4">
+                    </h2>
+                    <h3>Delivery: £{{ delivery|floatformat:2 }}</h3>
+                    <h2 class="totals mt-4">
                       <strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong>
-                    </h4>
+                    </h2>
                     {% if free_delivery_delta > 0 %}
                       <p class="mb-1 text-highlight">
                         You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!

@@ -818,6 +818,10 @@ input[type="range"].slider::-webkit-slider-thumb {
   overflow-x: hidden;
 }
 
+.totals {
+  font-size: 1.2rem;
+}
+
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 
 .arrow-up {
