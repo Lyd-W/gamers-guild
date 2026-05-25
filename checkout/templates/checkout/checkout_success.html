@@ -1,175 +1,140 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block title %}
     Checkout Success | Gamers Guild
 {% endblock title %}
-
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
     </div>
-</div>
 {% endblock page_header %}
-
 {% block content %}
-<div class="container">
+    <div class="container">
         <div class="confirmation-title">
-            <h2 >Thank You</h2>
+            {% if not from_profile %}
+                <h2>Thank You</h2>
+            {% else %}
+                <h2>Order History</h2>
+            {% endif %}
             <p>
-                Your order information is below. A confirmation email will be sent to
-                <strong>{{ order.email }}</strong>.
+                Your order information is below.
+                {% if not from_profile %}
+                    A confirmation email will be sent to
+                    <strong>{{ order.email }}</strong>.
+                {% endif %}
             </p>
         </div>
-
-    <div class="row">
-        <div class="col-12 col-lg-7">
-
-            <div class="order-confirmation-wrapper p-3 border">
-
-                <small class="text-highlight">Order Information:</small>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Order Number</div>
-                    <div class="col-12 col-md-8 text-md-end text-break">
-                        {{ order.order_number }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Order Date</div>
-                    <div class="col-12 col-md-8 text-md-end">
-                        {{ order.date }}
-                    </div>
-                </div>
-
-                <small class="text-highlight mt-3 d-block">Order Details:</small>
-
-                {% for item in order.lineitems.all %}
+        <div class="row">
+            <div class="col-12 col-lg-7">
+                <div class="order-confirmation-wrapper p-3 border">
+                    <small class="text-highlight">Order Information:</small>
                     <div class="row">
-                        <div class="col-12 col-md-4 fw-bold">
-                            {{ item.product.name }}
-                            {% if item.product_size %}
-                                - Size {{ item.product_size|upper }}
-                            {% endif %}
+                        <div class="col-12 col-md-4 fw-bold">Order Number</div>
+                        <div class="col-12 col-md-8 text-md-end text-break">{{ order.order_number }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Order Date</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.date }}</div>
+                    </div>
+                    <small class="text-highlight mt-3 d-block">Order Details:</small>
+                    {% for item in order.lineitems.all %}
+                        <div class="row">
+                            <div class="col-12 col-md-4 fw-bold">
+                                {{ item.product.name }}
+                                {% if item.product_size %}- Size {{ item.product_size|upper }}{% endif %}
+                            </div>
+                            <div class="col-12 col-md-8 text-md-end">
+                                {{ item.quantity }} x £{{ item.product.price|floatformat:2 }}
+                            </div>
                         </div>
-
-                        <div class="col-12 col-md-8 text-md-end">
-                            {{ item.quantity }} x £{{ item.product.price|floatformat:2 }}
+                    {% endfor %}
+                    <small class="text-highlight mt-3 d-block">Delivering To:</small>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Full Name</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.full_name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Address 1</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.street_address1 }}</div>
+                    </div>
+                    {% if order.street_address2 %}
+                        <div class="row">
+                            <div class="col-12 col-md-4 fw-bold">Address 2</div>
+                            <div class="col-12 col-md-8 text-md-end">{{ order.street_address2 }}</div>
                         </div>
+                    {% endif %}
+                    {% if order.county %}
+                        <div class="row">
+                            <div class="col-12 col-md-4 fw-bold">County</div>
+                            <div class="col-12 col-md-8 text-md-end">{{ order.county }}</div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Town / City</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.town_or_city }}</div>
                     </div>
-                {% endfor %}
-
-                <small class="text-highlight mt-3 d-block">Delivering To:</small>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Full Name</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.full_name }}</div>
+                    {% if order.postcode %}
+                        <div class="row">
+                            <div class="col-12 col-md-4 fw-bold">Postcode</div>
+                            <div class="col-12 col-md-8 text-md-end">{{ order.postcode }}</div>
+                        </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Country</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.country }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Phone</div>
+                        <div class="col-12 col-md-8 text-md-end">{{ order.phone_number }}</div>
+                    </div>
+                    <small class="text-highlight mt-3 d-block">Billing Information:</small>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Order Total</div>
+                        <div class="col-12 col-md-8 text-md-end">£{{ order.order_total|floatformat:2 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Delivery</div>
+                        <div class="col-12 col-md-8 text-md-end">£{{ order.delivery_cost|floatformat:2 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 fw-bold">Grand Total</div>
+                        <div class="col-12 col-md-8 text-md-end">£{{ order.grand_total|floatformat:2 }}</div>
+                    </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Address 1</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.street_address1 }}</div>
-                </div>
-
-                {% if order.street_address2 %}
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Address 2</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.street_address2 }}</div>
-                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-lg-7 text-end">
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn my-2">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             fill="currentColor"
+                             class="bi bi-chevron-left"
+                             viewBox="0 0 16 16"
+                             aria-hidden="true">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                        </svg>
+                        Back to Profile
+                    </a>
+                {% else %}
+                    <a href="{% url 'shop' %}" class="btn my-3">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="16"
+                             height="16"
+                             fill="currentColor"
+                             class="bi bi-gift-fill"
+                             viewBox="0 0 16 16"
+                             aria-hidden="true">
+                            <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z" />
+                        </svg>
+                        Back to Shop
+                    </a>
                 {% endif %}
-
-                {% if order.county %}
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">County</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.county }}</div>
-                </div>
-                {% endif %}
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Town / City</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.town_or_city }}</div>
-                </div>
-
-                {% if order.postcode %}
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Postcode</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.postcode }}</div>
-                </div>
-                {% endif %}
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Country</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.country }}</div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Phone</div>
-                    <div class="col-12 col-md-8 text-md-end">{{ order.phone_number }}</div>
-                </div>
-
-                <small class="text-highlight mt-3 d-block">Billing Information:</small>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Order Total</div>
-                    <div class="col-12 col-md-8 text-md-end">
-                        £{{ order.order_total|floatformat:2 }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Delivery</div>
-                    <div class="col-12 col-md-8 text-md-end">
-                        £{{ order.delivery_cost|floatformat:2 }}
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-md-4 fw-bold">Grand Total</div>
-                    <div class="col-12 col-md-8 text-md-end">
-                        £{{ order.grand_total|floatformat:2 }}
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
-
-    <div class="row mt-4">
-        <div class="col-12 col-lg-7 text-end">
-
-            {% if from_profile %}
-                <a href="{% url 'profile' %}" class="btn my-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" 
-                        width="16" 
-                        height="16" 
-                        fill="currentColor" 
-                        class="bi bi-chevron-left" 
-                        viewBox="0 0 16 16"
-                        aria-hidden="true">
-                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                    </svg>
-                    Back to Profile
-                </a>
-            {% else %}
-                <a href="{% url 'shop' %}"
-                   class="btn my-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" 
-                         width="16" 
-                         height="16" 
-                         fill="currentColor" 
-                         class="bi bi-gift-fill" 
-                         viewBox="0 0 16 16"
-                         aria-hidden="true">
-                        <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
-                    </svg>
-                    Back to Shop
-                </a>
-            {% endif %}
-
-        </div>
-    </div>
-
-</div>
 {% endblock content %}

@@ -855,7 +855,6 @@ Version control was managed using Git, with the repository hosted on [GitHub](ht
 - Addition of a forum for users to create topics, leave and reply to comments and share community created content
 
 **Improve Order History system**
-- Improve Order History page clarity, including customised page title and remove the need for toast to indicate past order display
 - Allow users to search and filter previous orders by item name, size, date range, or order total
 - Add pagination to the order history table to improve usability for users with a large number of past orders
 - Build a dedicated Order History app to separate this functionality from the Profiles app, improving code organisation and scalability
